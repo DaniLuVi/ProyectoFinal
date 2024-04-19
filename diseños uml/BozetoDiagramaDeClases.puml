@@ -1,0 +1,96 @@
+@startuml
+'https://plantuml.com/class-diagram
+class Individuo {
+- int id
+- int generacion
+- int vidas
+- int reproduccion
+- int clonacion
++ Individuo()
++ getId():int
++ setId(int id):void
++ getGeneracion():int
++ setGeneracion(int generacion):void
++ getVidas():int
++ setVidas(int vidas):void
++ getReproduccion():int
++ setReproduccion(int reproduccion):void
++ getClonacion():int
++ setClonacion(int clonacion):void
++ getMuerte(int reproduccion):int
++ movimiento(Individuo individuo):void
++ turno(Individuo individuo):void
++ can_clonar(Individuo individuo):boolean
++ clonar(Individuo individuo):Individuo
+}
+
+class TipoBasico {
++ TipoBasico()
++ movimiento(Individuo individuo):void
+}
+
+class TipoNormal {
++ TipoNormal()
++ movimiento(Individuo individuo):void
+}
+
+class TipoAvanzado {
++ TipoAvanzado()
++ movimiento(Individuo individuo):void
+}
+
+class Entorno {
+- int tiempo_aparicion
+- int v
++ Entorno()
++ getTiempo_aparicion():int
++ setTiempo_aparicion(int tiempo_aparicion):void
++ getV():int
++ setV(int v):void
++ turno(Entorno entorno):void
++ modificarIndividuo(Individuo individuo):void
+}
+
+class Agua {
++ Agua()
++ modificarIndividuo(Individuo individuo):void
+}
+
+class Comida {
++ Comida()
++ modificarIndividuo(Individuo individuo):void
+}
+
+class Montaña {
++ Montaña()
++ modificarIndividuo(Individuo individuo):void
+}
+
+class Tesoro {
++ Tesoro()
++ modificarIndividuo(Individuo individuo):void
+}
+
+class Biblioteca {
++ Biblioteca()
++ modificarIndividuo(Individuo individuo):void
+}
+
+class Pozo {
++ Pozo()
++ modificarIndividuo(Individuo individuo):void
+}
+
+Individuo <|-- TipoBasico
+Individuo <|-- TipoNormal
+Individuo <|-- TipoAvanzado
+Entorno <|-- Agua
+Entorno <|-- Comida
+Entorno <|-- Montaña
+Entorno <|-- Tesoro
+Entorno <|-- Biblioteca
+Entorno <|-- Pozo
+
+
+
+@enduml
