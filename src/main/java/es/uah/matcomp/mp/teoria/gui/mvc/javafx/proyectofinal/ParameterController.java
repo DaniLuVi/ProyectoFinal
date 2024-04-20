@@ -31,7 +31,7 @@ public class ParameterController implements Initializable {
         model.commit();
     }
     @Override
-    public void inicialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         System.out.println("Se ejecuta el controlador de parámetros.\n");
         if (model != null)
             this.updateGUIwithModel();

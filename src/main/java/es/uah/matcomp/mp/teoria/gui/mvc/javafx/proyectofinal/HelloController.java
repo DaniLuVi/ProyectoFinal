@@ -6,6 +6,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 public class HelloController {
     @FXML
     private Label welcomeText;
@@ -27,5 +30,8 @@ public class HelloController {
     @FXML
     protected void onInicalizarAMiNombreBtnClick() {
         welcomeText.setText("Daniel Luque Villa");
+    }
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
     }
 }

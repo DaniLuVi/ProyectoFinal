@@ -17,4 +17,12 @@ public class ParametrosModeloProperties {
     public void commit() {
 
     }
+
+    public ParametrosModelo getOriginal() {
+        return original;
+    }
+
+    public void setOriginal(ParametrosModelo original) {
+        this.original = original;
+    }
 }
