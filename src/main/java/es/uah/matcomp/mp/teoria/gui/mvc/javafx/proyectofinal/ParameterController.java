@@ -22,12 +22,10 @@ public class ParameterController implements Initializable {
     private Slider sliderClonado;
     @FXML
     private TextField textfieldNombre;
-    @FXML
     private ParametrosModeloProperties model;
-    @FXML
     private Stage scene;
     @FXML
-    protected void onBotonInciarClick() {
+    protected void onBotonIniciarClick() {
         model.commit();
     }
     @Override
@@ -37,10 +35,15 @@ public class ParameterController implements Initializable {
             this.updateGUIwithModel();
     }
     protected void updateGUIwithModel() {
-
+        sliderFilas.valueProperty().bindBidirectional(model.filasProperty());
+        sliderColumnas.valueProperty().bindBidirectional(model.columnasProperty());
+        sliderVidas.valueProperty().bindBidirectional(model.vidasProperty());
+        sliderReproduccion.valueProperty().bindBidirectional(model.reproduccionProperty());
+        sliderClonado.valueProperty().bindBidirectional(model.clonadoProperty());
     }
     public void CargarDatosUsuario(ParametrosModeloProperties parametrosData) {
-
+        this.model = parametrosData;
+        this.updateGUIwithModel();
     }
     public void setStage(Stage s) {
         this.scene = s;

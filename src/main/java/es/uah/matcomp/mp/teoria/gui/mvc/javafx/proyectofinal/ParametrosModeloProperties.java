@@ -1,6 +1,7 @@
 package es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal;
 
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.Property;
 import javafx.beans.property.SimpleIntegerProperty;
 
 public class ParametrosModeloProperties {
@@ -15,7 +16,18 @@ public class ParametrosModeloProperties {
         setOriginal(original);
     }
     public void commit() {
-
+        original.setFilas(filas.get());
+        original.setColumnas(columnas.get());
+        original.setVidas(vidas.get());
+        original.setReproduccion(reproduccion.get());
+        original.setClonado(clonado.get());
+    }
+    public void rollback() {
+        filas.set(original.getFilas());
+        columnas.set(original.getColumnas());
+        vidas.set(original.getVidas());
+        reproduccion.set(original.getReproduccion());
+        clonado.set(original.getClonado());
     }
 
     public ParametrosModelo getOriginal() {
@@ -24,5 +36,20 @@ public class ParametrosModeloProperties {
 
     public void setOriginal(ParametrosModelo original) {
         this.original = original;
+    }
+    public Property<Number> filasProperty() {
+        return filas;
+    }
+    public Property<Number> columnasProperty() {
+        return columnas;
+    }
+    public Property<Number> vidasProperty() {
+        return vidas;
+    }
+    public Property<Number> reproduccionProperty() {
+        return reproduccion;
+    }
+    public Property<Number> clonadoProperty() {
+        return clonado;
     }
 }

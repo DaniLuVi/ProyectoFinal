@@ -1,5 +1,8 @@
 package es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -11,7 +14,10 @@ import java.util.ResourceBundle;
 
 public class HelloController {
     @FXML
-    private Label welcomeText;
+    private Label labelTexto;
+    protected StringProperty texto = new SimpleStringProperty("No hay nada");
+    private ParametrosModelo parametrosData = new ParametrosModelo(0, 0, 0, 0, 0);
+    private ParametrosModeloProperties modeloGUIparametros = new ParametrosModeloProperties(parametrosData);
 
     @FXML
     protected void onMiBotonNuevaVentanaParametros() {
@@ -22,16 +28,20 @@ public class HelloController {
             stage.setTitle("Establezca parametros: ");
             stage.setScene(scene);
             ParameterController p = fxmlLoader.getController();
-
+            p.CargarDatosUsuario(this.modeloGUIparametros);
+            p.setStage(stage);
+            stage.show();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
     @FXML
-    protected void onInicalizarAMiNombreBtnClick() {
-        welcomeText.setText("Daniel Luque Villa");
+    protected String getTexto() {
+        return texto.toString();
     }
-    @Override
+
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        System.out.println("Inicio de la ejecución del controlador\n");
+        labelTexto.textProperty().bind(texto);
     }
 }
