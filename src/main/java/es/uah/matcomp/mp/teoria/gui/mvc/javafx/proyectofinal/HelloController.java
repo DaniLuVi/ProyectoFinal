@@ -5,6 +5,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
@@ -12,10 +13,10 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class HelloController {
+public class HelloController implements Initializable {
     @FXML
     private Label labelTexto;
-    protected StringProperty texto = new SimpleStringProperty("No hay nada");
+    protected StringProperty texto = new SimpleStringProperty("SIMULACRO DEL JUEGO DE CONWAY");
     private ParametrosModelo parametrosData = new ParametrosModelo(0, 0, 0, 0, 0);
     private ParametrosModeloProperties modeloGUIparametros = new ParametrosModeloProperties(parametrosData);
 

@@ -36,6 +36,7 @@ public class ParametrosModeloProperties {
 
     public void setOriginal(ParametrosModelo original) {
         this.original = original;
+        rollback();
     }
     public Property<Number> filasProperty() {
         return filas;
