@@ -17,7 +17,7 @@ public class HelloController implements Initializable {
     @FXML
     private Label labelTexto;
     protected StringProperty texto = new SimpleStringProperty("SIMULACRO DEL JUEGO DE CONWAY");
-    private ParametrosModelo parametrosData = new ParametrosModelo(0, 0, 0, 0, 0);
+    private ParametrosModelo parametrosData = new ParametrosModelo(5, 5, 5, 5, 5);
     private ParametrosModeloProperties modeloGUIparametros = new ParametrosModeloProperties(parametrosData);
 
     @FXML
@@ -28,6 +28,7 @@ public class HelloController implements Initializable {
             Scene scene = new Scene(fxmlLoader.load(), 620, 440);
             stage.setTitle("Establezca parametros: ");
             stage.setScene(scene);
+            fxmlLoader.setController(parametrosData);
             ParameterController p = fxmlLoader.getController();
             p.CargarDatosUsuario(this.modeloGUIparametros);
             p.setStage(stage);
