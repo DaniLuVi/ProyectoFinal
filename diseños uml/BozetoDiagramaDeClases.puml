@@ -1,5 +1,10 @@
 @startuml
 'https://plantuml.com/class-diagram
+
+class Celda {
+
+}
+
 class Individuo {
 - int id
 - int generacion
@@ -81,6 +86,8 @@ class Pozo {
 + modificarIndividuo(Individuo individuo):void
 }
 
+Celda o-- Individuo
+Celda o-- Entorno
 Individuo <|-- TipoBasico
 Individuo <|-- TipoNormal
 Individuo <|-- TipoAvanzado
