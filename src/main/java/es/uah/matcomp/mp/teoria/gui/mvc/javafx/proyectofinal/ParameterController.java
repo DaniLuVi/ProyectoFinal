@@ -20,13 +20,12 @@ public class ParameterController implements Initializable {
     private Slider sliderReproduccion;
     @FXML
     private Slider sliderClonado;
-    @FXML
-    private TextField textfieldNombre;
     private ParametrosModeloProperties model;
     private Stage scene;
     @FXML
     protected void onBotonIniciarClick() {
         model.commit();
+        // crear la nueva pantalla en la que se crea el tablero
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
