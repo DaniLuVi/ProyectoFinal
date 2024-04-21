@@ -6,13 +6,15 @@ public class ParametrosModelo {
     private int vidas;
     private int reproduccion;
     private int clonado;
+    private int V;
 
-    public ParametrosModelo(int filas, int columnas, int vidas, int reproduccion, int clonado) {
+    public ParametrosModelo(int filas, int columnas, int vidas, int reproduccion, int clonado, int V) {
         this.filas = filas;
         this.columnas = columnas;
         this.vidas = vidas;
         this.reproduccion = reproduccion;
         this.clonado = clonado;
+        this.V = V;
     }
 
     public int getFilas() {
@@ -53,5 +55,13 @@ public class ParametrosModelo {
 
     public void setClonado(int clonado) {
         this.clonado = clonado;
+    }
+
+    public int getV() {
+        return V;
+    }
+
+    public void setV(int v) {
+        V = v;
     }
 }

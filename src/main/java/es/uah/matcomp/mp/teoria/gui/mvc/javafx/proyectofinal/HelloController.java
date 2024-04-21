@@ -17,7 +17,7 @@ public class HelloController implements Initializable {
     @FXML
     private Label labelTexto;
     protected StringProperty texto = new SimpleStringProperty("SIMULACRO DEL JUEGO DE CONWAY");
-    private ParametrosModelo parametrosData = new ParametrosModelo(5, 5, 5, 5, 5);
+    private ParametrosModelo parametrosData = new ParametrosModelo(5, 5, 5, 5, 5, 5);
     private ParametrosModeloProperties modeloGUIparametros = new ParametrosModeloProperties(parametrosData);
 
     @FXML

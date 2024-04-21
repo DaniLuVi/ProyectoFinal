@@ -19,6 +19,8 @@ public class ParameterController implements Initializable {
     private Slider sliderReproduccion;
     @FXML
     private Slider sliderClonado;
+    @FXML
+    private Slider sliderV;
     private ParametrosModeloProperties model;
     private Stage scene;
     @FXML
@@ -39,6 +41,7 @@ public class ParameterController implements Initializable {
         sliderVidas.valueProperty().bindBidirectional(model.vidasProperty());
         sliderReproduccion.valueProperty().bindBidirectional(model.reproduccionProperty());
         sliderClonado.valueProperty().bindBidirectional(model.clonadoProperty());
+        sliderV.valueProperty().bindBidirectional(model.VProperty());
     }
     public void CargarDatosUsuario(ParametrosModeloProperties parametrosData) {
         this.model = parametrosData;

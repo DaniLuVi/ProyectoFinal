@@ -11,6 +11,7 @@ public class ParametrosModeloProperties {
     private IntegerProperty vidas = new SimpleIntegerProperty();
     private IntegerProperty reproduccion = new SimpleIntegerProperty();
     private IntegerProperty clonado = new SimpleIntegerProperty();
+    private IntegerProperty V = new SimpleIntegerProperty();
 
     public ParametrosModeloProperties(ParametrosModelo original) {
         setOriginal(original);
@@ -21,6 +22,7 @@ public class ParametrosModeloProperties {
         original.setVidas(vidas.get());
         original.setReproduccion(reproduccion.get());
         original.setClonado(clonado.get());
+        original.setV(V.get());
     }
     public void rollback() {
         filas.set(original.getFilas());
@@ -28,6 +30,7 @@ public class ParametrosModeloProperties {
         vidas.set(original.getVidas());
         reproduccion.set(original.getReproduccion());
         clonado.set(original.getClonado());
+        V.set(original.getV());
     }
 
     public ParametrosModelo getOriginal() {
@@ -52,5 +55,8 @@ public class ParametrosModeloProperties {
     }
     public Property<Number> clonadoProperty() {
         return clonado;
+    }
+    public Property<Number> VProperty() {
+        return V;
     }
 }
