@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label prefHeight="40.0" prefWidth="615.0" text="PARÁMETROS DEL JUEGO" textAlignment="CENTER" underline="true">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Tablero">
+               <content>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <AnchorPane layoutX="7.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <VBox layoutX="50.0" prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <Label text="Nº de filas" />
+                                    <Slider fx:id="sliderFilas" />
+                                    <Label text="Nº de columnas" />
+                                    <Slider fx:id="sliderColumnas" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </content></Tab>
+          <Tab text="Individuo">
+               <content>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <AnchorPane layoutX="54.0" layoutY="6.0" prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <VBox layoutX="50.0" prefHeight="200.0" prefWidth="171.0">
+                                 <children>
+                                    <Label text="Nº de vidas" />
+                                    <Slider fx:id="sliderVidas" />
+                                    <Label text="\% de Reproducción" />
+                                    <Slider fx:id="sliderReproduccion" />
+                                    <Label text="\% de Clonado" />
+                                    <Slider fx:id="sliderClonado" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </content></Tab>
+          <Tab text="Recursos" />
+        </tabs>
+      </TabPane>
+      <HBox alignment="BOTTOM_CENTER" blendMode="DIFFERENCE" cache="true" nodeOrientation="RIGHT_TO_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
+         <children>
+            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" text="Inicar partida" />
+            <Button mnemonicParsing="false" text="Restaurar valores por defecto" />
+            <Button mnemonicParsing="false" text="Volver al principio" />
+         </children>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </HBox>
+   </children>
+</VBox>

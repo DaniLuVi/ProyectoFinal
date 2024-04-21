@@ -1,6 +1,5 @@
 package es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal;
 
-import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
@@ -8,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -41,7 +41,7 @@ public class HelloController implements Initializable {
     protected String getTexto() {
         return texto.toString();
     }
-
+    @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         System.out.println("Inicio de la ejecución del controlador\n");
         labelTexto.textProperty().bind(texto);
