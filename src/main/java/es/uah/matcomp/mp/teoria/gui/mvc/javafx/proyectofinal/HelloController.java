@@ -28,7 +28,6 @@ public class HelloController implements Initializable {
             Scene scene = new Scene(fxmlLoader.load(), 620, 440);
             stage.setTitle("Establezca parametros: ");
             stage.setScene(scene);
-            fxmlLoader.setController(parametrosData);
             ParameterController p = fxmlLoader.getController();
             p.CargarDatosUsuario(this.modeloGUIparametros);
             p.setStage(stage);
@@ -44,6 +43,5 @@ public class HelloController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         System.out.println("Inicio de la ejecución del controlador\n");
-        labelTexto.textProperty().bind(texto);
     }
 }
