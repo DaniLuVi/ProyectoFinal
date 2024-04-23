@@ -82,7 +82,7 @@ public class ParameterController implements Initializable {
         sliderReproduccion.valueProperty().bindBidirectional(model.reproduccionProperty());
         sliderClonado.valueProperty().bindBidirectional(model.clonadoProperty());
         sliderV.valueProperty().bindBidirectional(model.VProperty());
-        labelValorFilas.textProperty().bindBidirectional();
+       // labelValorFilas.textProperty().bindBidirectional();
 
     }
     public void CargarDatosUsuario(ParametrosModeloProperties parametrosData) {
