@@ -40,6 +40,14 @@ public class ParameterController implements Initializable {
         }
         // crear la nueva pantalla en la que se crea el tablero
     }
+    @FXML
+    protected void reiniciarValores() {
+        model.rollback();
+    }
+    @FXML
+    protected void cerrarVentana() {
+        scene.close();
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         System.out.println("Se ejecuta el controlador de parámetros.\n");
