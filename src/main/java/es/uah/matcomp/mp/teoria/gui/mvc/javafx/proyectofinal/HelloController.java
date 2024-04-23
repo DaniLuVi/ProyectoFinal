@@ -23,13 +23,26 @@ public class HelloController implements Initializable {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("parametros-view.fxml"));
         try {
-            Scene scene = new Scene(fxmlLoader.load(), 620, 440);
+            Scene scene = new Scene(fxmlLoader.load(), 820, 640);
             stage.setTitle("Establezca parametros: ");
             stage.setScene(scene);
             ParameterController p = fxmlLoader.getController();
             p.CargarDatosUsuario(this.modeloGUIparametros);
             p.setStage(stage);
             stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    protected void onMiBotonNuevaVentanaCargadoPartida() {
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("carga-partida-view.fxml"));
+        try {
+            Scene scene = new Scene(fxmlLoader.load(), 820, 640);
+            stage.setTitle("Cargar partida.");
+            stage.setScene(scene);
+
         } catch (Exception e) {
             e.printStackTrace();
         }

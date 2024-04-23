@@ -53,7 +53,7 @@ public class ParameterController implements Initializable {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("tablero-view.fxml"));
         try {
-            Scene scene = new Scene(fxmlLoader.load(), 620, 440);
+            Scene scene = new Scene(fxmlLoader.load(), 820, 640);
             stage.setTitle("Tablero de juego");
             stage.setScene(scene);
             TableroController p = fxmlLoader.getController();
