@@ -29,4 +29,5 @@ public class TableroController implements Initializable {
     public void setStage(Stage s) {
         this.scene = s;
     }
+
 }
