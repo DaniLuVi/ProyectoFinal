@@ -34,7 +34,10 @@ public class ParameterController implements Initializable {
             Scene scene = new Scene(fxmlLoader.load(), 620, 440);
             stage.setTitle("Tablero de juego");
             stage.setScene(scene);
+            TableroController p = fxmlLoader.getController();
 
+            p.setStage(stage);
+            stage.show();
         } catch (Exception e) {
             e.printStackTrace();
         }
