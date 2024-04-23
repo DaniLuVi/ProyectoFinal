@@ -10,7 +10,7 @@
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
 
-    <Label fx:id="labelTexto" text="SIMULACRO DE EXAMEN" underline="true" wrapText="true" />
-    <Button onAction="#onMiBotonNuevaVentanaParametros" text="Nuevo juego" />
+    <Label text="SIMULACRO DE EXAMEN" underline="true" wrapText="true" />
+    <Button mnemonicParsing="false" onAction="#onMiBotonNuevaVentanaParametros" text="Nuevo juego" />
    <Button mnemonicParsing="false" text="Cargar juego" />
 </VBox>

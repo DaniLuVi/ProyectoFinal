@@ -1,7 +1,9 @@
 package es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Slider;
 import javafx.stage.Stage;
 
@@ -26,6 +28,16 @@ public class ParameterController implements Initializable {
     @FXML
     protected void onBotonIniciarClick() {
         model.commit();
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("tablero-view.fxml"));
+        try {
+            Scene scene = new Scene(fxmlLoader.load(), 620, 440);
+            stage.setTitle("Tablero de juego");
+            stage.setScene(scene);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         // crear la nueva pantalla en la que se crea el tablero
     }
     @Override

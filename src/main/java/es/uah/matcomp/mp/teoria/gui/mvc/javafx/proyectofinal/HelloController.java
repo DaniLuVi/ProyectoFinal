@@ -14,9 +14,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class HelloController implements Initializable {
-    @FXML
-    private Label labelTexto;
-    protected StringProperty texto = new SimpleStringProperty("SIMULACRO DEL JUEGO DE CONWAY");
+
     private ParametrosModelo parametrosData = new ParametrosModelo(5, 5, 5, 5, 5, 5);
     private ParametrosModeloProperties modeloGUIparametros = new ParametrosModeloProperties(parametrosData);
 
@@ -35,10 +33,6 @@ public class HelloController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-    @FXML
-    protected String getTexto() {
-        return texto.toString();
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
