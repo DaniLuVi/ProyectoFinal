@@ -18,7 +18,7 @@
                <content>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <AnchorPane layoutX="22.0" layoutY="22.0" prefHeight="200.0" prefWidth="200.0">
+                        <AnchorPane layoutX="22.0" layoutY="22.0" prefHeight="200.0" prefWidth="311.0">
                            <children>
                               <VBox layoutX="50.0" prefHeight="200.0" prefWidth="100.0">
                                  <children>
@@ -28,6 +28,7 @@
                                     <Slider fx:id="sliderColumnas" />
                                  </children>
                               </VBox>
+                              <Label fx:id="labelValorFilas" layoutX="193.0" layoutY="21.0" />
                            </children>
                         </AnchorPane>
                      </children>

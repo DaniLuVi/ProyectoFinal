@@ -1,6 +1,7 @@
 package es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal;
 
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.Property;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -41,6 +42,11 @@ public class ParameterController implements Initializable {
     private ParametrosModeloProperties model;
     private Stage scene;
     protected IntegerProperty valorFilas = new SimpleIntegerProperty(0);
+    protected IntegerProperty valorColumnas = new SimpleIntegerProperty(0);
+    protected IntegerProperty valorVidas = new SimpleIntegerProperty(0);
+    protected IntegerProperty valorReproduccion = new SimpleIntegerProperty(0);
+    protected IntegerProperty valorClonado = new SimpleIntegerProperty(0);
+    protected IntegerProperty valorV = new SimpleIntegerProperty(0);
     @FXML
     protected void onBotonIniciarClick() {
         model.commit();
@@ -82,8 +88,12 @@ public class ParameterController implements Initializable {
         sliderReproduccion.valueProperty().bindBidirectional(model.reproduccionProperty());
         sliderClonado.valueProperty().bindBidirectional(model.clonadoProperty());
         sliderV.valueProperty().bindBidirectional(model.VProperty());
-       // labelValorFilas.textProperty().bindBidirectional();
-
+        //labelValorFilas.textProperty().bindBidirectional((Property<String>) valorFilas.asString());
+        //labelValorColumnas.textProperty().bindBidirectional((Property<String>) valorColumnas.asString());
+        //labelValorVidas.textProperty().bindBidirectional((Property<String>) valorVidas.asString());
+        //labelValorReproduccion.textProperty().bindBidirectional((Property<String>) valorReproduccion.asString());
+        //labelValorClonado.textProperty().bindBidirectional((Property<String>) valorClonado.asString());
+        //labelValorV.textProperty().bindBidirectional((Property<String>) valorV.asString());
     }
     public void CargarDatosUsuario(ParametrosModeloProperties parametrosData) {
         this.model = parametrosData;
