@@ -28,7 +28,10 @@
                                     <Slider fx:id="sliderColumnas" />
                                  </children>
                               </VBox>
-                              <Label fx:id="labelValorFilas" layoutX="193.0" layoutY="21.0" />
+                              <Label fx:id="labelValorFilas" layoutX="193.0" layoutY="21.0" prefHeight="17.0" prefWidth="63.0" text="--">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font></Label>
                            </children>
                         </AnchorPane>
                      </children>
