@@ -1,9 +1,12 @@
 package es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.stage.Stage;
 
@@ -23,8 +26,21 @@ public class ParameterController implements Initializable {
     private Slider sliderClonado;
     @FXML
     private Slider sliderV;
+    @FXML
+    private Label labelValorFilas;
+    @FXML
+    private Label labelValorColumnas;
+    @FXML
+    private Label labelValorVidas;
+    @FXML
+    private Label labelValorReproduccion;
+    @FXML
+    private Label labelValorClonado;
+    @FXML
+    private Label labelValorV;
     private ParametrosModeloProperties model;
     private Stage scene;
+    protected IntegerProperty valorFilas = new SimpleIntegerProperty(0);
     @FXML
     protected void onBotonIniciarClick() {
         model.commit();
@@ -66,6 +82,8 @@ public class ParameterController implements Initializable {
         sliderReproduccion.valueProperty().bindBidirectional(model.reproduccionProperty());
         sliderClonado.valueProperty().bindBidirectional(model.clonadoProperty());
         sliderV.valueProperty().bindBidirectional(model.VProperty());
+        labelValorFilas.textProperty().bindBidirectional();
+
     }
     public void CargarDatosUsuario(ParametrosModeloProperties parametrosData) {
         this.model = parametrosData;
