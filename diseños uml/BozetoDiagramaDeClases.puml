@@ -97,7 +97,6 @@ class Pozo {
 }
 
 ListaEjeX *-- ListaEjeY
-ListaEjeX *-- Casilla
 ListaEjeY *-- Casilla
 Casilla o-- Celda
 Celda o-- Individuo
