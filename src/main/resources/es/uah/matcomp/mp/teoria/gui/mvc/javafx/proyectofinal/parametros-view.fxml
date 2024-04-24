@@ -7,7 +7,7 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="362.0" prefWidth="498.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.ParameterController">
    <children>
-      <Label prefHeight="40.0" prefWidth="615.0" text="PARÁMETROS DEL JUEGO" textAlignment="CENTER" underline="true">
+      <Label alignment="CENTER" prefHeight="63.0" prefWidth="525.0" text="PARÁMETROS DEL JUEGO" textAlignment="RIGHT" underline="true">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
@@ -18,9 +18,9 @@
                <content>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <AnchorPane layoutX="22.0" layoutY="22.0" prefHeight="200.0" prefWidth="311.0">
+                        <AnchorPane layoutX="22.0" layoutY="22.0" prefHeight="167.0" prefWidth="311.0">
                            <children>
-                              <VBox layoutX="50.0" prefHeight="200.0" prefWidth="100.0">
+                              <VBox layoutX="50.0" prefHeight="186.0" prefWidth="100.0">
                                  <children>
                                     <Label text="Nº de filas" />
                                     <Slider fx:id="sliderFilas" />
@@ -81,7 +81,7 @@
                </content></Tab>
         </tabs>
       </TabPane>
-      <HBox alignment="BOTTOM_CENTER" blendMode="DIFFERENCE" cache="true" nodeOrientation="RIGHT_TO_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="25.0">
+      <HBox alignment="BOTTOM_CENTER" blendMode="DIFFERENCE" cache="true" nodeOrientation="RIGHT_TO_LEFT" prefHeight="88.0" prefWidth="498.0" spacing="25.0">
          <children>
             <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#onBotonIniciarClick" text="Inicar partida" />
             <Button mnemonicParsing="false" onAction="#reiniciarValores" text="Restaurar valores por defecto" />
