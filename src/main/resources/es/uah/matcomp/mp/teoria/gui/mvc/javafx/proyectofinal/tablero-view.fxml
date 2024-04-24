@@ -24,7 +24,7 @@
                   </GridPane>
                </children>
             </Pane>
-            <HBox alignment="BOTTOM_RIGHT" prefHeight="281.0" prefWidth="334.0" spacing="35.0">
+            <HBox alignment="BOTTOM_RIGHT" prefHeight="277.0" prefWidth="581.0" spacing="35.0">
                <children>
                   <Button defaultButton="true" mnemonicParsing="false" onAction="#play" text="Play" />
                   <Button defaultButton="true" mnemonicParsing="false" onAction="#pause" text="Pausar" />
