@@ -4,6 +4,9 @@ public class Pozo extends Entorno{
     public Pozo(int tiempo_aparicion, int v) {
         super(tiempo_aparicion, v);
     }
+    private void probabilidad() {
+        setV(10);
+    }
     @Override
     public void modificarIndividuo(Individuo individuo) {
         individuo.setVidas(0);
