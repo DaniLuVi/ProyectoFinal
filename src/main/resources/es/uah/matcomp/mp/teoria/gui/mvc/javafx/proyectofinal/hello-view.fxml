@@ -15,5 +15,5 @@
          <Font name="System Bold Italic" size="24.0" />
       </font></Label>
     <Button mnemonicParsing="false" onAction="#onMiBotonNuevaVentanaParametros" text="Nuevo juego" />
-   <Button mnemonicParsing="false" onAction="#onMiBotonNuevaVentanaCargadoPartida" text="Cargar juego" />
+    <Button mnemonicParsing="false" onAction="#onMiBotonNuevaVentanaCargadoPartida" text="Cargar juego" />
 </VBox>
