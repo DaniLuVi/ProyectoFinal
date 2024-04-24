@@ -56,7 +56,7 @@ public class Individuo {
     }
 
     public int getMuerte(int reproduccion) {
-        int muerte = 1 - reproduccion;
+        int muerte = 100 - reproduccion;
         return muerte;
     }
     public void movimiento(Individuo individuo) {}
