@@ -10,6 +10,6 @@ public class Biblioteca extends Entorno{
     @Override
     public void modificarIndividuo(Individuo individuo) {
         int clonacion = individuo.getClonacion();
-       // individuo.setClonacion(clonacion + );
+        individuo.setClonacion(clonacion + 10);
     }
 }

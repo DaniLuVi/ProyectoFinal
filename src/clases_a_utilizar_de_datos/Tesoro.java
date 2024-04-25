@@ -10,6 +10,6 @@ public class Tesoro extends Entorno{
     @Override
     public void modificarIndividuo(Individuo individuo) {
         int reproduccion = individuo.getReproduccion();
-        //individuo.setReproduccion(reproduccion + );
+        individuo.setReproduccion(reproduccion + 15);
     }
 }
