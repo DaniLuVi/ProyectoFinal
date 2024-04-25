@@ -2,7 +2,9 @@ package es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal;
 
 import javafx.beans.property.IntegerProperty;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -17,6 +19,22 @@ public class TableroController implements Initializable {
     private GridPane tableroDeJuego;
     private ParametrosModelo parametrosModelo = new ParametrosModelo(2, 2, 2 ,2 , 2, 2);
     private ParametrosModeloProperties parametrosModeloProperties = new ParametrosModeloProperties(parametrosModelo);
+    @FXML
+    protected void onCasillaVerDatos() {
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("elementos-casilla-view.fxml"));
+        try {
+            Scene scene = new Scene(fxmlLoader.load(), 220, 220);
+            stage.setTitle("Vista de los elementos de una casilla");
+            stage.setScene(scene);
+            ElementosCasillaController p = fxmlLoader.getController();
+
+            p.setStage(stage);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     @FXML
     protected void play() {
 
