@@ -22,7 +22,7 @@ public class TableroController implements Initializable {
     @FXML
     protected void onCasillaVerDatos() {
         Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("elementos-casilla-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("elementos-casillas-view.fxml"));
         try {
             Scene scene = new Scene(fxmlLoader.load(), 220, 220);
             stage.setTitle("Vista de los elementos de una casilla");
