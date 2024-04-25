@@ -1,5 +1,6 @@
 package es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal;
 
+import javafx.beans.property.IntegerProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -14,7 +15,7 @@ public class TableroController implements Initializable {
     private ParameterController model;
     @FXML
     private GridPane tableroDeJuego;
-    private ParametrosModelo parametrosModelo = new ParametrosModelo(2, 2, 2, 2, 2, 2);
+    private ParametrosModelo parametrosModelo = new ParametrosModelo(2, 2, 2 ,2 , 2, 2);
     private ParametrosModeloProperties parametrosModeloProperties = new ParametrosModeloProperties(parametrosModelo);
     @FXML
     protected void play() {

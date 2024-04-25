@@ -61,7 +61,7 @@ public class ParameterController implements Initializable {
             stage.setTitle("Tablero de juego");
             stage.setScene(scene);
             TableroController p = fxmlLoader.getController();
-            p.CargaDatosUsuario(this.parametrosModeloProperties);
+            p.CargaDatosUsuario(this.model);
             p.setStage(stage);
             stage.show();
         } catch (Exception e) {
@@ -104,7 +104,6 @@ public class ParameterController implements Initializable {
         model.setReproduccion(valorReproduccion);
         model.setClonado(valorClonado);
         model.setV(valorV);
-
     }
     public void CargarDatosUsuario(ParametrosModeloProperties parametrosData) {
         this.model = parametrosData;
