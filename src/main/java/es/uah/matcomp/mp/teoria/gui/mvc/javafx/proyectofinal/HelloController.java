@@ -42,7 +42,10 @@ public class HelloController implements Initializable {
             Scene scene = new Scene(fxmlLoader.load(), 820, 640);
             stage.setTitle("Cargar partida.");
             stage.setScene(scene);
+            CargaPartidaController p = fxmlLoader.getController();
 
+            p.setStage(stage);
+            stage.show();
         } catch (Exception e) {
             e.printStackTrace();
         }
