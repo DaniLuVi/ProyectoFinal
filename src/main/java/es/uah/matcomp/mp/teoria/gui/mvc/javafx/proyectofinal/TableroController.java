@@ -11,9 +11,11 @@ import java.util.ResourceBundle;
 
 public class TableroController implements Initializable {
     private Stage scene;
-    private ParametrosModeloProperties model;
+    private ParameterController model;
     @FXML
     private GridPane tableroDeJuego;
+    private ParametrosModelo parametrosModelo = new ParametrosModelo(2, 2, 2, 2, 2, 2);
+    private ParametrosModeloProperties parametrosModeloProperties = new ParametrosModeloProperties(parametrosModelo);
     @FXML
     protected void play() {
 
@@ -29,8 +31,8 @@ public class TableroController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         System.out.println("Se ejecuta el controlador del tablero.\n");
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 10; j++) {
+        for (int i = 0; i < parametrosModelo.getFilas(); i++) {
+            for (int j = 0; j < parametrosModelo.getColumnas(); j++) {
                 Button casilla = new Button("Celda" + i + "," + j);
                 casilla.setMinSize(30, 30);
                 casilla.setStyle("-fx-border-color: black; -fx-text-alignment: center");
@@ -38,8 +40,8 @@ public class TableroController implements Initializable {
             }
         }
     }
-    public void CargaDatosUsuario(ParametrosModeloProperties parametrosModeloProperties) {
-        this.model = parametrosModeloProperties;
+    public void CargaDatosUsuario(ParametrosModeloProperties parametrosData) {
+        this.parametrosModeloProperties = parametrosData;
 
     }
     public void setStage(Stage s) {

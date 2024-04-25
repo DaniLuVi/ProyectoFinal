@@ -15,7 +15,7 @@ import java.util.ResourceBundle;
 
 public class HelloController implements Initializable {
 
-    private ParametrosModelo parametrosData = new ParametrosModelo(5, 5, 5, 5, 5, 5);
+    private ParametrosModelo parametrosData = new ParametrosModelo(0, 0, 0, 0, 0, 0);
     private ParametrosModeloProperties modeloGUIparametros = new ParametrosModeloProperties(parametrosData);
 
     @FXML

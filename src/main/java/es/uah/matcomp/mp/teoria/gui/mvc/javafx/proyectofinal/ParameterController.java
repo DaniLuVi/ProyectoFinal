@@ -49,6 +49,8 @@ public class ParameterController implements Initializable {
     protected IntegerProperty valorV = new SimpleIntegerProperty(0);
     private ParametrosModelo parametrosModelo = new ParametrosModelo(0, 0, 0, 0, 0, 0);
     private ParametrosModeloProperties parametrosModeloProperties = new ParametrosModeloProperties(parametrosModelo);
+
+
     @FXML
     protected void onBotonIniciarClick() {
         model.commit();
@@ -84,18 +86,25 @@ public class ParameterController implements Initializable {
         }
     }
     protected void updateGUIwithModel() {
-        sliderFilas.valueProperty().bindBidirectional(model.filasProperty());
-        sliderColumnas.valueProperty().bindBidirectional(model.columnasProperty());
-        sliderVidas.valueProperty().bindBidirectional(model.vidasProperty());
-        sliderReproduccion.valueProperty().bindBidirectional(model.reproduccionProperty());
-        sliderClonado.valueProperty().bindBidirectional(model.clonadoProperty());
-        sliderV.valueProperty().bindBidirectional(model.VProperty());
-        //labelValorFilas.textProperty().bindBidirectional((Property<String>) valorFilas.asString());
-        //labelValorColumnas.textProperty().bindBidirectional((Property<String>) valorColumnas.asString());
-        //labelValorVidas.textProperty().bindBidirectional((Property<String>) valorVidas.asString());
-        //labelValorReproduccion.textProperty().bindBidirectional((Property<String>) valorReproduccion.asString());
-        //labelValorClonado.textProperty().bindBidirectional((Property<String>) valorClonado.asString());
-        //labelValorV.textProperty().bindBidirectional((Property<String>) valorV.asString());
+        sliderFilas.valueProperty().bindBidirectional(valorFilas);
+        sliderColumnas.valueProperty().bindBidirectional(valorColumnas);
+        sliderVidas.valueProperty().bindBidirectional(valorVidas);
+        sliderReproduccion.valueProperty().bindBidirectional(valorReproduccion);
+        sliderClonado.valueProperty().bindBidirectional(valorClonado);
+        sliderV.valueProperty().bindBidirectional(valorV);
+        labelValorFilas.textProperty().bind(valorFilas.asString());
+        labelValorColumnas.textProperty().bind(valorColumnas.asString());
+        labelValorVidas.textProperty().bind(valorVidas.asString());
+        labelValorReproduccion.textProperty().bind(valorReproduccion.asString());
+        labelValorClonado.textProperty().bind(valorClonado.asString());
+        labelValorV.textProperty().bind(valorV.asString());
+        model.setFilas(valorFilas);
+        model.setColumnas(valorColumnas);
+        model.setVidas(valorVidas);
+        model.setReproduccion(valorReproduccion);
+        model.setClonado(valorClonado);
+        model.setV(valorV);
+
     }
     public void CargarDatosUsuario(ParametrosModeloProperties parametrosData) {
         this.model = parametrosData;

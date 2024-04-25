@@ -59,4 +59,28 @@ public class ParametrosModeloProperties {
     public Property<Number> VProperty() {
         return V;
     }
+
+    public void setFilas(IntegerProperty filas) {
+        this.filas = filas;
+    }
+
+    public void setColumnas(IntegerProperty columnas) {
+        this.columnas = columnas;
+    }
+
+    public void setVidas(IntegerProperty vidas) {
+        this.vidas = vidas;
+    }
+
+    public void setReproduccion(IntegerProperty reproduccion) {
+        this.reproduccion = reproduccion;
+    }
+
+    public void setClonado(IntegerProperty clonado) {
+        this.clonado = clonado;
+    }
+
+    public void setV(IntegerProperty v) {
+        this.V = v;
+    }
 }
