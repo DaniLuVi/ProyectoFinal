@@ -1,30 +1,30 @@
 package estructuras_de_datos_implementadas.listaDoblementeEnlazada;
 
-public class ElementoLDE {
-    private Object dato;
-    private ElementoLDE siguiente;
-    private ElementoLDE anterior;
+public class ElementoLDE<TipoDato> {
+    private TipoDato dato;
+    private ElementoLDE<TipoDato> siguiente;
+    private ElementoLDE<TipoDato> anterior;
     public ElementoLDE(){
 
     }
 
-    public ElementoLDE(ElementoLDE ant, ElementoLDE sig, Object data){
+    public ElementoLDE(ElementoLDE<TipoDato> ant, ElementoLDE<TipoDato> sig, TipoDato data){
         this.anterior=ant;
         this.siguiente=sig;
         this.dato=data;
     }
 
-    public ElementoLDE(Object dato) {
+    public ElementoLDE(TipoDato dato) {
         this.dato = dato;
     }
 
-    public ElementoLDE(Object dato, ElementoLDE siguiente, ElementoLDE anterior) {
+    public ElementoLDE(TipoDato dato, ElementoLDE<TipoDato> siguiente, ElementoLDE<TipoDato> anterior) {
         this.dato = dato;
         this.siguiente = siguiente;
         this.anterior = anterior;
     }
 
-    public void InsertarmeEn(ElementoLDE el) {
+    public void InsertarmeEn(ElementoLDE<TipoDato> el) {
         el.anterior = this.anterior;
         el.siguiente = this;
         if (this.anterior != null) {
@@ -32,23 +32,23 @@ public class ElementoLDE {
         }
         this.anterior = el;
     }
-    protected ElementoLDE getSiguiente(){
+    protected ElementoLDE<TipoDato> getSiguiente(){
         return siguiente;
     }
-    protected void setSiguiente(ElementoLDE newSiguiente) {
+    protected void setSiguiente(ElementoLDE<TipoDato> newSiguiente) {
         siguiente = newSiguiente;
     }
-    protected ElementoLDE getAnterior(){
+    protected ElementoLDE<TipoDato> getAnterior(){
         return anterior;
     }
-    protected void setAnterior(ElementoLDE newAnterior) {
+    protected void setAnterior(ElementoLDE<TipoDato> newAnterior) {
         anterior = newAnterior;
     }
 
-    public Object getDato(){
+    public TipoDato getDato(){
         return dato;
     }
-    public void setDato(Object dato){
+    public void setDato(TipoDato dato){
         this.dato = dato;
     }
 

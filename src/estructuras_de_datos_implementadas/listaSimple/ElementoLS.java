@@ -1,20 +1,20 @@
 package estructuras_de_datos_implementadas.listaSimple;
 
-public class ElementoLS {
-    private Object data;
+public class ElementoLS<TipoDato> {
+    private TipoDato data;
 
     public ElementoLS() {
     }
 
-    public ElementoLS(Object data) {
+    public ElementoLS(TipoDato data) {
         this.data = data;
     }
 
-    public Object getData() {
+    public TipoDato getData() {
         return data;
     }
 
-    public void setData(Object data) {
+    public void setData(TipoDato data) {
         this.data = data;
     }
 }

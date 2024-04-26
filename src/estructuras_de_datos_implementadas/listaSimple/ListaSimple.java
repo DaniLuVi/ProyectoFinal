@@ -3,9 +3,9 @@ package estructuras_de_datos_implementadas.listaSimple;
 /**
  * Programar la lista simple.
  */
-public class ListaSimple {
+public class ListaSimple<TipoDato> {
 
-    private ElementoLS[] datos;
+    private ElementoLS<TipoDato>[] datos;
 
     private int maximo;
 
@@ -14,7 +14,7 @@ public class ListaSimple {
         this.maximo = maximo;
     }
 
-    public ListaSimple(ElementoLS[] datos, int maximo) {
+    public ListaSimple(ElementoLS<TipoDato>[] datos, int maximo) {
         this.datos = datos;
         this.maximo = maximo;
     }
@@ -29,7 +29,7 @@ public class ListaSimple {
             contador++;
         }
     }
-    private int add(ElementoLS el){
+    public int add(ElementoLS<TipoDato> el){
         int contador = 0;
         for (contador = 0; contador <= maximo; contador++)
             if (datos[contador]==null)
@@ -38,26 +38,8 @@ public class ListaSimple {
             datos[contador]=el;
         return contador;
     }
-    public void add(String s){
-        ElementoLS e = new ElementoLS(s);
-        this.add(e);
-    }
-    public void add(Object o){
-        ElementoLS e = new ElementoLS(o);
-        this.add(e);
-    }
-    public void insert(String s, int posicion){
-        ElementoLS e = new ElementoLS(s);
-        if (!isVacia()) {
-            if (posicion < maximo && posicion >= 0)
-                datos[posicion] = e;
-        } else {
-            datos[0] = e;
-        }
-
-    }
-    public void insert(Object o, int posicion){
-        ElementoLS e = new ElementoLS(o);
+    public void insert(TipoDato s, int posicion){
+        ElementoLS<TipoDato> e = new ElementoLS<TipoDato>(s);
         if (!isVacia()) {
             if (posicion < maximo && posicion >= 0)
                 datos[posicion] = e;
@@ -85,7 +67,7 @@ public class ListaSimple {
         }
         return contador;
     }
-    public int getPosicion(ElementoLS el) {
+    public int getPosicion(ElementoLS<TipoDato> el) {
         int contador = 0;
         for (contador = 0; contador <= maximo; contador++)
             if (el.getData() == this.getElemento(contador).getData())
@@ -93,22 +75,22 @@ public class ListaSimple {
         return contador;
     }
 
-    public ElementoLS getPrimero(){
+    public ElementoLS<TipoDato> getPrimero(){
         return datos[0];
     }
-    public ElementoLS getUltimo(){
+    public ElementoLS<TipoDato> getUltimo(){
         int contador = 0;
         while (datos[contador]!=null){
             contador++;
         }
         return datos[contador-1];
     }
-    private ElementoLS getSiguiente(ElementoLS el){
-        ListaSimple a = new ListaSimple(maximo);
+    private ElementoLS<TipoDato> getSiguiente(ElementoLS<TipoDato> el){
+        ListaSimple<TipoDato> a = new ListaSimple(maximo);
         int posicion = a.getPosicion(el);
         return datos[posicion+1];
     }
-    public ElementoLS getElemento(int posicion){
+    public ElementoLS<TipoDato> getElemento(int posicion){
         if (posicion <= maximo && posicion >= 0)
             return datos[posicion];
         return null;

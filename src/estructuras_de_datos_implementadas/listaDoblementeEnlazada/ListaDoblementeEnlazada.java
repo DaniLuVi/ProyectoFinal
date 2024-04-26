@@ -1,8 +1,8 @@
 package estructuras_de_datos_implementadas.listaDoblementeEnlazada;
 
-public class ListaDoblementeEnlazada {
-    private ElementoLDE primero;
-    private ElementoLDE ultimo;
+public class ListaDoblementeEnlazada<TipoDato> {
+    private ElementoLDE<TipoDato> primero;
+    private ElementoLDE<TipoDato> ultimo;
 
     public boolean isVacia() {
         return primero == null;
@@ -12,7 +12,7 @@ public class ListaDoblementeEnlazada {
             primero = primero.getSiguiente();
         }
     }
-    protected int add(ElementoLDE el) {
+    public int add(ElementoLDE<TipoDato> el) {
         int posicion = 0;
         if (el == null) {
             return -1;
@@ -28,7 +28,7 @@ public class ListaDoblementeEnlazada {
             posicion++;
             return posicion;
         } else {
-            ElementoLDE tmp = primero;
+            ElementoLDE<TipoDato> tmp = primero;
             while (tmp.getSiguiente() != null) {
                 posicion++;
                 tmp = tmp.getSiguiente();
@@ -39,14 +39,8 @@ public class ListaDoblementeEnlazada {
             return posicion;
         }
     }
-    public void add(String s) {
-        add(new ElementoLDE(s));
-    }
-    public void add(Object o) {
-        add(new ElementoLDE(o));
-    }
-    public void insert(String s, int posicion) {
-        ElementoLDE a = new ElementoLDE(s);
+    public void insert(TipoDato s, int posicion) {
+        ElementoLDE<TipoDato> a = new ElementoLDE(s);
         if (isVacia()) {
             this.primero = a;
             this.ultimo = this.primero;
@@ -59,20 +53,6 @@ public class ListaDoblementeEnlazada {
         }
     }
 
-    public void insert(Object o, int posicion) {
-        ElementoLDE b = new ElementoLDE(o);
-        if (isVacia()) {
-            this.primero = b;
-            this.ultimo = this.primero;
-        } else if (posicion == 0) {
-            this.primero.setAnterior(b);
-            b.setSiguiente(this.primero);
-            primero = b;
-        } else {
-            b.InsertarmeEn(getElemento(posicion - 1));
-        }
-    }
-
     public int del(int pos) {
         if (isVacia()) {
             return 0;
@@ -81,7 +61,7 @@ public class ListaDoblementeEnlazada {
                 primero = primero.getSiguiente();
                 return getNumeroElementos();
             } else {
-                ElementoLDE a = this.primero;
+                ElementoLDE<TipoDato> a = this.primero;
                 for (int contador = 0; contador!= pos - 1; contador++ ) {
                     a = a.getSiguiente();
                     if (a.getSiguiente().getSiguiente() == null) {
@@ -102,7 +82,7 @@ public class ListaDoblementeEnlazada {
             int contador = 0;
             if (primero.getDato() != null)
                 contador = 1;
-            ElementoLDE tmp = primero;
+            ElementoLDE<TipoDato> tmp = primero;
             while (tmp.getSiguiente() != null) {
                 contador++;
                 tmp = tmp.getSiguiente();
@@ -111,8 +91,8 @@ public class ListaDoblementeEnlazada {
         }
     }
 
-    public int getPosicion(ElementoLDE el) {
-        ElementoLDE tmp = primero;
+    public int getPosicion(ElementoLDE<TipoDato> el) {
+        ElementoLDE<TipoDato> tmp = primero;
         int contador = 0;
         if (tmp != el.getDato())
             while (tmp != el.getDato()) {
@@ -124,21 +104,21 @@ public class ListaDoblementeEnlazada {
         return 0;
     }
 
-    public ElementoLDE getPrimero() {
+    public ElementoLDE<TipoDato> getPrimero() {
         return primero;
     }
 
-    public ElementoLDE getUltimo() {
+    public ElementoLDE<TipoDato> getUltimo() {
         return ultimo;
     }
-    public ElementoLDE getSiguiente(ElementoLDE el) {
+    public ElementoLDE<TipoDato> getSiguiente(ElementoLDE<TipoDato> el) {
         return el.getSiguiente();
     }
-    public ElementoLDE getAnterior(ElementoLDE el) {
+    public ElementoLDE<TipoDato> getAnterior(ElementoLDE<TipoDato> el) {
         return el.getAnterior();
     }
-    public ElementoLDE getElemento(int posicion) {
-        ElementoLDE a = primero;
+    public ElementoLDE<TipoDato> getElemento(int posicion) {
+        ElementoLDE<TipoDato> a = primero;
         int contador = 0;
         if (getNumeroElementos() == 1)
             return primero;
