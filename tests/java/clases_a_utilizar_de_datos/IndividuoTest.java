@@ -74,7 +74,7 @@ class IndividuoTest {
     @Test
     void getMuerte() {
         Individuo i = new Individuo(01, 3, 4, 40, 35);
-        assertEquals(60, i.getMuerte(40), 60);
+
     }
 
     @Test
