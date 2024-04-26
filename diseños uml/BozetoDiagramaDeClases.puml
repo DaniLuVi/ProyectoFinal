@@ -69,31 +69,37 @@ class Entorno {
 class Agua {
 + Agua()
 + modificarIndividuo(Individuo individuo):void
+- probabilidad():void
 }
 
 class Comida {
 + Comida()
 + modificarIndividuo(Individuo individuo):void
+- probabilidad():void
 }
 
 class Montaña {
 + Montaña()
 + modificarIndividuo(Individuo individuo):void
+- probabilidad():void
 }
 
 class Tesoro {
 + Tesoro()
 + modificarIndividuo(Individuo individuo):void
+- probabilidad():void
 }
 
 class Biblioteca {
 + Biblioteca()
 + modificarIndividuo(Individuo individuo):void
+- probabilidad():void
 }
 
 class Pozo {
 + Pozo()
 + modificarIndividuo(Individuo individuo):void
+- probabilidad():void
 }
 
 ListaEjeX *-- ListaEjeY
