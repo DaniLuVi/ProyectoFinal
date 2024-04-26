@@ -2,9 +2,15 @@
 'https://plantuml.com/class-diagram
 
 class ListaEjeX {
+- ElementoLS<Celda>[] datos
+- int filas
+
 }
 
 class ListaEjeY {
+- ElementoLS<Celda>[] datos
+- int columnas
+
 }
 
 
