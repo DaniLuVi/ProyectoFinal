@@ -17,6 +17,8 @@ class Celda {
 + Celda()
 + getListaIndividuos(): ListaDoblementeEnlazada<TipoDato>
 + getListaEntornos(): ListaDoblementeEnlazada<TipoDato>
++ addIndividuo(Individuo):void
++ addEntorno(Entorno):void
 }
 
 class Individuo {

@@ -1,6 +1,8 @@
 package clases_a_utilizar_de_datos;
 
-public class Individuo {
+import estructuras_de_datos_implementadas.listaDoblementeEnlazada.ElementoLDE;
+
+public class Individuo extends ElementoLDE<Individuo> {
     private int id;
     private int generacion;
     private int vidas;

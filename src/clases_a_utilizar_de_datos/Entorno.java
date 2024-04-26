@@ -1,6 +1,8 @@
 package clases_a_utilizar_de_datos;
 
-public class Entorno {
+import estructuras_de_datos_implementadas.listaDoblementeEnlazada.ElementoLDE;
+
+public class Entorno extends ElementoLDE<Entorno> {
     private int tiempo_aparicion;
 
     private int v;
