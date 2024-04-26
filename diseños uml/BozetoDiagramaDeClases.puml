@@ -12,16 +12,11 @@ class Casilla {
 }
 
 class Celda {
-- TipoDato dato
-- Celda<TipoDato> anterior
-- Celda<TipoDato> siguiente
+- ListaDoblementeEnlazada<TipoDato> listaIndividuos
+- ListaDoblementeEnlazada<TipoDato> listaEntornos
 + Celda()
-+ getDato():TipoDato
-+ setDato(TipoDato):void
-+ getAnterior():Celda
-+ setAnterior(Celda):void
-+ getSiguiente():Celda
-+ setSiguiente(Celda):void
++ getListaIndividuos(): ListaDoblementeEnlazada<TipoDato>
++ getListaEntornos(): ListaDoblementeEnlazada<TipoDato>
 }
 
 class Individuo {
