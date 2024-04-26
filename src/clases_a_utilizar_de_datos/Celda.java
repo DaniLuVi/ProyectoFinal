@@ -1,4 +1,4 @@
 package clases_a_utilizar_de_datos;
 
-public class Celda {
+public class Celda<TipoDato> {
 }
