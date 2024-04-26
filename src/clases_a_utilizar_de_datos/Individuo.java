@@ -55,8 +55,8 @@ public class Individuo {
         this.clonacion = clonacion;
     }
 
-    public int getMuerte(int reproduccion) {
-        int muerte = 100 - reproduccion;
+    public int getMuerte() {
+        int muerte = 100 - this.getReproduccion();
         return muerte;
     }
     public void movimiento(Individuo individuo) {}

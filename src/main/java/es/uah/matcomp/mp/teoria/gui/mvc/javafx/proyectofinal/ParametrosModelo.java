@@ -1,5 +1,7 @@
 package es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal;
 
+import clases_a_utilizar_de_datos.Individuo;
+
 public class ParametrosModelo {
     private int filas;
     private int columnas;
@@ -7,6 +9,7 @@ public class ParametrosModelo {
     private int reproduccion;
     private int clonado;
     private int V;
+    private Individuo individuo;
 
     public ParametrosModelo(int filas, int columnas, int vidas, int reproduccion, int clonado, int V) {
         this.filas = filas;
