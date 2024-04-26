@@ -1,8 +1,9 @@
 package clases_a_utilizar_de_datos;
 
 import estructuras_de_datos_implementadas.listaDoblementeEnlazada.ListaDoblementeEnlazada;
+import estructuras_de_datos_implementadas.listaSimple.ElementoLS;
 
-public class Celda<TipoDato> {
+public class Celda extends ElementoLS<Celda> {
     private ListaDoblementeEnlazada<Individuo> listaIndividuos;
     private ListaDoblementeEnlazada<Entorno> listaEntornos;
     public Celda() {

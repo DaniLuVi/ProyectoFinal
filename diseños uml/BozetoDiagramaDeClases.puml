@@ -7,9 +7,6 @@ class ListaEjeX {
 class ListaEjeY {
 }
 
-class Casilla {
-
-}
 
 class Celda {
 - ListaDoblementeEnlazada<TipoDato> listaIndividuos
@@ -109,8 +106,7 @@ class Pozo {
 }
 
 ListaEjeX *-- ListaEjeY
-ListaEjeY *-- Casilla
-Casilla o-- Celda
+ListaEjeY *-- Celda
 Celda o-- Individuo
 Celda o-- Entorno
 Individuo <|-- TipoBasico
