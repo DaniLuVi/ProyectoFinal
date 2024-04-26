@@ -2,13 +2,13 @@
 'https://plantuml.com/class-diagram
 
 class ListaEjeX {
-- ElementoLS<Celda>[] datos
+- ListaSimple<Celda> listaEjeX
 - int filas
 
 }
 
 class ListaEjeY {
-- ElementoLS<Celda>[] datos
+- ListSimple<Celda> listaEjeY
 - int columnas
 
 }
