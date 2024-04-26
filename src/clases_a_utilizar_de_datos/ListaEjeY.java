@@ -7,4 +7,5 @@ public class ListaEjeY<Celda> {
     public ListaEjeY() {
         this.listaEjeY = new ListaSimple<Celda>(columnas);
     }
+
 }

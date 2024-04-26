@@ -25,3 +25,4 @@ public class Celda extends ElementoLS<Celda> {
         this.listaEntornos.add(entorno);
     }
 }
+
