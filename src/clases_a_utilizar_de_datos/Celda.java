@@ -10,4 +10,12 @@ public class Celda<TipoDato> {
         this.listaEntornos = new ListaDoblementeEnlazada<TipoDato>();
     }
 
+    public ListaDoblementeEnlazada<TipoDato> getListaIndividuos() {
+        return listaIndividuos;
+    }
+
+    public ListaDoblementeEnlazada<TipoDato> getListaEntornos() {
+        return listaEntornos;
+    }
+
 }
