@@ -67,8 +67,6 @@ public class ParameterController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        // crear la nueva pantalla en la que se crea el tablero
     }
     @FXML
     protected void reiniciarValores() {
