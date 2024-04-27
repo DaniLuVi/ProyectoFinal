@@ -50,8 +50,8 @@ public class TableroController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         System.out.println("Se ejecuta el controlador del tablero.\n");
-        for (int i = 0; i < parametrosModelo.getFilas(); i++) {
-            for (int j = 0; j < parametrosModelo.getColumnas(); j++) {
+        for (int i = 0; i < parametrosModeloProperties.original.getFilas(); i++) {
+            for (int j = 0; j < parametrosModeloProperties.original.getColumnas(); j++) {
                 Button casilla = new Button("Celda" + i + "," + j);
                 casilla.setMinSize(30, 30);
                 casilla.setStyle("-fx-border-color: black; -fx-text-alignment: center");

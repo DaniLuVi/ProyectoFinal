@@ -61,7 +61,7 @@ public class ParameterController implements Initializable {
             stage.setTitle("Tablero de juego");
             stage.setScene(scene);
             TableroController p = fxmlLoader.getController();
-            p.CargaDatosUsuario(this.model);
+            p.CargaDatosUsuario(parametrosModeloProperties);
             p.setStage(stage);
             stage.show();
         } catch (Exception e) {
