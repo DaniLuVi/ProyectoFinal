@@ -14,7 +14,8 @@ import java.util.ResourceBundle;
 
 public class TableroController implements Initializable {
     private Stage scene;
-    private ParameterController model;
+    // creo que se va a hacer utilizando de alguna manera el model, para conseguir lo del tablero
+    private ParameterController model = new ParameterController();
     @FXML
     private GridPane tableroDeJuego;
     private ParametrosModelo parametrosModelo = new ParametrosModelo(2, 2, 2 ,2 , 2, 2);
