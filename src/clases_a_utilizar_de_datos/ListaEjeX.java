@@ -10,4 +10,5 @@ public class ListaEjeX {
         this.listaEjeX = new ListaSimple<Celda>(filas);
     }
 
+
 }

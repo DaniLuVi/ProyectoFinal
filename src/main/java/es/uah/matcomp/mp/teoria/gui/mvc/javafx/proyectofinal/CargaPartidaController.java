@@ -16,6 +16,10 @@ public class CargaPartidaController implements Initializable {
     @FXML
     private MenuButton partidas;
     private int num_partidas;
+    public int getNum_partidas() {
+        // for (MenuButton boton: ) {}
+        return 0;
+    }
     public void aparecen_num_partidas_guardadas() {
         for (int i = 0; i < num_partidas; i++) {
             MenuItem partida_guardada = new MenuItem("Partida " + i);
