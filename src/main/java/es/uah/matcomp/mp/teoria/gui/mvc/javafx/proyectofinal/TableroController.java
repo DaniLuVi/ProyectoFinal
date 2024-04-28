@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class TableroController implements Initializable {
+public class TableroController {
     private Stage scene;
     // creo que se va a hacer utilizando de alguna manera el model, para conseguir lo del tablero
     private ParameterController model = new ParameterController();
@@ -48,11 +48,11 @@ public class TableroController implements Initializable {
     protected void guardarDatosPartida() {
 
     }
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    public void initialize(int k, int x) {
         System.out.println("Se ejecuta el controlador del tablero.\n");
-        for (int i = 0; i < parametrosModeloProperties.original.getFilas(); i++) {
-            for (int j = 0; j < parametrosModeloProperties.original.getColumnas(); j++) {
+        for (int i = 0; i < k; i++) {
+            for (int j = 0; j < x; j++) {
                 Button casilla = new Button("Celda" + i + "," + j);
                 casilla.setMinSize(30, 30);
                 casilla.setStyle("-fx-border-color: black; -fx-text-alignment: center");

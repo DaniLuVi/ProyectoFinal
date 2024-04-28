@@ -7,8 +7,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -50,7 +52,6 @@ public class ParameterController implements Initializable {
     private ParametrosModelo parametrosModelo = new ParametrosModelo(0, 0, 0, 0, 0, 0);
     private ParametrosModeloProperties parametrosModeloProperties = new ParametrosModeloProperties(parametrosModelo);
 
-
     @FXML
     protected void onBotonIniciarClick() {
         model.commit();
@@ -62,6 +63,14 @@ public class ParameterController implements Initializable {
             stage.setScene(scene);
             TableroController p = fxmlLoader.getController();
             p.CargaDatosUsuario(parametrosModeloProperties);
+            model.commit();
+            int i = 0;
+            int j = 0;
+            while (i < model.original.getFilas())
+                i++;
+            while (j < model.original.getColumnas())
+                j++;
+            p.initialize(i, j);
             p.setStage(stage);
             stage.show();
         } catch (Exception e) {
@@ -102,6 +111,7 @@ public class ParameterController implements Initializable {
         model.setReproduccion(valorReproduccion);
         model.setClonado(valorClonado);
         model.setV(valorV);
+        model.commit();
     }
     public void CargarDatosUsuario(ParametrosModeloProperties parametrosData) {
         this.model = parametrosData;
