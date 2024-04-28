@@ -23,6 +23,10 @@ public class ElementosCasillaController implements Initializable {
     private Label recurso2;
     @FXML
     private Label recurso3;
+
+    public void onOk() {
+
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         System.out.println("Se ejecuta el controlador de los elementos de una casilla.");
