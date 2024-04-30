@@ -1,21 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.TableroController">
+<AnchorPane prefHeight="960.0" prefWidth="1720.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.TableroController">
    <children>
-      <VBox prefHeight="587.0" prefWidth="804.0">
+      <VBox prefHeight="1087.0" prefWidth="1922.0">
          <children>
             <Pane prefHeight="136.0" prefWidth="804.0">
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
                <children>
-                  <Label alignment="CENTER" layoutX="219.0" layoutY="46.0" text="TABLERO DE JUEGO">
+                  <Label alignment="CENTER" layoutX="759.0" layoutY="44.0" text="TABLERO DE JUEGO">
                      <font>
                         <Font name="System Bold Italic" size="39.0" />
                      </font>
@@ -23,11 +31,11 @@
                         <Insets />
                      </opaqueInsets>
                   </Label>
-                  <AnchorPane layoutX="30.0" layoutY="130.0" prefHeight="368.0" prefWidth="887.0">
+                  <AnchorPane layoutX="30.0" layoutY="130.0" prefHeight="736.0" prefWidth="1745.0">
                      <children>
-                        <BorderPane prefHeight="335.0" prefWidth="804.0">
+                        <BorderPane prefHeight="758.0" prefWidth="1699.0">
                            <center>
-                              <GridPane fx:id="tableroDeJuego" BorderPane.alignment="CENTER">
+                              <GridPane fx:id="tableroDeJuego" prefHeight="716.0" prefWidth="1693.0" BorderPane.alignment="CENTER">
                                 <columnConstraints>
                                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                 </columnConstraints>
@@ -47,7 +55,7 @@
                   </AnchorPane>
                </children>
             </Pane>
-            <HBox alignment="BOTTOM_RIGHT" prefHeight="412.0" prefWidth="784.0" spacing="35.0">
+            <HBox alignment="BOTTOM_RIGHT" prefHeight="861.0" prefWidth="1902.0" spacing="35.0">
                <children>
                   <Button defaultButton="true" mnemonicParsing="false" onAction="#play" text="Play" />
                   <Button defaultButton="true" mnemonicParsing="false" onAction="#pause" text="Pausar" />
