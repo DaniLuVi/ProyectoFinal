@@ -31,7 +31,7 @@ public class CargaPartidaController implements Initializable {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("tablero-view.fxml"));
         try {
-            Scene scene = new Scene(fxmlLoader.load(), 620, 460);
+            Scene scene = new Scene(fxmlLoader.load(), 1920, 1080);
             stage.setTitle("Tablero de juego");
             stage.setScene(scene);
             TableroController p = fxmlLoader.getController();
