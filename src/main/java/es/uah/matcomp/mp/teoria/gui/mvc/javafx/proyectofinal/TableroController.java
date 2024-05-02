@@ -52,12 +52,12 @@ public class TableroController {
     @FXML
     protected void guardarDatos() {
         ListaDoblementeEnlazada a = new ListaDoblementeEnlazada<>();
-        ElementoLDE filas = new ElementoLDE<>(model.valorFilas);
-        ElementoLDE columnas = new ElementoLDE<>(model.valorColumnas);
-        ElementoLDE vidas = new ElementoLDE<>(model.valorVidas);
-        ElementoLDE reproduccion = new ElementoLDE<>(model.valorReproduccion);
-        ElementoLDE clonado = new ElementoLDE<>(model.valorClonado);
-        ElementoLDE v = new ElementoLDE<>(model.valorV);
+        ElementoLDE filas = new ElementoLDE<>(parametrosModeloProperties.original.getFilas());
+        ElementoLDE columnas = new ElementoLDE<>(parametrosModeloProperties.original.getColumnas());
+        ElementoLDE vidas = new ElementoLDE<>(parametrosModeloProperties.original.getVidas());
+        ElementoLDE reproduccion = new ElementoLDE<>(parametrosModeloProperties.original.getReproduccion());
+        ElementoLDE clonado = new ElementoLDE<>(parametrosModeloProperties.original.getClonado());
+        ElementoLDE v = new ElementoLDE<>(parametrosModeloProperties.original.getV());
         a.add(filas);
         a.add(columnas);
         a.add(vidas);
