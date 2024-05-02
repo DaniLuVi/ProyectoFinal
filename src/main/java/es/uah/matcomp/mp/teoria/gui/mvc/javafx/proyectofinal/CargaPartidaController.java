@@ -20,14 +20,9 @@ public class CargaPartidaController implements Initializable {
     private MenuButton partidas;
     private int num_partidas;
     public int getNum_partidas() {
-        // for (MenuButton boton: ) {}
+        cargarObjetoDesdeArchivo("DatosCargaPartida.json", CargaPartidaController.class);
+
         return 0;
-    }
-    public void aparecen_num_partidas_guardadas() {
-        for (int i = 0; i < num_partidas; i++) {
-            MenuItem partida_guardada = new MenuItem("Partida " + i);
-            partidas.getItems();
-        }
     }
     @FXML
     protected void onCargaPartida() {
@@ -61,7 +56,9 @@ public class CargaPartidaController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         System.out.println("Se ejecuta el controlador para la carga de partida.");
-
+        for (int i = 1; i <= num_partidas; i++) {
+            MenuButton partida = new MenuButton("Partida guardada " + i);
+        }
     }
     public void setStage(Stage s) {
         this.scene = s;

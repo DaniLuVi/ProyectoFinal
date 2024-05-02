@@ -72,6 +72,8 @@ public class TableroController {
         String rutaArchivo = "DatosCargaPartida.json";
 
         guardarDatosPartida(rutaArchivo, datos);
+
+        // hacer que despues de guardar los datos de la partida le salga un mensaje para cerrar el simulador
     }
 
 
