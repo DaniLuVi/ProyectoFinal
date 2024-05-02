@@ -86,10 +86,9 @@ public class TableroController {
 
     public void initialize(int k, int x) {
         System.out.println("Se ejecuta el controlador del tablero.\n");
-        for (int i = 0; i < k; i++) {
-            for (int j = 0; j < x; j++) {
+        for (int i = 1; i <= k; i++) {
+            for (int j = 1; j <= x; j++) {
                 Button casilla = new Button("Celda" + i + "," + j);
-                casilla.setMinSize(30, 30);
                 casilla.setStyle("-fx-border-color: black; -fx-text-alignment: center");
                 casilla.onActionProperty();
                 tableroDeJuego.add(casilla, i, j);
