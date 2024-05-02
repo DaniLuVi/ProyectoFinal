@@ -1,5 +1,6 @@
 package es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal;
 
+import estructuras_de_datos_implementadas.listaDoblementeEnlazada.ListaDoblementeEnlazada;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.Property;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -41,6 +42,7 @@ public class ParameterController implements Initializable {
     private Label labelValorClonado;
     @FXML
     private Label labelValorV;
+    private ListaDoblementeEnlazada listaDoblementeEnlazada;
     private ParametrosModeloProperties model;
     private Stage scene;
     protected IntegerProperty valorFilas = new SimpleIntegerProperty(0);
@@ -52,6 +54,12 @@ public class ParameterController implements Initializable {
     private ParametrosModelo parametrosModelo = new ParametrosModelo(0, 0, 0, 0, 0, 0);
     private ParametrosModeloProperties parametrosModeloProperties = new ParametrosModeloProperties(parametrosModelo);
 
+    public ParameterController() {
+    }
+
+    public ParameterController(ListaDoblementeEnlazada listaDoblementeEnlazada) {
+        this.listaDoblementeEnlazada = listaDoblementeEnlazada;
+    }
     @FXML
     protected void onBotonIniciarClick() {
         model.commit();

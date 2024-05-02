@@ -1,5 +1,8 @@
 package es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal;
 
+import com.google.gson.Gson;
+import estructuras_de_datos_implementadas.listaDoblementeEnlazada.ElementoLDE;
+import estructuras_de_datos_implementadas.listaDoblementeEnlazada.ListaDoblementeEnlazada;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -9,11 +12,12 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-import static java.lang.Thread.sleep;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class TableroController {
     private Stage scene;
-    // creo que se va a hacer utilizando de alguna manera el model, para conseguir lo del tablero
     private ParameterController model = new ParameterController();
     @FXML
     private GridPane tableroDeJuego;
@@ -46,8 +50,38 @@ public class TableroController {
 
     }
     @FXML
-    protected void guardarDatosPartida() {
+    protected void guardarDatos() {
+        ListaDoblementeEnlazada a = new ListaDoblementeEnlazada<>();
+        ElementoLDE filas = new ElementoLDE<>(model.valorFilas);
+        ElementoLDE columnas = new ElementoLDE<>(model.valorColumnas);
+        ElementoLDE vidas = new ElementoLDE<>(model.valorVidas);
+        ElementoLDE reproduccion = new ElementoLDE<>(model.valorReproduccion);
+        ElementoLDE clonado = new ElementoLDE<>(model.valorClonado);
+        ElementoLDE v = new ElementoLDE<>(model.valorV);
+        a.add(filas);
+        a.add(columnas);
+        a.add(vidas);
+        a.add(reproduccion);
+        a.add(clonado);
+        a.add(v);
 
+        ParameterController parameterController = new ParameterController(a);
+
+        ParameterController datos = parameterController;
+
+        String rutaArchivo = "DatosCargaPartida.json";
+
+        guardarDatosPartida(rutaArchivo, datos);
+    }
+
+
+    public static <T> void guardarDatosPartida(String rutaArchivo, T objeto) {
+        Gson gson = new Gson();
+        try (FileWriter writer = new FileWriter(rutaArchivo)) {
+            gson.toJson(objeto, writer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void initialize(int k, int x) {
