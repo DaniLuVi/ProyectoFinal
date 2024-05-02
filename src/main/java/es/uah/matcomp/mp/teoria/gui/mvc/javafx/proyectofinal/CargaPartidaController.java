@@ -1,5 +1,6 @@
 package es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal;
 
+import com.google.gson.Gson;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -8,6 +9,8 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
 
+import java.io.FileReader;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -36,12 +39,24 @@ public class CargaPartidaController implements Initializable {
             stage.setScene(scene);
             TableroController p = fxmlLoader.getController();
 
+            String rutaArchivo = "DatosCargaPartida.json";
+
+            TableroController tableroController = cargarObjetoDesdeArchivo(rutaArchivo, TableroController.class);
             p.setStage(stage);
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
         }
 
+    }
+    public static <T> T cargarObjetoDesdeArchivo(String rutaArchivo, Class<T> clase) {
+        Gson gson = new Gson();
+        try (FileReader reader = new FileReader(rutaArchivo)) {
+            return gson.fromJson(reader, clase);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
