@@ -25,7 +25,8 @@ public class ElementosCasillaController implements Initializable {
     private Label recurso3;
 
     public void onOk() {
-
+        ParameterController p = new ParameterController();
+        p.onBotonIniciarClick();
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
