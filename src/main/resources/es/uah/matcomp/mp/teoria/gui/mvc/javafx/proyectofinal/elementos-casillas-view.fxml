@@ -94,8 +94,9 @@
                <children>
                   <MenuButton mnemonicParsing="false" text="MenuButton">
                     <items>
-                      <MenuItem mnemonicParsing="false" text="Action 1" />
-                      <MenuItem mnemonicParsing="false" text="Action 2" />
+                      <MenuItem mnemonicParsing="false" text="Básico" />
+                      <MenuItem mnemonicParsing="false" text="Normal" />
+                        <MenuItem mnemonicParsing="false" text="Avanzado" />
                     </items>
                      <VBox.margin>
                         <Insets bottom="65.0" />
@@ -103,8 +104,9 @@
                   </MenuButton>
                   <MenuButton mnemonicParsing="false" text="MenuButton">
                     <items>
-                      <MenuItem mnemonicParsing="false" text="Action 1" />
-                      <MenuItem mnemonicParsing="false" text="Action 2" />
+                      <MenuItem mnemonicParsing="false" text="Básico" />
+                      <MenuItem mnemonicParsing="false" text="Normal" />
+                        <MenuItem mnemonicParsing="false" text="Avanzado" />
                     </items>
                      <VBox.margin>
                         <Insets bottom="65.0" />
@@ -112,8 +114,9 @@
                   </MenuButton>
                   <MenuButton mnemonicParsing="false" text="MenuButton">
                     <items>
-                      <MenuItem mnemonicParsing="false" text="Action 1" />
-                      <MenuItem mnemonicParsing="false" text="Action 2" />
+                      <MenuItem mnemonicParsing="false" text="Básico" />
+                      <MenuItem mnemonicParsing="false" text="Normal" />
+                        <MenuItem mnemonicParsing="false" text="Avanzado" />
                     </items>
                   </MenuButton>
                </children>
