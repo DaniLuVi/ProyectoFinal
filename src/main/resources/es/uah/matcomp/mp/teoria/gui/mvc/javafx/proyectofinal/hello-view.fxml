@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="408.0" prefWidth="587.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloController">
+<VBox alignment="CENTER" prefHeight="408.0" prefWidth="587.0" spacing="20.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
@@ -13,7 +16,18 @@
     <Label text="JUEGO DE LA VIDA DE CONWAY" underline="true" wrapText="true">
       <font>
          <Font name="System Bold Italic" size="24.0" />
-      </font></Label>
-    <Button mnemonicParsing="false" onAction="#onMiBotonNuevaVentanaParametros" text="Nuevo juego" />
+      </font>
+      <VBox.margin>
+         <Insets bottom="20.0" />
+      </VBox.margin></Label>
+   <ImageView fitHeight="183.0" fitWidth="341.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../../../../../../../../../../../../../../Downloads/cabeceras_juegodelavida_5-05.png" />
+      </image>
+   </ImageView>
+    <Button mnemonicParsing="false" onAction="#onMiBotonNuevaVentanaParametros" text="Nuevo juego">
+      <VBox.margin>
+         <Insets top="20.0" />
+      </VBox.margin></Button>
     <Button mnemonicParsing="false" onAction="#onMiBotonNuevaVentanaCargadoPartida" text="Cargar juego" />
 </VBox>
