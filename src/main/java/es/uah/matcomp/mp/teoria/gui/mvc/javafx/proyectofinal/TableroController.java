@@ -73,6 +73,13 @@ public class TableroController {
 
         guardarDatosPartida(rutaArchivo, datos);
 
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("pantalla-cerrar-tras-guardado.fxml"));
+        try {
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         // hacer que despues de guardar los datos de la partida le salga un mensaje para cerrar el simulador
     }
 
