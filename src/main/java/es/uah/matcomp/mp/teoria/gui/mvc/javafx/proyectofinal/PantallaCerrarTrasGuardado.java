@@ -22,4 +22,7 @@ public class PantallaCerrarTrasGuardado {
         stage.close();
     }
 
+    public void setStage(Stage stage) {
+        this.stage = stage;
+    }
 }

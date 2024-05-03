@@ -76,7 +76,13 @@ public class TableroController {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("pantalla-cerrar-tras-guardado.fxml"));
         try {
+            Scene scene = new Scene(fxmlLoader.load(), 545, 281);
+            stage.setTitle("Salir del programa");
+            stage.setScene(scene);
+            PantallaCerrarTrasGuardado p = fxmlLoader.getController();
 
+            p.setStage(stage);
+            stage.show();
         } catch (Exception e) {
             e.printStackTrace();
         }
