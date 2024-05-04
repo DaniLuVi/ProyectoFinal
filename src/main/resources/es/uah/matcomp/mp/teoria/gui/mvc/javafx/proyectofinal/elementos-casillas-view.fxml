@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.ElementosCasillaController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.ElementosCasillaController">
    <children>
       <ImageView fitHeight="400.0" fitWidth="604.0" pickOnBounds="true">
          <image>
-            <Image url="@../../../../../../../../../../../../../../Downloads/220642791-fondo-de-cielo-azul-fondo-de-cielo-azul-abstracto-fondo-de-cielo-azul-con-nubes-diminutas.jpg" />
+            <Image url="@fotos/cabeceras_juegodelavida_5-05.png" />
          </image>
+         <viewport>
+            <Rectangle2D />
+         </viewport>
       </ImageView>
       <HBox layoutX="87.0" layoutY="56.0" prefHeight="288.0" prefWidth="426.0">
          <children>
