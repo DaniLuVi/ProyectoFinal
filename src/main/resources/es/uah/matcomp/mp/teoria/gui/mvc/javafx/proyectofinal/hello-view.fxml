@@ -22,7 +22,7 @@
       </VBox.margin></Label>
    <ImageView fitHeight="183.0" fitWidth="341.0" pickOnBounds="true" preserveRatio="true">
       <image>
-         <Image url="@../../../../../../../../../../../../../../Downloads/cabeceras_juegodelavida_5-05.png" />
+         <Image url="@ProyectoFinal\fotos\cabeceras_juegodelavida_5-05.png" />
       </image>
    </ImageView>
     <Button mnemonicParsing="false" onAction="#onMiBotonNuevaVentanaParametros" text="Nuevo juego">

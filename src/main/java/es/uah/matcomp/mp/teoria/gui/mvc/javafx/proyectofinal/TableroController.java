@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.EventListener;
 
 public class TableroController {
     private Stage scene;
@@ -24,7 +25,7 @@ public class TableroController {
     private ParametrosModelo parametrosModelo = new ParametrosModelo(2, 2, 2 ,2 , 2, 2);
     private ParametrosModeloProperties parametrosModeloProperties = new ParametrosModeloProperties(parametrosModelo);
     @FXML
-    protected EventHandler<ActionEvent> onCasillaVerDatos() {
+    protected void onCasillaVerDatos() {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("elementos-casillas-view.fxml"));
         try {
@@ -32,14 +33,12 @@ public class TableroController {
             stage.setTitle("Vista de los elementos de una casilla");
             stage.setScene(scene);
             ElementosCasillaController p = fxmlLoader.getController();
-            Button button = new Button();
-            button.setOnAction(onCasillaVerDatos());
+
             p.setStage(stage);
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return null;
     }
     @FXML
     protected void play() {
@@ -105,8 +104,13 @@ public class TableroController {
             for (int j = 1; j <= x; j++) {
                 Button casilla = new Button("Celda" + i + "," + j);
                 casilla.setStyle("-fx-border-color: black; -fx-text-alignment: center");
-                casilla.onActionProperty();
                 tableroDeJuego.add(casilla, i, j);
+                EventListener a = new EventListener() {
+                    @Override
+                    public int hashCode() {
+                        return super.hashCode();
+                    }
+                };
             }
         }
     }
