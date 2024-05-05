@@ -13,6 +13,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class CargaPartidaController implements Initializable {
     private Stage scene;
@@ -24,8 +26,12 @@ public class CargaPartidaController implements Initializable {
 
         return 0;
     }
+    private static final Logger log = LogManager.getLogger(CargaPartidaController.class);
     @FXML
     protected void onCargaPartida() {
+
+        log.info("Arranque de la ventana de la carga de una partida preguardada");
+
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("tablero-view.fxml"));
         try {
@@ -39,6 +45,15 @@ public class CargaPartidaController implements Initializable {
             TableroController tableroController = cargarObjetoDesdeArchivo(rutaArchivo, TableroController.class);
             p.setStage(stage);
             stage.show();
+
+            log.info("Enviando traza de ejecución");
+            log.debug("Enviado un debug");
+            log.info("Enviando un info");
+            log.warn("Enviando un aviso");
+            log.error("Enviando un error");
+            log.fatal("Enviando una explosión fatal");
+            log.info("El arranque de la ventana de la carga de una partida ha sido completado.");
+
         } catch (Exception e) {
             e.printStackTrace();
         }

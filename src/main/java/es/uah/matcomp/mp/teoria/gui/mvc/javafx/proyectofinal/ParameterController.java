@@ -16,6 +16,8 @@ import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class ParameterController implements Initializable {
     @FXML
@@ -60,8 +62,12 @@ public class ParameterController implements Initializable {
     public ParameterController(ListaDoblementeEnlazada listaDoblementeEnlazada) {
         this.listaDoblementeEnlazada = listaDoblementeEnlazada;
     }
+    private static final Logger log = LogManager.getLogger(ParameterController.class);
     @FXML
     protected void onBotonIniciarClick() {
+
+        log.info("Arranque de la ventana de parámetros");
+
         model.commit();
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("tablero-view.fxml"));
@@ -81,6 +87,15 @@ public class ParameterController implements Initializable {
             p.initialize(i, j);
             p.setStage(stage);
             stage.show();
+
+            log.info("Enviando traza de ejecución");
+            log.debug("Enviado un debug");
+            log.info("Enviando un info");
+            log.warn("Enviando un aviso");
+            log.error("Enviando un error");
+            log.fatal("Enviando una explosión fatal");
+            log.info("El arranque de la ventana de los parámetros ha sido completado.");
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -88,10 +103,14 @@ public class ParameterController implements Initializable {
     @FXML
     protected void reiniciarValores() {
         model.rollback();
+
+        log.info("Se han reiniciado correctamente los valores de los parámetros del juego");
     }
     @FXML
     protected void cerrarVentana() {
         scene.close();
+
+        log.info("Se ha cerrado la ventana de los parámetros");
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
