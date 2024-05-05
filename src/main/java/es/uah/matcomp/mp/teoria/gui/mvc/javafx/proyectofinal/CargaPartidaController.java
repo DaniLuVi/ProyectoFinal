@@ -20,9 +20,10 @@ public class CargaPartidaController implements Initializable {
     private Stage scene;
     @FXML
     private MenuButton partidas;
-    private int num_partidas;
+    private int num_partidas = 0;
     public int getNum_partidas() {
         cargarObjetoDesdeArchivo("DatosCargaPartida.json", CargaPartidaController.class);
+
 
         return 0;
     }
@@ -30,7 +31,7 @@ public class CargaPartidaController implements Initializable {
     @FXML
     protected void onCargaPartida() {
 
-        log.info("Arranque de la ventana de la carga de una partida preguardada");
+        log.info("Arranque de la ventana del tablero de juego");
 
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("tablero-view.fxml"));
@@ -52,7 +53,7 @@ public class CargaPartidaController implements Initializable {
             log.warn("Enviando un aviso");
             log.error("Enviando un error");
             log.fatal("Enviando una explosión fatal");
-            log.info("El arranque de la ventana de la carga de una partida ha sido completado.");
+            log.info("El arranque de la ventana del tablero de juego ha sido completado.");
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -60,8 +61,20 @@ public class CargaPartidaController implements Initializable {
 
     }
     public static <T> T cargarObjetoDesdeArchivo(String rutaArchivo, Class<T> clase) {
+
+        log.info("Proceso para cargar datos desde un fichero al programa");
+
         Gson gson = new Gson();
         try (FileReader reader = new FileReader(rutaArchivo)) {
+
+            log.info("Enviando traza de ejecución");
+            log.debug("Enviado un debug");
+            log.info("Enviando un info");
+            log.warn("Enviando un aviso");
+            log.error("Enviando un error");
+            log.fatal("Enviando una explosión fatal");
+            log.info("El proceso de carga de datos desde un fichero ha sido realizado");
+
             return gson.fromJson(reader, clase);
         } catch (IOException e) {
             e.printStackTrace();

@@ -23,7 +23,6 @@ public class ElementosCasillaController implements Initializable {
     private Label recurso2;
     @FXML
     private Label recurso3;
-
     public void onOk() {
         ParameterController p = new ParameterController();
         p.onBotonIniciarClick();

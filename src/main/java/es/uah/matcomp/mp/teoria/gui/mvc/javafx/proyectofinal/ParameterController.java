@@ -66,7 +66,7 @@ public class ParameterController implements Initializable {
     @FXML
     protected void onBotonIniciarClick() {
 
-        log.info("Arranque de la ventana de parámetros");
+        log.info("Arranque de la ventana del tablero de juego");
 
         model.commit();
         Stage stage = new Stage();
@@ -94,7 +94,7 @@ public class ParameterController implements Initializable {
             log.warn("Enviando un aviso");
             log.error("Enviando un error");
             log.fatal("Enviando una explosión fatal");
-            log.info("El arranque de la ventana de los parámetros ha sido completado.");
+            log.info("El arranque de la ventana del tablero de juego ha sido completado.");
 
         } catch (Exception e) {
             e.printStackTrace();

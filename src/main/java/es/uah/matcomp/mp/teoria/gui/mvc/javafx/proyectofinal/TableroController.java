@@ -16,6 +16,8 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.EventListener;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class TableroController {
     private Stage scene;
@@ -24,8 +26,12 @@ public class TableroController {
     private GridPane tableroDeJuego;
     private ParametrosModelo parametrosModelo = new ParametrosModelo(2, 2, 2 ,2 , 2, 2);
     private ParametrosModeloProperties parametrosModeloProperties = new ParametrosModeloProperties(parametrosModelo);
+    private static final Logger log = LogManager.getLogger(TableroController.class);
     @FXML
     protected void onCasillaVerDatos() {
+
+        log.info("Arranque de la ventana para ver los datos de la casilla");
+
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("elementos-casillas-view.fxml"));
         try {
@@ -36,6 +42,15 @@ public class TableroController {
 
             p.setStage(stage);
             stage.show();
+
+            log.info("Enviando traza de ejecución");
+            log.debug("Enviado un debug");
+            log.info("Enviando un info");
+            log.warn("Enviando un aviso");
+            log.error("Enviando un error");
+            log.fatal("Enviando una explosión fatal");
+            log.info("El arranque de la ventana para ver los datos de la casilla ha sido completado");
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -50,6 +65,9 @@ public class TableroController {
     }
     @FXML
     protected void guardarDatos() {
+
+        log.info("Se guardan los datos del modelo en un fichero JSON");
+
         ListaDoblementeEnlazada a = new ListaDoblementeEnlazada<>();
         ElementoLDE filas = new ElementoLDE<>(parametrosModeloProperties.original.getFilas());
         ElementoLDE columnas = new ElementoLDE<>(parametrosModeloProperties.original.getColumnas());
@@ -72,6 +90,9 @@ public class TableroController {
 
         guardarDatosPartida(rutaArchivo, datos);
 
+        log.info("Los datos se han guardado al fichero");
+        log.info("Arranque de la ventana para cerrar el programa");
+
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("pantalla-cerrar-tras-guardado.fxml"));
         try {
@@ -82,17 +103,37 @@ public class TableroController {
 
             p.setStage(stage);
             stage.show();
+
+            log.info("Enviando traza de ejecución");
+            log.debug("Enviado un debug");
+            log.info("Enviando un info");
+            log.warn("Enviando un aviso");
+            log.error("Enviando un error");
+            log.fatal("Enviando una explosión fatal");
+            log.info("El arranque de la ventana para el cerrado del programa se ha completado");
+
         } catch (Exception e) {
             e.printStackTrace();
         }
-        // hacer que despues de guardar los datos de la partida le salga un mensaje para cerrar el simulador
     }
 
 
     public static <T> void guardarDatosPartida(String rutaArchivo, T objeto) {
+
+        log.info("Proceso para guardar los datos del programa a un fichero");
+
         Gson gson = new Gson();
         try (FileWriter writer = new FileWriter(rutaArchivo)) {
             gson.toJson(objeto, writer);
+
+            log.info("Enviando traza de ejecución");
+            log.debug("Enviado un debug");
+            log.info("Enviando un info");
+            log.warn("Enviando un aviso");
+            log.error("Enviando un error");
+            log.fatal("Enviando una explosión fatal");
+            log.info("El proceso para guardar los datos del programa al fichero se ha realizado");
+
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -9,14 +9,19 @@ import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class HelloController implements Initializable {
 
     private ParametrosModelo parametrosData = new ParametrosModelo(0, 0, 0, 0, 0, 0);
     private ParametrosModeloProperties modeloGUIparametros = new ParametrosModeloProperties(parametrosData);
-
+    private static final Logger log = LogManager.getLogger(HelloController.class);
     @FXML
     protected void onMiBotonNuevaVentanaParametros() {
+
+        log.info("Arranque de la ventana de parámetros");
+
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("parametros-view.fxml"));
         try {
@@ -27,12 +32,24 @@ public class HelloController implements Initializable {
             p.CargarDatosUsuario(this.modeloGUIparametros);
             p.setStage(stage);
             stage.show();
+
+            log.info("Enviando traza de ejecución");
+            log.debug("Enviado un debug");
+            log.info("Enviando un info");
+            log.warn("Enviando un aviso");
+            log.error("Enviando un error");
+            log.fatal("Enviando una explosión fatal");
+            log.info("El arranque de la ventana de parámetros ha sido completado");
+
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
     @FXML
     protected void onMiBotonNuevaVentanaCargadoPartida() {
+
+        log.info("Arranque de la ventana de cargado de partidas");
+
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("carga-partida-view.fxml"));
         try {
@@ -42,6 +59,15 @@ public class HelloController implements Initializable {
             CargaPartidaController p = fxmlLoader.getController();
             p.setStage(stage);
             stage.show();
+
+            log.info("Enviando traza de ejecución");
+            log.debug("Enviado un debug");
+            log.info("Enviando un info");
+            log.warn("Enviando un aviso");
+            log.error("Enviando un error");
+            log.fatal("Enviando una explosión fatal");
+            log.info("El arranque de la ventana de cargado de partidas ha sido completado");
+
         } catch (Exception e) {
             e.printStackTrace();
         }
