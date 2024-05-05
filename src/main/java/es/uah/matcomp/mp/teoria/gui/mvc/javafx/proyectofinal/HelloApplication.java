@@ -22,7 +22,13 @@ public class HelloApplication extends Application {
         stage.setScene(scene);
         stage.show();
 
-        log.info("El arranque de lal menú ha sido completado.");
+        log.info("Enviando traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Enviando un info");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
+        log.info("El arranque del menú ha sido completado.");
     }
 
     public static void main(String[] args) {
