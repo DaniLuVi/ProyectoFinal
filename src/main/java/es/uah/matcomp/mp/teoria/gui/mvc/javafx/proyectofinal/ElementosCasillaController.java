@@ -24,8 +24,7 @@ public class ElementosCasillaController implements Initializable {
     @FXML
     private Label recurso3;
     public void onOk() {
-        ParameterController p = new ParameterController();
-        p.onBotonIniciarClick();
+        scene.close();
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

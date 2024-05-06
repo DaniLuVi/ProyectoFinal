@@ -36,7 +36,7 @@ public class TableroController {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("elementos-casillas-view.fxml"));
         try {
-            Scene scene = new Scene(fxmlLoader.load(), 500, 500);
+            Scene scene = new Scene(fxmlLoader.load(), 750, 500);
             stage.setTitle("Vista de los elementos de una casilla");
             stage.setScene(scene);
             ElementosCasillaController p = fxmlLoader.getController();
