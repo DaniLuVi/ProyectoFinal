@@ -26,6 +26,8 @@ public class ElementosCasillaController implements Initializable {
     public void onOk() {
         scene.close();
     }
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         System.out.println("Se ejecuta el controlador de los elementos de una casilla.");

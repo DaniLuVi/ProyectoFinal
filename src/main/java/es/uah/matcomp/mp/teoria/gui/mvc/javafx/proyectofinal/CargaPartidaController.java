@@ -1,6 +1,8 @@
 package es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal;
 
 import com.google.gson.Gson;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -86,6 +88,12 @@ public class CargaPartidaController implements Initializable {
         System.out.println("Se ejecuta el controlador para la carga de partida.");
         for (int i = 1; i <= num_partidas; i++) {
             MenuButton partida = new MenuButton("Partida guardada " + i);
+            partida.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent actionEvent) {
+                    onCargaPartida();
+                }
+            });
         }
     }
     public void setStage(Stage s) {
