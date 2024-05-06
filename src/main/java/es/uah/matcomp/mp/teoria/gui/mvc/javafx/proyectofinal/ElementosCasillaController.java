@@ -1,10 +1,15 @@
 package es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuButton;
 import javafx.stage.Stage;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -23,10 +28,38 @@ public class ElementosCasillaController implements Initializable {
     private Label recurso2;
     @FXML
     private Label recurso3;
+    @FXML
+    private MenuButton Individuo1;
+    @FXML
+    private MenuButton Individuo2;
+    @FXML
+    private MenuButton Individuo3;
+    @FXML
+    private MenuButton Recurso1;
+    @FXML
+    private MenuButton Recurso2;
+    @FXML
+    private MenuButton Recurso3;
+    protected StringProperty texto = new SimpleStringProperty("MenuButton");
+    private static final Logger log = LogManager.getLogger(ElementosCasillaController.class);
     public void onOk() {
-        scene.close();
-    }
 
+        log.info("Evento para cerrar la ventana de los elementos de una casilla");
+
+        scene.close();
+
+        log.info("La ventana de los elementos de una casilla se ha cerrado correctamente");
+
+    }
+    public void modificarTexto() {
+        texto.set("");
+        Individuo1.textProperty().bind(texto);
+        Individuo2.textProperty().bind(texto);
+        Individuo3.textProperty().bind(texto);
+        Recurso1.textProperty().bind(texto);
+        Recurso2.textProperty().bind(texto);
+        Recurso3.textProperty().bind(texto);
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -35,6 +68,8 @@ public class ElementosCasillaController implements Initializable {
     public void setStage(Stage s) {
         this.scene = s;
     }
-
+    protected String getTexto() {
+        return texto.toString();
+    }
 
 }
