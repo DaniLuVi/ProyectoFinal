@@ -1,5 +1,6 @@
 package es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal;
 
+import clases_a_utilizar_de_datos.Celda;
 import com.google.gson.Gson;
 import estructuras_de_datos_implementadas.listaDoblementeEnlazada.ElementoLDE;
 import estructuras_de_datos_implementadas.listaDoblementeEnlazada.ListaDoblementeEnlazada;
@@ -35,7 +36,7 @@ public class TableroController {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("elementos-casillas-view.fxml"));
         try {
-            Scene scene = new Scene(fxmlLoader.load(), 220, 220);
+            Scene scene = new Scene(fxmlLoader.load(), 500, 500);
             stage.setTitle("Vista de los elementos de una casilla");
             stage.setScene(scene);
             ElementosCasillaController p = fxmlLoader.getController();
@@ -144,14 +145,17 @@ public class TableroController {
         for (int i = 1; i <= k; i++) {
             for (int j = 1; j <= x; j++) {
                 Button casilla = new Button("Celda" + i + "," + j);
+                Celda celda = new Celda(i, j);
+                casilla.setOnAction(new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent actionEvent) {
+                        onCasillaVerDatos();
+                    }
+                });
+                casilla.setMinSize(300 * 2/ k, 400 / x);
+                casilla.setMaxSize(300 * 2/ k, 400 / x);
                 casilla.setStyle("-fx-border-color: black; -fx-text-alignment: center");
                 tableroDeJuego.add(casilla, i, j);
-                EventListener a = new EventListener() {
-                    @Override
-                    public int hashCode() {
-                        return super.hashCode();
-                    }
-                };
             }
         }
     }

@@ -6,6 +6,12 @@ import estructuras_de_datos_implementadas.listaSimple.ElementoLS;
 public class Celda extends ElementoLS<Celda> {
     private ListaDoblementeEnlazada<Individuo> listaIndividuos;
     private ListaDoblementeEnlazada<Entorno> listaEntornos;
+    private int filas;
+    private int columnas;
+    public Celda(int filas, int columnas) {
+        this.filas = filas;
+        this.columnas = columnas;
+    }
     public Celda() {
         this.listaIndividuos = new ListaDoblementeEnlazada<Individuo>();
         this.listaEntornos = new ListaDoblementeEnlazada<Entorno>();
