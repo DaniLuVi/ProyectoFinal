@@ -75,12 +75,12 @@ public class TableroController {
         log.info("Se guardan los datos del modelo en un fichero JSON");
 
         ListaDoblementeEnlazada a = new ListaDoblementeEnlazada<>();
-        ElementoLDE filas = new ElementoLDE<>(parametrosModeloProperties.original.getFilas());
-        ElementoLDE columnas = new ElementoLDE<>(parametrosModeloProperties.original.getColumnas());
-        ElementoLDE vidas = new ElementoLDE<>(parametrosModeloProperties.original.getVidas());
-        ElementoLDE reproduccion = new ElementoLDE<>(parametrosModeloProperties.original.getReproduccion());
-        ElementoLDE clonado = new ElementoLDE<>(parametrosModeloProperties.original.getClonado());
-        ElementoLDE v = new ElementoLDE<>(parametrosModeloProperties.original.getV());
+        ElementoLDE<Integer> filas = new ElementoLDE<>(parametrosModeloProperties.original.getFilas());
+        ElementoLDE<Integer> columnas = new ElementoLDE<>(parametrosModeloProperties.original.getColumnas());
+        ElementoLDE<Integer> vidas = new ElementoLDE<>(parametrosModeloProperties.original.getVidas());
+        ElementoLDE<Integer> reproduccion = new ElementoLDE<>(parametrosModeloProperties.original.getReproduccion());
+        ElementoLDE<Integer> clonado = new ElementoLDE<>(parametrosModeloProperties.original.getClonado());
+        ElementoLDE<Integer> v = new ElementoLDE<>(parametrosModeloProperties.original.getV());
         a.add(filas);
         a.add(columnas);
         a.add(vidas);
@@ -88,9 +88,9 @@ public class TableroController {
         a.add(clonado);
         a.add(v);
 
-        ParameterController parameterController = new ParameterController(a);
+        ParametrosModelo parameterController = new ParametrosModelo(filas.getDato(), columnas.getDato(), vidas.getDato(), reproduccion.getDato(), clonado.getDato(), v.getDato());
 
-        ParameterController datos = parameterController;
+        ParametrosModelo datos = parameterController;
 
         String rutaArchivo = "DatosCargaPartida.json";
 

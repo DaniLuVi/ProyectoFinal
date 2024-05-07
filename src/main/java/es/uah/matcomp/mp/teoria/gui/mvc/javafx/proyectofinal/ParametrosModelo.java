@@ -9,14 +9,14 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class ParametrosModelo {
-    private int filas;
-    private int columnas;
-    private int vidas;
-    private int reproduccion;
-    private int clonado;
-    private int V;
-    private Individuo individuo;
-    private Entorno entorno;
+    public int filas;
+    public int columnas;
+
+    public int vidas;
+    public int reproduccion;
+    public int clonado;
+    public int V;
+
 
     public ParametrosModelo(int filas, int columnas, int vidas, int reproduccion, int clonado, int V) {
         this.filas = filas;
@@ -75,13 +75,13 @@ public class ParametrosModelo {
         V = v;
     }
 
-    public Individuo getIndividuo() {
+    public Individuo getIndividuo(Individuo individuo) {
         individuo.setVidas(vidas);
         individuo.setReproduccion(reproduccion);
         individuo.setClonacion(clonado);
         return individuo;
     }
-    public Entorno getEntorno() {
+    public Entorno getEntorno(Entorno entorno) {
         entorno.setV(V);
         return entorno;
     }
