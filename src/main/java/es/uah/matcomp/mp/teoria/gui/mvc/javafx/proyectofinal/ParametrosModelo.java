@@ -75,5 +75,14 @@ public class ParametrosModelo {
         V = v;
     }
 
-
+    public Individuo getIndividuo() {
+        individuo.setVidas(vidas);
+        individuo.setReproduccion(reproduccion);
+        individuo.setClonacion(clonado);
+        return individuo;
+    }
+    public Entorno getEntorno() {
+        entorno.setV(V);
+        return entorno;
+    }
 }
