@@ -110,9 +110,9 @@
                <children>
                   <MenuButton fx:id="Individuo1" mnemonicParsing="false" onAction="#modificarTextoIndividuos" text="MenuButton">
                     <items>
-                      <MenuItem mnemonicParsing="false" text="Básico" />
-                      <MenuItem mnemonicParsing="false" text="Normal" />
-                        <MenuItem mnemonicParsing="false" text="Avanzado" />
+                      <MenuItem fx:id="Básico" mnemonicParsing="false" text="Básico" />
+                      <MenuItem fx:id="Normal" mnemonicParsing="false" text="Normal" />
+                        <MenuItem fx:id="Avanzado" mnemonicParsing="false" text="Avanzado" />
                     </items>
                      <VBox.margin>
                         <Insets bottom="65.0" />

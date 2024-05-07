@@ -49,6 +49,18 @@ public class ElementosCasillaController implements Initializable {
     private MenuItem Normal;
     @FXML
     private MenuItem Avanzado;
+    @FXML
+    private MenuItem Agua;
+    @FXML
+    private MenuItem Comida;
+    @FXML
+    private MenuItem Montaña;
+    @FXML
+    private MenuItem Biblioteca;
+    @FXML
+    private MenuItem Tesoro;
+    @FXML
+    private MenuItem Pozo;
     protected StringProperty texto = new SimpleStringProperty("MenuButton");
     private static final Logger log = LogManager.getLogger(ElementosCasillaController.class);
     public void onOk() {
@@ -80,6 +92,44 @@ public class ElementosCasillaController implements Initializable {
             }
         });
         this.updateTextoMenu();
+    }
+    public void modificarTextoEntornos() {
+        Agua.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                Recurso1.setText("Agua");
+            }
+        });
+        Comida.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                Recurso1.setText("Comida");
+            }
+        });
+        Montaña.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                Recurso1.setText("Montaña");
+            }
+        });
+        Biblioteca.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                Recurso1.setText("Biblioteca");
+            }
+        });
+        Tesoro.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                Recurso1.setText("Tesoro");
+            }
+        });
+        Pozo.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                Recurso1.setText("Pozo");
+            }
+        });
     }
 
     @Override
