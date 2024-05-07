@@ -149,7 +149,7 @@ public class TableroController {
         log.info("Se ejecuta el controlador del tablero.\n");
         for (int i = 1; i <= k; i++) {
             for (int j = 1; j <= x; j++) {
-                Button casilla = new Button("Celda" + i + "," + j);
+                Button casilla = new Button();
                 Celda celda = new Celda(i, j);
                 casilla.setOnAction(new EventHandler<ActionEvent>() {
                     @Override

@@ -52,13 +52,7 @@ public class ElementosCasillaController implements Initializable {
 
     }
     public void modificarTexto() {
-        texto.set("");
-        Individuo1.textProperty().bind(texto);
-        Individuo2.textProperty().bind(texto);
-        Individuo3.textProperty().bind(texto);
-        Recurso1.textProperty().bind(texto);
-        Recurso2.textProperty().bind(texto);
-        Recurso3.textProperty().bind(texto);
+
     }
 
     @Override
