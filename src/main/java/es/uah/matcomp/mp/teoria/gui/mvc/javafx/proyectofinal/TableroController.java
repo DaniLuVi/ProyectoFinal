@@ -1,6 +1,7 @@
 package es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal;
 
 import clases_a_utilizar_de_datos.Celda;
+import clases_a_utilizar_de_datos.Individuo;
 import com.google.gson.Gson;
 import estructuras_de_datos_implementadas.listaDoblementeEnlazada.ElementoLDE;
 import estructuras_de_datos_implementadas.listaDoblementeEnlazada.ListaDoblementeEnlazada;
@@ -25,7 +26,7 @@ public class TableroController {
     private ParameterController model = new ParameterController();
     @FXML
     private GridPane tableroDeJuego;
-    private ParametrosModelo parametrosModelo = new ParametrosModelo(2, 2, 2 ,2 , 2, 2);
+    private ParametrosModelo parametrosModelo = new ParametrosModelo(2, 2, new Individuo(01, 0, 0, 0, 0));
     private ParametrosModeloProperties parametrosModeloProperties = new ParametrosModeloProperties(parametrosModelo);
     private static final Logger log = LogManager.getLogger(TableroController.class);
     @FXML
@@ -74,7 +75,7 @@ public class TableroController {
         ElementoLDE columnas = new ElementoLDE<>(parametrosModeloProperties.original.getColumnas());
         ElementoLDE vidas = new ElementoLDE<>(parametrosModeloProperties.original.getVidas());
         ElementoLDE reproduccion = new ElementoLDE<>(parametrosModeloProperties.original.getReproduccion());
-        ElementoLDE clonado = new ElementoLDE<>(parametrosModeloProperties.original.getClonado());
+        ElementoLDE clonado = new ElementoLDE<>(parametrosModeloProperties.original.getClonacion());
         ElementoLDE v = new ElementoLDE<>(parametrosModeloProperties.original.getV());
         a.add(filas);
         a.add(columnas);

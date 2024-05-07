@@ -1,6 +1,7 @@
 package es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal;
 
 
+import clases_a_utilizar_de_datos.Individuo;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -14,7 +15,7 @@ import org.apache.logging.log4j.Logger;
 
 public class HelloController implements Initializable {
 
-    private ParametrosModelo parametrosData = new ParametrosModelo(0, 0, 0, 0, 0, 0);
+    private ParametrosModelo parametrosData = new ParametrosModelo(0, 0, new Individuo(01, 0, 0, 0, 0));
     private ParametrosModeloProperties modeloGUIparametros = new ParametrosModeloProperties(parametrosData);
     private static final Logger log = LogManager.getLogger(HelloController.class);
     @FXML

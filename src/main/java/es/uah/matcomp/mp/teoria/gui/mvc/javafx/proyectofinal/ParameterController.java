@@ -1,5 +1,6 @@
 package es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal;
 
+import clases_a_utilizar_de_datos.Individuo;
 import estructuras_de_datos_implementadas.listaDoblementeEnlazada.ListaDoblementeEnlazada;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.Property;
@@ -53,7 +54,7 @@ public class ParameterController implements Initializable {
     protected IntegerProperty valorReproduccion = new SimpleIntegerProperty(0);
     protected IntegerProperty valorClonado = new SimpleIntegerProperty(0);
     protected IntegerProperty valorV = new SimpleIntegerProperty(0);
-    private ParametrosModelo parametrosModelo = new ParametrosModelo(0, 0, 0, 0, 0, 0);
+    private ParametrosModelo parametrosModelo = new ParametrosModelo(0, 0, new Individuo(01, 0, 0, 0, 0));
     private ParametrosModeloProperties parametrosModeloProperties = new ParametrosModeloProperties(parametrosModelo);
 
     public ParameterController() {

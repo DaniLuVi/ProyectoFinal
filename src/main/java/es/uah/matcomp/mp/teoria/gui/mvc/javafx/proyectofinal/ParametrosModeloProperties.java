@@ -21,7 +21,7 @@ public class ParametrosModeloProperties {
         original.setColumnas(columnas.get());
         original.setVidas(vidas.get());
         original.setReproduccion(reproduccion.get());
-        original.setClonado(clonado.get());
+        original.setClonacion(clonado.get());
         original.setV(V.get());
     }
     public void rollback() {
@@ -29,7 +29,7 @@ public class ParametrosModeloProperties {
         columnas.set(original.getColumnas());
         vidas.set(original.getVidas());
         reproduccion.set(original.getReproduccion());
-        clonado.set(original.getClonado());
+        clonado.set(original.getClonacion());
         V.set(original.getV());
     }
 

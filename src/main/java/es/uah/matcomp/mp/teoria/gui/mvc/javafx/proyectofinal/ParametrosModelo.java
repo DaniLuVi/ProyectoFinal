@@ -1,5 +1,6 @@
 package es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal;
 
+import clases_a_utilizar_de_datos.Entorno;
 import clases_a_utilizar_de_datos.Individuo;
 import com.google.gson.Gson;
 
@@ -7,7 +8,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class ParametrosModelo {
+public class ParametrosModelo extends Individuo {
     private int filas;
     private int columnas;
     private int vidas;
@@ -16,14 +17,11 @@ public class ParametrosModelo {
     private int V;
     private Individuo individuo;
 
-    public ParametrosModelo(int filas, int columnas, int vidas, int reproduccion, int clonado, int V) {
+    public ParametrosModelo(int filas, int columnas, Individuo individuo) {
+        super(individuo.getId(), individuo.getGeneracion(), individuo.getVidas(), individuo.getReproduccion(), individuo.getClonacion());
         this.filas = filas;
         this.columnas = columnas;
-        this.vidas = vidas;
-        this.reproduccion = reproduccion;
-        this.clonado = clonado;
-        this.V = V;
-    }
+    }  // como hago esto para que me funcione bien
 
     public int getFilas() {
         return filas;
@@ -39,30 +37,6 @@ public class ParametrosModelo {
 
     public void setColumnas(int columnas) {
         this.columnas = columnas;
-    }
-
-    public int getVidas() {
-        return vidas;
-    }
-
-    public void setVidas(int vidas) {
-        this.vidas = vidas;
-    }
-
-    public int getReproduccion() {
-        return reproduccion;
-    }
-
-    public void setReproduccion(int reproduccion) {
-        this.reproduccion = reproduccion;
-    }
-
-    public int getClonado() {
-        return clonado;
-    }
-
-    public void setClonado(int clonado) {
-        this.clonado = clonado;
     }
 
     public int getV() {
