@@ -63,7 +63,7 @@ public class ElementosCasillaController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println("Se ejecuta el controlador de los elementos de una casilla.");
+        log.info("Se ejecuta el controlador de los elementos de una casilla.");
     }
     public void setStage(Stage s) {
         this.scene = s;

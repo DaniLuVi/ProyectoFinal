@@ -115,10 +115,21 @@ public class ParameterController implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println("Se ejecuta el controlador de parámetros.\n");
+
+        log.info("Se ejecuta el controlador de la ventana de los parámetros.\n");
+
         if (model != null) {
             this.updateGUIwithModel();
         }
+
+        log.info("Enviando traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Enviando un info");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
+        log.info("El controlador de la ventana de parámetros se ha ejecutado correctamente");
+
     }
     protected void updateGUIwithModel() {
         sliderFilas.valueProperty().bindBidirectional(valorFilas);

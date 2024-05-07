@@ -75,6 +75,8 @@ public class HelloController implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println("Inicio de la ejecución del controlador\n");
+
+        log.info("Inicio de la ejecución del controlador de la ventana de inicio\n");
+
     }
 }

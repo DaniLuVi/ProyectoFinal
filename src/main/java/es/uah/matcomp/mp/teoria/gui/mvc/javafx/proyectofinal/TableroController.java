@@ -146,7 +146,7 @@ public class TableroController {
     }
 
     public void initialize(int k, int x) {
-        System.out.println("Se ejecuta el controlador del tablero.\n");
+        log.info("Se ejecuta el controlador del tablero.\n");
         for (int i = 1; i <= k; i++) {
             for (int j = 1; j <= x; j++) {
                 Button casilla = new Button("Celda" + i + "," + j);
@@ -163,6 +163,15 @@ public class TableroController {
                 tableroDeJuego.add(casilla, i, j);
             }
         }
+
+        log.info("Enviando traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Enviando un info");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
+        log.info("El controlador de la ventana del tablero de juego se ha ejecutado correctamente");
+
     }
     public void CargaDatosUsuario(ParametrosModeloProperties parametrosData) {
         this.parametrosModeloProperties = parametrosData;

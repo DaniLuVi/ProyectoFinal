@@ -29,6 +29,7 @@ public class HelloApplication extends Application {
         log.error("Enviando un error");
         log.fatal("Enviando una explosión fatal");
         log.info("El arranque del menú ha sido completado.");
+
     }
 
     public static void main(String[] args) {

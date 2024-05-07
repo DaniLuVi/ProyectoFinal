@@ -83,7 +83,9 @@ public class CargaPartidaController implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println("Se ejecuta el controlador para la carga de partida.");
+
+        log.info("Se ejecuta el controlador para la carga de partida.");
+
         for (int i = 1; i <= num_partidas; i++) {
             MenuButton partida = new MenuButton("Partida guardada " + i);
             partida.setOnAction(new EventHandler<ActionEvent>() {
@@ -93,6 +95,15 @@ public class CargaPartidaController implements Initializable {
                 }
             });
         }
+
+        log.info("Enviando traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Enviando un info");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
+        log.info("El controlador para la ventana de carga de partida se ha ejecutado correctamente");
+
     }
     public void setStage(Stage s) {
         this.scene = s;
