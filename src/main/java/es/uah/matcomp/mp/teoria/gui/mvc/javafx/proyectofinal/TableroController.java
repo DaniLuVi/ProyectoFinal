@@ -57,6 +57,10 @@ public class TableroController {
             e.printStackTrace();
         }
     }
+
+    private void BucleDeControl() {
+
+    }
     @FXML
     protected void play() {
 
@@ -66,7 +70,7 @@ public class TableroController {
 
     }
     @FXML
-    protected void guardarDatos() {
+    protected void guardarDatos() {      // hacer de una manera que sea facil cargar despues
 
         log.info("Se guardan los datos del modelo en un fichero JSON");
 

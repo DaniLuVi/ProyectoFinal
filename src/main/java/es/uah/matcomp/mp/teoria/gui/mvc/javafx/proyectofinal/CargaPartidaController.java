@@ -43,9 +43,7 @@ public class CargaPartidaController implements Initializable {
             stage.setScene(scene);
             TableroController p = fxmlLoader.getController();
 
-            String rutaArchivo = "DatosCargaPartida.json";
 
-            TableroController tableroController = cargarObjetoDesdeArchivo(rutaArchivo, TableroController.class);
             p.setStage(stage);
             stage.show();
 

@@ -193,3 +193,27 @@
 2024-05-07 17:26:27.104 - ERROR - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.CargaPartidaController - Enviando un error
 2024-05-07 17:26:27.104 - FATAL - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.CargaPartidaController - Enviando una explosión fatal
 2024-05-07 17:26:27.104 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.CargaPartidaController - El arranque de la ventana del tablero de juego ha sido completado.
+2024-05-07 17:30:39.858 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloApplication - Arranque de inicio de la aplicación con su ventana principal(menú) de inicio.
+2024-05-07 17:30:40.140 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloApplication - Enviando traza de ejecución
+2024-05-07 17:30:40.140 - DEBUG - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloApplication - Enviado un debug
+2024-05-07 17:30:40.141 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloApplication - Enviando un info
+2024-05-07 17:30:40.141 - WARN  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloApplication - Enviando un aviso
+2024-05-07 17:30:40.141 - ERROR - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloApplication - Enviando un error
+2024-05-07 17:30:40.141 - FATAL - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloApplication - Enviando una explosión fatal
+2024-05-07 17:30:40.141 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloApplication - El arranque del menú ha sido completado.
+2024-05-07 17:30:41.144 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloController - Arranque de la ventana de cargado de partidas
+2024-05-07 17:30:41.185 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloController - Enviando traza de ejecución
+2024-05-07 17:30:41.185 - DEBUG - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloController - Enviado un debug
+2024-05-07 17:30:41.185 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloController - Enviando un info
+2024-05-07 17:30:41.185 - WARN  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloController - Enviando un aviso
+2024-05-07 17:30:41.185 - ERROR - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloController - Enviando un error
+2024-05-07 17:30:41.185 - FATAL - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloController - Enviando una explosión fatal
+2024-05-07 17:30:41.185 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloController - El arranque de la ventana de cargado de partidas ha sido completado
+2024-05-07 17:30:42.269 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.CargaPartidaController - Arranque de la ventana del tablero de juego
+2024-05-07 17:30:42.307 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.CargaPartidaController - Enviando traza de ejecución
+2024-05-07 17:30:42.307 - DEBUG - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.CargaPartidaController - Enviado un debug
+2024-05-07 17:30:42.308 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.CargaPartidaController - Enviando un info
+2024-05-07 17:30:42.308 - WARN  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.CargaPartidaController - Enviando un aviso
+2024-05-07 17:30:42.308 - ERROR - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.CargaPartidaController - Enviando un error
+2024-05-07 17:30:42.308 - FATAL - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.CargaPartidaController - Enviando una explosión fatal
+2024-05-07 17:30:42.308 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.CargaPartidaController - El arranque de la ventana del tablero de juego ha sido completado.
