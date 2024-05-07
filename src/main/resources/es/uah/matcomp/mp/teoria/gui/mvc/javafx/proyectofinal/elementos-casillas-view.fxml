@@ -47,7 +47,7 @@
                   <Insets left="10.0" right="10.0" />
                </HBox.margin>
                <children>
-                  <MenuButton mnemonicParsing="false" onAction="#modificarTexto" text="MenuButton">
+                  <MenuButton fx:id="Recurso1" mnemonicParsing="false" text="MenuButton">
                     <items>
                       <MenuItem mnemonicParsing="false" text="Agua" />
                       <MenuItem mnemonicParsing="false" text="Comida" />
@@ -60,7 +60,7 @@
                         <Insets bottom="65.0" />
                      </VBox.margin>
                   </MenuButton>
-                  <MenuButton mnemonicParsing="false" onAction="#modificarTexto" text="MenuButton">
+                  <MenuButton fx:id="Recurso2" mnemonicParsing="false" text="MenuButton">
                     <items>
                       <MenuItem mnemonicParsing="false" text="Agua" />
                       <MenuItem mnemonicParsing="false" text="Comida" />
@@ -73,7 +73,7 @@
                         <Insets bottom="65.0" />
                      </VBox.margin>
                   </MenuButton>
-                  <MenuButton mnemonicParsing="false" onAction="#modificarTexto" text="MenuButton">
+                  <MenuButton fx:id="Recurso3" mnemonicParsing="false" text="MenuButton">
                     <items>
                       <MenuItem mnemonicParsing="false" text="Agua" />
                       <MenuItem mnemonicParsing="false" text="Comida" />
@@ -108,7 +108,7 @@
                   <Insets left="10.0" right="10.0" />
                </HBox.margin>
                <children>
-                  <MenuButton mnemonicParsing="false" onAction="#modificarTexto" text="MenuButton">
+                  <MenuButton fx:id="Individuo1" mnemonicParsing="false" onAction="#modificarTextoIndividuos" text="MenuButton">
                     <items>
                       <MenuItem mnemonicParsing="false" text="Básico" />
                       <MenuItem mnemonicParsing="false" text="Normal" />
@@ -118,7 +118,7 @@
                         <Insets bottom="65.0" />
                      </VBox.margin>
                   </MenuButton>
-                  <MenuButton mnemonicParsing="false" onAction="#modificarTexto" text="MenuButton">
+                  <MenuButton fx:id="Individuo2" mnemonicParsing="false" onAction="#modificarTextoIndividuos" text="MenuButton">
                     <items>
                       <MenuItem mnemonicParsing="false" text="Básico" />
                       <MenuItem mnemonicParsing="false" text="Normal" />
@@ -128,7 +128,7 @@
                         <Insets bottom="65.0" />
                      </VBox.margin>
                   </MenuButton>
-                  <MenuButton mnemonicParsing="false" onAction="#modificarTexto" text="MenuButton">
+                  <MenuButton fx:id="Individuo3" mnemonicParsing="false" onAction="#modificarTextoIndividuos" text="MenuButton">
                     <items>
                       <MenuItem mnemonicParsing="false" text="Básico" />
                       <MenuItem mnemonicParsing="false" text="Normal" />

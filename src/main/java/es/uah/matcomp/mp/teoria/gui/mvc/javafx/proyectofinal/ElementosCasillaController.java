@@ -79,12 +79,22 @@ public class ElementosCasillaController implements Initializable {
                 Individuo1.setText("Avanzado");
             }
         });
-
+        this.updateTextoMenu();
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         log.info("Se ejecuta el controlador de los elementos de una casilla.");
+        this.updateTextoMenu();
+    }
+
+    protected void updateTextoMenu() {
+        Individuo1.textProperty().bind(texto);
+        Individuo2.textProperty().bind(texto);
+        Individuo3.textProperty().bind(texto);
+        Recurso1.textProperty().bind(texto);
+        Recurso2.textProperty().bind(texto);
+        Recurso3.textProperty().bind(texto);
     }
     public void setStage(Stage s) {
         this.scene = s;
