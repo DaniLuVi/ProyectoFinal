@@ -2,11 +2,14 @@ package es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -40,6 +43,12 @@ public class ElementosCasillaController implements Initializable {
     private MenuButton Recurso2;
     @FXML
     private MenuButton Recurso3;
+    @FXML
+    private MenuItem Básico;
+    @FXML
+    private MenuItem Normal;
+    @FXML
+    private MenuItem Avanzado;
     protected StringProperty texto = new SimpleStringProperty("MenuButton");
     private static final Logger log = LogManager.getLogger(ElementosCasillaController.class);
     public void onOk() {
@@ -51,7 +60,25 @@ public class ElementosCasillaController implements Initializable {
         log.info("La ventana de los elementos de una casilla se ha cerrado correctamente");
 
     }
-    public void modificarTexto() {
+    public void modificarTextoIndividuos() {
+        Básico.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                Individuo1.setText("Básico");
+            }
+        });
+        Normal.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                Individuo1.setText("Normal");
+            }
+        });
+        Avanzado.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                Individuo1.setText("Avanzado");
+            }
+        });
 
     }
 
