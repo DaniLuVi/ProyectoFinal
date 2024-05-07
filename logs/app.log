@@ -307,3 +307,135 @@
 2024-05-07 18:21:17.427 - ERROR - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloController - Enviando un error
 2024-05-07 18:21:17.427 - FATAL - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloController - Enviando una explosión fatal
 2024-05-07 18:21:17.427 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloController - El arranque de la ventana de parámetros ha sido completado
+2024-05-07 18:22:20.108 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloApplication - Arranque de inicio de la aplicación con su ventana principal(menú) de inicio.
+2024-05-07 18:22:29.076 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloApplication - Arranque de inicio de la aplicación con su ventana principal(menú) de inicio.
+2024-05-07 18:22:45.237 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloApplication - Arranque de inicio de la aplicación con su ventana principal(menú) de inicio.
+2024-05-07 18:22:45.532 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloApplication - Enviando traza de ejecución
+2024-05-07 18:22:45.532 - DEBUG - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloApplication - Enviado un debug
+2024-05-07 18:22:45.532 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloApplication - Enviando un info
+2024-05-07 18:22:45.532 - WARN  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloApplication - Enviando un aviso
+2024-05-07 18:22:45.533 - ERROR - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloApplication - Enviando un error
+2024-05-07 18:22:45.533 - FATAL - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloApplication - Enviando una explosión fatal
+2024-05-07 18:22:45.533 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloApplication - El arranque del menú ha sido completado.
+2024-05-07 18:22:55.615 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloController - Arranque de la ventana de parámetros
+2024-05-07 18:22:55.729 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloController - Enviando traza de ejecución
+2024-05-07 18:22:55.729 - DEBUG - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloController - Enviado un debug
+2024-05-07 18:22:55.730 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloController - Enviando un info
+2024-05-07 18:22:55.730 - WARN  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloController - Enviando un aviso
+2024-05-07 18:22:55.730 - ERROR - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloController - Enviando un error
+2024-05-07 18:22:55.730 - FATAL - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloController - Enviando una explosión fatal
+2024-05-07 18:22:55.730 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloController - El arranque de la ventana de parámetros ha sido completado
+2024-05-07 18:23:00.589 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.ParameterController - Arranque de la ventana del tablero de juego
+2024-05-07 18:23:00.706 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.ParameterController - Enviando traza de ejecución
+2024-05-07 18:23:00.707 - DEBUG - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.ParameterController - Enviado un debug
+2024-05-07 18:23:00.707 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.ParameterController - Enviando un info
+2024-05-07 18:23:00.707 - WARN  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.ParameterController - Enviando un aviso
+2024-05-07 18:23:00.707 - ERROR - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.ParameterController - Enviando un error
+2024-05-07 18:23:00.707 - FATAL - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.ParameterController - Enviando una explosión fatal
+2024-05-07 18:23:00.707 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.ParameterController - El arranque de la ventana del tablero de juego ha sido completado.
+2024-05-07 18:23:01.491 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.TableroController - Arranque de la ventana para ver los datos de la casilla
+2024-05-07 18:23:01.534 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.TableroController - Enviando traza de ejecución
+2024-05-07 18:23:01.534 - DEBUG - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.TableroController - Enviado un debug
+2024-05-07 18:23:01.534 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.TableroController - Enviando un info
+2024-05-07 18:23:01.535 - WARN  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.TableroController - Enviando un aviso
+2024-05-07 18:23:01.535 - ERROR - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.TableroController - Enviando un error
+2024-05-07 18:23:01.535 - FATAL - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.TableroController - Enviando una explosión fatal
+2024-05-07 18:23:01.535 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.TableroController - El arranque de la ventana para ver los datos de la casilla ha sido completado
+2024-05-07 18:23:57.127 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloApplication - Arranque de inicio de la aplicación con su ventana principal(menú) de inicio.
+2024-05-07 18:23:57.432 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloApplication - Enviando traza de ejecución
+2024-05-07 18:23:57.432 - DEBUG - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloApplication - Enviado un debug
+2024-05-07 18:23:57.432 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloApplication - Enviando un info
+2024-05-07 18:23:57.432 - WARN  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloApplication - Enviando un aviso
+2024-05-07 18:23:57.432 - ERROR - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloApplication - Enviando un error
+2024-05-07 18:23:57.432 - FATAL - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloApplication - Enviando una explosión fatal
+2024-05-07 18:23:57.432 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloApplication - El arranque del menú ha sido completado.
+2024-05-07 18:23:58.196 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloController - Arranque de la ventana de parámetros
+2024-05-07 18:23:58.306 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloController - Enviando traza de ejecución
+2024-05-07 18:23:58.306 - DEBUG - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloController - Enviado un debug
+2024-05-07 18:23:58.306 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloController - Enviando un info
+2024-05-07 18:23:58.306 - WARN  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloController - Enviando un aviso
+2024-05-07 18:23:58.306 - ERROR - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloController - Enviando un error
+2024-05-07 18:23:58.306 - FATAL - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloController - Enviando una explosión fatal
+2024-05-07 18:23:58.306 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloController - El arranque de la ventana de parámetros ha sido completado
+2024-05-07 18:24:03.052 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.ParameterController - Arranque de la ventana del tablero de juego
+2024-05-07 18:24:03.121 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.ParameterController - Enviando traza de ejecución
+2024-05-07 18:24:03.121 - DEBUG - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.ParameterController - Enviado un debug
+2024-05-07 18:24:03.121 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.ParameterController - Enviando un info
+2024-05-07 18:24:03.121 - WARN  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.ParameterController - Enviando un aviso
+2024-05-07 18:24:03.122 - ERROR - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.ParameterController - Enviando un error
+2024-05-07 18:24:03.122 - FATAL - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.ParameterController - Enviando una explosión fatal
+2024-05-07 18:24:03.122 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.ParameterController - El arranque de la ventana del tablero de juego ha sido completado.
+2024-05-07 18:24:04.039 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.TableroController - Arranque de la ventana para ver los datos de la casilla
+2024-05-07 18:24:04.124 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.TableroController - Enviando traza de ejecución
+2024-05-07 18:24:04.124 - DEBUG - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.TableroController - Enviado un debug
+2024-05-07 18:24:04.124 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.TableroController - Enviando un info
+2024-05-07 18:24:04.124 - WARN  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.TableroController - Enviando un aviso
+2024-05-07 18:24:04.124 - ERROR - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.TableroController - Enviando un error
+2024-05-07 18:24:04.124 - FATAL - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.TableroController - Enviando una explosión fatal
+2024-05-07 18:24:04.124 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.TableroController - El arranque de la ventana para ver los datos de la casilla ha sido completado
+2024-05-07 18:24:14.259 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.ElementosCasillaController - Evento para cerrar la ventana de los elementos de una casilla
+2024-05-07 18:24:14.264 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.ElementosCasillaController - La ventana de los elementos de una casilla se ha cerrado correctamente
+2024-05-07 18:24:47.283 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloApplication - Arranque de inicio de la aplicación con su ventana principal(menú) de inicio.
+2024-05-07 18:24:47.576 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloApplication - Enviando traza de ejecución
+2024-05-07 18:24:47.576 - DEBUG - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloApplication - Enviado un debug
+2024-05-07 18:24:47.576 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloApplication - Enviando un info
+2024-05-07 18:24:47.576 - WARN  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloApplication - Enviando un aviso
+2024-05-07 18:24:47.576 - ERROR - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloApplication - Enviando un error
+2024-05-07 18:24:47.576 - FATAL - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloApplication - Enviando una explosión fatal
+2024-05-07 18:24:47.577 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloApplication - El arranque del menú ha sido completado.
+2024-05-07 18:24:48.641 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloController - Arranque de la ventana de parámetros
+2024-05-07 18:24:48.750 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloController - Enviando traza de ejecución
+2024-05-07 18:24:48.750 - DEBUG - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloController - Enviado un debug
+2024-05-07 18:24:48.750 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloController - Enviando un info
+2024-05-07 18:24:48.750 - WARN  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloController - Enviando un aviso
+2024-05-07 18:24:48.750 - ERROR - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloController - Enviando un error
+2024-05-07 18:24:48.750 - FATAL - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloController - Enviando una explosión fatal
+2024-05-07 18:24:48.751 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.HelloController - El arranque de la ventana de parámetros ha sido completado
+2024-05-07 18:24:51.676 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.ParameterController - Arranque de la ventana del tablero de juego
+2024-05-07 18:24:51.748 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.ParameterController - Enviando traza de ejecución
+2024-05-07 18:24:51.748 - DEBUG - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.ParameterController - Enviado un debug
+2024-05-07 18:24:51.748 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.ParameterController - Enviando un info
+2024-05-07 18:24:51.748 - WARN  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.ParameterController - Enviando un aviso
+2024-05-07 18:24:51.748 - ERROR - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.ParameterController - Enviando un error
+2024-05-07 18:24:51.748 - FATAL - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.ParameterController - Enviando una explosión fatal
+2024-05-07 18:24:51.748 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.ParameterController - El arranque de la ventana del tablero de juego ha sido completado.
+2024-05-07 18:24:52.594 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.TableroController - Arranque de la ventana para ver los datos de la casilla
+2024-05-07 18:24:52.648 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.TableroController - Enviando traza de ejecución
+2024-05-07 18:24:52.648 - DEBUG - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.TableroController - Enviado un debug
+2024-05-07 18:24:52.648 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.TableroController - Enviando un info
+2024-05-07 18:24:52.648 - WARN  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.TableroController - Enviando un aviso
+2024-05-07 18:24:52.648 - ERROR - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.TableroController - Enviando un error
+2024-05-07 18:24:52.649 - FATAL - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.TableroController - Enviando una explosión fatal
+2024-05-07 18:24:52.649 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.TableroController - El arranque de la ventana para ver los datos de la casilla ha sido completado
+2024-05-07 18:24:54.438 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.ElementosCasillaController - Evento para cerrar la ventana de los elementos de una casilla
+2024-05-07 18:24:54.443 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.ElementosCasillaController - La ventana de los elementos de una casilla se ha cerrado correctamente
+2024-05-07 18:24:58.914 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.TableroController - Arranque de la ventana para ver los datos de la casilla
+2024-05-07 18:24:58.947 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.TableroController - Enviando traza de ejecución
+2024-05-07 18:24:58.948 - DEBUG - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.TableroController - Enviado un debug
+2024-05-07 18:24:58.948 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.TableroController - Enviando un info
+2024-05-07 18:24:58.948 - WARN  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.TableroController - Enviando un aviso
+2024-05-07 18:24:58.948 - ERROR - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.TableroController - Enviando un error
+2024-05-07 18:24:58.948 - FATAL - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.TableroController - Enviando una explosión fatal
+2024-05-07 18:24:58.948 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.TableroController - El arranque de la ventana para ver los datos de la casilla ha sido completado
+2024-05-07 18:24:59.847 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.ElementosCasillaController - Evento para cerrar la ventana de los elementos de una casilla
+2024-05-07 18:24:59.850 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.ElementosCasillaController - La ventana de los elementos de una casilla se ha cerrado correctamente
+2024-05-07 18:25:00.323 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.TableroController - Arranque de la ventana para ver los datos de la casilla
+2024-05-07 18:25:00.351 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.TableroController - Enviando traza de ejecución
+2024-05-07 18:25:00.351 - DEBUG - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.TableroController - Enviado un debug
+2024-05-07 18:25:00.351 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.TableroController - Enviando un info
+2024-05-07 18:25:00.351 - WARN  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.TableroController - Enviando un aviso
+2024-05-07 18:25:00.351 - ERROR - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.TableroController - Enviando un error
+2024-05-07 18:25:00.351 - FATAL - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.TableroController - Enviando una explosión fatal
+2024-05-07 18:25:00.351 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.TableroController - El arranque de la ventana para ver los datos de la casilla ha sido completado
+2024-05-07 18:25:00.951 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.ElementosCasillaController - Evento para cerrar la ventana de los elementos de una casilla
+2024-05-07 18:25:00.956 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.ElementosCasillaController - La ventana de los elementos de una casilla se ha cerrado correctamente
+2024-05-07 18:25:01.578 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.TableroController - Arranque de la ventana para ver los datos de la casilla
+2024-05-07 18:25:01.609 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.TableroController - Enviando traza de ejecución
+2024-05-07 18:25:01.610 - DEBUG - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.TableroController - Enviado un debug
+2024-05-07 18:25:01.610 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.TableroController - Enviando un info
+2024-05-07 18:25:01.610 - WARN  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.TableroController - Enviando un aviso
+2024-05-07 18:25:01.610 - ERROR - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.TableroController - Enviando un error
+2024-05-07 18:25:01.610 - FATAL - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.TableroController - Enviando una explosión fatal
+2024-05-07 18:25:01.610 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.TableroController - El arranque de la ventana para ver los datos de la casilla ha sido completado
+2024-05-07 18:25:02.516 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.ElementosCasillaController - Evento para cerrar la ventana de los elementos de una casilla
+2024-05-07 18:25:02.520 - INFO  - es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.ElementosCasillaController - La ventana de los elementos de una casilla se ha cerrado correctamente
