@@ -24,10 +24,9 @@ public class CargaPartidaController implements Initializable {
     private MenuButton partidas;
     private int num_partidas = 0;
     public int getNum_partidas() {
-        cargarObjetoDesdeArchivo("DatosCargaPartida.json", CargaPartidaController.class);
+        cargarObjetoDesdeArchivo("DatosCargaPartida.json", ParametrosModelo.class);
 
-
-        return 0;
+        return num_partidas++;
     }
     private static final Logger log = LogManager.getLogger(CargaPartidaController.class);
     @FXML
@@ -43,7 +42,7 @@ public class CargaPartidaController implements Initializable {
             stage.setScene(scene);
             TableroController p = fxmlLoader.getController();
 
-
+            cargarObjetoDesdeArchivo("DatosCargaPartida.json", ParametrosModelo.class);
             p.setStage(stage);
             stage.show();
 
@@ -86,8 +85,8 @@ public class CargaPartidaController implements Initializable {
 
         log.info("Se ejecuta el controlador para la carga de partida.");
 
-        for (int i = 1; i <= num_partidas; i++) {
-            MenuButton partida = new MenuButton("Partida guardada " + i);
+        for (int i = 0; i < num_partidas; i++) {
+            MenuItem partida = new MenuItem("Partida guardada " + i);
             partida.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent actionEvent) {

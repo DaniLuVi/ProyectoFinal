@@ -12,10 +12,8 @@
          </font>
       </Label>
       <MenuButton fx:id="partidas" alignment="CENTER" layoutX="224.0" layoutY="142.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="134.0" text="Partidas" textAlignment="CENTER">
-        <items>
-          <MenuItem mnemonicParsing="false" onAction="#onCargaPartida" text="Action 1" />
-          <MenuItem mnemonicParsing="false" onAction="#onCargaPartida" text="Action 2" />
-        </items>
-      </MenuButton>
+         <items>
+            <MenuItem mnemonicParsing="false" onAction="#onCargaPartida" text="Unspecified Action" />
+         </items></MenuButton>
    </children>
 </AnchorPane>
