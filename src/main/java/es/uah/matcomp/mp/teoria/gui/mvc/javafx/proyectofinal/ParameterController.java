@@ -54,7 +54,7 @@ public class ParameterController implements Initializable {
     protected IntegerProperty valorReproduccion = new SimpleIntegerProperty(0);
     protected IntegerProperty valorClonado = new SimpleIntegerProperty(0);
     protected IntegerProperty valorV = new SimpleIntegerProperty(0);
-    private ParametrosModelo parametrosModelo = new ParametrosModelo(0, 0, new Individuo(01, 0, 0, 0, 0));
+    private ParametrosModelo parametrosModelo = new ParametrosModelo(0, 0, 0, 0, 0, 0);
     private ParametrosModeloProperties parametrosModeloProperties = new ParametrosModeloProperties(parametrosModelo);
 
     public ParameterController() {

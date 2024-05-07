@@ -8,7 +8,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class ParametrosModelo extends Individuo {
+public class ParametrosModelo {
     private int filas;
     private int columnas;
     private int vidas;
@@ -18,10 +18,13 @@ public class ParametrosModelo extends Individuo {
     private Individuo individuo;
     private Entorno entorno;
 
-    public ParametrosModelo(int filas, int columnas, Individuo individuo) {
-        super(individuo.getId(), individuo.getGeneracion(), individuo.getVidas(), individuo.getReproduccion(), individuo.getClonacion());
+    public ParametrosModelo(int filas, int columnas, int vidas, int reproduccion, int clonado, int V) {
         this.filas = filas;
         this.columnas = columnas;
+        this.vidas = vidas;
+        this.reproduccion = reproduccion;
+        this.clonado = clonado;
+        this.V = V;
     }  // como hago esto para que me funcione bien
 
     public int getFilas() {
@@ -38,6 +41,30 @@ public class ParametrosModelo extends Individuo {
 
     public void setColumnas(int columnas) {
         this.columnas = columnas;
+    }
+
+    public int getVidas() {
+        return vidas;
+    }
+
+    public void setVidas(int vidas) {
+        this.vidas = vidas;
+    }
+
+    public int getReproduccion() {
+        return reproduccion;
+    }
+
+    public void setReproduccion(int reproduccion) {
+        this.reproduccion = reproduccion;
+    }
+
+    public int getClonado() {
+        return clonado;
+    }
+
+    public void setClonado(int clonado) {
+        this.clonado = clonado;
     }
 
     public int getV() {

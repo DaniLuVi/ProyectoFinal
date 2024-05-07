@@ -26,7 +26,7 @@ public class TableroController {
     private ParameterController model = new ParameterController();
     @FXML
     private GridPane tableroDeJuego;
-    private ParametrosModelo parametrosModelo = new ParametrosModelo(2, 2, new Individuo(01, 0, 0, 0, 0));
+    private ParametrosModelo parametrosModelo = new ParametrosModelo(0, 0, 0, 0, 0, 0);
     private ParametrosModeloProperties parametrosModeloProperties = new ParametrosModeloProperties(parametrosModelo);
     private static final Logger log = LogManager.getLogger(TableroController.class);
     @FXML
@@ -75,7 +75,7 @@ public class TableroController {
         ElementoLDE columnas = new ElementoLDE<>(parametrosModeloProperties.original.getColumnas());
         ElementoLDE vidas = new ElementoLDE<>(parametrosModeloProperties.original.getVidas());
         ElementoLDE reproduccion = new ElementoLDE<>(parametrosModeloProperties.original.getReproduccion());
-        ElementoLDE clonado = new ElementoLDE<>(parametrosModeloProperties.original.getClonacion());
+        ElementoLDE clonado = new ElementoLDE<>(parametrosModeloProperties.original.getClonado());
         ElementoLDE v = new ElementoLDE<>(parametrosModeloProperties.original.getV());
         a.add(filas);
         a.add(columnas);
