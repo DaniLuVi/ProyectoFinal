@@ -16,6 +16,7 @@ public class ParametrosModelo extends Individuo {
     private int clonado;
     private int V;
     private Individuo individuo;
+    private Entorno entorno;
 
     public ParametrosModelo(int filas, int columnas, Individuo individuo) {
         super(individuo.getId(), individuo.getGeneracion(), individuo.getVidas(), individuo.getReproduccion(), individuo.getClonacion());
