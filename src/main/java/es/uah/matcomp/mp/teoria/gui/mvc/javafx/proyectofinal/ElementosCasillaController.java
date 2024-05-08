@@ -73,10 +73,11 @@ public class ElementosCasillaController implements Initializable {
 
     }
     public void modificarTextoIndividuos() {
+
         Básico.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                Individuo1.setText("Básico");
+                texto.set("Básico");
             }
         });
         Normal.setOnAction(new EventHandler<ActionEvent>() {
