@@ -2,6 +2,7 @@ package es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal;
 
 import clases_a_utilizar_de_datos.Celda;
 import clases_a_utilizar_de_datos.Individuo;
+import clases_a_utilizar_de_datos.ListaEjeX;
 import com.google.gson.Gson;
 import estructuras_de_datos_implementadas.listaDoblementeEnlazada.ElementoLDE;
 import estructuras_de_datos_implementadas.listaDoblementeEnlazada.ListaDoblementeEnlazada;
@@ -22,6 +23,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class TableroController {
+    ListaEjeX<Celda> listaX = new ListaEjeX<>();
+    private int num_individuos = 0;
     private Stage scene;
     private ParameterController model = new ParameterController();
     @FXML
@@ -59,6 +62,38 @@ public class TableroController {
     }
 
     private void BucleDeControl() {
+        while (num_individuos > 1) {
+            vida_individuo();
+            tiempo_recurso();
+            movimiento_individuo();
+            mejoras();
+            // metodos que quedan del bucle de control
+        }
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("simulacion-terminada.fxml"));
+        try {
+            Scene scene = new Scene(fxmlLoader.load(), 400, 300);
+            stage.setTitle("Simulación terminada");
+            stage.setScene(scene);
+            PantallaFinalizar p = fxmlLoader.getController();
+
+            p.setStage(stage);
+            stage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    private void vida_individuo() {
+
+    }
+    private void tiempo_recurso() {
+
+    }
+    private void movimiento_individuo() {
+
+    }
+    private void mejoras() {
 
     }
     @FXML
