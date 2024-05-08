@@ -2,24 +2,29 @@
 'https://plantuml.com/class-diagram
 
 class ListaEjeX {
-- ListaSimple<Celda> listaEjeX
+- ListaSimple<ListaEjeY<Celda>> listaEjeX
 - int filas
-
++ ListaEjeX()
++ add(int posicion, ListaEjeY<Celda> listaEjeY):void
 }
 
 class ListaEjeY {
 - ListSimple<Celda> listaEjeY
 - int columnas
-
++ ListaEjeY()
++ add(Celda celda):void
 }
 
 
 class Celda {
-- ListaDoblementeEnlazada<TipoDato> listaIndividuos
-- ListaDoblementeEnlazada<TipoDato> listaEntornos
+- ListaDoblementeEnlazada<Individuo> listaIndividuos
+- ListaDoblementeEnlazada<Entorno> listaEntornos
+- int filas
+- int columnas
 + Celda()
-+ getListaIndividuos(): ListaDoblementeEnlazada<TipoDato>
-+ getListaEntornos(): ListaDoblementeEnlazada<TipoDato>
++ Celda(int filas, int columnas)
++ getListaIndividuos(): ListaDoblementeEnlazada<Individuo>
++ getListaEntornos(): ListaDoblementeEnlazada<Entorno>
 + addIndividuo(Individuo):void
 + addEntorno(Entorno):void
 }
