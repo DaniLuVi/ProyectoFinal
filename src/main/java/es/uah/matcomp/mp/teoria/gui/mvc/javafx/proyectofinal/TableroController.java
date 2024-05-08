@@ -25,6 +25,7 @@ import org.apache.logging.log4j.Logger;
 
 public class TableroController {
     ListaEjeX<Celda> listaX = new ListaEjeX<>();
+    private ListaDoblementeEnlazada<Celda> listaCeldas = new ListaDoblementeEnlazada<>();
     private int num_individuos = 0;
     private Stage scene;
     private ParameterController model = new ParameterController();
@@ -86,10 +87,14 @@ public class TableroController {
         }
     }
     private void vida_individuo() {
+        for (int i = 0; i < listaCeldas.getNumeroElementos(); i++) {
 
+        }
     }
     private void tiempo_recurso() {
+        for (int i = 0; i < listaCeldas.getNumeroElementos(); i++) {
 
+        }
     }
     private void movimiento_individuo() {
 
@@ -200,6 +205,7 @@ public class TableroController {
                 casilla.setStyle("-fx-border-color: black; -fx-text-alignment: center");
                 tableroDeJuego.add(casilla, i, j);
                 listaEjeY.add(celda);
+                listaCeldas.add(celda);
             }
             listaX.add(i, listaEjeY);
         }
