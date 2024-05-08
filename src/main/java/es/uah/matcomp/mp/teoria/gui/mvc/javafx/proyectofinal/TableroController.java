@@ -3,6 +3,7 @@ package es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal;
 import clases_a_utilizar_de_datos.Celda;
 import clases_a_utilizar_de_datos.Individuo;
 import clases_a_utilizar_de_datos.ListaEjeX;
+import clases_a_utilizar_de_datos.ListaEjeY;
 import com.google.gson.Gson;
 import estructuras_de_datos_implementadas.listaDoblementeEnlazada.ElementoLDE;
 import estructuras_de_datos_implementadas.listaDoblementeEnlazada.ListaDoblementeEnlazada;
@@ -183,7 +184,9 @@ public class TableroController {
     public void initialize(int k, int x) {
         log.info("Se ejecuta el controlador del tablero.\n");
         for (int i = 1; i <= k; i++) {
+            ListaEjeY<Celda> listaEjeY = new ListaEjeY<>();
             for (int j = 1; j <= x; j++) {
+
                 Button casilla = new Button();
                 Celda celda = new Celda(i, j);
                 casilla.setOnAction(new EventHandler<ActionEvent>() {
@@ -196,7 +199,9 @@ public class TableroController {
                 casilla.setMaxSize(300 * 2/ k, 400 / x);
                 casilla.setStyle("-fx-border-color: black; -fx-text-alignment: center");
                 tableroDeJuego.add(casilla, i, j);
+                listaEjeY.add(celda);
             }
+            listaX.add(i, listaEjeY);
         }
 
         log.info("Enviando traza de ejecución");
