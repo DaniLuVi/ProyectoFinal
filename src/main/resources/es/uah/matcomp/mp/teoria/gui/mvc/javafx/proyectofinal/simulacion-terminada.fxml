@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.PantallaFinalizar">
+   <children>
+      <Label layoutX="245.0" layoutY="103.0" text="La partida ha sido terminada!!">
+         <font>
+            <Font name="Droid Sans Mono" size="36.0" />
+         </font></Label>
+      <Button layoutX="219.0" layoutY="246.0" mnemonicParsing="false" text="Button" />
+   </children>
+</AnchorPane>

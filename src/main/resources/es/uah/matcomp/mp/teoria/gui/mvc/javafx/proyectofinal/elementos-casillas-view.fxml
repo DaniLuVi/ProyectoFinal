@@ -55,12 +55,12 @@
                   </MenuButton>
                   <MenuButton fx:id="Recurso2" mnemonicParsing="false" text="--">
                     <items>
-                      <MenuItem mnemonicParsing="false" onAction="#modificarTextoEntornos" text="Agua" />
-                      <MenuItem mnemonicParsing="false" onAction="#modificarTextoEntornos" text="Comida" />
-                        <MenuItem mnemonicParsing="false" onAction="#modificarTextoEntornos" text="Montaña" />
-                        <MenuItem mnemonicParsing="false" onAction="#modificarTextoEntornos" text="Biblioteca" />
-                        <MenuItem mnemonicParsing="false" onAction="#modificarTextoEntornos" text="Tesoro" />
-                        <MenuItem mnemonicParsing="false" onAction="#modificarTextoEntornos" text="Pozo" />
+                      <MenuItem fx:id="Agua" mnemonicParsing="false" onAction="#modificarTextoEntornos" text="Agua" />
+                      <MenuItem fx:id="Comida" mnemonicParsing="false" onAction="#modificarTextoEntornos" text="Comida" />
+                        <MenuItem fx:id="Montaña" mnemonicParsing="false" onAction="#modificarTextoEntornos" text="Montaña" />
+                        <MenuItem fx:id="Biblioteca" mnemonicParsing="false" onAction="#modificarTextoEntornos" text="Biblioteca" />
+                        <MenuItem fx:id="Tesoro" mnemonicParsing="false" onAction="#modificarTextoEntornos" text="Tesoro" />
+                        <MenuItem fx:id="Pozo" mnemonicParsing="false" onAction="#modificarTextoEntornos" text="Pozo" />
                     </items>
                      <VBox.margin>
                         <Insets bottom="65.0" />
@@ -68,12 +68,12 @@
                   </MenuButton>
                   <MenuButton fx:id="Recurso3" mnemonicParsing="false" text="--">
                     <items>
-                      <MenuItem mnemonicParsing="false" onAction="#modificarTextoEntornos" text="Agua" />
-                      <MenuItem mnemonicParsing="false" onAction="#modificarTextoEntornos" text="Comida" />
-                        <MenuItem mnemonicParsing="false" onAction="#modificarTextoEntornos" text="Montaña" />
-                        <MenuItem mnemonicParsing="false" onAction="#modificarTextoEntornos" text="Biblioteca" />
-                        <MenuItem mnemonicParsing="false" onAction="#modificarTextoEntornos" text="Tesoro" />
-                        <MenuItem mnemonicParsing="false" onAction="#modificarTextoEntornos" text="Pozo" />
+                      <MenuItem fx:id="Agua" mnemonicParsing="false" onAction="#modificarTextoEntornos" text="Agua" />
+                      <MenuItem fx:id="Comida" mnemonicParsing="false" onAction="#modificarTextoEntornos" text="Comida" />
+                        <MenuItem fx:id="Montaña" mnemonicParsing="false" onAction="#modificarTextoEntornos" text="Montaña" />
+                        <MenuItem fx:id="Biblioteca" mnemonicParsing="false" onAction="#modificarTextoEntornos" text="Biblioteca" />
+                        <MenuItem fx:id="Tesoro" mnemonicParsing="false" onAction="#modificarTextoEntornos" text="Tesoro" />
+                        <MenuItem fx:id="Pozo" mnemonicParsing="false" onAction="#modificarTextoEntornos" text="Pozo" />
                     </items>
                   </MenuButton>
                </children>
@@ -113,9 +113,9 @@
                   </MenuButton>
                   <MenuButton fx:id="Individuo2" mnemonicParsing="false" text="--">
                     <items>
-                      <MenuItem mnemonicParsing="false" onAction="#modificarTextoIndividuos" text="Básico" />
-                      <MenuItem mnemonicParsing="false" onAction="#modificarTextoIndividuos" text="Normal" />
-                        <MenuItem mnemonicParsing="false" onAction="#modificarTextoIndividuos" text="Avanzado" />
+                      <MenuItem fx:id="Básico" mnemonicParsing="false" onAction="#modificarTextoIndividuos" text="Básico" />
+                      <MenuItem fx:id="Normal" mnemonicParsing="false" onAction="#modificarTextoIndividuos" text="Normal" />
+                        <MenuItem fx:id="Avanzado" mnemonicParsing="false" onAction="#modificarTextoIndividuos" text="Avanzado" />
                     </items>
                      <VBox.margin>
                         <Insets bottom="65.0" />

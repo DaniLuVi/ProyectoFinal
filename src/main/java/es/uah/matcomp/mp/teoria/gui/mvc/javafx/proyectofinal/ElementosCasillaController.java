@@ -61,7 +61,13 @@ public class ElementosCasillaController implements Initializable {
     private MenuItem Tesoro;
     @FXML
     private MenuItem Pozo;
+    protected StringProperty texto1 = new SimpleStringProperty("MenuButton");
+    protected StringProperty texto2 = new SimpleStringProperty("MenuButton");
+    protected StringProperty texto3 = new SimpleStringProperty("MenuButton");
+    protected StringProperty texto4 = new SimpleStringProperty("MenuButton");
+    protected StringProperty texto5 = new SimpleStringProperty("MenuButton");
     protected StringProperty texto = new SimpleStringProperty("MenuButton");
+    protected StringProperty texto6 = new SimpleStringProperty("MenuButton");
     private static final Logger log = LogManager.getLogger(ElementosCasillaController.class);
     public void onOk() {
 
@@ -77,19 +83,19 @@ public class ElementosCasillaController implements Initializable {
         Básico.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                texto.set("Básico");
+                texto1.set("Básico");
             }
         });
         Normal.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                Individuo1.setText("Normal");
+                texto1.set("Normal");
             }
         });
         Avanzado.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                Individuo1.setText("Avanzado");
+                texto1.set("Avanzado");
             }
         });
         this.updateTextoMenu();
@@ -98,37 +104,37 @@ public class ElementosCasillaController implements Initializable {
         Agua.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                Recurso1.setText("Agua");
+                texto2.set("Agua");
             }
         });
         Comida.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                Recurso1.setText("Comida");
+                texto2.set("Comida");
             }
         });
         Montaña.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                Recurso1.setText("Montaña");
+                texto2.set("Montaña");
             }
         });
         Biblioteca.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                Recurso1.setText("Biblioteca");
+                texto2.set("Biblioteca");
             }
         });
         Tesoro.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                Recurso1.setText("Tesoro");
+                texto2.set("Tesoro");
             }
         });
         Pozo.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                Recurso1.setText("Pozo");
+                texto2.set("Pozo");
             }
         });
     }
@@ -140,12 +146,12 @@ public class ElementosCasillaController implements Initializable {
     }
 
     protected void updateTextoMenu() {
-        Individuo1.textProperty().bind(texto);
-        Individuo2.textProperty().bind(texto);
-        Individuo3.textProperty().bind(texto);
-        Recurso1.textProperty().bind(texto);
-        Recurso2.textProperty().bind(texto);
-        Recurso3.textProperty().bind(texto);
+        Individuo1.textProperty().bind(texto1);
+        Individuo2.textProperty().bind(texto1);
+        Individuo3.textProperty().bind(texto1);
+        Recurso1.textProperty().bind(texto2);
+        Recurso2.textProperty().bind(texto2);
+        Recurso3.textProperty().bind(texto2);
     }
     public void setStage(Stage s) {
         this.scene = s;
