@@ -30,13 +30,11 @@ public class ListaSimple<TipoDato> {
         }
     }
     public int add(TipoDato el){
-        int contador = 0;
+        int contador;
         ElementoLS<TipoDato> tmp = new ElementoLS<>(el);
-        for (contador = 0; contador <= maximo; contador++)
+        for (contador = 0; contador < maximo; contador++)
             if (datos[contador]==null)
-                break;
-        if (datos[contador]==null)
-            datos[contador]= tmp;
+                datos[contador] = tmp;
         return contador;
     }
     public void insert(TipoDato s, int posicion){
