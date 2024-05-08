@@ -29,13 +29,14 @@ public class ListaSimple<TipoDato> {
             contador++;
         }
     }
-    public int add(ElementoLS<TipoDato> el){
+    public int add(TipoDato el){
         int contador = 0;
+        ElementoLS<TipoDato> tmp = new ElementoLS<>(el);
         for (contador = 0; contador <= maximo; contador++)
             if (datos[contador]==null)
                 break;
         if (datos[contador]==null)
-            datos[contador]=el;
+            datos[contador]= tmp;
         return contador;
     }
     public void insert(TipoDato s, int posicion){

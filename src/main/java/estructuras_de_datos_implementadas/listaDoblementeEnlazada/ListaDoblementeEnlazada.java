@@ -12,32 +12,31 @@ public class ListaDoblementeEnlazada<TipoDato> {
             primero = primero.getSiguiente();
         }
     }
-    public int add(ElementoLDE<TipoDato> el) {
+    public int add(TipoDato el) {
         int posicion = 0;
+        ElementoLDE<TipoDato> puntero = new ElementoLDE<>(el);
         if (el == null) {
             return -1;
         }
         if (isVacia()) {
-            primero = el;
-            ultimo = el;
+            primero = puntero;
+            ultimo = puntero;
             posicion++;
-            return posicion;
         } else if (getNumeroElementos() == 1) {
-            primero.setSiguiente(el);
-            ultimo = el;
+            primero.setSiguiente(puntero);
+            ultimo = puntero;
             posicion++;
-            return posicion;
         } else {
             ElementoLDE<TipoDato> tmp = primero;
             while (tmp.getSiguiente() != null) {
                 posicion++;
                 tmp = tmp.getSiguiente();
             }
-            tmp.setSiguiente(el);
-            el.setAnterior(ultimo);
-            ultimo = el;
-            return posicion;
+            tmp.setSiguiente(puntero);
+            tmp.setAnterior(ultimo);
+            ultimo = puntero;
         }
+        return posicion;
     }
     public void insert(TipoDato s, int posicion) {
         ElementoLDE<TipoDato> a = new ElementoLDE(s);
