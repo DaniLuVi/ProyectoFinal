@@ -142,13 +142,16 @@ public class TableroController {
 
     }
     private int getNum_individuos() {
-
-
+        for (int i = 0; i < listaX.getElemento(i).getData().getNumeroElementos(); i++) {
+            for (int j = 0; j < listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos(); j++) {
+                num_individuos++;
+            }
+        }
         return num_individuos;
     }
     @FXML
     protected void play() {
-
+        BucleDeControl();
     }
     @FXML
     protected void pause() {

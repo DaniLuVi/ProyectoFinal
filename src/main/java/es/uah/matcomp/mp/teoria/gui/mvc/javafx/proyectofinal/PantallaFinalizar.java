@@ -16,7 +16,9 @@ public class PantallaFinalizar {
             Scene scene = new Scene(fxmlLoader.load(), 850, 450);
             stage.setTitle("Arbol genealógico");
             stage.setScene(scene);
+            ArbolGenealogicoView p = fxmlLoader.getController();
 
+            p.setStage(stage);
             stage.show();
 
         } catch (Exception e) {
