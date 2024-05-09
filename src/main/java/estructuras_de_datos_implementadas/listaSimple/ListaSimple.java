@@ -9,6 +9,9 @@ public class ListaSimple<TipoDato> {
 
     private int maximo;
 
+    public ListaSimple() {
+    }
+
     public ListaSimple(int maximo) {
         datos = new ElementoLS[maximo];
         this.maximo = maximo;

@@ -2,11 +2,10 @@ package es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal;
 
 import clases_a_utilizar_de_datos.Celda;
 import clases_a_utilizar_de_datos.Individuo;
-import clases_a_utilizar_de_datos.ListaEjeX;
-import clases_a_utilizar_de_datos.ListaEjeY;
 import com.google.gson.Gson;
 import estructuras_de_datos_implementadas.listaDoblementeEnlazada.ElementoLDE;
 import estructuras_de_datos_implementadas.listaDoblementeEnlazada.ListaDoblementeEnlazada;
+import estructuras_de_datos_implementadas.listaSimple.ListaSimple;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -16,15 +15,15 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.EventListener;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class TableroController {
-    ListaEjeX<Celda> listaX = new ListaEjeX<>();
+    ListaSimple<ListaSimple<Celda>> listaX = new ListaSimple<ListaSimple<Celda>>();
+    ListaSimple<Celda> listaY = new ListaSimple<>();
     private ListaDoblementeEnlazada<Celda> listaCeldas = new ListaDoblementeEnlazada<>();
     private int num_individuos = 0;
     private Stage scene;
@@ -87,13 +86,21 @@ public class TableroController {
         }
     }
     private void vida_individuo() {
-        for (int i = 0; i < listaCeldas.getNumeroElementos(); i++) {
-
+        for (int i = 0; i < listaX.getElemento(i).getData().getNumeroElementos(); i++) {
+            int k = 0;
+            for (int j = 0; j < listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos(); j++) {
+                listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato().setVidas();
+                k++;
+            }
         }
     }
     private void tiempo_recurso() {
-        for (int i = 0; i < listaCeldas.getNumeroElementos(); i++) {
-
+        for (int i = 0; i < listaX.getElemento(i).getData().getNumeroElementos(); i++) {
+            int k = 0;
+            for (int j = 0; j < listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getNumeroElementos(); j++) {
+                listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(k).getDato().setTiempo_aparicion();
+                k++;
+            }
         }
     }
     private void movimiento_individuo() {
@@ -189,7 +196,6 @@ public class TableroController {
     public void initialize(int k, int x) {
         log.info("Se ejecuta el controlador del tablero.\n");
         for (int i = 1; i <= k; i++) {
-            ListaEjeY<Celda> listaEjeY = new ListaEjeY<>();
             for (int j = 1; j <= x; j++) {
 
                 Button casilla = new Button();
@@ -204,10 +210,11 @@ public class TableroController {
                 casilla.setMaxSize(300 * 2/ k, 400 / x);
                 casilla.setStyle("-fx-border-color: black; -fx-text-alignment: center");
                 tableroDeJuego.add(casilla, i, j);
-                listaEjeY.add(celda);
+                listaY.add(celda);
                 listaCeldas.add(celda);
+
             }
-            listaX.add(i, listaEjeY);
+            listaX.add(listaY);
         }
 
         log.info("Enviando traza de ejecución");
