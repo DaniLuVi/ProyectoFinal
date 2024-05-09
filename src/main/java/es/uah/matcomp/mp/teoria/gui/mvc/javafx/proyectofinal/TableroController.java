@@ -64,12 +64,15 @@ public class TableroController {
     }
 
     private void BucleDeControl() {
-        while (num_individuos > 1) {
+        while (getNum_individuos() > 1) {
             vida_individuo();
             tiempo_recurso();
             movimiento_individuo();
             mejoras();
-            // metodos que quedan del bucle de control
+            hay_reproduccion();
+            hay_clonacion();
+            hay_individuos_a_desaparecer();
+            habra_nuevos_recursos();
         }
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("simulacion-terminada.fxml"));
@@ -110,7 +113,38 @@ public class TableroController {
 
     }
     private void mejoras() {
+        for (int i = 0; i < listaX.getElemento(i).getData().getNumeroElementos(); i++) {
+            int k = 0;
+            for (int j = 0; j < listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos(); j++) {
 
+
+                k++;
+            }
+        }
+    }
+    private void hay_reproduccion() {
+
+    }
+    private void hay_clonacion() {
+        for (int i = 0; i < listaX.getElemento(i).getData().getNumeroElementos(); i++) {
+            int k = 0;
+            for (int j = 0; j < listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos(); j++) {
+
+
+                k++;
+            }
+        }
+    }
+    private void hay_individuos_a_desaparecer() {
+
+    }
+    private void habra_nuevos_recursos() {
+
+    }
+    private int getNum_individuos() {
+
+
+        return num_individuos;
     }
     @FXML
     protected void play() {
