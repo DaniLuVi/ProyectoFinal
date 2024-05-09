@@ -123,7 +123,19 @@ public class TableroController {
         }
     }
     private void hay_reproduccion() {
+        for (int i = 0; i < listaCeldas.getNumeroElementos(); i++) {
+            if (listaCeldas.getElemento(i).getDato().getListaIndividuos().getNumeroElementos() == 2) {
+                int reproduccion_primero = listaCeldas.getElemento(i).getDato().getListaIndividuos().getElemento(0).getDato().getReproduccion();
+                int reproduccion_segundo = listaCeldas.getElemento(i).getDato().getListaIndividuos().getElemento(1).getDato().getReproduccion();
+                if (reproduccion_primero + reproduccion_segundo >= 100) {
+                    if (listaCeldas.getElemento(i).getDato().getListaIndividuos().getElemento(0).getDato()  == listaCeldas.getElemento(i).getDato().getListaIndividuos().getElemento(1).getDato()) {
 
+                    }
+                }
+                listaCeldas.getElemento(i).getDato().getListaIndividuos().getElemento(1).getDato().setReproduccion(reproduccion_segundo - 10);
+                listaCeldas.getElemento(i).getDato().getListaIndividuos().getElemento(0).getDato().setReproduccion(reproduccion_primero - 10);
+            }
+        }
     }
     private void hay_clonacion() {
         for (int i = 0; i < listaX.getElemento(i).getData().getNumeroElementos(); i++) {

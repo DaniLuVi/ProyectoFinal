@@ -56,6 +56,7 @@ public class Individuo extends ElementoLDE<Individuo> {
     public void setClonacion(int clonacion) {
         this.clonacion = clonacion;
     }
+    //crear un método para conseguir el tipo de individuo
 
     public int getMuerte() {
         int muerte = 100 - this.getReproduccion();
