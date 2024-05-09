@@ -11,6 +11,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
@@ -21,7 +22,7 @@ import org.apache.logging.log4j.Logger;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ElementosCasillaController {
+public class ElementosCasillaController implements Initializable{
     private Celda celda;
     private Stage scene;
     @FXML
@@ -36,42 +37,31 @@ public class ElementosCasillaController {
     private Label recurso2;
     @FXML
     private Label recurso3;
+
     @FXML
-    private MenuButton Individuo1;
+    private Button Básico;
     @FXML
-    private MenuButton Individuo2;
+    private Button Normal;
     @FXML
-    private MenuButton Individuo3;
+    private Button Avanzado;
     @FXML
-    private MenuButton Recurso1;
+    private Button Agua;
     @FXML
-    private MenuButton Recurso2;
+    private Button Comida;
     @FXML
-    private MenuButton Recurso3;
+    private Button Montaña;
     @FXML
-    private MenuItem Básico;
+    private Button Biblioteca;
     @FXML
-    private MenuItem Normal;
+    private Button Tesoro;
     @FXML
-    private MenuItem Avanzado;
-    @FXML
-    private MenuItem Agua;
-    @FXML
-    private MenuItem Comida;
-    @FXML
-    private MenuItem Montaña;
-    @FXML
-    private MenuItem Biblioteca;
-    @FXML
-    private MenuItem Tesoro;
-    @FXML
-    private MenuItem Pozo;
-    protected StringProperty texto1 = new SimpleStringProperty("MenuButton");
-    protected StringProperty texto2 = new SimpleStringProperty("MenuButton");
-    protected StringProperty texto3 = new SimpleStringProperty("MenuButton");
-    protected StringProperty texto4 = new SimpleStringProperty("MenuButton");
-    protected StringProperty texto5 = new SimpleStringProperty("MenuButton");
-    protected StringProperty texto6 = new SimpleStringProperty("MenuButton");
+    private Button Pozo;
+    protected StringProperty texto1 = new SimpleStringProperty("--");
+    protected StringProperty texto2 = new SimpleStringProperty("--");
+    protected StringProperty texto3 = new SimpleStringProperty("--");
+    protected StringProperty texto4 = new SimpleStringProperty("--");
+    protected StringProperty texto5 = new SimpleStringProperty("--");
+    protected StringProperty texto6 = new SimpleStringProperty("--");
     private static final Logger log = LogManager.getLogger(ElementosCasillaController.class);
     public void onOk() {
 
@@ -82,88 +72,57 @@ public class ElementosCasillaController {
         log.info("La ventana de los elementos de una casilla se ha cerrado correctamente");
 
     }
-    public void modificarTextoIndividuos() {
+    @FXML
+    protected void ponerBasico() {
 
-        Básico.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                texto1.set("Básico");
-                TipoBasico individuo = new TipoBasico();
-                celda.addIndividuo(individuo);
-            }
-        });
-        Normal.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                texto2.set("Normal");
-                TipoNormal individuo = new TipoNormal();
-                celda.addIndividuo(individuo);
-            }
-        });
-        Avanzado.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                texto3.set("Avanzado");
-                TipoAvanzado individuo = new TipoAvanzado();
-                celda.addIndividuo(individuo);
-            }
-        });
-        this.updateTextoMenu();
     }
-    public void modificarTextoEntornos() {
-        Agua.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                texto2.set("Agua");
-            }
-        });
-        Comida.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                texto2.set("Comida");
-            }
-        });
-        Montaña.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                texto2.set("Montaña");
-            }
-        });
-        Biblioteca.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                texto2.set("Biblioteca");
-            }
-        });
-        Tesoro.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                texto2.set("Tesoro");
-            }
-        });
-        Pozo.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                texto2.set("Pozo");
-            }
-        });
-    }
+    @FXML
+    protected void ponerNormal() {
 
-    public void initialize(int i, int j) {
+    }
+    @FXML
+    protected void ponerAvanzado() {
+
+    }
+    @FXML
+    protected void ponerAgua() {
+
+    }
+    @FXML
+    protected void ponerComida() {
+
+    }
+    @FXML
+    protected void ponerMontaña() {
+
+    }
+    @FXML
+    protected void ponerBiblioteca() {
+
+    }
+    @FXML
+    protected void ponerTesoro() {
+
+    }
+    @FXML
+    protected void ponerPozo() {
+
+    }
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
 
         log.info("Se ejecuta el controlador de los elementos de una casilla.");
 
-        Celda celda = new Celda(i, j);
         this.updateTextoMenu();
     }
 
     protected void updateTextoMenu() {
-        Individuo1.textProperty().bind(texto1);
-        Individuo2.textProperty().bind(texto1);
-        Individuo3.textProperty().bind(texto1);
-        Recurso1.textProperty().bind(texto2);
-        Recurso2.textProperty().bind(texto2);
-        Recurso3.textProperty().bind(texto2);
+        individuo1.textProperty().bind(texto1);
+        individuo2.textProperty().bind(texto2);
+        individuo3.textProperty().bind(texto3);
+        recurso1.textProperty().bind(texto4);
+        recurso2.textProperty().bind(texto5);
+        recurso3.textProperty().bind(texto6);
     }
     public void setStage(Stage s) {
         this.scene = s;
