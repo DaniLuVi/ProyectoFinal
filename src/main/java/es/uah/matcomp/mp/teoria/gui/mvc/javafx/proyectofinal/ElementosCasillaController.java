@@ -1,5 +1,9 @@
 package es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal;
 
+import clases_a_utilizar_de_datos.Celda;
+import clases_a_utilizar_de_datos.TipoAvanzado;
+import clases_a_utilizar_de_datos.TipoBasico;
+import clases_a_utilizar_de_datos.TipoNormal;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
@@ -17,7 +21,8 @@ import org.apache.logging.log4j.Logger;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ElementosCasillaController implements Initializable {
+public class ElementosCasillaController {
+    private Celda celda;
     private Stage scene;
     @FXML
     private Label individuo1;
@@ -66,7 +71,6 @@ public class ElementosCasillaController implements Initializable {
     protected StringProperty texto3 = new SimpleStringProperty("MenuButton");
     protected StringProperty texto4 = new SimpleStringProperty("MenuButton");
     protected StringProperty texto5 = new SimpleStringProperty("MenuButton");
-    protected StringProperty texto = new SimpleStringProperty("MenuButton");
     protected StringProperty texto6 = new SimpleStringProperty("MenuButton");
     private static final Logger log = LogManager.getLogger(ElementosCasillaController.class);
     public void onOk() {
@@ -84,18 +88,24 @@ public class ElementosCasillaController implements Initializable {
             @Override
             public void handle(ActionEvent actionEvent) {
                 texto1.set("Básico");
+                TipoBasico individuo = new TipoBasico();
+                celda.addIndividuo(individuo);
             }
         });
         Normal.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                texto1.set("Normal");
+                texto2.set("Normal");
+                TipoNormal individuo = new TipoNormal();
+                celda.addIndividuo(individuo);
             }
         });
         Avanzado.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                texto1.set("Avanzado");
+                texto3.set("Avanzado");
+                TipoAvanzado individuo = new TipoAvanzado();
+                celda.addIndividuo(individuo);
             }
         });
         this.updateTextoMenu();
@@ -139,9 +149,11 @@ public class ElementosCasillaController implements Initializable {
         });
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(int i, int j) {
+
         log.info("Se ejecuta el controlador de los elementos de una casilla.");
+
+        Celda celda = new Celda(i, j);
         this.updateTextoMenu();
     }
 
@@ -155,9 +167,6 @@ public class ElementosCasillaController implements Initializable {
     }
     public void setStage(Stage s) {
         this.scene = s;
-    }
-    protected String getTexto() {
-        return texto.toString();
     }
 
 }

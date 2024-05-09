@@ -5,6 +5,7 @@ public class TipoNormal extends Individuo{
     public TipoNormal(int id, int generacion, int vidas, int reproduccion, int clonacion) {
         super(id, generacion, vidas, reproduccion, clonacion);
     }
+    public TipoNormal() {}
     @Override
     public void movimiento(Individuo individuo) {
 

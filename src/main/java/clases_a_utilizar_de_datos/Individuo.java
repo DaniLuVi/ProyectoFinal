@@ -8,7 +8,7 @@ public class Individuo extends ElementoLDE<Individuo> {
     private int vidas;
     private int reproduccion;
     private int clonacion;
-
+    public Individuo() {}
     public Individuo(int id, int generacion, int vidas, int reproduccion, int clonacion) {
         this.id = id;
         this.generacion = generacion;

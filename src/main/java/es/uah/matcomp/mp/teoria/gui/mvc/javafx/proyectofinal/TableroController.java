@@ -46,6 +46,7 @@ public class TableroController {
             stage.setScene(scene);
             ElementosCasillaController p = fxmlLoader.getController();
 
+
             p.setStage(stage);
             stage.show();
 
@@ -89,7 +90,8 @@ public class TableroController {
         for (int i = 0; i < listaX.getElemento(i).getData().getNumeroElementos(); i++) {
             int k = 0;
             for (int j = 0; j < listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos(); j++) {
-                listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato().setVidas();
+                int vidas_actuales = listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato().getVidas();
+                listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato().setVidas(vidas_actuales - 1);
                 k++;
             }
         }
@@ -98,7 +100,8 @@ public class TableroController {
         for (int i = 0; i < listaX.getElemento(i).getData().getNumeroElementos(); i++) {
             int k = 0;
             for (int j = 0; j < listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getNumeroElementos(); j++) {
-                listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(k).getDato().setTiempo_aparicion();
+                int tiempo_actual = listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(k).getDato().getTiempo_aparicion();
+                listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(k).getDato().setTiempo_aparicion(tiempo_actual - 1);
                 k++;
             }
         }

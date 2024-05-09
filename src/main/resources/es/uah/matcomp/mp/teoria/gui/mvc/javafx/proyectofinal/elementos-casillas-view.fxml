@@ -15,18 +15,18 @@
             <Rectangle2D />
          </viewport>
       </ImageView>
-      <HBox layoutX="87.0" layoutY="56.0" prefHeight="288.0" prefWidth="426.0">
+      <HBox layoutX="90.0" layoutY="23.0" prefHeight="177.0" prefWidth="426.0">
          <children>
             <VBox prefHeight="288.0" prefWidth="83.0">
                <children>
                   <Label fx:id="recurso1" text="RECURSO 1">
                      <VBox.margin>
-                        <Insets bottom="75.0" />
+                        <Insets bottom="50.0" />
                      </VBox.margin>
                   </Label>
                   <Label fx:id="recurso2" text="RECURSO 2">
                      <VBox.margin>
-                        <Insets bottom="75.0" />
+                        <Insets bottom="50.0" />
                      </VBox.margin>
                   </Label>
                   <Label fx:id="recurso3" text="RECURSO 3" />
@@ -50,7 +50,7 @@
                         <MenuItem fx:id="Pozo" mnemonicParsing="false" onAction="#modificarTextoEntornos" text="Pozo" />
                     </items>
                      <VBox.margin>
-                        <Insets bottom="65.0" />
+                        <Insets bottom="40.0" />
                      </VBox.margin>
                   </MenuButton>
                   <MenuButton fx:id="Recurso2" mnemonicParsing="false" text="--">
@@ -63,7 +63,7 @@
                         <MenuItem fx:id="Pozo" mnemonicParsing="false" onAction="#modificarTextoEntornos" text="Pozo" />
                     </items>
                      <VBox.margin>
-                        <Insets bottom="65.0" />
+                        <Insets bottom="40.0" />
                      </VBox.margin>
                   </MenuButton>
                   <MenuButton fx:id="Recurso3" mnemonicParsing="false" text="--">
@@ -82,12 +82,12 @@
                <children>
                   <Label fx:id="individuo1" text="INDIVIDUO 1">
                      <VBox.margin>
-                        <Insets bottom="75.0" />
+                        <Insets bottom="50.0" />
                      </VBox.margin>
                   </Label>
                   <Label fx:id="individuo2" text="INDIVIDUO 2">
                      <VBox.margin>
-                        <Insets bottom="75.0" />
+                        <Insets bottom="50.0" />
                      </VBox.margin>
                   </Label>
                   <Label fx:id="individuo3" text="INDIVIDUO 3" />
@@ -108,7 +108,7 @@
                         <MenuItem fx:id="Avanzado" mnemonicParsing="false" onAction="#modificarTextoIndividuos" text="Avanzado" />
                     </items>
                      <VBox.margin>
-                        <Insets bottom="65.0" />
+                        <Insets bottom="40.0" />
                      </VBox.margin>
                   </MenuButton>
                   <MenuButton fx:id="Individuo2" mnemonicParsing="false" text="--">
@@ -118,7 +118,7 @@
                         <MenuItem fx:id="Avanzado" mnemonicParsing="false" onAction="#modificarTextoIndividuos" text="Avanzado" />
                     </items>
                      <VBox.margin>
-                        <Insets bottom="65.0" />
+                        <Insets bottom="40.0" />
                      </VBox.margin>
                   </MenuButton>
                   <MenuButton fx:id="Individuo3" mnemonicParsing="false" text="--">
@@ -133,5 +133,15 @@
          </children>
       </HBox>
       <Button layoutX="513.0" layoutY="344.0" mnemonicParsing="false" onAction="#onOk" text="OK !" />
+      <VBox layoutX="74.0" layoutY="206.0" prefHeight="120.0" prefWidth="457.0">
+         <children>
+            <Label text="Label" />
+            <Label text="Label" />
+            <Label text="Label" />
+            <Label text="Label" />
+            <Label text="Label" />
+            <Label text="Label" />
+         </children>
+      </VBox>
    </children>
 </AnchorPane>
