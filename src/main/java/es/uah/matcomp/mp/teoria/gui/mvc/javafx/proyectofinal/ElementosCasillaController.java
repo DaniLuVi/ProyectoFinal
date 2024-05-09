@@ -1,9 +1,6 @@
 package es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal;
 
-import clases_a_utilizar_de_datos.Celda;
-import clases_a_utilizar_de_datos.TipoAvanzado;
-import clases_a_utilizar_de_datos.TipoBasico;
-import clases_a_utilizar_de_datos.TipoNormal;
+import clases_a_utilizar_de_datos.*;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
@@ -19,11 +16,12 @@ import javafx.stage.Stage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ElementosCasillaController implements Initializable{
-    private Celda celda;
+    private Celda celda = new Celda(new Individuo());
     private Stage scene;
     @FXML
     private Label individuo1;
@@ -67,46 +65,174 @@ public class ElementosCasillaController implements Initializable{
 
         log.info("Evento para cerrar la ventana de los elementos de una casilla");
 
+        // conseguir que se guarden los datos al modelo de datos
         scene.close();
 
         log.info("La ventana de los elementos de una casilla se ha cerrado correctamente");
 
     }
     @FXML
-    protected void ponerBasico() {
+    protected void ponerBasico() throws Exception{
+        try {
+            TipoBasico individuo = new TipoBasico();
+            if (individuo1.getText() == "--") {
+                texto1.set("Tipo Individuo: Básico");
+                celda.addIndividuo(individuo);
+            } else if (individuo2.getText() == "--") {
+                texto2.set("Tipo Individuo: Básico");
+                celda.addIndividuo(individuo);
+            } else if (individuo3.getText() == "--") {
+                texto3.set("Tipo Individuo: Básico");
+                celda.addIndividuo(individuo);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
     @FXML
-    protected void ponerNormal() {
-
+    protected void ponerNormal() throws Exception{
+        try {
+            TipoNormal individuo = new TipoNormal();
+            if (individuo1.getText() == "--") {
+                texto1.set("Tipo Individuo: Normal");
+                celda.addIndividuo(individuo);
+            } else if (individuo2.getText() == "--") {
+                texto2.set("Tipo Individuo: Normal");
+                celda.addIndividuo(individuo);
+            } else if (individuo3.getText() == "--") {
+                texto3.set("Tipo Individuo: Normal");
+                celda.addIndividuo(individuo);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     @FXML
-    protected void ponerAvanzado() {
-
+    protected void ponerAvanzado() throws Exception{
+        try {
+            TipoAvanzado individuo = new TipoAvanzado();
+            if (individuo1.getText() == "--") {
+                texto1.set("Tipo Individuo: Avanzado");
+                celda.addIndividuo(individuo);
+            } else if (individuo2.getText() == "--") {
+                texto2.set("Tipo Individuo: Avanzado");
+                celda.addIndividuo(individuo);
+            } else if (individuo3.getText() == "--") {
+                texto3.set("Tipo Individuo: Avanzado");
+                celda.addIndividuo(individuo);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     @FXML
-    protected void ponerAgua() {
-
+    protected void ponerAgua() throws Exception{
+        try {
+            Agua entorno = new Agua();
+            if (recurso1.getText() == "--") {
+                texto4.set("Entorno: Agua");
+                celda.addEntorno(entorno);
+            } else if (recurso2.getText() == "--") {
+                texto5.set("Entorno: Agua");
+                celda.addEntorno(entorno);
+            } else if (recurso3.getText() == "--") {
+                texto6.set("Entorno: Agua");
+                celda.addEntorno(entorno);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     @FXML
-    protected void ponerComida() {
-
+    protected void ponerComida() throws Exception{
+        try {
+            Comida entorno = new Comida();
+            if (recurso1.getText() == "--") {
+                texto4.set("Entorno: Comida");
+                celda.addEntorno(entorno);
+            } else if (recurso2.getText() == "--") {
+                texto5.set("Entorno: Comida");
+                celda.addEntorno(entorno);
+            } else if (recurso3.getText() == "--") {
+                texto6.set("Entorno: Comida");
+                celda.addEntorno(entorno);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     @FXML
-    protected void ponerMontaña() {
-
+    protected void ponerMontaña() throws Exception{
+        try {
+            Montaña entorno = new Montaña();
+            if (recurso1.getText() == "--") {
+                texto4.set("Entorno: Montaña");
+                celda.addEntorno(entorno);
+            } else if (recurso2.getText() == "--") {
+                texto5.set("Entorno: Montaña");
+                celda.addEntorno(entorno);
+            } else if (recurso3.getText() == "--") {
+                texto6.set("Entorno: Montaña");
+                celda.addEntorno(entorno);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     @FXML
-    protected void ponerBiblioteca() {
-
+    protected void ponerBiblioteca() throws Exception{
+        try {
+            Biblioteca entorno = new Biblioteca();
+            if (recurso1.getText() == "--") {
+                texto4.set("Entorno: Biblioteca");
+                celda.addEntorno(entorno);
+            } else if (recurso2.getText() == "--") {
+                texto5.set("Entorno: Biblioteca");
+                celda.addEntorno(entorno);
+            } else if (recurso3.getText() == "--") {
+                texto6.set("Entorno: Biblioteca");
+                celda.addEntorno(entorno);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     @FXML
-    protected void ponerTesoro() {
-
+    protected void ponerTesoro() throws Exception{
+        try {
+            Tesoro entorno = new Tesoro();
+            if (recurso1.getText() == "--") {
+                texto4.set("Entorno: Tesoro");
+                celda.addEntorno(entorno);
+            } else if (recurso2.getText() == "--") {
+                texto5.set("Entorno: Tesoro");
+                celda.addEntorno(entorno);
+            } else if (recurso3.getText() == "--") {
+                texto6.set("Entorno: Tesoro");
+                celda.addEntorno(entorno);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     @FXML
-    protected void ponerPozo() {
-
+    protected void ponerPozo() throws Exception{
+        try {
+            Pozo entorno = new Pozo();
+            if (recurso1.getText() == "--") {
+                texto4.set("Entorno: Pozo");
+                celda.addEntorno(entorno);
+            } else if (recurso2.getText() == "--") {
+                texto5.set("Entorno: Pozo");
+                celda.addEntorno(entorno);
+            } else if (recurso3.getText() == "--") {
+                texto6.set("Entorno: Pozo");
+                celda.addEntorno(entorno);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

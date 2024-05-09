@@ -4,6 +4,7 @@ public class Tesoro extends Entorno{
     public Tesoro(int tiempo_aparicion, int v) {
         super(tiempo_aparicion, v);
     }
+    public Tesoro() {}
     private void probabilidad() {
         setV(10);
     }

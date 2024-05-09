@@ -4,6 +4,7 @@ public class Comida extends Entorno{
     public Comida(int tiempo_aparicion, int v) {
         super(tiempo_aparicion, v);
     }
+    public Comida() {}
     private void probabilidad() {
         setV(10);
     }

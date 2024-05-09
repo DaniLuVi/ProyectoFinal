@@ -4,6 +4,7 @@ public class Biblioteca extends Entorno{
     public Biblioteca(int tiempo_aparicion, int v) {
         super(tiempo_aparicion, v);
     }
+    public Biblioteca() {}
     private void probabilidad() {
         setV(10);
     }

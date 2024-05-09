@@ -11,6 +11,7 @@ public class Entorno extends ElementoLDE<Entorno> {
         this.tiempo_aparicion = tiempo_aparicion;
         this.v = v;
     }
+    public Entorno() {}
 
     public int getTiempo_aparicion() {
         return tiempo_aparicion;

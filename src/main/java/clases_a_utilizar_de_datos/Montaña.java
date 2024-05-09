@@ -4,6 +4,7 @@ public class Montaña extends Entorno{
     public Montaña(int tiempo_aparicion, int v) {
         super(tiempo_aparicion, v);
     }
+    public Montaña() {}
     private void probabilidad() {
         setV(30);
     }

@@ -5,6 +5,7 @@ public class Agua extends Entorno{
     public Agua(int tiempo_aparicion, int v) {
         super(tiempo_aparicion, v);
     }
+    public Agua() {}
     private void probabilidad() {
         setV(30);
     }
