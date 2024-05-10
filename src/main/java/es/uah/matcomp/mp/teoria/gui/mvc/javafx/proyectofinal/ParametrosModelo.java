@@ -25,7 +25,7 @@ public class ParametrosModelo {
         this.reproduccion = reproduccion;
         this.clonado = clonado;
         this.V = V;
-    }  // como hago esto para que me funcione bien
+    }
 
     public int getFilas() {
         return filas;

@@ -2,23 +2,27 @@ package clases_a_utilizar_de_datos;
 
 import estructuras_de_datos_implementadas.listaDoblementeEnlazada.ListaDoblementeEnlazada;
 import estructuras_de_datos_implementadas.listaSimple.ElementoLS;
+import estructuras_de_datos_implementadas.listaSimple.ListaSimple;
 
 public class Celda extends ElementoLS<Celda> {
+    private final ListaSimple<Integer> coordenadas = new ListaSimple<Integer>(2);
     private ListaDoblementeEnlazada<Individuo> listaIndividuos;
     private ListaDoblementeEnlazada<Entorno> listaEntornos;
     private Individuo individuo;
-    private int filas;
-    private int columnas;
     public Celda(int filas, int columnas) {
-        this.filas = filas;
-        this.columnas = columnas;
+        this.coordenadas.add(filas);
+        this.coordenadas.add(columnas);
     }
-    public Celda(Individuo individuo) {
-        this.individuo = individuo;
+    public Celda() {
         this.listaIndividuos = new ListaDoblementeEnlazada<Individuo>();
         this.listaEntornos = new ListaDoblementeEnlazada<Entorno>();
     }
-
+    public int getFila() {
+        return coordenadas.getElemento(0).getData();
+    }
+    public int getColumna() {
+        return coordenadas.getElemento(1).getData();
+    }
     public Individuo getIndividuo() {
         return individuo;
     }

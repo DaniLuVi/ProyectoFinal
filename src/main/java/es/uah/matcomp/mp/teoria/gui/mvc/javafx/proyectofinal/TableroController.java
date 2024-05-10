@@ -1,7 +1,9 @@
 package es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal;
 
 import clases_a_utilizar_de_datos.Celda;
-import clases_a_utilizar_de_datos.Individuo;
+import clases_a_utilizar_de_datos.TipoAvanzado;
+import clases_a_utilizar_de_datos.TipoBasico;
+import clases_a_utilizar_de_datos.TipoNormal;
 import com.google.gson.Gson;
 import estructuras_de_datos_implementadas.listaDoblementeEnlazada.ElementoLDE;
 import estructuras_de_datos_implementadas.listaDoblementeEnlazada.ListaDoblementeEnlazada;
@@ -17,24 +19,25 @@ import javafx.stage.Stage;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Random;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class TableroController {
-    ListaSimple<ListaSimple<Celda>> listaX = new ListaSimple<ListaSimple<Celda>>();
-    ListaSimple<Celda> listaY = new ListaSimple<>();
+    ListaSimple<ListaSimple<Celda>> listaX;
     private ListaDoblementeEnlazada<Celda> listaCeldas = new ListaDoblementeEnlazada<>();
     private int num_individuos = 0;
     private Stage scene;
-    private ParameterController model = new ParameterController();
     @FXML
     private GridPane tableroDeJuego;
-    private ParametrosModelo parametrosModelo = new ParametrosModelo(0, 0, 0, 0, 0, 0);
-    private ParametrosModeloProperties parametrosModeloProperties = new ParametrosModeloProperties(parametrosModelo);
+    @FXML
+    private Button pausa;
+    private DatosTablero modelo;
+    private ParametrosModeloProperties model;
     private static final Logger log = LogManager.getLogger(TableroController.class);
     @FXML
-    protected void onCasillaVerDatos() {
+    protected void onCasillaVerDatos(Celda celda) {
 
         log.info("Arranque de la ventana para ver los datos de la casilla");
 
@@ -44,9 +47,10 @@ public class TableroController {
             Scene scene = new Scene(fxmlLoader.load(), 704, 600);
             stage.setTitle("Vista de los elementos de una casilla");
             stage.setScene(scene);
+
             ElementosCasillaController p = fxmlLoader.getController();
-
-
+            p.CargaDatosTablero(model);
+            //p.CargaDatosCelda(celda);
             p.setStage(stage);
             stage.show();
 
@@ -73,6 +77,9 @@ public class TableroController {
             hay_clonacion();
             hay_individuos_a_desaparecer();
             habra_nuevos_recursos();
+            if (hacer_pausa() == true) {
+                pause();
+            }
         }
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("simulacion-terminada.fxml"));
@@ -110,7 +117,19 @@ public class TableroController {
         }
     }
     private void movimiento_individuo() {
+        for (int i = 0; i < listaX.getElemento(i).getData().getNumeroElementos(); i++) {
+            int k = 0;
+            for (int j = 0; j < listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos(); j++) {
+                if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoBasico) {
 
+                } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoNormal) {
+
+                } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoAvanzado) {
+
+                }
+                k++;
+            }
+        }
     }
     private void mejoras() {
         for (int i = 0; i < listaX.getElemento(i).getData().getNumeroElementos(); i++) {
@@ -141,14 +160,29 @@ public class TableroController {
         for (int i = 0; i < listaX.getElemento(i).getData().getNumeroElementos(); i++) {
             int k = 0;
             for (int j = 0; j < listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos(); j++) {
+                Random num_random = new Random();
+                int valor = num_random.nextInt(0, 100);
+                int pro_clonado = listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato().getClonacion();
+                if (valor <= pro_clonado) {
 
+
+
+                }
+                listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato().setClonacion(pro_clonado - 10);
 
                 k++;
             }
         }
     }
     private void hay_individuos_a_desaparecer() {
+        for (int i = 0; i < listaX.getElemento(i).getData().getNumeroElementos(); i++) {
+            int k = 0;
+            for (int j = 0; j < listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos(); j++) {
+                if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos() > 1) {
 
+                }
+            }
+        }
     }
     private void habra_nuevos_recursos() {
 
@@ -165,9 +199,28 @@ public class TableroController {
     protected void play() {
         BucleDeControl();
     }
+    private boolean hacer_pausa() {
+        if (pausa.isPressed()) {
+            return true;
+        } else{
+            return false;
+        }
+    }
     @FXML
     protected void pause() {
-
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("parametros-view.fxml"));
+        try {
+            Scene scene = new Scene(fxmlLoader.load(), 820, 640);
+            stage.setTitle("Establezca parametros: ");
+            stage.setScene(scene);
+            ParameterController p = fxmlLoader.getController();
+            p.CargarDatosUsuario(this.model);
+            p.setStage(stage);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     @FXML
     protected void guardarDatos() {      // hacer de una manera que sea facil cargar despues
@@ -175,18 +228,19 @@ public class TableroController {
         log.info("Se guardan los datos del modelo en un fichero JSON");
 
         ListaDoblementeEnlazada a = new ListaDoblementeEnlazada<>();
-        ElementoLDE<Integer> filas = new ElementoLDE<>(parametrosModeloProperties.original.getFilas());
-        ElementoLDE<Integer> columnas = new ElementoLDE<>(parametrosModeloProperties.original.getColumnas());
-        ElementoLDE<Integer> vidas = new ElementoLDE<>(parametrosModeloProperties.original.getVidas());
-        ElementoLDE<Integer> reproduccion = new ElementoLDE<>(parametrosModeloProperties.original.getReproduccion());
-        ElementoLDE<Integer> clonado = new ElementoLDE<>(parametrosModeloProperties.original.getClonado());
-        ElementoLDE<Integer> v = new ElementoLDE<>(parametrosModeloProperties.original.getV());
+        ElementoLDE<Integer> filas = new ElementoLDE<>(model.original.getFilas());
+        ElementoLDE<Integer> columnas = new ElementoLDE<>(model.original.getColumnas());
+        ElementoLDE<Integer> vidas = new ElementoLDE<>(model.original.getVidas());
+        ElementoLDE<Integer> reproduccion = new ElementoLDE<>(model.original.getReproduccion());
+        ElementoLDE<Integer> clonado = new ElementoLDE<>(model.original.getClonado());
+        ElementoLDE<Integer> v = new ElementoLDE<>(model.original.getV());
         a.add(filas);
         a.add(columnas);
         a.add(vidas);
         a.add(reproduccion);
         a.add(clonado);
         a.add(v);
+
 
         ParametrosModelo parameterController = new ParametrosModelo(filas.getDato(), columnas.getDato(), vidas.getDato(), reproduccion.getDato(), clonado.getDato(), v.getDato());
 
@@ -246,8 +300,12 @@ public class TableroController {
     }
 
     public void initialize(int k, int x) {
+
         log.info("Se ejecuta el controlador del tablero.\n");
+
+        listaX = new ListaSimple<>(k);
         for (int i = 1; i <= k; i++) {
+            ListaSimple<Celda> listaY = new ListaSimple<>(x);
             for (int j = 1; j <= x; j++) {
 
                 Button casilla = new Button();
@@ -255,7 +313,9 @@ public class TableroController {
                 casilla.setOnAction(new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent actionEvent) {
-                        onCasillaVerDatos();
+                        ElementosCasillaController p = new ElementosCasillaController();
+                        onCasillaVerDatos(celda);
+                        p.CargaDatosCelda(celda);
                     }
                 });
                 casilla.setMinSize(300 * 2/ k, 400 / x);
@@ -264,7 +324,6 @@ public class TableroController {
                 tableroDeJuego.add(casilla, i, j);
                 listaY.add(celda);
                 listaCeldas.add(celda);
-
             }
             listaX.add(listaY);
         }
@@ -279,8 +338,8 @@ public class TableroController {
 
     }
     public void CargaDatosUsuario(ParametrosModeloProperties parametrosData) {
-        this.parametrosModeloProperties = parametrosData;
-
+        this.model = parametrosData;
+        model.commit();
     }
     public void setStage(Stage s) {
         this.scene = s;

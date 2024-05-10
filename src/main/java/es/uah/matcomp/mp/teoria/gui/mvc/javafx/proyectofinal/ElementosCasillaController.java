@@ -3,25 +3,20 @@ package es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal;
 import clases_a_utilizar_de_datos.*;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ElementosCasillaController implements Initializable{
-    private Celda celda = new Celda(new Individuo());
+    private Celda celda = new Celda();
+    private Tablero tablero;
     private Stage scene;
     @FXML
     private Label individuo1;
@@ -60,11 +55,13 @@ public class ElementosCasillaController implements Initializable{
     protected StringProperty texto4 = new SimpleStringProperty("--");
     protected StringProperty texto5 = new SimpleStringProperty("--");
     protected StringProperty texto6 = new SimpleStringProperty("--");
+    private ParametrosModeloProperties model;
     private static final Logger log = LogManager.getLogger(ElementosCasillaController.class);
     public void onOk() {
 
         log.info("Evento para cerrar la ventana de los elementos de una casilla");
 
+        //tablero
         // conseguir que se guarden los datos al modelo de datos
         scene.close();
 
@@ -74,7 +71,7 @@ public class ElementosCasillaController implements Initializable{
     @FXML
     protected void ponerBasico() throws Exception{
         try {
-            TipoBasico individuo = new TipoBasico();
+            TipoBasico individuo = new TipoBasico(0, 0, model.original.vidas, model.original.reproduccion, model.original.clonado);
             if (individuo1.getText() == "--") {
                 texto1.set("Tipo Individuo: Básico");
                 celda.addIndividuo(individuo);
@@ -93,7 +90,7 @@ public class ElementosCasillaController implements Initializable{
     @FXML
     protected void ponerNormal() throws Exception{
         try {
-            TipoNormal individuo = new TipoNormal();
+            TipoNormal individuo = new TipoNormal(0, 0, model.original.vidas, model.original.reproduccion, model.original.clonado);
             if (individuo1.getText() == "--") {
                 texto1.set("Tipo Individuo: Normal");
                 celda.addIndividuo(individuo);
@@ -111,7 +108,7 @@ public class ElementosCasillaController implements Initializable{
     @FXML
     protected void ponerAvanzado() throws Exception{
         try {
-            TipoAvanzado individuo = new TipoAvanzado();
+            TipoAvanzado individuo = new TipoAvanzado(0, 0, model.original.vidas, model.original.reproduccion, model.original.clonado);
             if (individuo1.getText() == "--") {
                 texto1.set("Tipo Individuo: Avanzado");
                 celda.addIndividuo(individuo);
@@ -129,7 +126,7 @@ public class ElementosCasillaController implements Initializable{
     @FXML
     protected void ponerAgua() throws Exception{
         try {
-            Agua entorno = new Agua();
+            Agua entorno = new Agua(3, model.original.V);
             if (recurso1.getText() == "--") {
                 texto4.set("Entorno: Agua");
                 celda.addEntorno(entorno);
@@ -147,7 +144,7 @@ public class ElementosCasillaController implements Initializable{
     @FXML
     protected void ponerComida() throws Exception{
         try {
-            Comida entorno = new Comida();
+            Comida entorno = new Comida(3, model.original.V);
             if (recurso1.getText() == "--") {
                 texto4.set("Entorno: Comida");
                 celda.addEntorno(entorno);
@@ -165,7 +162,7 @@ public class ElementosCasillaController implements Initializable{
     @FXML
     protected void ponerMontaña() throws Exception{
         try {
-            Montaña entorno = new Montaña();
+            Montaña entorno = new Montaña(3, model.original.V);
             if (recurso1.getText() == "--") {
                 texto4.set("Entorno: Montaña");
                 celda.addEntorno(entorno);
@@ -183,7 +180,7 @@ public class ElementosCasillaController implements Initializable{
     @FXML
     protected void ponerBiblioteca() throws Exception{
         try {
-            Biblioteca entorno = new Biblioteca();
+            Biblioteca entorno = new Biblioteca(3, model.original.V);
             if (recurso1.getText() == "--") {
                 texto4.set("Entorno: Biblioteca");
                 celda.addEntorno(entorno);
@@ -201,7 +198,7 @@ public class ElementosCasillaController implements Initializable{
     @FXML
     protected void ponerTesoro() throws Exception{
         try {
-            Tesoro entorno = new Tesoro();
+            Tesoro entorno = new Tesoro(3, model.original.V);
             if (recurso1.getText() == "--") {
                 texto4.set("Entorno: Tesoro");
                 celda.addEntorno(entorno);
@@ -219,7 +216,7 @@ public class ElementosCasillaController implements Initializable{
     @FXML
     protected void ponerPozo() throws Exception{
         try {
-            Pozo entorno = new Pozo();
+            Pozo entorno = new Pozo(3, model.original.V);
             if (recurso1.getText() == "--") {
                 texto4.set("Entorno: Pozo");
                 celda.addEntorno(entorno);
@@ -252,6 +249,13 @@ public class ElementosCasillaController implements Initializable{
     }
     public void setStage(Stage s) {
         this.scene = s;
+    }
+    public void CargaDatosCelda(Celda celda) {
+        this.celda = celda;
+    }
+    public void CargaDatosTablero(ParametrosModeloProperties parametrosModelo) {
+        this.model = parametrosModelo;
+        model.commit();
     }
 
 }

@@ -54,8 +54,6 @@ public class ParameterController implements Initializable {
     protected IntegerProperty valorReproduccion = new SimpleIntegerProperty(0);
     protected IntegerProperty valorClonado = new SimpleIntegerProperty(0);
     protected IntegerProperty valorV = new SimpleIntegerProperty(0);
-    private ParametrosModelo parametrosModelo = new ParametrosModelo(0, 0, 0, 0, 0, 0);
-    private ParametrosModeloProperties parametrosModeloProperties = new ParametrosModeloProperties(parametrosModelo);
 
     public ParameterController() {
     }
@@ -77,7 +75,7 @@ public class ParameterController implements Initializable {
             stage.setTitle("Tablero de juego");
             stage.setScene(scene);
             TableroController p = fxmlLoader.getController();
-            p.CargaDatosUsuario(parametrosModeloProperties);
+            p.CargaDatosUsuario(model);
             model.commit();
             int i = 0;
             int j = 0;
