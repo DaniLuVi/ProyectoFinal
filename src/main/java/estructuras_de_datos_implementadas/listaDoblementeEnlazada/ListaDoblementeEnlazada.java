@@ -3,7 +3,9 @@ package estructuras_de_datos_implementadas.listaDoblementeEnlazada;
 public class ListaDoblementeEnlazada<TipoDato> {
     private ElementoLDE<TipoDato> primero;
     private ElementoLDE<TipoDato> ultimo;
+    public ListaDoblementeEnlazada() {
 
+    }
     public boolean isVacia() {
         return primero == null;
     }

@@ -15,7 +15,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ElementosCasillaController implements Initializable{
-    private Celda celda = new Celda();
+    private CeldaProperties modelCelda;
     private Tablero tablero;
     private Stage scene;
     @FXML
@@ -55,12 +55,12 @@ public class ElementosCasillaController implements Initializable{
     protected StringProperty texto4 = new SimpleStringProperty("--");
     protected StringProperty texto5 = new SimpleStringProperty("--");
     protected StringProperty texto6 = new SimpleStringProperty("--");
-    private ParametrosModeloProperties model;
+    private ParametrosModeloProperties modelParametros;
     private static final Logger log = LogManager.getLogger(ElementosCasillaController.class);
     public void onOk() {
 
         log.info("Evento para cerrar la ventana de los elementos de una casilla");
-
+        modelCelda.commit();
         //tablero
         // conseguir que se guarden los datos al modelo de datos
         scene.close();
@@ -71,17 +71,18 @@ public class ElementosCasillaController implements Initializable{
     @FXML
     protected void ponerBasico() throws Exception{
         try {
-            TipoBasico individuo = new TipoBasico(0, 0, model.original.vidas, model.original.reproduccion, model.original.clonado);
+            TipoBasico individuo = new TipoBasico(0, 0, modelParametros.original.vidas, modelParametros.original.reproduccion, modelParametros.original.clonado);
             if (individuo1.getText() == "--") {
                 texto1.set("Tipo Individuo: Básico");
-                celda.addIndividuo(individuo);
+                modelCelda.original.addIndividuo(individuo);
             } else if (individuo2.getText() == "--") {
                 texto2.set("Tipo Individuo: Básico");
-                celda.addIndividuo(individuo);
+                modelCelda.original.addIndividuo(individuo);
             } else if (individuo3.getText() == "--") {
                 texto3.set("Tipo Individuo: Básico");
-                celda.addIndividuo(individuo);
+                modelCelda.original.addIndividuo(individuo);
             }
+            modelCelda.commit();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -90,17 +91,18 @@ public class ElementosCasillaController implements Initializable{
     @FXML
     protected void ponerNormal() throws Exception{
         try {
-            TipoNormal individuo = new TipoNormal(0, 0, model.original.vidas, model.original.reproduccion, model.original.clonado);
+            TipoNormal individuo = new TipoNormal(0, 0, modelParametros.original.vidas, modelParametros.original.reproduccion, modelParametros.original.clonado);
             if (individuo1.getText() == "--") {
                 texto1.set("Tipo Individuo: Normal");
-                celda.addIndividuo(individuo);
+                modelCelda.original.addIndividuo(individuo);
             } else if (individuo2.getText() == "--") {
                 texto2.set("Tipo Individuo: Normal");
-                celda.addIndividuo(individuo);
+                modelCelda.original.addIndividuo(individuo);
             } else if (individuo3.getText() == "--") {
                 texto3.set("Tipo Individuo: Normal");
-                celda.addIndividuo(individuo);
+                modelCelda.original.addIndividuo(individuo);
             }
+            modelCelda.commit();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -108,17 +110,18 @@ public class ElementosCasillaController implements Initializable{
     @FXML
     protected void ponerAvanzado() throws Exception{
         try {
-            TipoAvanzado individuo = new TipoAvanzado(0, 0, model.original.vidas, model.original.reproduccion, model.original.clonado);
+            TipoAvanzado individuo = new TipoAvanzado(0, 0, modelParametros.original.vidas, modelParametros.original.reproduccion, modelParametros.original.clonado);
             if (individuo1.getText() == "--") {
                 texto1.set("Tipo Individuo: Avanzado");
-                celda.addIndividuo(individuo);
+                modelCelda.original.addIndividuo(individuo);
             } else if (individuo2.getText() == "--") {
                 texto2.set("Tipo Individuo: Avanzado");
-                celda.addIndividuo(individuo);
+                modelCelda.original.addIndividuo(individuo);
             } else if (individuo3.getText() == "--") {
                 texto3.set("Tipo Individuo: Avanzado");
-                celda.addIndividuo(individuo);
+                modelCelda.original.addIndividuo(individuo);
             }
+            modelCelda.commit();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -126,17 +129,18 @@ public class ElementosCasillaController implements Initializable{
     @FXML
     protected void ponerAgua() throws Exception{
         try {
-            Agua entorno = new Agua(3, model.original.V);
+            Agua entorno = new Agua(3, modelParametros.original.V);
             if (recurso1.getText() == "--") {
                 texto4.set("Entorno: Agua");
-                celda.addEntorno(entorno);
+                modelCelda.original.addEntorno(entorno);
             } else if (recurso2.getText() == "--") {
                 texto5.set("Entorno: Agua");
-                celda.addEntorno(entorno);
+                modelCelda.original.addEntorno(entorno);
             } else if (recurso3.getText() == "--") {
                 texto6.set("Entorno: Agua");
-                celda.addEntorno(entorno);
+                modelCelda.original.addEntorno(entorno);
             }
+            modelCelda.commit();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -144,17 +148,18 @@ public class ElementosCasillaController implements Initializable{
     @FXML
     protected void ponerComida() throws Exception{
         try {
-            Comida entorno = new Comida(3, model.original.V);
+            Comida entorno = new Comida(3, modelParametros.original.V);
             if (recurso1.getText() == "--") {
                 texto4.set("Entorno: Comida");
-                celda.addEntorno(entorno);
+                modelCelda.original.addEntorno(entorno);
             } else if (recurso2.getText() == "--") {
                 texto5.set("Entorno: Comida");
-                celda.addEntorno(entorno);
+                modelCelda.original.addEntorno(entorno);
             } else if (recurso3.getText() == "--") {
                 texto6.set("Entorno: Comida");
-                celda.addEntorno(entorno);
+                modelCelda.original.addEntorno(entorno);
             }
+            modelCelda.commit();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -162,17 +167,18 @@ public class ElementosCasillaController implements Initializable{
     @FXML
     protected void ponerMontaña() throws Exception{
         try {
-            Montaña entorno = new Montaña(3, model.original.V);
+            Montaña entorno = new Montaña(3, modelParametros.original.V);
             if (recurso1.getText() == "--") {
                 texto4.set("Entorno: Montaña");
-                celda.addEntorno(entorno);
+                modelCelda.original.addEntorno(entorno);
             } else if (recurso2.getText() == "--") {
                 texto5.set("Entorno: Montaña");
-                celda.addEntorno(entorno);
+                modelCelda.original.addEntorno(entorno);
             } else if (recurso3.getText() == "--") {
                 texto6.set("Entorno: Montaña");
-                celda.addEntorno(entorno);
+                modelCelda.original.addEntorno(entorno);
             }
+            modelCelda.commit();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -180,17 +186,18 @@ public class ElementosCasillaController implements Initializable{
     @FXML
     protected void ponerBiblioteca() throws Exception{
         try {
-            Biblioteca entorno = new Biblioteca(3, model.original.V);
+            Biblioteca entorno = new Biblioteca(3, modelParametros.original.V);
             if (recurso1.getText() == "--") {
                 texto4.set("Entorno: Biblioteca");
-                celda.addEntorno(entorno);
+                modelCelda.original.addEntorno(entorno);
             } else if (recurso2.getText() == "--") {
                 texto5.set("Entorno: Biblioteca");
-                celda.addEntorno(entorno);
+                modelCelda.original.addEntorno(entorno);
             } else if (recurso3.getText() == "--") {
                 texto6.set("Entorno: Biblioteca");
-                celda.addEntorno(entorno);
+                modelCelda.original.addEntorno(entorno);
             }
+            modelCelda.commit();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -198,17 +205,18 @@ public class ElementosCasillaController implements Initializable{
     @FXML
     protected void ponerTesoro() throws Exception{
         try {
-            Tesoro entorno = new Tesoro(3, model.original.V);
+            Tesoro entorno = new Tesoro(3, modelParametros.original.V);
             if (recurso1.getText() == "--") {
                 texto4.set("Entorno: Tesoro");
-                celda.addEntorno(entorno);
+                modelCelda.original.addEntorno(entorno);
             } else if (recurso2.getText() == "--") {
                 texto5.set("Entorno: Tesoro");
-                celda.addEntorno(entorno);
+                modelCelda.original.addEntorno(entorno);
             } else if (recurso3.getText() == "--") {
                 texto6.set("Entorno: Tesoro");
-                celda.addEntorno(entorno);
+                modelCelda.original.addEntorno(entorno);
             }
+            modelCelda.commit();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -216,17 +224,18 @@ public class ElementosCasillaController implements Initializable{
     @FXML
     protected void ponerPozo() throws Exception{
         try {
-            Pozo entorno = new Pozo(3, model.original.V);
+            Pozo entorno = new Pozo(3, modelParametros.original.V);
             if (recurso1.getText() == "--") {
                 texto4.set("Entorno: Pozo");
-                celda.addEntorno(entorno);
+                modelCelda.original.addEntorno(entorno);
             } else if (recurso2.getText() == "--") {
                 texto5.set("Entorno: Pozo");
-                celda.addEntorno(entorno);
+                modelCelda.original.addEntorno(entorno);
             } else if (recurso3.getText() == "--") {
                 texto6.set("Entorno: Pozo");
-                celda.addEntorno(entorno);
+                modelCelda.original.addEntorno(entorno);
             }
+            modelCelda.commit();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -250,12 +259,13 @@ public class ElementosCasillaController implements Initializable{
     public void setStage(Stage s) {
         this.scene = s;
     }
-    public void CargaDatosCelda(Celda celda) {
-        this.celda = celda;
+    public void CargaDatosCelda(CeldaProperties model) {
+        this.modelCelda = model;
+        modelCelda.commit();
     }
     public void CargaDatosTablero(ParametrosModeloProperties parametrosModelo) {
-        this.model = parametrosModelo;
-        model.commit();
+        this.modelParametros = parametrosModelo;
+        modelParametros.commit();
     }
 
 }

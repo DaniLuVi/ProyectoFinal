@@ -10,15 +10,7 @@
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
-
-    <Label text="JUEGO DE LA VIDA DE CONWAY" underline="true" wrapText="true">
-      <font>
-         <Font name="System Bold Italic" size="24.0" />
-      </font>
-      <VBox.margin>
-         <Insets bottom="20.0" />
-      </VBox.margin></Label>
-   <ImageView fitHeight="190.0" fitWidth="386.0" preserveRatio="true" smooth="true">
+   <ImageView fitHeight="640.0" fitWidth="820.0" preserveRatio="true" smooth="true">
       <image>
          <Image url="@file:\Users\daniel\Desktop\ProyectoFinal\fotos\cabeceras_juegodelavida_5-05.png" />
       </image>

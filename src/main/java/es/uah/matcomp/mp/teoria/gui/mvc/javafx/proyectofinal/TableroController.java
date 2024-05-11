@@ -34,6 +34,7 @@ public class TableroController {
     @FXML
     private Button pausa;
     private DatosTablero modelo;
+    private CeldaProperties modelCelda = new CeldaProperties();
     private ParametrosModeloProperties model;
     private static final Logger log = LogManager.getLogger(TableroController.class);
     @FXML
@@ -50,7 +51,7 @@ public class TableroController {
 
             ElementosCasillaController p = fxmlLoader.getController();
             p.CargaDatosTablero(model);
-            //p.CargaDatosCelda(celda);
+            p.CargaDatosCelda(modelCelda);
             p.setStage(stage);
             stage.show();
 
@@ -310,20 +311,19 @@ public class TableroController {
 
                 Button casilla = new Button();
                 Celda celda = new Celda(i, j);
+                listaY.add(celda);
+                listaCeldas.add(celda);
                 casilla.setOnAction(new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent actionEvent) {
-                        ElementosCasillaController p = new ElementosCasillaController();
+                        modelCelda.setOriginal(celda);
                         onCasillaVerDatos(celda);
-                        p.CargaDatosCelda(celda);
                     }
                 });
                 casilla.setMinSize(300 * 2/ k, 400 / x);
                 casilla.setMaxSize(300 * 2/ k, 400 / x);
                 casilla.setStyle("-fx-border-color: black; -fx-text-alignment: center");
                 tableroDeJuego.add(casilla, i, j);
-                listaY.add(celda);
-                listaCeldas.add(celda);
             }
             listaX.add(listaY);
         }
