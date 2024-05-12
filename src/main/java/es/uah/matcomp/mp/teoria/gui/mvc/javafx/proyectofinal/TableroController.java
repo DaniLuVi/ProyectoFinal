@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
@@ -28,11 +29,14 @@ public class TableroController {
     private ListaDoblementeEnlazada<Celda> listaCeldas = new ListaDoblementeEnlazada<>();
     private int num_individuos = 0;
     private int cant_entornos = 0;
+    private int num_turnos = 0;
     private Stage scene;
     @FXML
     private GridPane tableroDeJuego;
     @FXML
     private Button pausa;
+    @FXML
+    private Label turnos;
     private DatosTablero modelo;
     private CeldaProperties modelCelda = new CeldaProperties();
     private ParametrosModeloProperties model;
@@ -79,6 +83,8 @@ public class TableroController {
             hay_clonacion();
             hay_individuos_a_desaparecer();
             habra_nuevos_recursos();
+            num_turnos++;
+            turnos.setText("Turnos: " + num_turnos);
             if (hacer_pausa() == true) {
                 pause();
             }
