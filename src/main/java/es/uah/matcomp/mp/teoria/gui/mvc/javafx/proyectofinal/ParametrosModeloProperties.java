@@ -12,6 +12,12 @@ public class ParametrosModeloProperties {
     private IntegerProperty reproduccion = new SimpleIntegerProperty();
     private IntegerProperty clonado = new SimpleIntegerProperty();
     private IntegerProperty V = new SimpleIntegerProperty();
+    private IntegerProperty agua = new SimpleIntegerProperty();
+    private IntegerProperty comida = new SimpleIntegerProperty();
+    private IntegerProperty montaña = new SimpleIntegerProperty();
+    private IntegerProperty biblioteca = new SimpleIntegerProperty();
+    private IntegerProperty pozo = new SimpleIntegerProperty();
+    private IntegerProperty tesoro = new SimpleIntegerProperty();
 
     public ParametrosModeloProperties(ParametrosModelo original) {
         setOriginal(original);
@@ -23,6 +29,12 @@ public class ParametrosModeloProperties {
         original.setReproduccion(reproduccion.get());
         original.setClonado(clonado.get());
         original.setV(V.get());
+        original.setAgua(agua.get());
+        original.setComida(comida.get());
+        original.setMontaña(montaña.get());
+        original.setBiblioteca(biblioteca.get());
+        original.setPozo(pozo.get());
+        original.setTesoro(tesoro.get());
     }
     public void rollback() {
         filas.set(original.getFilas());
@@ -31,6 +43,12 @@ public class ParametrosModeloProperties {
         reproduccion.set(original.getReproduccion());
         clonado.set(original.getClonado());
         V.set(original.getV());
+        agua.set(original.getAgua());
+        comida.set(original.getComida());
+        montaña.set(original.getMontaña());
+        biblioteca.set(original.getBiblioteca());
+        pozo.set(original.getPozo());
+        tesoro.set(original.getTesoro());
     }
 
     public ParametrosModelo getOriginal() {
@@ -59,6 +77,12 @@ public class ParametrosModeloProperties {
     public Property<Number> VProperty() {
         return V;
     }
+    public Property<Number> aguaProperty() { return agua;}
+    public Property<Number> comidaProperty() { return comida;}
+    public Property<Number> montañaProperty() { return montaña;}
+    public Property<Number> bibliotecaProperty() { return biblioteca;}
+    public Property<Number> pozoProperty() { return pozo;}
+    public Property<Number> tesoroProperty() { return tesoro;}
 
     public void setFilas(IntegerProperty filas) {
         this.filas = filas;
@@ -83,4 +107,10 @@ public class ParametrosModeloProperties {
     public void setV(IntegerProperty v) {
         this.V = v;
     }
+    public void setAgua(IntegerProperty agua) { this.agua = agua;}
+    public void setComida(IntegerProperty comida) { this.comida = comida;}
+    public void setMontaña(IntegerProperty montaña) { this.montaña = montaña;}
+    public void setBiblioteca(IntegerProperty biblioteca) { this.biblioteca = biblioteca;}
+    public void setPozo(IntegerProperty pozo) { this.pozo = pozo;}
+    public void setTesoro(IntegerProperty tesoro) { this.tesoro = tesoro;}
 }

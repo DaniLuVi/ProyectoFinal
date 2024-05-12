@@ -16,6 +16,12 @@ public class ParametrosModelo {
     public int reproduccion;
     public int clonado;
     public int V;
+    public int agua;
+    public int comida;
+    public int montaña;
+    public int biblioteca;
+    public int pozo;
+    public int tesoro;
 
 
     public ParametrosModelo(int filas, int columnas, int vidas, int reproduccion, int clonado, int V) {
@@ -25,6 +31,12 @@ public class ParametrosModelo {
         this.reproduccion = reproduccion;
         this.clonado = clonado;
         this.V = V;
+        this.agua = agua;
+        this.comida = comida;
+        this.montaña = montaña;
+        this.biblioteca = biblioteca;
+        this.pozo = pozo;
+        this.tesoro = tesoro;
     }
 
     public int getFilas() {
@@ -73,6 +85,54 @@ public class ParametrosModelo {
 
     public void setV(int v) {
         V = v;
+    }
+
+    public int getAgua() {
+        return agua;
+    }
+
+    public void setAgua(int agua) {
+        this.agua = agua;
+    }
+
+    public int getComida() {
+        return comida;
+    }
+
+    public void setComida(int comida) {
+        this.comida = comida;
+    }
+
+    public int getMontaña() {
+        return montaña;
+    }
+
+    public void setMontaña(int montaña) {
+        this.montaña = montaña;
+    }
+
+    public int getBiblioteca() {
+        return biblioteca;
+    }
+
+    public void setBiblioteca(int biblioteca) {
+        this.biblioteca = biblioteca;
+    }
+
+    public int getPozo() {
+        return pozo;
+    }
+
+    public void setPozo(int pozo) {
+        this.pozo = pozo;
+    }
+
+    public int getTesoro() {
+        return tesoro;
+    }
+
+    public void setTesoro(int tesoro) {
+        this.tesoro = tesoro;
     }
 
     public Individuo getIndividuo(Individuo individuo) {
