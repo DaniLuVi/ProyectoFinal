@@ -45,6 +45,18 @@ public class ParameterController implements Initializable {
     private Label labelValorClonado;
     @FXML
     private Label labelValorV;
+    @FXML
+    private Label labelProbAgua;
+    @FXML
+    private Label labelProbComida;
+    @FXML
+    private Label labelProbMontaña;
+    @FXML
+    private Label labelProbBiblioteca;
+    @FXML
+    private Label labelProbPozo;
+    @FXML
+    private Label labelProbTesoro;
     private ListaDoblementeEnlazada listaDoblementeEnlazada;
     private ParametrosModeloProperties model;
     private Stage scene;
@@ -54,6 +66,12 @@ public class ParameterController implements Initializable {
     protected IntegerProperty valorReproduccion = new SimpleIntegerProperty(0);
     protected IntegerProperty valorClonado = new SimpleIntegerProperty(0);
     protected IntegerProperty valorV = new SimpleIntegerProperty(0);
+    protected IntegerProperty prob_agua = new SimpleIntegerProperty(0);
+    protected IntegerProperty prob_comida = new SimpleIntegerProperty(0);
+    protected IntegerProperty prob_montaña = new SimpleIntegerProperty(0);
+    protected IntegerProperty prob_biblioteca = new SimpleIntegerProperty(0);
+    protected IntegerProperty prob_pozo = new SimpleIntegerProperty(0);
+    protected IntegerProperty prob_tesoro = new SimpleIntegerProperty(0);
 
     public ParameterController() {
     }
@@ -142,6 +160,12 @@ public class ParameterController implements Initializable {
         labelValorReproduccion.textProperty().bind(valorReproduccion.asString());
         labelValorClonado.textProperty().bind(valorClonado.asString());
         labelValorV.textProperty().bind(valorV.asString());
+        labelProbAgua.textProperty().bind(prob_agua.asString());
+        labelProbComida.textProperty().bind(prob_comida.asString());
+        labelProbMontaña.textProperty().bind(prob_montaña.asString());
+        labelProbBiblioteca.textProperty().bind(prob_biblioteca.asString());
+        labelProbPozo.textProperty().bind(prob_pozo.asString());
+        labelProbTesoro.textProperty().bind(prob_tesoro.asString());
         model.setFilas(valorFilas);
         model.setColumnas(valorColumnas);
         model.setVidas(valorVidas);
