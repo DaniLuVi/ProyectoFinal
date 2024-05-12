@@ -21,6 +21,8 @@ import java.util.Random;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import static java.lang.Math.abs;
+
 public class TableroController {
     ListaSimple<ListaSimple<Celda>> listaX;
     private ListaDoblementeEnlazada<Celda> listaCeldas = new ListaDoblementeEnlazada<>();
@@ -122,40 +124,60 @@ public class TableroController {
             }
         }
     }
-    private void movimiento_individuo() {
-        for (int i = 0; i < listaX.getElemento(i).getData().getNumeroElementos(); i++) {
-            int k = 0;
-            for (int j = 0; j < listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos(); j++) {
-                if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoBasico) {
-                    Random randomBasico = new Random();
-                    int opcion = randomBasico.nextInt(1, 4);
-                    Individuo individuo_cambiar = listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato();
-                    if (opcion == 1) {
-                        listaX.getElemento(i-1).getData().getElemento(j).getData().getListaIndividuos().add(individuo_cambiar);
-                    } else if (opcion == 2) {
-                        listaX.getElemento(i+1).getData().getElemento(j).getData().getListaIndividuos().add(individuo_cambiar);
-                    } else if (opcion == 3) {
-                        listaX.getElemento(i).getData().getElemento(j-1).getData().getListaIndividuos().add(individuo_cambiar);
-                    } else if (opcion == 4) {
-                        listaX.getElemento(i).getData().getElemento(j+1).getData().getListaIndividuos().add(individuo_cambiar);
+    private void movimiento_individuo() throws ArrayIndexOutOfBoundsException{
+        try{
+            for (int i = 0; i < listaX.getElemento(i).getData().getNumeroElementos(); i++) {
+                int k = 0;
+                for (int j = 0; j < listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos(); j++) {
+                    if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoBasico) {
+                        Random randomBasico = new Random();
+                        int opcion = randomBasico.nextInt(1, 4);
+                        Individuo individuo_cambiar = listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato();
+                        if (opcion == 1) {
+                            listaX.getElemento(i-1).getData().getElemento(j).getData().getListaIndividuos().add(individuo_cambiar);
+                        } else if (opcion == 2) {
+                            listaX.getElemento(i+1).getData().getElemento(j).getData().getListaIndividuos().add(individuo_cambiar);
+                        } else if (opcion == 3) {
+                            listaX.getElemento(i).getData().getElemento(j-1).getData().getListaIndividuos().add(individuo_cambiar);
+                        } else if (opcion == 4) {
+                            listaX.getElemento(i).getData().getElemento(j+1).getData().getListaIndividuos().add(individuo_cambiar);
+                        }
+                    } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoNormal) {
+                        Random randomNormal = new Random();
+                        int opcion = randomNormal.nextInt(0, cant_entornos);
+
+                    } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoAvanzado) {
+                        //este tipo de movimiento lo tengo que implementar a partir de un grafo
                     }
-                } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoNormal) {
-                    Random randomNormal = new Random();
-                    int opcion = randomNormal.nextInt(0, cant_entornos);
-
-                } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoAvanzado) {
-
+                    k++;
                 }
-                k++;
             }
+        } catch (ArrayIndexOutOfBoundsException e) {
+            e.printStackTrace();
         }
+
     }
     private void mejoras() {
         for (int i = 0; i < listaX.getElemento(i).getData().getNumeroElementos(); i++) {
             int k = 0;
             for (int j = 0; j < listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos(); j++) {
-
-
+                if (listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos() != null) {
+                    for (int l = 0; l < listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getNumeroElementos(); l++) {
+                        if (listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(l).getDato() instanceof Agua) {
+                            listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(l).getDato().modificarIndividuo(listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato());
+                        } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(l).getDato() instanceof Comida) {
+                            listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(l).getDato().modificarIndividuo(listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato());
+                        } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(l).getDato() instanceof Montaña) {
+                            listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(l).getDato().modificarIndividuo(listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato());
+                        } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(l).getDato() instanceof Biblioteca) {
+                            listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(l).getDato().modificarIndividuo(listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato());
+                        } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(l).getDato() instanceof Pozo) {
+                            listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(l).getDato().modificarIndividuo(listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato());
+                        } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(l).getDato() instanceof Tesoro) {
+                            listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(l).getDato().modificarIndividuo(listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato());
+                        }
+                    }
+                }
                 k++;
             }
         }
@@ -231,14 +253,26 @@ public class TableroController {
         }
     }
     private void habra_nuevos_recursos() {
-        for (int i = 0; i < listaCeldas.getNumeroElementos(); i++) {
+        for (int i = 0; i < listaX.getElemento(i).getData().getNumeroElementos(); i++) {
             int k = 0;
-            for (int j = 0; j < listaCeldas.getElemento(i).getDato().getListaEntornos().getNumeroElementos(); j++) {
+            for (int j = 0; j < listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getNumeroElementos(); j++) {
                 Random random = new Random();
                 int valor = random.nextInt(0, 100);
-                int pro_V = listaCeldas.getElemento(i).getDato().getListaEntornos().getElemento(k).getDato().getV();
+                int pro_V = listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(k).getDato().getV();
                 if (valor == pro_V) {
-                    // no se como se decide que recurso tengo que añadir
+                    if ((abs(pro_V - model.original.agua) <= abs(pro_V - model.original.comida)) && ((abs(pro_V - model.original.agua) <= abs(pro_V - model.original.montaña))) && ((abs(pro_V - model.original.agua) <= abs(pro_V - model.original.biblioteca))) && ((abs(pro_V - model.original.agua) <= abs(pro_V - model.original.pozo))) && ((abs(pro_V - model.original.agua) <= abs(pro_V - model.original.tesoro)))) {
+                        listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().add(new Agua(3, model.original.agua));
+                    } else if ((abs(pro_V - model.original.comida) <= abs(pro_V - model.original.agua)) && ((abs(pro_V - model.original.comida) <= abs(pro_V - model.original.montaña))) && ((abs(pro_V - model.original.comida) <= abs(pro_V - model.original.biblioteca))) && ((abs(pro_V - model.original.comida) <= abs(pro_V - model.original.pozo))) && ((abs(pro_V - model.original.comida) <= abs(pro_V - model.original.tesoro)))) {
+                        listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().add(new Comida(3, model.original.comida));
+                    } else if ((abs(pro_V - model.original.montaña) <= abs(pro_V - model.original.agua)) && ((abs(pro_V - model.original.montaña) <= abs(pro_V - model.original.comida))) && ((abs(pro_V - model.original.montaña) <= abs(pro_V - model.original.biblioteca))) && ((abs(pro_V - model.original.montaña) <= abs(pro_V - model.original.pozo))) && ((abs(pro_V - model.original.montaña) <= abs(pro_V - model.original.tesoro)))) {
+                        listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().add(new Montaña(3, model.original.montaña));
+                    } else if ((abs(pro_V - model.original.biblioteca) <= abs(pro_V - model.original.agua)) && ((abs(pro_V - model.original.biblioteca) <= abs(pro_V - model.original.comida))) && ((abs(pro_V - model.original.biblioteca) <= abs(pro_V - model.original.montaña))) && ((abs(pro_V - model.original.biblioteca) <= abs(pro_V - model.original.pozo))) && ((abs(pro_V - model.original.biblioteca) <= abs(pro_V - model.original.tesoro)))) {
+                        listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().add(new Biblioteca(3, model.original.biblioteca));
+                    } else if ((abs(pro_V - model.original.pozo) <= abs(pro_V - model.original.agua)) && ((abs(pro_V - model.original.pozo) <= abs(pro_V - model.original.comida))) && ((abs(pro_V - model.original.pozo) <= abs(pro_V - model.original.montaña))) && ((abs(pro_V - model.original.pozo) <= abs(pro_V - model.original.biblioteca))) && ((abs(pro_V - model.original.pozo) <= abs(pro_V - model.original.tesoro)))) {
+                        listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().add(new Pozo(3, model.original.pozo));
+                    } else if ((abs(pro_V - model.original.tesoro) <= abs(pro_V - model.original.agua)) && ((abs(pro_V - model.original.tesoro) <= abs(pro_V - model.original.comida))) && ((abs(pro_V - model.original.tesoro) <= abs(pro_V - model.original.montaña))) && ((abs(pro_V - model.original.tesoro) <= abs(pro_V - model.original.biblioteca))) && ((abs(pro_V - model.original.tesoro) <= abs(pro_V - model.original.pozo)))) {
+                        listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().add(new Tesoro(3, model.original.tesoro));
+                    }
                 }
                 k++;
             }
@@ -313,7 +347,7 @@ public class TableroController {
             a.add(celda);
         }*/
 
-        ParametrosModelo parameterController = new ParametrosModelo(filas.getDato(), columnas.getDato(), vidas.getDato(), reproduccion.getDato(), clonado.getDato(), v.getDato());
+        ParametrosModelo parameterController = new ParametrosModelo(filas.getDato(), columnas.getDato(), vidas.getDato(), reproduccion.getDato(), clonado.getDato(), v.getDato(), model.original.agua, model.original.comida, model.original.montaña, model.original.biblioteca, model.original.pozo, model.original.tesoro);
 
         ParametrosModelo datos = parameterController;
 

@@ -93,8 +93,4 @@ public class Individuo extends ElementoLDE<Individuo> {
         }
         return null;
     }
-
-    public void movimiento(Individuo individuo) {}
-
-    public void turno(Individuo individuo) {}
 }

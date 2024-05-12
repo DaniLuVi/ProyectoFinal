@@ -5,8 +5,4 @@ public class TipoAvanzado extends Individuo{
         super(id, generacion, vidas, reproduccion, clonacion);
     }
     public TipoAvanzado() {}
-    @Override
-    public void movimiento(Individuo individuo) {
-
-    }
 }

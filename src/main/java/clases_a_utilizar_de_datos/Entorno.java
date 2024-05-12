@@ -5,11 +5,12 @@ import estructuras_de_datos_implementadas.listaDoblementeEnlazada.ElementoLDE;
 public class Entorno extends ElementoLDE<Entorno> {
     private int tiempo_aparicion;
 
+    private int probabilidad;
     private int v;
 
-    public Entorno(int tiempo_aparicion, int v) {
+    public Entorno(int tiempo_aparicion, int probabilidad) {
         this.tiempo_aparicion = tiempo_aparicion;
-        this.v = v;
+        this.probabilidad = probabilidad;
     }
     public Entorno() {}
 
@@ -19,6 +20,14 @@ public class Entorno extends ElementoLDE<Entorno> {
 
     public void setTiempo_aparicion(int tiempo_aparicion) {
         this.tiempo_aparicion = tiempo_aparicion;
+    }
+
+    public int getProbabilidad() {
+        return probabilidad;
+    }
+
+    public void setProbabilidad(int probabilidad) {
+        this.probabilidad = probabilidad;
     }
 
     public int getV() {
@@ -33,38 +42,36 @@ public class Entorno extends ElementoLDE<Entorno> {
         if (entorno instanceof Agua) {
             return "Entorno[Agua{" +
                     "tiempo_aparicion=" + tiempo_aparicion +
-                    ", v=" + v +
+                    ", %Agua=" + probabilidad +
                     "}]";
         } else if (entorno instanceof Comida) {
             return "Entorno[Comida{" +
                     "tiempo_aparicion=" + tiempo_aparicion +
-                    ", v=" + v +
+                    ", %Comida=" + probabilidad +
                     "}]";
         } else if (entorno instanceof Montaña) {
             return "Entorno[Montaña{" +
                     "tiempo_aparicion=" + tiempo_aparicion +
-                    ", v=" + v +
+                    ", %Montaña=" + probabilidad +
                     "}]";
         } else if (entorno instanceof Biblioteca) {
             return "Entorno[Biblioteca{" +
                     "tiempo_aparicion=" + tiempo_aparicion +
-                    ", v=" + v +
+                    ", %Biblioteca=" + probabilidad +
                     "}]";
         } else if (entorno instanceof Pozo) {
             return "Entorno[Pozo{" +
                     "tiempo_aparicion=" + tiempo_aparicion +
-                    ", v=" + v +
+                    ", %Pozo=" + probabilidad +
                     "}]";
         } else if (entorno instanceof Tesoro) {
             return "Entorno[Tesoro{" +
                     "tiempo_aparicion=" + tiempo_aparicion +
-                    ", v=" + v +
+                    ", %Tesoro=" + probabilidad +
                     "}]";
         }
         return null;
     }
-
-    public void turno(Entorno entorno) {}
 
     public void modificarIndividuo(Individuo individuo) {}
 }

@@ -190,6 +190,12 @@ public class ParameterController implements Initializable {
         model.setReproduccion(valorReproduccion);
         model.setClonado(valorClonado);
         model.setV(valorV);
+        model.setAgua(prob_agua);
+        model.setComida(prob_comida);
+        model.setMontaña(prob_montaña);
+        model.setBiblioteca(prob_biblioteca);
+        model.setPozo(prob_pozo);
+        model.setTesoro(prob_tesoro);
         model.commit();
     }
     public void CargarDatosUsuario(ParametrosModeloProperties parametrosData) {

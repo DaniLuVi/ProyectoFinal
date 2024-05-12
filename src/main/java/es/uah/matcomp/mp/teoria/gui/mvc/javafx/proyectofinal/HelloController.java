@@ -15,7 +15,7 @@ import org.apache.logging.log4j.Logger;
 
 public class HelloController implements Initializable {
 
-    private ParametrosModelo parametrosData = new ParametrosModelo(0, 0, 0, 0, 0, 0);
+    private ParametrosModelo parametrosData = new ParametrosModelo(3, 3, 5, 50, 50, 34, 50, 50, 50, 50, 50, 50);
     private ParametrosModeloProperties modeloGUIparametros = new ParametrosModeloProperties(parametrosData);
     private static final Logger log = LogManager.getLogger(HelloController.class);
     @FXML

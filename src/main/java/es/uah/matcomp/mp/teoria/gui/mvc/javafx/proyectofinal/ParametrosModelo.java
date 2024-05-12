@@ -24,7 +24,7 @@ public class ParametrosModelo {
     public int tesoro;
 
 
-    public ParametrosModelo(int filas, int columnas, int vidas, int reproduccion, int clonado, int V) {
+    public ParametrosModelo(int filas, int columnas, int vidas, int reproduccion, int clonado, int V, int agua, int comida, int montaña, int biblioteca, int pozo, int tesoro) {
         this.filas = filas;
         this.columnas = columnas;
         this.vidas = vidas;
@@ -135,14 +135,4 @@ public class ParametrosModelo {
         this.tesoro = tesoro;
     }
 
-    public Individuo getIndividuo(Individuo individuo) {
-        individuo.setVidas(vidas);
-        individuo.setReproduccion(reproduccion);
-        individuo.setClonacion(clonado);
-        return individuo;
-    }
-    public Entorno getEntorno(Entorno entorno) {
-        entorno.setV(V);
-        return entorno;
-    }
 }

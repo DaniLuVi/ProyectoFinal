@@ -129,7 +129,7 @@ public class ElementosCasillaController implements Initializable{
     @FXML
     protected void ponerAgua() throws Exception{
         try {
-            Agua entorno = new Agua(3, modelParametros.original.V);
+            Agua entorno = new Agua(3, modelParametros.original.agua);
             if (recurso1.getText() == "--") {
                 texto4.set("Entorno: Agua");
                 modelCelda.original.addEntorno(entorno);
@@ -148,7 +148,7 @@ public class ElementosCasillaController implements Initializable{
     @FXML
     protected void ponerComida() throws Exception{
         try {
-            Comida entorno = new Comida(3, modelParametros.original.V);
+            Comida entorno = new Comida(3, modelParametros.original.comida);
             if (recurso1.getText() == "--") {
                 texto4.set("Entorno: Comida");
                 modelCelda.original.addEntorno(entorno);
@@ -167,7 +167,7 @@ public class ElementosCasillaController implements Initializable{
     @FXML
     protected void ponerMontaña() throws Exception{
         try {
-            Montaña entorno = new Montaña(3, modelParametros.original.V);
+            Montaña entorno = new Montaña(3, modelParametros.original.montaña);
             if (recurso1.getText() == "--") {
                 texto4.set("Entorno: Montaña");
                 modelCelda.original.addEntorno(entorno);
@@ -186,7 +186,7 @@ public class ElementosCasillaController implements Initializable{
     @FXML
     protected void ponerBiblioteca() throws Exception{
         try {
-            Biblioteca entorno = new Biblioteca(3, modelParametros.original.V);
+            Biblioteca entorno = new Biblioteca(3, modelParametros.original.biblioteca);
             if (recurso1.getText() == "--") {
                 texto4.set("Entorno: Biblioteca");
                 modelCelda.original.addEntorno(entorno);
@@ -205,7 +205,7 @@ public class ElementosCasillaController implements Initializable{
     @FXML
     protected void ponerTesoro() throws Exception{
         try {
-            Tesoro entorno = new Tesoro(3, modelParametros.original.V);
+            Tesoro entorno = new Tesoro(3, modelParametros.original.tesoro);
             if (recurso1.getText() == "--") {
                 texto4.set("Entorno: Tesoro");
                 modelCelda.original.addEntorno(entorno);
@@ -224,7 +224,7 @@ public class ElementosCasillaController implements Initializable{
     @FXML
     protected void ponerPozo() throws Exception{
         try {
-            Pozo entorno = new Pozo(3, modelParametros.original.V);
+            Pozo entorno = new Pozo(3, modelParametros.original.pozo);
             if (recurso1.getText() == "--") {
                 texto4.set("Entorno: Pozo");
                 modelCelda.original.addEntorno(entorno);

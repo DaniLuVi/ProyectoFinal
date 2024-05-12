@@ -7,8 +7,5 @@ public class TipoBasico extends Individuo{
     public TipoBasico() {
         super();
     }
-    @Override
-    public void movimiento(Individuo individuo) {
 
-    }
 }
