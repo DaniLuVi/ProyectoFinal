@@ -14,8 +14,6 @@ public class Celda extends ElementoLS<Celda> {
         this.coordenadas.add(columnas);
     }
     public Celda() {
-        this.listaIndividuos = new ListaDoblementeEnlazada<Individuo>();
-        this.listaEntornos = new ListaDoblementeEnlazada<Entorno>();
     }
     public int getFila() {
         return coordenadas.getElemento(0).getData();

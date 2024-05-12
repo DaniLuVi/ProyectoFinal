@@ -52,6 +52,7 @@ public class TableroController {
             ElementosCasillaController p = fxmlLoader.getController();
             p.CargaDatosTablero(model);
             p.CargaDatosCelda(modelCelda);
+            p.setInfo();
             p.setStage(stage);
             stage.show();
 
@@ -240,15 +241,21 @@ public class TableroController {
         a.add(vidas);
         a.add(reproduccion);
         a.add(clonado);
-        a.add(v);
-
+        /*a.add(v);
+        for(int i = 0; i < listaCeldas.getNumeroElementos(); i++) {
+            a.add(listaCeldas.getElemento(i).getDato());
+        }
+        o tambien hacer esta otra forma
+        for(Celda celda: listaXCeldas) {
+            a.add(celda);
+        }*/
 
         ParametrosModelo parameterController = new ParametrosModelo(filas.getDato(), columnas.getDato(), vidas.getDato(), reproduccion.getDato(), clonado.getDato(), v.getDato());
 
         ParametrosModelo datos = parameterController;
 
         String rutaArchivo = "DatosCargaPartida.json";
-
+        // va a haber que guardar la informacion entera de la variable: listaX     (creo que se ve a poder hacer creando un método que recorra la lista)
         guardarDatosPartida(rutaArchivo, datos);
 
         log.info("Los datos se han guardado al fichero");

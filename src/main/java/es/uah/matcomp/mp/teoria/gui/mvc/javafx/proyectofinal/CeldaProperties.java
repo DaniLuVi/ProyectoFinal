@@ -10,7 +10,7 @@ import javafx.beans.property.SimpleListProperty;
 import javafx.collections.ObservableList;
 
 public class CeldaProperties {
-    protected Celda original;
+    protected Celda original = new Celda();
     private ListProperty coordenadas = new SimpleListProperty<>();
     private ListProperty<Individuo> listaIndividuos = new SimpleListProperty<>();
     private ListProperty<Entorno> listaEntornos = new SimpleListProperty<>();

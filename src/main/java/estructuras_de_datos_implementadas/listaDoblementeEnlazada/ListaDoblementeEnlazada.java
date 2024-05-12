@@ -121,8 +121,8 @@ public class ListaDoblementeEnlazada<TipoDato> {
     public ElementoLDE<TipoDato> getElemento(int posicion) {
         ElementoLDE<TipoDato> a = primero;
         int contador = 0;
-        if (getNumeroElementos() == 1)
-            return primero;
+        if (getNumeroElementos() == 1 && posicion == 0)
+            return a;
         while (contador != posicion && a != null) {
             a = a.getSiguiente();
             contador++;
