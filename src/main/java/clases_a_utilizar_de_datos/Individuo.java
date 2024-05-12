@@ -56,12 +56,44 @@ public class Individuo extends ElementoLDE<Individuo> {
     public void setClonacion(int clonacion) {
         this.clonacion = clonacion;
     }
-    //crear un método para conseguir el tipo de individuo
+
 
     public int getMuerte() {
         int muerte = 100 - this.getReproduccion();
         return muerte;
     }
+
+    public String toString(Individuo individuo) {
+        if (individuo instanceof TipoBasico) {
+            return "Individuo[TipoBásico{" +
+                    "id=" + id +
+                    ", generacion=" + generacion +
+                    ", vidas=" + vidas +
+                    ", reproduccion=" + reproduccion +
+                    ", clonacion=" + clonacion +
+                    "}]";
+        }
+        if (individuo instanceof TipoNormal) {
+            return "Individuo[TipoNormal{" +
+                    "id=" + id +
+                    ", generacion=" + generacion +
+                    ", vidas=" + vidas +
+                    ", reproduccion=" + reproduccion +
+                    ", clonacion=" + clonacion +
+                    "}]";
+        }
+        if (individuo instanceof TipoAvanzado) {
+            return "Individuo[TipoAvanzado{" +
+                    "id=" + id +
+                    ", generacion=" + generacion +
+                    ", vidas=" + vidas +
+                    ", reproduccion=" + reproduccion +
+                    ", clonacion=" + clonacion +
+                    "}]";
+        }
+        return null;
+    }
+
     public void movimiento(Individuo individuo) {}
 
     public void turno(Individuo individuo) {}

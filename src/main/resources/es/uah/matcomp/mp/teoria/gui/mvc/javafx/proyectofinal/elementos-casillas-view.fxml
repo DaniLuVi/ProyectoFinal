@@ -95,7 +95,7 @@
          </children>
       </HBox>
       <Button layoutX="629.0" layoutY="544.0" mnemonicParsing="false" onAction="#onOk" text="OK !" />
-      <VBox layoutX="125.0" layoutY="294.0" prefHeight="227.0" prefWidth="457.0">
+      <VBox layoutX="39.0" layoutY="294.0" prefHeight="227.0" prefWidth="651.0">
          <children>
             <Label fx:id="individuo1">
                <VBox.margin>

@@ -258,22 +258,22 @@ public class ElementosCasillaController implements Initializable{
     }
     public void setInfo() {
         if (modelCelda.original.getListaIndividuos().getPrimero() != null) {
-            texto1.set(modelCelda.original.getListaIndividuos().getPrimero().getDato().toString());
+            texto1.set(modelCelda.original.getListaIndividuos().getPrimero().getDato().toString(modelCelda.original.getListaIndividuos().getPrimero().getDato()));
         }
         if (modelCelda.original.getListaIndividuos().getElemento(1) != null) {
-            texto2.set(modelCelda.original.getListaIndividuos().getElemento(1).getDato().toString());
+            texto2.set(modelCelda.original.getListaIndividuos().getElemento(1).getDato().toString(modelCelda.original.getListaIndividuos().getElemento(1).getDato()));
         }
         if (modelCelda.original.getListaIndividuos().getElemento(2) != null) {
-            texto3.set(modelCelda.original.getListaIndividuos().getElemento(2).getDato().toString());
+            texto3.set(modelCelda.original.getListaIndividuos().getElemento(2).getDato().toString(modelCelda.original.getListaIndividuos().getElemento(2).getDato()));
         }
         if (modelCelda.original.getListaEntornos().getPrimero() != null) {
-            texto4.set(modelCelda.original.getListaEntornos().getPrimero().getDato().toString());
+            texto4.set(modelCelda.original.getListaEntornos().getPrimero().getDato().toString(modelCelda.original.getListaEntornos().getPrimero().getDato()));
         }
         if (modelCelda.original.getListaEntornos().getElemento(1) != null) {
-            texto5.set(modelCelda.original.getListaEntornos().getElemento(1).getDato().toString());
+            texto5.set(modelCelda.original.getListaEntornos().getElemento(1).getDato().toString(modelCelda.original.getListaEntornos().getElemento(1).getDato()));
         }
         if (modelCelda.original.getListaEntornos().getElemento(2) != null) {
-            texto6.set(modelCelda.original.getListaEntornos().getElemento(2).getDato().toString());
+            texto6.set(modelCelda.original.getListaEntornos().getElemento(2).getDato().toString(modelCelda.original.getListaEntornos().getElemento(2).getDato()));
         }
     }
     public void setStage(Stage s) {

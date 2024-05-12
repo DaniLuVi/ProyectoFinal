@@ -54,5 +54,14 @@ public class Celda extends ElementoLS<Celda> {
     public void setListaEntornos(ListaDoblementeEnlazada<Entorno> listaEntornos) {
         this.listaEntornos = listaEntornos;
     }
+
+    @Override
+    public String toString() {
+        return "Celda{" +
+                "coordenadas=" + coordenadas +
+                ", listaIndividuos=" + listaIndividuos +
+                ", listaEntornos=" + listaEntornos +
+                '}';
+    }
 }
 

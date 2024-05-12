@@ -29,6 +29,41 @@ public class Entorno extends ElementoLDE<Entorno> {
         this.v = v;
     }
 
+    public String toString(Entorno entorno) {
+        if (entorno instanceof Agua) {
+            return "Entorno[Agua{" +
+                    "tiempo_aparicion=" + tiempo_aparicion +
+                    ", v=" + v +
+                    "}]";
+        } else if (entorno instanceof Comida) {
+            return "Entorno[Comida{" +
+                    "tiempo_aparicion=" + tiempo_aparicion +
+                    ", v=" + v +
+                    "}]";
+        } else if (entorno instanceof Montaña) {
+            return "Entorno[Montaña{" +
+                    "tiempo_aparicion=" + tiempo_aparicion +
+                    ", v=" + v +
+                    "}]";
+        } else if (entorno instanceof Biblioteca) {
+            return "Entorno[Biblioteca{" +
+                    "tiempo_aparicion=" + tiempo_aparicion +
+                    ", v=" + v +
+                    "}]";
+        } else if (entorno instanceof Pozo) {
+            return "Entorno[Pozo{" +
+                    "tiempo_aparicion=" + tiempo_aparicion +
+                    ", v=" + v +
+                    "}]";
+        } else if (entorno instanceof Tesoro) {
+            return "Entorno[Tesoro{" +
+                    "tiempo_aparicion=" + tiempo_aparicion +
+                    ", v=" + v +
+                    "}]";
+        }
+        return null;
+    }
+
     public void turno(Entorno entorno) {}
 
     public void modificarIndividuo(Individuo individuo) {}
