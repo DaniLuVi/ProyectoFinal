@@ -29,9 +29,9 @@
                               <VBox layoutX="36.0" prefHeight="186.0" prefWidth="232.0">
                                  <children>
                                     <Label text="Nº de filas" />
-                                    <Slider fx:id="sliderFilas" prefHeight="14.0" prefWidth="150.0" />
+                                    <Slider fx:id="sliderFilas" max="50.0" prefHeight="14.0" prefWidth="150.0" />
                                     <Label text="Nº de columnas" />
-                                    <Slider fx:id="sliderColumnas" />
+                                    <Slider fx:id="sliderColumnas" max="50.0" />
                                  </children>
                               </VBox>
                               <Label fx:id="labelValorFilas" layoutX="301.0" layoutY="14.0" prefHeight="17.0" prefWidth="63.0" text="--">
@@ -53,7 +53,7 @@
                               <VBox layoutX="1.0" layoutY="14.0" prefHeight="200.0" prefWidth="217.0">
                                  <children>
                                     <Label text="Nº de vidas" />
-                                    <Slider fx:id="sliderVidas" />
+                                    <Slider fx:id="sliderVidas" max="25.0" />
                                     <Label text="\% de Reproducción" />
                                     <Slider fx:id="sliderReproduccion" />
                                     <Label text="\% de Clonado" />
