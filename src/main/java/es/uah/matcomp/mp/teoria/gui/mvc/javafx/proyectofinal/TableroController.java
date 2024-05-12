@@ -25,6 +25,7 @@ public class TableroController {
     ListaSimple<ListaSimple<Celda>> listaX;
     private ListaDoblementeEnlazada<Celda> listaCeldas = new ListaDoblementeEnlazada<>();
     private int num_individuos = 0;
+    private int cant_entornos = 0;
     private Stage scene;
     @FXML
     private GridPane tableroDeJuego;
@@ -126,8 +127,21 @@ public class TableroController {
             int k = 0;
             for (int j = 0; j < listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos(); j++) {
                 if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoBasico) {
+                    Random randomBasico = new Random();
+                    int opcion = randomBasico.nextInt(1, 4);
+                    Individuo celda_cambiar = listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato();
+                    if (opcion == 1) {
 
+                    } else if (opcion == 2) {
+                        
+                    } else if (opcion == 3) {
+                        
+                    } else if (opcion == 4) {
+                        
+                    }
                 } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoNormal) {
+                    Random randomNormal = new Random();
+                    int opcion = randomNormal.nextInt(0, cant_entornos);
 
                 } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoAvanzado) {
 
@@ -237,6 +251,14 @@ public class TableroController {
             }
         }
         return num_individuos;
+    }
+    private int getCant_entornos() {
+        for (int i = 0; i < listaX.getElemento(i).getData().getNumeroElementos(); i++) {
+            for (int j = 0; j < listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getNumeroElementos(); j++) {
+                cant_entornos++;
+            }
+        }
+        return cant_entornos;
     }
     @FXML
     protected void play() {
