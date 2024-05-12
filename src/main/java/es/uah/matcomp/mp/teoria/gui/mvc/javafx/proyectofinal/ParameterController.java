@@ -34,6 +34,18 @@ public class ParameterController implements Initializable {
     @FXML
     private Slider sliderV;
     @FXML
+    private Slider sliderAgua;
+    @FXML
+    private Slider sliderComida;
+    @FXML
+    private Slider sliderMontaña;
+    @FXML
+    private Slider sliderBiblioteca;
+    @FXML
+    private Slider sliderPozo;
+    @FXML
+    private Slider sliderTesoro;
+    @FXML
     private Label labelValorFilas;
     @FXML
     private Label labelValorColumnas;
@@ -154,6 +166,12 @@ public class ParameterController implements Initializable {
         sliderReproduccion.valueProperty().bindBidirectional(valorReproduccion);
         sliderClonado.valueProperty().bindBidirectional(valorClonado);
         sliderV.valueProperty().bindBidirectional(valorV);
+        sliderAgua.valueProperty().bindBidirectional(prob_agua);
+        sliderComida.valueProperty().bindBidirectional(prob_comida);
+        sliderMontaña.valueProperty().bindBidirectional(prob_montaña);
+        sliderBiblioteca.valueProperty().bindBidirectional(prob_biblioteca);
+        sliderPozo.valueProperty().bindBidirectional(prob_pozo);
+        sliderTesoro.valueProperty().bindBidirectional(prob_tesoro);
         labelValorFilas.textProperty().bind(valorFilas.asString());
         labelValorColumnas.textProperty().bind(valorColumnas.asString());
         labelValorVidas.textProperty().bind(valorVidas.asString());
