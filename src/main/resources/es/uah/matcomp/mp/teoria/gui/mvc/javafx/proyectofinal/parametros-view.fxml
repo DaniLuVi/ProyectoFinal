@@ -116,7 +116,7 @@
       </HBox>
       <Button mnemonicParsing="false" onAction="#guardarDatos" text="Guardar datos">
          <VBox.margin>
-            <Insets left="240.0" top="35.0" />
+            <Insets left="390.0" top="35.0" />
          </VBox.margin>
       </Button>
    </children>
