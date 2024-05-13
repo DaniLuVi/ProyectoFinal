@@ -440,15 +440,14 @@ public class TableroController {
 
                 Button casilla = new Button();
                 Celda celda = new Celda(i, j);
-                listaY.add(celda);
-                listaCeldas.add(celda);
-
                 casilla.setOnAction(new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent actionEvent) {
                         modelCelda.setOriginal(celda);
                         onCasillaVerDatos(celda);
                         celda.setDataGuardada(modelCelda);
+                        listaY.add(celda);
+                        listaCeldas.add(celda);
                     }
                 });
                 casilla.setMinSize(300 * 2/ k, 400 / x);
