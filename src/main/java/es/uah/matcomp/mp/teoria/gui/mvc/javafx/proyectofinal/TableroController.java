@@ -446,8 +446,8 @@ public class TableroController {
                         modelCelda.setOriginal(celda);
                         onCasillaVerDatos(celda);
                         celda.setDataGuardada(modelCelda);
-                        listaY.add(celda);
-                        listaCeldas.add(celda);
+                        listaY.add(modelCelda.original);
+                        listaCeldas.add(modelCelda.original);
                     }
                 });
                 casilla.setMinSize(300 * 2/ k, 400 / x);
