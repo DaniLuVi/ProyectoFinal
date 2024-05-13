@@ -141,12 +141,16 @@ public class TableroController {
                         Individuo individuo_cambiar = listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato();
                         if (opcion == 1) {
                             listaX.getElemento(i-1).getData().getElemento(j).getData().getListaIndividuos().add(individuo_cambiar);
+                            listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().del(k);
                         } else if (opcion == 2) {
                             listaX.getElemento(i+1).getData().getElemento(j).getData().getListaIndividuos().add(individuo_cambiar);
+                            listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().del(k);
                         } else if (opcion == 3) {
                             listaX.getElemento(i).getData().getElemento(j-1).getData().getListaIndividuos().add(individuo_cambiar);
+                            listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().del(k);
                         } else if (opcion == 4) {
                             listaX.getElemento(i).getData().getElemento(j+1).getData().getListaIndividuos().add(individuo_cambiar);
+                            listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().del(k);
                         }
                     } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoNormal) {
                         Random randomNormal = new Random();

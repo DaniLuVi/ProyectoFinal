@@ -141,6 +141,17 @@ public class ParameterController implements Initializable {
 
         log.info("Se ha cerrado la ventana de los parámetros");
     }
+    @FXML
+    protected void guardarDatos() {
+
+        log.info("Se van a guardar los datos de los parámetros");
+
+        model.commit();
+        TableroController p = new TableroController();
+        p.CargaDatosUsuario(model);
+
+        log.info("Se han guardado los datos para cargar el tablero");
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
