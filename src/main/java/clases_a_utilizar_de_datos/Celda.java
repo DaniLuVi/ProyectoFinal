@@ -1,5 +1,6 @@
 package clases_a_utilizar_de_datos;
 
+import es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.CeldaProperties;
 import estructuras_de_datos_implementadas.listaDoblementeEnlazada.ListaDoblementeEnlazada;
 import estructuras_de_datos_implementadas.listaSimple.ElementoLS;
 import estructuras_de_datos_implementadas.listaSimple.ListaSimple;
@@ -54,7 +55,11 @@ public class Celda extends ElementoLS<Celda> {
     public void setListaEntornos(ListaDoblementeEnlazada<Entorno> listaEntornos) {
         this.listaEntornos = listaEntornos;
     }
-
+    public void setDataGuardada(CeldaProperties modelCelda) {
+        this.coordenadas = modelCelda.getOriginal().getCoordenadas();
+        this.listaIndividuos = modelCelda.getOriginal().getListaIndividuos();
+        this.listaEntornos = modelCelda.getOriginal().getListaEntornos();
+    }
     @Override
     public String toString() {
         return "Celda{" +

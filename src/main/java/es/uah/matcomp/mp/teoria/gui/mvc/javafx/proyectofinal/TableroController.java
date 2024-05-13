@@ -49,6 +49,7 @@ public class TableroController {
 
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("elementos-casillas-view.fxml"));
+
         try {
             Scene scene = new Scene(fxmlLoader.load(), 704, 600);
             stage.setTitle("Vista de los elementos de una casilla");
@@ -349,8 +350,18 @@ public class TableroController {
         a.add(columnas);
         a.add(vidas);
         a.add(reproduccion);
-        a.add(clonado);
-        /*a.add(v);
+        a.add(clonado); /*
+        for (int i = 0; i < maximo; i++) {
+            for (int j = 0; j < listaX.getElemento(i).getData().getNumeroElementos(); j++) {
+                a.add(listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getPrimero().getDato());
+                a.add(listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(1).getDato());
+                a.add(listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(2).getDato());
+                a.add(listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getPrimero().getDato());
+                a.add(listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(1).getDato());
+                a.add(listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(2).getDato());
+            }
+        }
+        a.add(v);
         for(int i = 0; i < listaCeldas.getNumeroElementos(); i++) {
             a.add(listaCeldas.getElemento(i).getDato());
         }
@@ -420,22 +431,24 @@ public class TableroController {
 
         log.info("Se ejecuta el controlador del tablero.\n");
 
-        modelo.construir_tablero(k, x);
-        //listaX = new ListaSimple<>(k);
-        //maximo = k;
+        //modelo.construir_tablero(k, x);
+        listaX = new ListaSimple<>(k);
+        maximo = k;
         for (int i = 1; i <= k; i++) {
-            //ListaSimple<Celda> listaY = new ListaSimple<>(x);
+            ListaSimple<Celda> listaY = new ListaSimple<>(x);
             for (int j = 1; j <= x; j++) {
 
                 Button casilla = new Button();
                 Celda celda = new Celda(i, j);
-                //listaY.add(celda);
-                //listaCeldas.add(celda);
+                listaY.add(celda);
+                listaCeldas.add(celda);
+
                 casilla.setOnAction(new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent actionEvent) {
                         modelCelda.setOriginal(celda);
                         onCasillaVerDatos(celda);
+                        celda.setDataGuardada(modelCelda);
                     }
                 });
                 casilla.setMinSize(300 * 2/ k, 400 / x);
@@ -443,7 +456,7 @@ public class TableroController {
                 casilla.setStyle("-fx-border-color: black; -fx-text-alignment: center");
                 tableroDeJuego.add(casilla, i, j);
             }
-            //listaX.add(listaY);
+            listaX.add(listaY);
         }
 
         log.info("Enviando traza de ejecución");

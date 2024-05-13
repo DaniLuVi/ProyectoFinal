@@ -287,5 +287,7 @@ public class ElementosCasillaController implements Initializable{
         this.modelParametros = parametrosModelo;
         modelParametros.commit();
     }
+    public void setModelCelda(CeldaProperties modelCelda) {
 
+    }
 }
