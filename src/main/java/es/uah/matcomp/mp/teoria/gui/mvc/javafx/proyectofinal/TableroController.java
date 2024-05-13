@@ -38,7 +38,7 @@ public class TableroController {
     private Button pausa;
     @FXML
     private Label turnos;
-    private DatosTablero modelo;
+    private Tablero modelo = new Tablero();
     private CeldaProperties modelCelda = new CeldaProperties();
     private ParametrosModeloProperties model;
     private static final Logger log = LogManager.getLogger(TableroController.class);
@@ -75,7 +75,7 @@ public class TableroController {
     }
 
     private void BucleDeControl() {
-        while (getNum_individuos() > 1) {
+        if (getNum_individuos() > 1) {
             vida_individuo();
             tiempo_recurso();
             movimiento_individuo();
@@ -89,20 +89,21 @@ public class TableroController {
             if (hacer_pausa() == true) {
                 pause();
             }
-        }
-        Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("simulacion-terminada.fxml"));
-        try {
-            Scene scene = new Scene(fxmlLoader.load(), 400, 300);
-            stage.setTitle("Simulación terminada");
-            stage.setScene(scene);
-            PantallaFinalizar p = fxmlLoader.getController();
+        } else {
+            Stage stage = new Stage();
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("simulacion-terminada.fxml"));
+            try {
+                Scene scene = new Scene(fxmlLoader.load(), 400, 300);
+                stage.setTitle("Simulación terminada");
+                stage.setScene(scene);
+                PantallaFinalizar p = fxmlLoader.getController();
 
-            p.setStage(stage);
-            stage.show();
+                p.setStage(stage);
+                stage.show();
 
-        } catch (Exception e) {
-            e.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
     private void vida_individuo() {
@@ -419,16 +420,17 @@ public class TableroController {
 
         log.info("Se ejecuta el controlador del tablero.\n");
 
-        listaX = new ListaSimple<>(k);
-        maximo = k;
+        modelo.construir_tablero(k, x);
+        //listaX = new ListaSimple<>(k);
+        //maximo = k;
         for (int i = 1; i <= k; i++) {
-            ListaSimple<Celda> listaY = new ListaSimple<>(x);
+            //ListaSimple<Celda> listaY = new ListaSimple<>(x);
             for (int j = 1; j <= x; j++) {
 
                 Button casilla = new Button();
                 Celda celda = new Celda(i, j);
-                listaY.add(celda);
-                listaCeldas.add(celda);
+                //listaY.add(celda);
+                //listaCeldas.add(celda);
                 casilla.setOnAction(new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent actionEvent) {
@@ -441,7 +443,7 @@ public class TableroController {
                 casilla.setStyle("-fx-border-color: black; -fx-text-alignment: center");
                 tableroDeJuego.add(casilla, i, j);
             }
-            listaX.add(listaY);
+            //listaX.add(listaY);
         }
 
         log.info("Enviando traza de ejecución");
