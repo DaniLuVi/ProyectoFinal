@@ -30,6 +30,7 @@ public class TableroController {
     private int num_individuos = 0;
     private int cant_entornos = 0;
     private int num_turnos = 0;
+    private int maximo;
     private Stage scene;
     @FXML
     private GridPane tableroDeJuego;
@@ -105,7 +106,7 @@ public class TableroController {
         }
     }
     private void vida_individuo() {
-        for (int i = 0; i < listaX.getElemento(i).getData().getNumeroElementos(); i++) {
+        for (int i = 0; i < maximo; i++) {
             int k = 0;
             for (int j = 0; j < listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos(); j++) {
                 int vidas_actuales = listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato().getVidas();
@@ -118,7 +119,7 @@ public class TableroController {
         }
     }
     private void tiempo_recurso() {
-        for (int i = 0; i < listaX.getElemento(i).getData().getNumeroElementos(); i++) {
+        for (int i = 0; i < maximo; i++) {
             int k = 0;
             for (int j = 0; j < listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getNumeroElementos(); j++) {
                 int tiempo_actual = listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(k).getDato().getTiempo_aparicion();
@@ -132,7 +133,7 @@ public class TableroController {
     }
     private void movimiento_individuo() throws ArrayIndexOutOfBoundsException{
         try{
-            for (int i = 0; i < listaX.getElemento(i).getData().getNumeroElementos(); i++) {
+            for (int i = 0; i < maximo; i++) {
                 int k = 0;
                 for (int j = 0; j < listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos(); j++) {
                     if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoBasico) {
@@ -168,7 +169,7 @@ public class TableroController {
 
     }
     private void mejoras() {
-        for (int i = 0; i < listaX.getElemento(i).getData().getNumeroElementos(); i++) {
+        for (int i = 0; i < maximo; i++) {
             int k = 0;
             for (int j = 0; j < listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos(); j++) {
                 if (listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos() != null) {
@@ -193,7 +194,7 @@ public class TableroController {
         }
     }
     private void hay_reproduccion() {
-        for (int i = 0; i < listaX.getElemento(i).getData().getNumeroElementos(); i++) {
+        for (int i = 0; i < maximo; i++) {
             for (int j = 0; j < listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos(); j++) {
                 if (listaCeldas.getElemento(i).getDato().getListaIndividuos().getNumeroElementos() == 2) {
                     int reproduccion_primero = listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato().getReproduccion();
@@ -226,7 +227,7 @@ public class TableroController {
         }
     }
     private void hay_clonacion() {
-        for (int i = 0; i < listaX.getElemento(i).getData().getNumeroElementos(); i++) {
+        for (int i = 0; i < maximo; i++) {
             int k = 0;
             for (int j = 0; j < listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos(); j++) {
                 Random num_random = new Random();
@@ -248,7 +249,7 @@ public class TableroController {
         }
     }
     private void hay_individuos_a_desaparecer() {
-        for (int i = 0; i < listaX.getElemento(i).getData().getNumeroElementos(); i++) {
+        for (int i = 0; i < maximo; i++) {
             for (int j = 0; j < listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos(); j++) {
                 if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos() > 2) {
                     if ((listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato().getVidas() > listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(1).getDato().getVidas()) && (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato().getVidas() > listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(2).getDato().getVidas())) {
@@ -263,7 +264,7 @@ public class TableroController {
         }
     }
     private void habra_nuevos_recursos() {
-        for (int i = 0; i < listaX.getElemento(i).getData().getNumeroElementos(); i++) {
+        for (int i = 0; i < maximo; i++) {
             int k = 0;
             for (int j = 0; j < listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getNumeroElementos(); j++) {
                 Random random = new Random();
@@ -289,7 +290,7 @@ public class TableroController {
         }
     }
     private int getNum_individuos() {
-        for (int i = 0; i < listaX.getElemento(i).getData().getNumeroElementos(); i++) {
+        for (int i = 0; i < maximo; i++) {
             for (int j = 0; j < listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos(); j++) {
                 num_individuos++;
             }
@@ -419,6 +420,7 @@ public class TableroController {
         log.info("Se ejecuta el controlador del tablero.\n");
 
         listaX = new ListaSimple<>(k);
+        maximo = k;
         for (int i = 1; i <= k; i++) {
             ListaSimple<Celda> listaY = new ListaSimple<>(x);
             for (int j = 1; j <= x; j++) {

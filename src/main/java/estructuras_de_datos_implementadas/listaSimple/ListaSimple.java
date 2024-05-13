@@ -64,8 +64,10 @@ public class ListaSimple<TipoDato> {
     }
     public int getNumeroElementos(){
         int contador = 0;
-        while (this.getElemento(contador) != null) {
-            contador++;
+        for (int i = 0; i < maximo; i++) {
+            if (datos[i] != null) {
+                contador++;
+            }
         }
         return contador;
     }
@@ -93,7 +95,7 @@ public class ListaSimple<TipoDato> {
         return datos[posicion+1];
     }
     public ElementoLS<TipoDato> getElemento(int posicion){
-        if (posicion <= maximo && posicion >= 0)
+        if (datos[posicion] != null)
             return datos[posicion];
         return null;
     }
