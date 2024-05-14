@@ -10,6 +10,6 @@
          <font>
             <Font name="Droid Sans Mono" size="36.0" />
          </font></Label>
-      <Button layoutX="322.0" layoutY="245.0" mnemonicParsing="false" onAction="#continuar" text="Continuar" />
+      <Button layoutX="264.0" layoutY="245.0" mnemonicParsing="false" onAction="#continuar" text="Continuar" />
    </children>
 </AnchorPane>

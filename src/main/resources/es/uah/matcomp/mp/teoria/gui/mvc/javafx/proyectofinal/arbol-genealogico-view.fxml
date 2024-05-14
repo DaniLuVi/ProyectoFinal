@@ -6,11 +6,11 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.ArbolGenealogicoView">
    <children>
-      <Label layoutX="101.0" layoutY="33.0" text="ÁRBOL GENEALÓGICO">
+      <Label layoutX="195.0" layoutY="29.0" text="ÁRBOL GENEALÓGICO">
          <font>
             <Font name="Comic Sans MS" size="36.0" />
          </font>
       </Label>
-      <Button layoutX="537.0" layoutY="361.0" mnemonicParsing="false" onAction="#terminar" text="Salir" />
+      <Button layoutX="461.0" layoutY="361.0" mnemonicParsing="false" onAction="#terminar" text="Salir" />
    </children>
 </AnchorPane>

@@ -94,7 +94,7 @@ public class TableroController {
             Stage stage = new Stage();
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("simulacion-terminada.fxml"));
             try {
-                Scene scene = new Scene(fxmlLoader.load(), 400, 300);
+                Scene scene = new Scene(fxmlLoader.load(), 550, 300);
                 stage.setTitle("Simulación terminada");
                 stage.setScene(scene);
                 PantallaFinalizar p = fxmlLoader.getController();
