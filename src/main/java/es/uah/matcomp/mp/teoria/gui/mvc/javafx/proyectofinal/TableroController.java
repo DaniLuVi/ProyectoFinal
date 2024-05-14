@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.Random;
 
 import org.apache.logging.log4j.LogManager;
@@ -384,11 +385,13 @@ public class TableroController {
         ElementoLDE<Integer> reproduccion = new ElementoLDE<>(model.original.getReproduccion());
         ElementoLDE<Integer> clonado = new ElementoLDE<>(model.original.getClonado());
         ElementoLDE<Integer> v = new ElementoLDE<>(model.original.getV());
-        a.add(filas);
-        a.add(columnas);
-        a.add(vidas);
-        a.add(reproduccion);
-        a.add(clonado); /*
+        /* a.add(num_turnos);
+        a.add(listaX.getNumeroElementos());
+        a.add(filas.getDato());
+        a.add(columnas.getDato());
+        a.add(vidas.getDato());
+        a.add(reproduccion.getDato());
+        a.add(clonado.getDato()); /*
         for (int i = 0; i < maximo; i++) {
             for (int j = 0; j < listaX.getElemento(i).getData().getNumeroElementos(); j++) {
                 a.add(listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getPrimero().getDato());
@@ -406,7 +409,17 @@ public class TableroController {
         o tambien hacer esta otra forma
         for(Celda celda: listaXCeldas) {
             a.add(celda);
-        }*/
+        }
+
+        for (int j = 0; j < maximo; j++) {
+            int pos = 0;
+            while ((listaX.getElemento(j).getData().getElemento(pos).getData().getListaIndividuos() != null) || (listaX.getElemento(j).getData().getElemento(pos).getData().getListaEntornos() != null)) {
+                a.add(listaX.getElemento(j).getData().getElemento(pos).getData().getListaIndividuos().getElemento(0).getDato() + "," + listaX.getElemento(j).getData().getElemento(pos).getData().getListaIndividuos().getElemento(1).getDato() + "," + listaX.getElemento(j).getData().getElemento(pos).getData().getListaIndividuos().getElemento(2).getDato());
+                a.add(listaX.getElemento(j).getData().getElemento(pos).getData().getListaEntornos().getPrimero().getDato() + "," + listaX.getElemento(j).getData().getElemento(pos).getData().getListaEntornos().getElemento(1).getDato() + "," + listaX.getElemento(j).getData().getElemento(pos).getData().getListaEntornos().getElemento(2).getDato());
+                pos++;
+            }
+        }   (aquí tengo distintas cosas que he probado para el guardado de datos que no me han funcionado de momento)      */
+
 
         ParametrosModelo parameterController = new ParametrosModelo(filas.getDato(), columnas.getDato(), vidas.getDato(), reproduccion.getDato(), clonado.getDato(), v.getDato(), model.original.agua, model.original.comida, model.original.montaña, model.original.biblioteca, model.original.pozo, model.original.tesoro);
 

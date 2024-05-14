@@ -1,13 +1,18 @@
 package estructuras_de_datos_implementadas.listaSimple;
 
+import clases_a_utilizar_de_datos.Celda;
+
+import java.util.Iterator;
+
 /**
  * Programar la lista simple.
  */
-public class ListaSimple<TipoDato> {
+public class ListaSimple<TipoDato> implements Iterator{
 
     private ElementoLS<TipoDato>[] datos;
 
     private int maximo;
+    private int posicion = 0;
 
     public ListaSimple() {
     }
@@ -98,5 +103,27 @@ public class ListaSimple<TipoDato> {
         if (datos[posicion] != null)
             return datos[posicion];
         return null;
+    }
+
+    public Iterator<Celda> iterator() {
+        Iterator it = new ListaSimple();
+        return it;
+    }
+
+    @Override
+    public boolean hasNext() {
+        boolean result;
+        if (posicion < maximo) {
+            result = true;
+        } else {
+            result = false;
+        }
+        return result;
+    }
+
+    @Override
+    public Object next() {
+        posicion++;
+        return this.datos[posicion - 1];
     }
 }
