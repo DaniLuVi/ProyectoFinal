@@ -317,7 +317,7 @@ public class TableroController {
             }
         }
     }
-    private int getNum_individuos() {    // creo que tengo que mejorarlo
+    private int getNum_individuos() {
         for (int i = 0; i < maximo; i++) {
             for (int j = 0; j < listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos(); j++) {
                 if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos() == 1) {
