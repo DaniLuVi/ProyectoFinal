@@ -111,6 +111,19 @@ public class TableroController {
         for (int i = 0; i < maximo; i++) {
             int k = 0;
             for (int j = 0; j < listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos(); j++) {
+                if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos() == 2) {
+                    int vidas_actuales = listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k + 1).getDato().getVidas();
+                    listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k + 1).getDato().setVidas(vidas_actuales - 1);
+                    if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k + 1).getDato().getVidas() == 0) {
+                        listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().del(k + 1);
+                    }
+                } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos() == 3) {
+                    int vidas_actuales = listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k + 2).getDato().getVidas();
+                    listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k + 2).getDato().setVidas(vidas_actuales - 1);
+                    if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k + 2).getDato().getVidas() == 0) {
+                        listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().del(k + 2);
+                    }
+                }
                 int vidas_actuales = listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato().getVidas();
                 listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato().setVidas(vidas_actuales - 1);
                 if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato().getVidas() == 0) {
@@ -124,6 +137,19 @@ public class TableroController {
         for (int i = 0; i < maximo; i++) {
             int k = 0;
             for (int j = 0; j < listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getNumeroElementos(); j++) {
+                if (listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getNumeroElementos() == 2) {
+                    int tiempo_actual = listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(k + 1).getDato().getTiempo_aparicion();
+                    listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(k + 1).getDato().setTiempo_aparicion(tiempo_actual - 1);
+                    if (listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(k + 1).getDato().getTiempo_aparicion() == 0) {
+                        listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().del(k + 1);
+                    }
+                } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getNumeroElementos() == 3) {
+                    int tiempo_actual = listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(k + 2).getDato().getTiempo_aparicion();
+                    listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(k + 2).getDato().setTiempo_aparicion(tiempo_actual - 1);
+                    if (listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(k + 2).getDato().getTiempo_aparicion() == 0) {
+                        listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().del(k + 2);
+                    }
+                }
                 int tiempo_actual = listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(k).getDato().getTiempo_aparicion();
                 listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(k).getDato().setTiempo_aparicion(tiempo_actual - 1);
                 if (listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(k).getDato().getTiempo_aparicion() == 0) {
@@ -198,32 +224,32 @@ public class TableroController {
     private void hay_reproduccion() {
         for (int i = 0; i < maximo; i++) {
             for (int j = 0; j < listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos(); j++) {
-                if (listaCeldas.getElemento(i).getDato().getListaIndividuos().getNumeroElementos() == 2) {
+                if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos() == 2) {
                     int reproduccion_primero = listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato().getReproduccion();
                     int reproduccion_segundo = listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(1).getDato().getReproduccion();
                     if (reproduccion_primero + reproduccion_segundo >= 100) {
-                        if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato() instanceof TipoBasico == listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(1).getDato() instanceof TipoBasico) {
+                        if ((listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato() instanceof TipoBasico == true) && (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(1).getDato() instanceof TipoBasico == true)) {
                             listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().add(new TipoBasico());
-                        } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato() instanceof TipoNormal == listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(1).getDato() instanceof TipoNormal) {
+                        } else if ((listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato() instanceof TipoNormal == true) && (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(1).getDato() instanceof TipoNormal == true)) {
                             listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().add(new TipoNormal());
-                        } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato() instanceof TipoAvanzado == listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(1).getDato() instanceof TipoAvanzado) {
+                        } else if ((listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato() instanceof TipoAvanzado == true) && (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(1).getDato() instanceof TipoAvanzado == true)) {
                             listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().add(new TipoAvanzado());
-                        } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato() instanceof TipoBasico != listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(1).getDato() instanceof TipoNormal) {
+                        } else if ((listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato() instanceof TipoBasico == true) && (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(1).getDato() instanceof TipoNormal == true)) {
                             listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().add(new TipoNormal());
-                        } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato() instanceof TipoBasico != listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(1).getDato() instanceof TipoAvanzado) {
+                        } else if ((listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato() instanceof TipoBasico == true) && (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(1).getDato() instanceof TipoAvanzado == true)) {
                             listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().add(new TipoAvanzado());
-                        } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato() instanceof TipoNormal != listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(1).getDato() instanceof TipoBasico) {
+                        } else if ((listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato() instanceof TipoNormal == true) && (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(1).getDato() instanceof TipoBasico == true)) {
                             listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().add(new TipoNormal());
-                        } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato() instanceof TipoNormal != listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(1).getDato() instanceof TipoAvanzado) {
+                        } else if ((listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato() instanceof TipoNormal == true) && (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(1).getDato() instanceof TipoAvanzado == true)) {
                             listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().add(new TipoAvanzado());
-                        } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato() instanceof TipoAvanzado != listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(1).getDato() instanceof TipoBasico) {
+                        } else if ((listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato() instanceof TipoAvanzado == true) && (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(1).getDato() instanceof TipoBasico == true)) {
                             listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().add(new TipoAvanzado());
-                        } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato() instanceof TipoAvanzado != listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(1).getDato() instanceof TipoNormal) {
+                        } else if ((listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato() instanceof TipoAvanzado == true) && (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(1).getDato() instanceof TipoNormal == true)) {
                             listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().add(new TipoAvanzado());
                         }
                     }
-                    listaCeldas.getElemento(i).getDato().getListaIndividuos().getElemento(1).getDato().setReproduccion(reproduccion_segundo - 10);
-                    listaCeldas.getElemento(i).getDato().getListaIndividuos().getElemento(0).getDato().setReproduccion(reproduccion_primero - 10);
+                    listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(1).getDato().setReproduccion(reproduccion_segundo - 10);
+                    listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato().setReproduccion(reproduccion_primero - 10);
                 }
             }
         }
@@ -294,7 +320,13 @@ public class TableroController {
     private int getNum_individuos() {    // creo que tengo que mejorarlo
         for (int i = 0; i < maximo; i++) {
             for (int j = 0; j < listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos(); j++) {
-                num_individuos++;
+                if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos() == 1) {
+                    num_individuos++;
+                } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos() == 2) {
+                    num_individuos = num_individuos + 2;
+                } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos() == 3) {
+                    num_individuos = num_individuos + 3;
+                }
             }
         }
         return num_individuos;
@@ -302,7 +334,13 @@ public class TableroController {
     private int getCant_entornos() {
         for (int i = 0; i < listaX.getElemento(i).getData().getNumeroElementos(); i++) {
             for (int j = 0; j < listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getNumeroElementos(); j++) {
-                cant_entornos++;
+                if (listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getNumeroElementos() == 1) {
+                    cant_entornos++;
+                } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getNumeroElementos() == 2) {
+                    cant_entornos = cant_entornos + 2;
+                } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getNumeroElementos() == 3) {
+                    cant_entornos = cant_entornos + 3;
+                }
             }
         }
         return cant_entornos;
