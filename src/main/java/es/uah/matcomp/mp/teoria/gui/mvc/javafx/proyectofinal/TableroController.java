@@ -291,7 +291,7 @@ public class TableroController {
             }
         }
     }
-    private int getNum_individuos() {
+    private int getNum_individuos() {    // creo que tengo que mejorarlo
         for (int i = 0; i < maximo; i++) {
             for (int j = 0; j < listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos(); j++) {
                 num_individuos++;
@@ -440,22 +440,28 @@ public class TableroController {
 
                 Button casilla = new Button();
                 Celda celda = new Celda(i, j);
+                celda.setFilas(i);
+                celda.setColumnas(j);
+                ListaSimple<Integer> a = new ListaSimple<>(2);
+                a.add(celda.getFila());
+                a.insert(celda.getColumna(), 1);
+                celda.setCoordenadas(a);
                 casilla.setOnAction(new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent actionEvent) {
                         modelCelda.setOriginal(celda);
                         onCasillaVerDatos(celda);
                         celda.setDataGuardada(modelCelda);
-                        listaY.add(modelCelda.original);
-                        listaCeldas.add(modelCelda.original);
                     }
                 });
+                listaY.insert(celda, j-1);
+                listaCeldas.add(modelCelda.original);
                 casilla.setMinSize(300 * 2/ k, 400 / x);
                 casilla.setMaxSize(300 * 2/ k, 400 / x);
                 casilla.setStyle("-fx-border-color: black; -fx-text-alignment: center");
                 tableroDeJuego.add(casilla, i, j);
             }
-            listaX.add(listaY);
+            listaX.insert(listaY, i-1);
         }
 
         log.info("Enviando traza de ejecución");

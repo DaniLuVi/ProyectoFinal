@@ -10,17 +10,25 @@ public class Celda extends ElementoLS<Celda> {
     private ListaDoblementeEnlazada<Individuo> listaIndividuos = new ListaDoblementeEnlazada<>();
     private ListaDoblementeEnlazada<Entorno> listaEntornos = new ListaDoblementeEnlazada<>();
     private Individuo individuo;
+    private int filas;
+    private int columnas;
     public Celda(int filas, int columnas) {
-        this.coordenadas.add(filas);
-        this.coordenadas.add(columnas);
+        this.filas = filas;
+        this.columnas = columnas;
     }
     public Celda() {
     }
     public int getFila() {
-        return coordenadas.getElemento(0).getData();
+        return filas;
     }
     public int getColumna() {
-        return coordenadas.getElemento(1).getData();
+        return columnas;
+    }
+    public void setFilas(int filas) {
+        this.filas = filas;
+    }
+    public void setColumnas(int columnas) {
+        this.columnas = columnas;
     }
     public Individuo getIndividuo() {
         return individuo;
