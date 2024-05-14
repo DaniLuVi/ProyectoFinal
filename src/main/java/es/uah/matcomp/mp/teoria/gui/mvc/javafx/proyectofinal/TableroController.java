@@ -503,6 +503,7 @@ public class TableroController {
                         modelCelda.setOriginal(celda);
                         onCasillaVerDatos(celda);
                         celda.setDataGuardada(modelCelda);
+                        casilla.setText(celda.getListaIndividuos().getNumeroElementos() + "\n" + celda.getListaEntornos().getNumeroElementos());
                     }
                 });
                 listaY.insert(celda, j-1);
@@ -510,6 +511,7 @@ public class TableroController {
                 casilla.setMinSize(300 * 2/ k, 400 / x);
                 casilla.setMaxSize(300 * 2/ k, 400 / x);
                 casilla.setStyle("-fx-border-color: black; -fx-text-alignment: center");
+                casilla.setText(celda.getListaIndividuos().getNumeroElementos() + "\n" + celda.getListaEntornos().getNumeroElementos());
                 tableroDeJuego.add(casilla, i, j);
             }
             listaX.insert(listaY, i-1);
