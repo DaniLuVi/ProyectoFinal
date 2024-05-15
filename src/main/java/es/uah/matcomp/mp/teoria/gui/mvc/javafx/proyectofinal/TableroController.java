@@ -111,86 +111,114 @@ public class TableroController {
     }
     private void vida_individuo() {
         for (int i = 0; i < maximo; i++) {
-            int k = 0;
             for (int j = 0; j < max_columnas; j++) {
                 if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos() == 2) {
-                    int vidas_actuales = listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k + 1).getDato().getVidas();
-                    listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k + 1).getDato().setVidas(vidas_actuales - 1);
-                    if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k + 1).getDato().getVidas() == 0) {
-                        listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().del(k + 1);
+                    int vidas_actuales_1 = listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato().getVidas();
+                    int vidas_actuales_2 = listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(1).getDato().getVidas();
+                    listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(1).getDato().setVidas(vidas_actuales_2 - 1);
+                    listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato().setVidas(vidas_actuales_1 - 1);
+                    if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato().getVidas() == 0) {
+                        listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().del(0);
+                    }
+                    if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(1).getDato().getVidas() == 0) {
+                        listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().del(1);
                     }
                 } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos() == 3) {
-                    int vidas_actuales = listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k + 2).getDato().getVidas();
-                    listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k + 2).getDato().setVidas(vidas_actuales - 1);
-                    if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k + 2).getDato().getVidas() == 0) {
-                        listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().del(k + 2);
+                    int vidas_actuales_1 = listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato().getVidas();
+                    int vidas_actuales_2 = listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(1).getDato().getVidas();
+                    int vidas_actuales_3 = listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(2).getDato().getVidas();
+                    listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(1).getDato().setVidas(vidas_actuales_2 - 1);
+                    listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato().setVidas(vidas_actuales_1 - 1);
+                    listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(2).getDato().setVidas(vidas_actuales_3 - 1);
+                    if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato().getVidas() == 0) {
+                        listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().del(0);
+                    }
+                    if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(1).getDato().getVidas() == 0) {
+                        listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().del(1);
+                    }
+                    if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(2).getDato().getVidas() == 0) {
+                        listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().del(2);
+                    }
+                } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos() == 1) {
+                    int vidas_actuales = listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato().getVidas();
+                    listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato().setVidas(vidas_actuales - 1);
+                    if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato().getVidas() == 0) {
+                        listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().del(0);
                     }
                 }
-                int vidas_actuales = listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato().getVidas();
-                listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato().setVidas(vidas_actuales - 1);
-                if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato().getVidas() == 0) {
-                    listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().del(k);
-                }
-                k++;
             }
         }
     }
     private void tiempo_recurso() {
         for (int i = 0; i < maximo; i++) {
-            int k = 0;
             for (int j = 0; j < max_columnas; j++) {
                 if (listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getNumeroElementos() == 2) {
-                    int tiempo_actual = listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(k + 1).getDato().getTiempo_aparicion();
-                    listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(k + 1).getDato().setTiempo_aparicion(tiempo_actual - 1);
-                    if (listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(k + 1).getDato().getTiempo_aparicion() == 0) {
-                        listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().del(k + 1);
+                    int tiempo_actual_1 = listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(0).getDato().getTiempo_aparicion();
+                    int tiempo_actual_2 = listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(1).getDato().getTiempo_aparicion();
+                    listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(0).getDato().setTiempo_aparicion(tiempo_actual_1 - 1);
+                    listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(1).getDato().setTiempo_aparicion(tiempo_actual_2 - 1);
+                    if (listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(0).getDato().getTiempo_aparicion() == 0) {
+                        listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().del(0);
+                    }
+                    if (listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(1).getDato().getTiempo_aparicion() == 0) {
+                        listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().del(1);
                     }
                 } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getNumeroElementos() == 3) {
-                    int tiempo_actual = listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(k + 2).getDato().getTiempo_aparicion();
-                    listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(k + 2).getDato().setTiempo_aparicion(tiempo_actual - 1);
-                    if (listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(k + 2).getDato().getTiempo_aparicion() == 0) {
-                        listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().del(k + 2);
+                    int tiempo_actual_1 = listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(0).getDato().getTiempo_aparicion();
+                    int tiempo_actual_2 = listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(1).getDato().getTiempo_aparicion();
+                    int tiempo_actual_3 = listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(2).getDato().getTiempo_aparicion();
+                    listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(0).getDato().setTiempo_aparicion(tiempo_actual_1 - 1);
+                    listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(1).getDato().setTiempo_aparicion(tiempo_actual_2 - 1);
+                    listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(2).getDato().setTiempo_aparicion(tiempo_actual_3 - 1);
+                    if (listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(0).getDato().getTiempo_aparicion() == 0) {
+                        listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().del(0);
+                    }
+                    if (listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(1).getDato().getTiempo_aparicion() == 0) {
+                        listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().del(1);
+                    }
+                    if (listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(2).getDato().getTiempo_aparicion() == 0) {
+                        listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().del(2);
+                    }
+                } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getNumeroElementos() == 1) {
+                    int tiempo_actual = listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(0).getDato().getTiempo_aparicion();
+                    listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(0).getDato().setTiempo_aparicion(tiempo_actual - 1);
+                    if (listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(0).getDato().getTiempo_aparicion() == 0) {
+                        listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().del(0);
                     }
                 }
-                int tiempo_actual = listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(k).getDato().getTiempo_aparicion();
-                listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(k).getDato().setTiempo_aparicion(tiempo_actual - 1);
-                if (listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(k).getDato().getTiempo_aparicion() == 0) {
-                    listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().del(k);
-                }
-                k++;
             }
         }
     }
     private void movimiento_individuo() throws ArrayIndexOutOfBoundsException{
         try{
             for (int i = 0; i < maximo; i++) {
-                int k = 0;
                 for (int j = 0; j < max_columnas; j++) {
-                    if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoBasico == true) {
-                        Random randomBasico = new Random();
-                        int opcion = randomBasico.nextInt(1, 4);
-                        Individuo individuo_cambiar = listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato();
-                        if (opcion == 1) {
-                            listaX.getElemento(i-1).getData().getElemento(j).getData().getListaIndividuos().add(individuo_cambiar);
-                            listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().del(k);
-                        } else if (opcion == 2) {
-                            listaX.getElemento(i+1).getData().getElemento(j).getData().getListaIndividuos().add(individuo_cambiar);
-                            listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().del(k);
-                        } else if (opcion == 3) {
-                            listaX.getElemento(i).getData().getElemento(j-1).getData().getListaIndividuos().add(individuo_cambiar);
-                            listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().del(k);
-                        } else if (opcion == 4) {
-                            listaX.getElemento(i).getData().getElemento(j+1).getData().getListaIndividuos().add(individuo_cambiar);
-                            listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().del(k);
-                        }
-                    } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoNormal == true) {
-                        Random randomNormal = new Random();
-                        int opcion = randomNormal.nextInt(0, cant_entornos);
+                    for (int k = 0; k < listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos(); k++) {
+                        if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoBasico == true) {
+                            Random randomBasico = new Random();
+                            int opcion = randomBasico.nextInt(1, 4);
+                            Individuo individuo_cambiar = listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato();
+                            if (opcion == 1) {
+                                listaX.getElemento(i-1).getData().getElemento(j).getData().getListaIndividuos().add(individuo_cambiar);
+                                listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().del(k);
+                            } else if (opcion == 2) {
+                                listaX.getElemento(i+1).getData().getElemento(j).getData().getListaIndividuos().add(individuo_cambiar);
+                                listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().del(k);
+                            } else if (opcion == 3) {
+                                listaX.getElemento(i).getData().getElemento(j-1).getData().getListaIndividuos().add(individuo_cambiar);
+                                listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().del(k);
+                            } else if (opcion == 4) {
+                                listaX.getElemento(i).getData().getElemento(j+1).getData().getListaIndividuos().add(individuo_cambiar);
+                                listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().del(k);
+                            }
+                      //  } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoNormal == true) {
+                      //      Random randomNormal = new Random();
+                        //    int opcion = randomNormal.nextInt(0, cant_entornos);
 
-                    } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoAvanzado == true) {
-                        //este tipo de movimiento lo tengo que implementar a partir de un grafo
+                        } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoAvanzado == true) {
+                            //este tipo de movimiento lo tengo que implementar a partir de un grafo
+                        }
                     }
-                    k++;
                 }
             }
         } catch (ArrayIndexOutOfBoundsException e) {
@@ -258,23 +286,22 @@ public class TableroController {
     }
     private void hay_clonacion() {
         for (int i = 0; i < maximo; i++) {
-            int k = 0;
             for (int j = 0; j < max_columnas; j++) {
-                Random num_random = new Random();
-                int valor = num_random.nextInt(0, 100);
-                int pro_clonado = listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato().getClonacion();
-                if (valor <= pro_clonado) {
-                    if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoBasico == true) {
-                        listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().add(listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato());
-                    } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoNormal == true) {
-                        listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().add(listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato());
-                    } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoAvanzado == true) {
-                        listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().add(listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato());
+                for (int k = 0; k < listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos(); k++) {
+                    Random num_random = new Random();
+                    int valor = num_random.nextInt(0, 100);
+                    int pro_clonado = listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato().getClonacion();
+                    if (valor <= pro_clonado) {
+                        if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoBasico == true) {
+                            listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().add(listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato());
+                        } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoNormal == true) {
+                            listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().add(listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato());
+                        } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoAvanzado == true) {
+                            listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().add(listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato());
+                        }
                     }
+                    listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato().setClonacion(pro_clonado - 10);
                 }
-                listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato().setClonacion(pro_clonado - 10);
-
-                k++;
             }
         }
     }
@@ -295,27 +322,27 @@ public class TableroController {
     }
     private void habra_nuevos_recursos() {
         for (int i = 0; i < maximo; i++) {
-            int k = 0;
             for (int j = 0; j < max_columnas; j++) {
-                Random random = new Random();
-                int valor = random.nextInt(0, 100);
-                int pro_V = listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(k).getDato().getV();
-                if (valor == pro_V) {
-                    if ((abs(pro_V - model.original.agua) <= abs(pro_V - model.original.comida)) && ((abs(pro_V - model.original.agua) <= abs(pro_V - model.original.montaña))) && ((abs(pro_V - model.original.agua) <= abs(pro_V - model.original.biblioteca))) && ((abs(pro_V - model.original.agua) <= abs(pro_V - model.original.pozo))) && ((abs(pro_V - model.original.agua) <= abs(pro_V - model.original.tesoro)))) {
-                        listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().add(new Agua(3, model.original.agua));
-                    } else if ((abs(pro_V - model.original.comida) <= abs(pro_V - model.original.agua)) && ((abs(pro_V - model.original.comida) <= abs(pro_V - model.original.montaña))) && ((abs(pro_V - model.original.comida) <= abs(pro_V - model.original.biblioteca))) && ((abs(pro_V - model.original.comida) <= abs(pro_V - model.original.pozo))) && ((abs(pro_V - model.original.comida) <= abs(pro_V - model.original.tesoro)))) {
-                        listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().add(new Comida(3, model.original.comida));
-                    } else if ((abs(pro_V - model.original.montaña) <= abs(pro_V - model.original.agua)) && ((abs(pro_V - model.original.montaña) <= abs(pro_V - model.original.comida))) && ((abs(pro_V - model.original.montaña) <= abs(pro_V - model.original.biblioteca))) && ((abs(pro_V - model.original.montaña) <= abs(pro_V - model.original.pozo))) && ((abs(pro_V - model.original.montaña) <= abs(pro_V - model.original.tesoro)))) {
-                        listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().add(new Montaña(3, model.original.montaña));
-                    } else if ((abs(pro_V - model.original.biblioteca) <= abs(pro_V - model.original.agua)) && ((abs(pro_V - model.original.biblioteca) <= abs(pro_V - model.original.comida))) && ((abs(pro_V - model.original.biblioteca) <= abs(pro_V - model.original.montaña))) && ((abs(pro_V - model.original.biblioteca) <= abs(pro_V - model.original.pozo))) && ((abs(pro_V - model.original.biblioteca) <= abs(pro_V - model.original.tesoro)))) {
-                        listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().add(new Biblioteca(3, model.original.biblioteca));
-                    } else if ((abs(pro_V - model.original.pozo) <= abs(pro_V - model.original.agua)) && ((abs(pro_V - model.original.pozo) <= abs(pro_V - model.original.comida))) && ((abs(pro_V - model.original.pozo) <= abs(pro_V - model.original.montaña))) && ((abs(pro_V - model.original.pozo) <= abs(pro_V - model.original.biblioteca))) && ((abs(pro_V - model.original.pozo) <= abs(pro_V - model.original.tesoro)))) {
-                        listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().add(new Pozo(3, model.original.pozo));
-                    } else if ((abs(pro_V - model.original.tesoro) <= abs(pro_V - model.original.agua)) && ((abs(pro_V - model.original.tesoro) <= abs(pro_V - model.original.comida))) && ((abs(pro_V - model.original.tesoro) <= abs(pro_V - model.original.montaña))) && ((abs(pro_V - model.original.tesoro) <= abs(pro_V - model.original.biblioteca))) && ((abs(pro_V - model.original.tesoro) <= abs(pro_V - model.original.pozo)))) {
-                        listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().add(new Tesoro(3, model.original.tesoro));
+                for (int k = 0; k < listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getNumeroElementos(); k++) {
+                    Random random = new Random();
+                    int valor = random.nextInt(0, 100);
+                    int pro_V = listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(k).getDato().getV();
+                    if (valor == pro_V) {
+                        if ((abs(pro_V - model.original.agua) <= abs(pro_V - model.original.comida)) && ((abs(pro_V - model.original.agua) <= abs(pro_V - model.original.montaña))) && ((abs(pro_V - model.original.agua) <= abs(pro_V - model.original.biblioteca))) && ((abs(pro_V - model.original.agua) <= abs(pro_V - model.original.pozo))) && ((abs(pro_V - model.original.agua) <= abs(pro_V - model.original.tesoro)))) {
+                            listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().add(new Agua(3, model.original.agua));
+                        } else if ((abs(pro_V - model.original.comida) <= abs(pro_V - model.original.agua)) && ((abs(pro_V - model.original.comida) <= abs(pro_V - model.original.montaña))) && ((abs(pro_V - model.original.comida) <= abs(pro_V - model.original.biblioteca))) && ((abs(pro_V - model.original.comida) <= abs(pro_V - model.original.pozo))) && ((abs(pro_V - model.original.comida) <= abs(pro_V - model.original.tesoro)))) {
+                            listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().add(new Comida(3, model.original.comida));
+                        } else if ((abs(pro_V - model.original.montaña) <= abs(pro_V - model.original.agua)) && ((abs(pro_V - model.original.montaña) <= abs(pro_V - model.original.comida))) && ((abs(pro_V - model.original.montaña) <= abs(pro_V - model.original.biblioteca))) && ((abs(pro_V - model.original.montaña) <= abs(pro_V - model.original.pozo))) && ((abs(pro_V - model.original.montaña) <= abs(pro_V - model.original.tesoro)))) {
+                            listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().add(new Montaña(3, model.original.montaña));
+                        } else if ((abs(pro_V - model.original.biblioteca) <= abs(pro_V - model.original.agua)) && ((abs(pro_V - model.original.biblioteca) <= abs(pro_V - model.original.comida))) && ((abs(pro_V - model.original.biblioteca) <= abs(pro_V - model.original.montaña))) && ((abs(pro_V - model.original.biblioteca) <= abs(pro_V - model.original.pozo))) && ((abs(pro_V - model.original.biblioteca) <= abs(pro_V - model.original.tesoro)))) {
+                            listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().add(new Biblioteca(3, model.original.biblioteca));
+                        } else if ((abs(pro_V - model.original.pozo) <= abs(pro_V - model.original.agua)) && ((abs(pro_V - model.original.pozo) <= abs(pro_V - model.original.comida))) && ((abs(pro_V - model.original.pozo) <= abs(pro_V - model.original.montaña))) && ((abs(pro_V - model.original.pozo) <= abs(pro_V - model.original.biblioteca))) && ((abs(pro_V - model.original.pozo) <= abs(pro_V - model.original.tesoro)))) {
+                            listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().add(new Pozo(3, model.original.pozo));
+                        } else if ((abs(pro_V - model.original.tesoro) <= abs(pro_V - model.original.agua)) && ((abs(pro_V - model.original.tesoro) <= abs(pro_V - model.original.comida))) && ((abs(pro_V - model.original.tesoro) <= abs(pro_V - model.original.montaña))) && ((abs(pro_V - model.original.tesoro) <= abs(pro_V - model.original.biblioteca))) && ((abs(pro_V - model.original.tesoro) <= abs(pro_V - model.original.pozo)))) {
+                            listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().add(new Tesoro(3, model.original.tesoro));
+                        }
                     }
                 }
-                k++;
             }
         }
     }
