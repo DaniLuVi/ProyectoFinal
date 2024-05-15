@@ -32,6 +32,7 @@ public class TableroController {
     private int cant_entornos = 0;
     private int num_turnos = 0;
     private int maximo;
+    private int max_columnas;
     private Stage scene;
     @FXML
     private GridPane tableroDeJuego;
@@ -111,7 +112,7 @@ public class TableroController {
     private void vida_individuo() {
         for (int i = 0; i < maximo; i++) {
             int k = 0;
-            for (int j = 0; j < listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos(); j++) {
+            for (int j = 0; j < max_columnas; j++) {
                 if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos() == 2) {
                     int vidas_actuales = listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k + 1).getDato().getVidas();
                     listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k + 1).getDato().setVidas(vidas_actuales - 1);
@@ -137,7 +138,7 @@ public class TableroController {
     private void tiempo_recurso() {
         for (int i = 0; i < maximo; i++) {
             int k = 0;
-            for (int j = 0; j < listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getNumeroElementos(); j++) {
+            for (int j = 0; j < max_columnas; j++) {
                 if (listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getNumeroElementos() == 2) {
                     int tiempo_actual = listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(k + 1).getDato().getTiempo_aparicion();
                     listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(k + 1).getDato().setTiempo_aparicion(tiempo_actual - 1);
@@ -164,7 +165,7 @@ public class TableroController {
         try{
             for (int i = 0; i < maximo; i++) {
                 int k = 0;
-                for (int j = 0; j < listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos(); j++) {
+                for (int j = 0; j < max_columnas; j++) {
                     if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoBasico == true) {
                         Random randomBasico = new Random();
                         int opcion = randomBasico.nextInt(1, 4);
@@ -200,7 +201,7 @@ public class TableroController {
     private void mejoras() {
         for (int i = 0; i < maximo; i++) {
             int k = 0;
-            for (int j = 0; j < listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos(); j++) {
+            for (int j = 0; j < max_columnas; j++) {
                 if (listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos() != null) {
                     for (int l = 0; l < listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getNumeroElementos(); l++) {
                         if (listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(l).getDato() instanceof Agua == true) {
@@ -224,7 +225,7 @@ public class TableroController {
     }
     private void hay_reproduccion() {
         for (int i = 0; i < maximo; i++) {
-            for (int j = 0; j < listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos(); j++) {
+            for (int j = 0; j < max_columnas; j++) {
                 if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos() == 2) {
                     int reproduccion_primero = listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato().getReproduccion();
                     int reproduccion_segundo = listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(1).getDato().getReproduccion();
@@ -258,7 +259,7 @@ public class TableroController {
     private void hay_clonacion() {
         for (int i = 0; i < maximo; i++) {
             int k = 0;
-            for (int j = 0; j < listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos(); j++) {
+            for (int j = 0; j < max_columnas; j++) {
                 Random num_random = new Random();
                 int valor = num_random.nextInt(0, 100);
                 int pro_clonado = listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato().getClonacion();
@@ -279,7 +280,7 @@ public class TableroController {
     }
     private void hay_individuos_a_desaparecer() {
         for (int i = 0; i < maximo; i++) {
-            for (int j = 0; j < listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos(); j++) {
+            for (int j = 0; j < max_columnas; j++) {
                 if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos() > 2) {
                     if ((listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato().getVidas() > listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(1).getDato().getVidas()) && (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato().getVidas() > listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(2).getDato().getVidas())) {
                         listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().del(0);
@@ -295,7 +296,7 @@ public class TableroController {
     private void habra_nuevos_recursos() {
         for (int i = 0; i < maximo; i++) {
             int k = 0;
-            for (int j = 0; j < listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getNumeroElementos(); j++) {
+            for (int j = 0; j < max_columnas; j++) {
                 Random random = new Random();
                 int valor = random.nextInt(0, 100);
                 int pro_V = listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(k).getDato().getV();
@@ -320,7 +321,7 @@ public class TableroController {
     }
     private int getNum_individuos() {    // va a haber que mejorarlo un poco
         for (int i = 0; i < maximo; i++) {
-            for (int j = 0; j < listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos(); j++) {
+            for (int j = 0; j < max_columnas; j++) {
                 if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos() == 1) {
                     num_individuos++;
                 } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos() == 2) {
@@ -333,8 +334,8 @@ public class TableroController {
         return num_individuos;
     }
     private int getCant_entornos() {
-        for (int i = 0; i < listaX.getElemento(i).getData().getNumeroElementos(); i++) {
-            for (int j = 0; j < listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getNumeroElementos(); j++) {
+        for (int i = 0; i < maximo; i++) {
+            for (int j = 0; j < max_columnas; j++) {
                 if (listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getNumeroElementos() == 1) {
                     cant_entornos++;
                 } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getNumeroElementos() == 2) {
@@ -487,6 +488,7 @@ public class TableroController {
         maximo = k;
         for (int i = 1; i <= k; i++) {
             ListaSimple<Celda> listaY = new ListaSimple<>(x);
+            max_columnas = x;
             for (int j = 1; j <= x; j++) {
 
                 Button casilla = new Button();
