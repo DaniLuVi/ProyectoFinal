@@ -1,5 +1,6 @@
 package clases_a_utilizar_de_datos;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -78,10 +79,14 @@ class IndividuoTest {
     }
 
     @Test
-    void movimiento() {
-    }
-
-    @Test
-    void turno() {
+    void testToString() {
+        TipoBasico t1 = new TipoBasico(1, 3, 4, 45, 43);
+        TipoNormal t2 = new TipoNormal(2, 3, 4, 65, 78);
+        TipoAvanzado t3 = new TipoAvanzado(3, 4, 5, 32,89);
+        Individuo i = new Individuo();
+        assertEquals("Individuo[TipoBásico{id=1, generacion=3, vidas=4, reproduccion=45, clonacion=43}]", t1.toString(t1));
+        assertEquals("Individuo[TipoNormal{id=2, generacion=3, vidas=4, reproduccion=65, clonacion=78}]", t2.toString(t2));
+        assertEquals("Individuo[TipoBásico{id=3, generacion=4, vidas=5, reproduccion=32, clonacion=89}]", t3.toString(t3));
+        assertEquals(null, i.toString(i));
     }
 }

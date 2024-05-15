@@ -9,12 +9,13 @@ public class Celda extends ElementoLS<Celda> {
     private ListaSimple<Integer> coordenadas = new ListaSimple<Integer>(2);
     private ListaDoblementeEnlazada<Individuo> listaIndividuos = new ListaDoblementeEnlazada<>();
     private ListaDoblementeEnlazada<Entorno> listaEntornos = new ListaDoblementeEnlazada<>();
-    private Individuo individuo;
     private int filas;
     private int columnas;
+    private int V;
     public Celda(int filas, int columnas) {
         this.filas = filas;
         this.columnas = columnas;
+        this.V = V;
     }
     public Celda() {
     }
@@ -30,9 +31,15 @@ public class Celda extends ElementoLS<Celda> {
     public void setColumnas(int columnas) {
         this.columnas = columnas;
     }
-    public Individuo getIndividuo() {
-        return individuo;
+
+    public int getV() {
+        return V;
     }
+
+    public void setV(int v) {
+        V = v;
+    }
+
 
     public ListaDoblementeEnlazada<Individuo> getListaIndividuos() {
         return listaIndividuos;

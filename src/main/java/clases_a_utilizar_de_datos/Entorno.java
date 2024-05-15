@@ -6,7 +6,6 @@ public class Entorno extends ElementoLDE<Entorno> {
     private int tiempo_aparicion;
 
     private int probabilidad;
-    private int v;
 
     public Entorno(int tiempo_aparicion, int probabilidad) {
         this.tiempo_aparicion = tiempo_aparicion;
@@ -28,14 +27,6 @@ public class Entorno extends ElementoLDE<Entorno> {
 
     public void setProbabilidad(int probabilidad) {
         this.probabilidad = probabilidad;
-    }
-
-    public int getV() {
-        return v;
-    }
-
-    public void setV(int v) {
-        this.v = v;
     }
 
     public String toString(Entorno entorno) {

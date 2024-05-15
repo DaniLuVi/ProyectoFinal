@@ -20,23 +20,38 @@ class EntornoTest {
     }
 
     @Test
-    void getV() {
-        Entorno e = new Entorno(3, 12);
-        assertEquals(12, e.getV(), 12);
-    }
-
-    @Test
-    void setV() {
-        Entorno e = new Entorno(3, 12);
-        assertDoesNotThrow(()-> e.setV(12));
-        assertEquals(12, e.getV(), "Esta no es la probabilidad V que esperaba");
-    }
-
-    @Test
-    void turno() {
-    }
-
-    @Test
     void modificarIndividuo() {
+    }
+
+    @Test
+    void getProbabilidad() {
+        Entorno e = new Entorno(3, 12);
+        assertEquals(12, e.getProbabilidad());
+    }
+
+    @Test
+    void setProbabilidad() {
+        Entorno e = new Entorno(3, 12);
+        assertDoesNotThrow(()-> e.setProbabilidad(12));
+        assertEquals(12, e.getProbabilidad(), "Esta no es la probabilidad que esperaba");
+    }
+
+    @Test
+    void testToString() {
+        Agua a = new Agua(3, 12);
+        Comida c = new Comida(3, 12);
+        Montaña  m = new Montaña(3, 12);
+        Biblioteca b = new Biblioteca(3, 12);
+        Pozo p = new Pozo(3, 12);
+        Tesoro t = new Tesoro(3, 12);
+        Entorno e = new Entorno(3, 12);
+        assertEquals("Entorno[Agua{tiempo_aparicion=3, %Agua=12}]", a.toString(a));
+        assertEquals("Entorno[Comida{tiempo_aparicion=3, %Comida=12}]", c.toString(c));
+        assertEquals("Entorno[Montaña{tiempo_aparicion=3, %Montaña=12}]", m.toString(m));
+        assertEquals("Entorno[Biblioteca{tiempo_aparicion=3, %Biblioteca=12}]", b.toString(b));
+        assertEquals("Entorno[Pozo{tiempo_aparicion=3, %Pozo=12}]", p.toString(p));
+        assertEquals("Entorno[Tesoro{tiempo_aparicion=3, %Tesoro=12}]", t.toString(t));
+        assertEquals(null, e.toString(e));
+
     }
 }
