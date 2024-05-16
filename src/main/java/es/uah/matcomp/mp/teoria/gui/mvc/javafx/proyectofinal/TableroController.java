@@ -278,7 +278,7 @@ public class TableroController {
             e.printStackTrace();
         }
     }
-    private void mejoras() {
+    private void mejoras() {     // ver que funciona correctamente
 
         log.info("Se realizan las mejoras que se puedan a los individuos de la simulación");
 
@@ -309,7 +309,7 @@ public class TableroController {
 
         log.info("Las maejoras correspondientes se han realizado correctamente");
     }
-    private void hay_reproduccion() {
+    private void hay_reproduccion() {         // creo que este funciona correctamente, pero asegurarme
 
         log.info("Se hace (si se puede dar) las reproducciones que tenga que haber entre los individuos de la simulación");
 
@@ -348,7 +348,7 @@ public class TableroController {
         log.info("La reproducción entre los individuos correspondientes se ha realizado");
 
     }
-    private void hay_clonacion() {
+    private void hay_clonacion() {     // asegurarme que funcione bien
 
         log.info("Se comprueba si se puede hacer (y se hace en caso afirmativo) la clonación de individuos de la simulación");
 
@@ -376,7 +376,7 @@ public class TableroController {
         log.info("Las clonaciones correspondientes han sido realizadas");
 
     }
-    private void hay_individuos_a_desaparecer() {
+    private void hay_individuos_a_desaparecer() {    // ver que funcione bien
 
         log.info("Se comprueba si hay individuos que tengan que desaparecer de la simulación");
 
@@ -397,7 +397,7 @@ public class TableroController {
         log.info("Han sido eliminados los individuos correspondientes de la simulación");
 
     }
-    private void habra_nuevos_recursos() {
+    private void habra_nuevos_recursos() {     // ver que funcione bien
 
         log.info("Se comprueba si en cada casilla deberán aparecer nuevos recursos");
 
