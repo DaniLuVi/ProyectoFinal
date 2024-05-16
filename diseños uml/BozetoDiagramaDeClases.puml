@@ -1,32 +1,32 @@
 @startuml
 'https://plantuml.com/class-diagram
 
-class ListaEjeX {
-- ListaSimple<ListaEjeY<Celda>> listaEjeX
-- int filas
-+ ListaEjeX()
-+ add(int posicion, ListaEjeY<Celda> listaEjeY):void
-}
-
-class ListaEjeY {
-- ListSimple<Celda> listaEjeY
-- int columnas
-+ ListaEjeY()
-+ add(Celda celda):void
-}
-
 
 class Celda {
+- ListaSimple<Integer> coordenadas
 - ListaDoblementeEnlazada<Individuo> listaIndividuos
 - ListaDoblementeEnlazada<Entorno> listaEntornos
 - int filas
 - int columnas
+- int V
 + Celda()
 + Celda(int filas, int columnas)
++ getFila(): int
++ getColumna(): int
++ setFilas(int filas): void
++ setColumnas(int columnas): void
++ getV(): int
++ setV(int V): void
 + getListaIndividuos(): ListaDoblementeEnlazada<Individuo>
 + getListaEntornos(): ListaDoblementeEnlazada<Entorno>
-+ addIndividuo(Individuo):void
-+ addEntorno(Entorno):void
++ addIndividuo(Individuo individuo)):void
++ addEntorno(Entorno entorno)):void
++ getCoordenadas(): ListaSimple<Integer>
++ setCoordenadas(ListaSimple<Integer> coordenadas): void
++ setListaIndividuos(ListaDoblementeEnlazada<Individuo> listaIndividuos): void
++ setListaEntornos(ListaDoblementeEnlazada<Entorno> listaEntornos)): void
++ setDataGuardada(CeldaProperties modelCelda): void
++ toString(): String
 }
 
 class Individuo {
@@ -36,6 +36,7 @@ class Individuo {
 - int reproduccion
 - int clonacion
 + Individuo()
++ Individuo(int id, int generacion, int vidas, int reproduccion, int clonacion)
 + getId():int
 + setId(int id):void
 + getGeneracion():int
@@ -47,77 +48,73 @@ class Individuo {
 + getClonacion():int
 + setClonacion(int clonacion):void
 + getMuerte(int reproduccion):int
-+ movimiento(Individuo individuo):void
-+ turno(Individuo individuo):void
-+ can_clonar(Individuo individuo):boolean
-+ clonar(Individuo individuo):Individuo
++ toString(Individuo individuo): String
 }
 
 class TipoBasico {
 + TipoBasico()
-+ movimiento(Individuo individuo):void
++ TipoBasico(int id, int generacion, int vidas, int reproduccion, int clonacion)
 }
 
 class TipoNormal {
 + TipoNormal()
-+ movimiento(Individuo individuo):void
++ TipoNormal(int id, int generacion, int vidas, int reproduccion, int clonacion)
 }
 
 class TipoAvanzado {
 + TipoAvanzado()
-+ movimiento(Individuo individuo):void
++ TipoAvanzado(int id, int generacion, int vidas, int reproduccion, int clonacion)
 }
 
 class Entorno {
 - int tiempo_aparicion
-- int v
+- int probabilidad
 + Entorno()
++ Entorno(int tiempo_aparicion, int probabilidad)
 + getTiempo_aparicion():int
 + setTiempo_aparicion(int tiempo_aparicion):void
-+ getV():int
-+ setV(int v):void
-+ turno(Entorno entorno):void
-+ modificarIndividuo(Individuo individuo):void
++ getProbabilidad():int
++ setProbabilidad(int tiempo_aparicion)):void
++ toString(Entorno entorno): String
 }
 
 class Agua {
 + Agua()
++ Agua(int tiempo_aparicion, int probabilidad)
 + modificarIndividuo(Individuo individuo):void
-- probabilidad():void
 }
 
 class Comida {
 + Comida()
++ Comida(int tiempo_aparicion, int probabilidad)
 + modificarIndividuo(Individuo individuo):void
-- probabilidad():void
 }
 
 class Montaña {
 + Montaña()
++ Montaña(int tiempo_aparicion, int probabilidad)
 + modificarIndividuo(Individuo individuo):void
-- probabilidad():void
 }
 
 class Tesoro {
 + Tesoro()
++ Tesoro(int tiempo_aparicion, int probabilidad)
 + modificarIndividuo(Individuo individuo):void
-- probabilidad():void
 }
 
 class Biblioteca {
 + Biblioteca()
++ Biblioteca(int tiempo_aparicion, int probabilidad)
 + modificarIndividuo(Individuo individuo):void
-- probabilidad():void
 }
 
 class Pozo {
 + Pozo()
++ Pozo(int tiempo_aparicion, int probabilidad)
 + modificarIndividuo(Individuo individuo):void
-- probabilidad():void
 }
 
-ListaEjeX *-- ListaEjeY
-ListaEjeY *-- Celda
+
 Celda o-- Individuo
 Celda o-- Entorno
 Individuo <|-- TipoBasico
