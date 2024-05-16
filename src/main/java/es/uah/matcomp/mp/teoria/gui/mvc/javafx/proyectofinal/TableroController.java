@@ -78,6 +78,9 @@ public class TableroController {
     }
 
     private void BucleDeControl() {
+
+        log.info("Se inicia el bucle de control");
+
         if (getNum_individuos() > 1) {
             vida_individuo();
             tiempo_recurso();
@@ -89,10 +92,19 @@ public class TableroController {
             habra_nuevos_recursos();
             num_turnos++;
             turnos.setText("Turnos: " + num_turnos);
+
+            log.info("El bucle de control se ha completado con éxito");
+
             if (hacer_pausa() == true) {
+
+                log.info("Se hace una pausa");
+
                 pause();
             }
         } else {
+
+            log.info("La simulación termina porque no hay más de 1 individuo vivo, y se abre una nueva ventana");
+
             Stage stage = new Stage();
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("simulacion-terminada.fxml"));
             try {
@@ -104,12 +116,23 @@ public class TableroController {
                 p.setStage(stage);
                 stage.show();
 
+                log.info("Enviando traza de ejecución");
+                log.debug("Enviado un debug");
+                log.info("Enviando un info");
+                log.warn("Enviando un aviso");
+                log.error("Enviando un error");
+                log.fatal("Enviando una explosión fatal");
+                log.info("La nueva ventana ha sido creada con éxito");
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
     private void vida_individuo() {
+
+        log.info("Se actualizan las vidas de todos los individuos vivos de la simulación");
+
         for (int i = 0; i < maximo; i++) {
             for (int j = 0; j < max_columnas; j++) {
                 if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos() == 2) {
@@ -148,8 +171,14 @@ public class TableroController {
                 }
             }
         }
+
+        log.info("Las vidas de los individuos han sido actualizadas");
+
     }
     private void tiempo_recurso() {
+
+        log.info("Se actualizan los tiempos de aparición de todos los entornos/recursos que hay presentes en la simulación ");
+
         for (int i = 0; i < maximo; i++) {
             for (int j = 0; j < max_columnas; j++) {
                 if (listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getNumeroElementos() == 2) {
@@ -188,8 +217,14 @@ public class TableroController {
                 }
             }
         }
+
+        log.info("Los tiempos de aparición de los entornos/recursos han sido actualizados");
+
     }
     private void movimiento_individuo() throws ArrayIndexOutOfBoundsException{
+
+        log.info("Se realizan los movimientos de todos los individuos que hay en la simualción");
+
         try{
             for (int i = 0; i < maximo; i++) {
                 for (int j = 0; j < max_columnas; j++) {
@@ -216,18 +251,30 @@ public class TableroController {
                             Random randomNormal = new Random();
                             int opcion = randomNormal.nextInt(0, numero_celdas_con_entornos - 1);
                             ListaSimple<Integer> coordenadas = listaCeldas.getElemento(opcion).getDato().getCoordenadas();
-
+                            if (abs(i - coordenadas.getElemento(0).getData()) >= abs(j - coordenadas.getElemento(1).getData())) {
+                                
+                            } else if (abs(i - coordenadas.getElemento(0).getData()) < abs(j - coordenadas.getElemento(1).getData())) {
+                                
+                            }
+                            listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().del(k);
                         } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoAvanzado == true) {
+
                             //este tipo de movimiento lo tengo que implementar a partir de un grafo
                         }
                     }
                 }
             }
+
+            log.info("Los movimientos de los individuos se han hecho correctamente");
+
         } catch (ArrayIndexOutOfBoundsException e) {
             e.printStackTrace();
         }
     }
     private void mejoras() {
+
+        log.info("Se realizan las mejoras que se puedan a los individuos de la simulación");
+
         for (int i = 0; i < maximo; i++) {
             int k = 0;
             for (int j = 0; j < max_columnas; j++) {
@@ -252,8 +299,13 @@ public class TableroController {
                 k++;
             }
         }
+
+        log.info("Las maejoras correspondientes se han realizado correctamente");
     }
     private void hay_reproduccion() {
+
+        log.info("Se hace (si se puede dar) las reproducciones que tenga que haber entre los individuos de la simulación");
+
         for (int i = 0; i < maximo; i++) {
             for (int j = 0; j < max_columnas; j++) {
                 if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos() == 2) {
@@ -285,8 +337,14 @@ public class TableroController {
                 }
             }
         }
+
+        log.info("La reproducción entre los individuos correspondientes se ha realizado");
+
     }
     private void hay_clonacion() {
+
+        log.info("Se comprueba si se puede hacer (y se hace en caso afirmativo) la clonación de individuos de la simulación");
+
         for (int i = 0; i < maximo; i++) {
             for (int j = 0; j < max_columnas; j++) {
                 for (int k = 0; k < listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos(); k++) {
@@ -306,8 +364,14 @@ public class TableroController {
                 }
             }
         }
+
+        log.info("Las clonaciones correspondientes han sido realizadas");
+
     }
     private void hay_individuos_a_desaparecer() {
+
+        log.info("Se comprueba si hay individuos que tengan que desaparecer de la simulación");
+
         for (int i = 0; i < maximo; i++) {
             for (int j = 0; j < max_columnas; j++) {
                 if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos() > 2) {
@@ -321,8 +385,14 @@ public class TableroController {
                 }
             }
         }
+
+        log.info("Han sido eliminados los individuos correspondientes de la simulación");
+
     }
     private void habra_nuevos_recursos() {
+
+        log.info("Se comprueba si en cada casilla deberán aparecer nuevos recursos");
+
         for (int i = 0; i < maximo; i++) {
             for (int j = 0; j < max_columnas; j++) {
                 for (int k = 0; k < listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getNumeroElementos(); k++) {
@@ -347,8 +417,14 @@ public class TableroController {
                 }
             }
         }
+
+        log.info("Se han añadido los nuevos recursos que se requerían");
+
     }
-    private int getNum_individuos() {    // va a haber que mejorarlo un poco
+    private int getNum_individuos() {
+
+        log.info("Devuelve el número de individuos que hay en total en el tablero de juego");
+
         for (int i = 0; i < maximo; i++) {
             for (int j = 0; j < max_columnas; j++) {
                 if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos() == 1) {
@@ -363,6 +439,9 @@ public class TableroController {
         return num_individuos;
     }
     private int getCant_entornos() {
+
+        log.info("Devuelve el número de entornos/recursos que hay en total en el tablero de juego");
+
         for (int i = 0; i < maximo; i++) {
             for (int j = 0; j < max_columnas; j++) {
                 if (listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getNumeroElementos() == 1) {
@@ -377,6 +456,9 @@ public class TableroController {
         return cant_entornos;
     }
     private ListaDoblementeEnlazada<Celda> getCeldasConRecursos() {
+
+        log.info("Devuelve la lisa de celdas que contienen entornos/recursos en su interior");
+
         for (int i = 0; i < maximo; i++) {
             for (int j = 0; j < max_columnas; j++) {
                 if (!listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().isVacia()) {
@@ -399,6 +481,9 @@ public class TableroController {
     }
     @FXML
     protected void pause() {
+
+        log.info("Se abre la ventana de parámetros");
+
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("parametros-view.fxml"));
         try {
@@ -409,6 +494,15 @@ public class TableroController {
             p.CargarDatosUsuario(this.model);
             p.setStage(stage);
             stage.show();
+
+            log.info("Enviando traza de ejecución");
+            log.debug("Enviado un debug");
+            log.info("Enviando un info");
+            log.warn("Enviando un aviso");
+            log.error("Enviando un error");
+            log.fatal("Enviando una explosión fatal");
+            log.info("La ventana de ventanas ha sido abierta correctamente");
+
         } catch (Exception e) {
             e.printStackTrace();
         }
