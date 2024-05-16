@@ -228,7 +228,8 @@ public class TableroController {
         try{
             for (int i = 0; i < maximo; i++) {
                 for (int j = 0; j < max_columnas; j++) {
-                    for (int k = 0; k < listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos(); k++) {
+                    int num_indi_en_casilla = listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos();
+                    for (int k = 0; k < num_indi_en_casilla; k++) {
                         Individuo individuo_cambiar = listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato();
                         if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoBasico == true) {
                             Random randomBasico = new Random();
@@ -242,11 +243,11 @@ public class TableroController {
                             } else if (opcion == 4) {
                                 listaX.getElemento(i).getData().getElemento(j+1).getData().getListaIndividuos().add(individuo_cambiar);
                             }
-                            listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().del(k);
+                            listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).setDato(null);
                         } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoNormal == true) {
                             int numero_celdas_con_entornos = getCeldasConRecursos().getNumeroElementos();
                             Random randomNormal = new Random();
-                            int opcion = randomNormal.nextInt(0, numero_celdas_con_entornos - 1);
+                            int opcion = randomNormal.nextInt(0, numero_celdas_con_entornos);
                             ListaSimple<Integer> coordenadas = listaCeldas.getElemento(opcion).getDato().getCoordenadas();
                             if (abs(i - coordenadas.getElemento(0).getData()) >= abs(j - coordenadas.getElemento(1).getData())) {
                                 if (coordenadas.getElemento(1).getData() > j) {
@@ -261,7 +262,7 @@ public class TableroController {
                                     listaX.getElemento(i - 1).getData().getElemento(j).getData().getListaIndividuos().add(individuo_cambiar);
                                 }
                             }
-                            listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().del(k);
+                            listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).setDato(null);
                         } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoAvanzado == true) {
 
                             //este tipo de movimiento lo tengo que implementar a partir de un grafo
@@ -283,7 +284,7 @@ public class TableroController {
         for (int i = 0; i < maximo; i++) {
             int k = 0;
             for (int j = 0; j < max_columnas; j++) {
-                if (listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos() != null) {
+                if ((listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos() != null) && (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getPrimero() != null)) {
                     int num_elementos = listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getNumeroElementos();
                     for (int l = 0; l < num_elementos; l++) {
                         if (listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(l).getDato() instanceof Agua == true) {
@@ -352,7 +353,8 @@ public class TableroController {
 
         for (int i = 0; i < maximo; i++) {
             for (int j = 0; j < max_columnas; j++) {
-                for (int k = 0; k < listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos(); k++) {
+                int num_indi_en_casilla = listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos();
+                for (int k = 0; k < num_indi_en_casilla; k++) {
                     Random num_random = new Random();
                     int valor = num_random.nextInt(0, 100);
                     int pro_clonado = listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato().getClonacion();

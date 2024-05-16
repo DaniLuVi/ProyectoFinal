@@ -310,8 +310,8 @@ public class ElementosCasillaController implements Initializable{
         recurso3.textProperty().bind(texto6);
     }
     public void setInfo() {
-        if (modelCelda.original.getListaIndividuos().getPrimero() != null) {
-            texto1.set(modelCelda.original.getListaIndividuos().getPrimero().getDato().toString(modelCelda.original.getListaIndividuos().getPrimero().getDato()));
+        if (modelCelda.original.getListaIndividuos().getElemento(0) != null) {
+            texto1.set(modelCelda.original.getListaIndividuos().getElemento(0).getDato().toString(modelCelda.original.getListaIndividuos().getElemento(0).getDato()));
         }
         if (modelCelda.original.getListaIndividuos().getElemento(1) != null) {
             texto2.set(modelCelda.original.getListaIndividuos().getElemento(1).getDato().toString(modelCelda.original.getListaIndividuos().getElemento(1).getDato()));
@@ -319,8 +319,8 @@ public class ElementosCasillaController implements Initializable{
         if (modelCelda.original.getListaIndividuos().getElemento(2) != null) {
             texto3.set(modelCelda.original.getListaIndividuos().getElemento(2).getDato().toString(modelCelda.original.getListaIndividuos().getElemento(2).getDato()));
         }
-        if (modelCelda.original.getListaEntornos().getPrimero() != null) {
-            texto4.set(modelCelda.original.getListaEntornos().getPrimero().getDato().toString(modelCelda.original.getListaEntornos().getPrimero().getDato()));
+        if (modelCelda.original.getListaEntornos().getElemento(0) != null) {
+            texto4.set(modelCelda.original.getListaEntornos().getElemento(0).getDato().toString(modelCelda.original.getListaEntornos().getElemento(0).getDato()));
         }
         if (modelCelda.original.getListaEntornos().getElemento(1) != null) {
             texto5.set(modelCelda.original.getListaEntornos().getElemento(1).getDato().toString(modelCelda.original.getListaEntornos().getElemento(1).getDato()));
