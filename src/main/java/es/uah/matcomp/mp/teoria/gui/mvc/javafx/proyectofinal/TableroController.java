@@ -117,11 +117,11 @@ public class TableroController {
                     int vidas_actuales_2 = listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(1).getDato().getVidas();
                     listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(1).getDato().setVidas(vidas_actuales_2 - 1);
                     listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato().setVidas(vidas_actuales_1 - 1);
-                    if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato().getVidas() == 0) {
-                        listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().del(0);
-                    }
                     if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(1).getDato().getVidas() == 0) {
                         listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().del(1);
+                    }
+                    if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato().getVidas() == 0) {
+                        listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().del(0);
                     }
                 } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos() == 3) {
                     int vidas_actuales_1 = listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato().getVidas();
@@ -130,14 +130,14 @@ public class TableroController {
                     listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(1).getDato().setVidas(vidas_actuales_2 - 1);
                     listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato().setVidas(vidas_actuales_1 - 1);
                     listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(2).getDato().setVidas(vidas_actuales_3 - 1);
-                    if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato().getVidas() == 0) {
-                        listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().del(0);
+                    if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(2).getDato().getVidas() == 0) {
+                        listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().del(2);
                     }
                     if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(1).getDato().getVidas() == 0) {
                         listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().del(1);
                     }
-                    if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(2).getDato().getVidas() == 0) {
-                        listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().del(2);
+                    if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato().getVidas() == 0) {
+                        listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().del(0);
                     }
                 } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos() == 1) {
                     int vidas_actuales = listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato().getVidas();
@@ -157,11 +157,11 @@ public class TableroController {
                     int tiempo_actual_2 = listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(1).getDato().getTiempo_aparicion();
                     listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(0).getDato().setTiempo_aparicion(tiempo_actual_1 - 1);
                     listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(1).getDato().setTiempo_aparicion(tiempo_actual_2 - 1);
-                    if (listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(0).getDato().getTiempo_aparicion() == 0) {
-                        listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().del(0);
-                    }
                     if (listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(1).getDato().getTiempo_aparicion() == 0) {
                         listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().del(1);
+                    }
+                    if (listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(0).getDato().getTiempo_aparicion() == 0) {
+                        listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().del(0);
                     }
                 } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getNumeroElementos() == 3) {
                     int tiempo_actual_1 = listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(0).getDato().getTiempo_aparicion();
@@ -170,14 +170,14 @@ public class TableroController {
                     listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(0).getDato().setTiempo_aparicion(tiempo_actual_1 - 1);
                     listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(1).getDato().setTiempo_aparicion(tiempo_actual_2 - 1);
                     listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(2).getDato().setTiempo_aparicion(tiempo_actual_3 - 1);
-                    if (listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(0).getDato().getTiempo_aparicion() == 0) {
-                        listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().del(0);
+                    if (listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(2).getDato().getTiempo_aparicion() == 0) {
+                        listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().del(2);
                     }
                     if (listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(1).getDato().getTiempo_aparicion() == 0) {
                         listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().del(1);
                     }
-                    if (listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(2).getDato().getTiempo_aparicion() == 0) {
-                        listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().del(2);
+                    if (listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(0).getDato().getTiempo_aparicion() == 0) {
+                        listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().del(0);
                     }
                 } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getNumeroElementos() == 1) {
                     int tiempo_actual = listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(0).getDato().getTiempo_aparicion();
@@ -211,9 +211,11 @@ public class TableroController {
                                 listaX.getElemento(i).getData().getElemento(j+1).getData().getListaIndividuos().add(individuo_cambiar);
                                 listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().del(k);
                             }
-                      //  } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoNormal == true) {
-                      //      Random randomNormal = new Random();
-                        //    int opcion = randomNormal.nextInt(0, cant_entornos);
+                        } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoNormal == true) {
+                            int numero_celdas_con_entornos = listaCeldas.getNumeroElementos();
+                            Random randomNormal = new Random();
+                            int opcion = randomNormal.nextInt(0, numero_celdas_con_entornos - 1);
+                            ListaSimple<Integer> coordenadas = listaCeldas.getElemento(opcion).getDato().getCoordenadas();
 
                         } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoAvanzado == true) {
                             //este tipo de movimiento lo tengo que implementar a partir de un grafo
@@ -224,14 +226,14 @@ public class TableroController {
         } catch (ArrayIndexOutOfBoundsException e) {
             e.printStackTrace();
         }
-
     }
     private void mejoras() {
         for (int i = 0; i < maximo; i++) {
             int k = 0;
             for (int j = 0; j < max_columnas; j++) {
                 if (listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos() != null) {
-                    for (int l = 0; l < listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getNumeroElementos(); l++) {
+                    int num_elementos = listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getNumeroElementos();
+                    for (int l = 0; l < num_elementos; l++) {
                         if (listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(l).getDato() instanceof Agua == true) {
                             listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(l).getDato().modificarIndividuo(listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato());
                         } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(l).getDato() instanceof Comida == true) {
@@ -373,6 +375,16 @@ public class TableroController {
             }
         }
         return cant_entornos;
+    }
+    private ListaDoblementeEnlazada<Celda> getCeldasConRecursos() {
+        for (int i = 0; i < maximo; i++) {
+            for (int j = 0; j < max_columnas; j++) {
+                if (!listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().isVacia()) {
+                    listaCeldas.add(listaX.getElemento(i).getData().getElemento(j).getData());
+                }
+            }
+        }
+        return listaCeldas;
     }
     @FXML
     protected void play() {
@@ -536,7 +548,6 @@ public class TableroController {
                     }
                 });
                 listaY.insert(celda, j-1);
-                listaCeldas.add(modelCelda.original);
                 casilla.setMinSize(300 * 2/ k, 400 / x);
                 casilla.setMaxSize(300 * 2/ k, 400 / x);
                 casilla.setStyle("-fx-border-color: black; -fx-text-alignment: center");

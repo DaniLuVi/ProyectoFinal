@@ -83,6 +83,21 @@ public class ListaEnlazada<TipoDato> {
             }
         return 0;
     }
+    public Integer getPosicion(TipoDato el) {
+        if (!this.isVacia()) {
+            int pos = 0;
+            ElementoLE<TipoDato> first = this.primero;
+            for (int i = 0; (pos < getNumeroElementos()) && (first.getData() != el); i++) {
+                first = first.getSiguiente();
+                pos += 1;
+            }
+            if ((pos >= getNumeroElementos())&&(el != this.getUltimo().getData())) {
+                return null;
+            }
+            return pos;
+        }
+        return null;
+    }
     public ElementoLE<TipoDato> getPrimero() {
         return primero;
     }
@@ -105,5 +120,31 @@ public class ListaEnlazada<TipoDato> {
             contador++;
         }
         return tmp;
+    }
+    public TipoDato getElementoT(int posicion) {
+        int contador = 0;
+        if (getNumeroElementos() == 1)
+            return (TipoDato) primero;
+        ElementoLE<TipoDato> tmp = primero;
+        while (contador != posicion) {
+            tmp = tmp.getSiguiente();
+            contador++;
+        }
+        return (TipoDato) tmp;
+    }
+    private void reverseRecursivo(ListaEnlazada<TipoDato> lista, ListaEnlazada<TipoDato> listaInvertida, int index) {
+        if (index == lista.getNumeroElementos() ) {
+            return;
+        }
+        reverseRecursivo(lista, listaInvertida, index + 1);
+        listaInvertida.add(lista.getElementoT(index));
+    }
+    public ListaEnlazada<TipoDato> reverse(ListaEnlazada<TipoDato> lista) {
+        ListaEnlazada<TipoDato> listaInvertida = new ListaEnlazada<>();
+        if (lista.getNumeroElementos() <= 1) {
+            return lista;
+        }
+        reverseRecursivo(lista, listaInvertida, 0);
+        return listaInvertida;
     }
 }

@@ -18,6 +18,8 @@ public class Celda extends ElementoLS<Celda> {
         this.V = V;
     }
     public Celda() {
+        this.coordenadas.insert(filas, 0);
+        this.coordenadas.insert(columnas, 1);
     }
     public int getFila() {
         return filas;
