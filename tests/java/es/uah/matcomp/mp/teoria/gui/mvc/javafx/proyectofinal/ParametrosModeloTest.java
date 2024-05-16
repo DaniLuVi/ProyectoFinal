@@ -8,19 +8,28 @@ class ParametrosModeloTest {
 
     @Test
     void getFilas() {
-
+        ParametrosModelo para = new ParametrosModelo(3, 4, 5, 7, 78, 34, 56, 65, 98, 12, 34, 54);
+        assertEquals(3, para.getFilas());
     }
 
     @Test
     void setFilas() {
+        ParametrosModelo para = new ParametrosModelo(3, 4, 5, 7, 78, 34, 56, 65, 98, 12, 34, 54);
+        assertDoesNotThrow(()-> para.setFilas(3));
+        assertEquals(3, para.getFilas(), "Estas no son las filas que esperaba");
     }
 
     @Test
     void getColumnas() {
+        ParametrosModelo para = new ParametrosModelo(3, 4, 5, 7, 78, 34, 56, 65, 98, 12, 34, 54);
+        assertEquals(4, para.getColumnas());
     }
 
     @Test
     void setColumnas() {
+        ParametrosModelo para = new ParametrosModelo(3, 4, 5, 7, 78, 34, 56, 65, 98, 12, 34, 54);
+        assertDoesNotThrow(()-> para.setColumnas(4));
+        assertEquals(4, para.getColumnas(), "Estas no son las columnas que esperaba");
     }
 
     @Test

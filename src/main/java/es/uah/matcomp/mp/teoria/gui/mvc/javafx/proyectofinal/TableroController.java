@@ -27,7 +27,8 @@ import static java.lang.Math.abs;
 
 public class TableroController {
     ListaSimple<ListaSimple<Celda>> listaX;
-    private ListaDoblementeEnlazada<Celda> listaCeldas = new ListaDoblementeEnlazada<>();
+    private ListaDoblementeEnlazada<Celda> listaCeldasEntornos = new ListaDoblementeEnlazada<>();
+    private ListaDoblementeEnlazada<Celda> listaCeldasIndividuos = new ListaDoblementeEnlazada<>();
     private int num_individuos = 0;
     private int cant_entornos = 0;
     private int num_turnos = 0;
@@ -221,7 +222,7 @@ public class TableroController {
         log.info("Los tiempos de aparición de los entornos/recursos han sido actualizados");
 
     }
-    private void movimiento_individuo() throws ArrayIndexOutOfBoundsException{
+    private void movimiento_individuo() throws ArrayIndexOutOfBoundsException{       // tengo que referenciar a los que ya se han movido, para que ya no se vuelvan a mover en ese turno
 
         log.info("Se realizan los movimientos de todos los individuos que hay en la simualción");
 
@@ -248,7 +249,7 @@ public class TableroController {
                             int numero_celdas_con_entornos = getCeldasConRecursos().getNumeroElementos();
                             Random randomNormal = new Random();
                             int opcion = randomNormal.nextInt(0, numero_celdas_con_entornos);
-                            ListaSimple<Integer> coordenadas = listaCeldas.getElemento(opcion).getDato().getCoordenadas();
+                            ListaSimple<Integer> coordenadas = listaCeldasEntornos.getElemento(opcion).getDato().getCoordenadas();
                             if (abs(i - coordenadas.getElemento(0).getData()) >= abs(j - coordenadas.getElemento(1).getData())) {
                                 if (coordenadas.getElemento(1).getData() > j) {
                                     listaX.getElemento(i).getData().getElemento(j + 1).getData().getListaIndividuos().add(individuo_cambiar);
@@ -462,6 +463,19 @@ public class TableroController {
         }
         return cant_entornos;
     }
+    private ListaDoblementeEnlazada<Celda> getCeldaConIndividuos() {
+
+        log.info("Devuelve la lista de celdas que contienen individuos en su interior");
+
+        for (int i = 0; i < maximo; i++) {
+            for (int j = 0; j < max_columnas; j++) {
+                if (!listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().isVacia()) {
+                    listaCeldasIndividuos.add(listaX.getElemento(i).getData().getElemento(j).getData());
+                }
+            }
+        }
+        return listaCeldasIndividuos;
+    }
     private ListaDoblementeEnlazada<Celda> getCeldasConRecursos() {
 
         log.info("Devuelve la lisa de celdas que contienen entornos/recursos en su interior");
@@ -469,11 +483,11 @@ public class TableroController {
         for (int i = 0; i < maximo; i++) {
             for (int j = 0; j < max_columnas; j++) {
                 if (!listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().isVacia()) {
-                    listaCeldas.add(listaX.getElemento(i).getData().getElemento(j).getData());
+                    listaCeldasEntornos.add(listaX.getElemento(i).getData().getElemento(j).getData());
                 }
             }
         }
-        return listaCeldas;
+        return listaCeldasEntornos;
     }
     @FXML
     protected void play() {
