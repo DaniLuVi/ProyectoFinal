@@ -229,32 +229,37 @@ public class TableroController {
             for (int i = 0; i < maximo; i++) {
                 for (int j = 0; j < max_columnas; j++) {
                     for (int k = 0; k < listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos(); k++) {
+                        Individuo individuo_cambiar = listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato();
                         if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoBasico == true) {
                             Random randomBasico = new Random();
                             int opcion = randomBasico.nextInt(1, 4);
-                            Individuo individuo_cambiar = listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato();
                             if (opcion == 1) {
                                 listaX.getElemento(i-1).getData().getElemento(j).getData().getListaIndividuos().add(individuo_cambiar);
-                                listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().del(k);
                             } else if (opcion == 2) {
                                 listaX.getElemento(i+1).getData().getElemento(j).getData().getListaIndividuos().add(individuo_cambiar);
-                                listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().del(k);
                             } else if (opcion == 3) {
                                 listaX.getElemento(i).getData().getElemento(j-1).getData().getListaIndividuos().add(individuo_cambiar);
-                                listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().del(k);
                             } else if (opcion == 4) {
                                 listaX.getElemento(i).getData().getElemento(j+1).getData().getListaIndividuos().add(individuo_cambiar);
-                                listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().del(k);
                             }
+                            listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().del(k);
                         } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoNormal == true) {
-                            int numero_celdas_con_entornos = listaCeldas.getNumeroElementos();
+                            int numero_celdas_con_entornos = getCeldasConRecursos().getNumeroElementos();
                             Random randomNormal = new Random();
                             int opcion = randomNormal.nextInt(0, numero_celdas_con_entornos - 1);
                             ListaSimple<Integer> coordenadas = listaCeldas.getElemento(opcion).getDato().getCoordenadas();
                             if (abs(i - coordenadas.getElemento(0).getData()) >= abs(j - coordenadas.getElemento(1).getData())) {
-                                
+                                if (coordenadas.getElemento(1).getData() > j) {
+                                    listaX.getElemento(i).getData().getElemento(j + 1).getData().getListaIndividuos().add(individuo_cambiar);
+                                } else if (coordenadas.getElemento(1).getData() < j) {
+                                    listaX.getElemento(i).getData().getElemento(j - 1).getData().getListaIndividuos().add(individuo_cambiar);
+                                }
                             } else if (abs(i - coordenadas.getElemento(0).getData()) < abs(j - coordenadas.getElemento(1).getData())) {
-                                
+                                if (coordenadas.getElemento(0).getData() > i) {
+                                    listaX.getElemento(i + 1).getData().getElemento(j).getData().getListaIndividuos().add(individuo_cambiar);
+                                } else if (coordenadas.getElemento(0).getData() < i) {
+                                    listaX.getElemento(i - 1).getData().getElemento(j).getData().getListaIndividuos().add(individuo_cambiar);
+                                }
                             }
                             listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().del(k);
                         } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoAvanzado == true) {

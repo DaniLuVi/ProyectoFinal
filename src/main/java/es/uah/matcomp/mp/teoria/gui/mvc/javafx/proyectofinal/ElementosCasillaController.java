@@ -60,9 +60,8 @@ public class ElementosCasillaController implements Initializable{
     public void onOk() {
 
         log.info("Evento para cerrar la ventana de los elementos de una casilla");
+
         modelCelda.commit();
-        //tablero
-        // conseguir que se guarden los datos al modelo de datos
         scene.close();
 
         log.info("La ventana de los elementos de una casilla se ha cerrado correctamente");
@@ -70,6 +69,9 @@ public class ElementosCasillaController implements Initializable{
     }
     @FXML
     protected void ponerBasico() throws Exception{
+
+        log.info("Se agrega un individuo tipo básico a la celda asignada");
+
         try {
             TipoBasico individuo = new TipoBasico(0, 0, modelParametros.original.vidas, modelParametros.original.reproduccion, modelParametros.original.clonado);
             if (individuo1.getText() == "--") {
@@ -83,6 +85,9 @@ public class ElementosCasillaController implements Initializable{
                 modelCelda.original.addIndividuo(individuo);
             }
             modelCelda.commit();
+
+            log.info("El individuo de tipo básico se ha agregado");
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -90,6 +95,9 @@ public class ElementosCasillaController implements Initializable{
     }
     @FXML
     protected void ponerNormal() throws Exception{
+
+        log.info("Se agrega un individuo tipo normal a la celda asignada");
+
         try {
             TipoNormal individuo = new TipoNormal(0, 0, modelParametros.original.vidas, modelParametros.original.reproduccion, modelParametros.original.clonado);
             if (individuo1.getText() == "--") {
@@ -103,12 +111,18 @@ public class ElementosCasillaController implements Initializable{
                 modelCelda.original.addIndividuo(individuo);
             }
             modelCelda.commit();
+
+            log.info("El individuo de tipo normal se ha agregado");
+
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
     @FXML
     protected void ponerAvanzado() throws Exception{
+
+        log.info("Se agrega un individuo tipo avanzado a la celda asignada");
+
         try {
             TipoAvanzado individuo = new TipoAvanzado(0, 0, modelParametros.original.vidas, modelParametros.original.reproduccion, modelParametros.original.clonado);
             if (individuo1.getText() == "--") {
@@ -122,12 +136,18 @@ public class ElementosCasillaController implements Initializable{
                 modelCelda.original.addIndividuo(individuo);
             }
             modelCelda.commit();
+
+            log.info("El individuo de tipo avanzado se ha agregado");
+
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
     @FXML
     protected void ponerAgua() throws Exception{
+
+        log.info("Se agrega un recurso tipo agua a la celda asignada");
+
         try {
             Agua entorno = new Agua(3, modelParametros.original.agua);
             if (recurso1.getText() == "--") {
@@ -141,12 +161,18 @@ public class ElementosCasillaController implements Initializable{
                 modelCelda.original.addEntorno(entorno);
             }
             modelCelda.commit();
+
+            log.info("El recurso de tipo agua se ha agregado");
+
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
     @FXML
     protected void ponerComida() throws Exception{
+
+        log.info("Se agrega un recurso tipo comida a la celda asignada");
+
         try {
             Comida entorno = new Comida(3, modelParametros.original.comida);
             if (recurso1.getText() == "--") {
@@ -160,12 +186,18 @@ public class ElementosCasillaController implements Initializable{
                 modelCelda.original.addEntorno(entorno);
             }
             modelCelda.commit();
+
+            log.info("El recurso de tipo comida se ha agregado");
+
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
     @FXML
     protected void ponerMontaña() throws Exception{
+
+        log.info("Se agrega un recurso tipo montaña a la celda asignada");
+
         try {
             Montaña entorno = new Montaña(3, modelParametros.original.montaña);
             if (recurso1.getText() == "--") {
@@ -179,12 +211,18 @@ public class ElementosCasillaController implements Initializable{
                 modelCelda.original.addEntorno(entorno);
             }
             modelCelda.commit();
+
+            log.info("El recurso de tipo montaña se ha agregado");
+
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
     @FXML
     protected void ponerBiblioteca() throws Exception{
+
+        log.info("Se agrega un recurso tipo biblioteca a la celda asignada");
+
         try {
             Biblioteca entorno = new Biblioteca(3, modelParametros.original.biblioteca);
             if (recurso1.getText() == "--") {
@@ -198,12 +236,18 @@ public class ElementosCasillaController implements Initializable{
                 modelCelda.original.addEntorno(entorno);
             }
             modelCelda.commit();
+
+            log.info("El recurso de tipo biblioteca se ha agregado");
+
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
     @FXML
     protected void ponerTesoro() throws Exception{
+
+        log.info("Se agrega un recurso tipo tesoro a la celda asignada");
+
         try {
             Tesoro entorno = new Tesoro(3, modelParametros.original.tesoro);
             if (recurso1.getText() == "--") {
@@ -217,12 +261,18 @@ public class ElementosCasillaController implements Initializable{
                 modelCelda.original.addEntorno(entorno);
             }
             modelCelda.commit();
+
+            log.info("El recurso de tipo tesoro se ha agregado");
+
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
     @FXML
     protected void ponerPozo() throws Exception{
+
+        log.info("Se agrega un recurso tipo pozo a la celda asignada");
+
         try {
             Pozo entorno = new Pozo(3, modelParametros.original.pozo);
             if (recurso1.getText() == "--") {
@@ -236,6 +286,9 @@ public class ElementosCasillaController implements Initializable{
                 modelCelda.original.addEntorno(entorno);
             }
             modelCelda.commit();
+
+            log.info("El recurso de tipo pozo se ha agregado");
+
         } catch (Exception e) {
             e.printStackTrace();
         }
