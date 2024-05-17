@@ -25,7 +25,12 @@ public class Tablero {
             listaX.add(listaY);
         }
     }
+    public void commit() {
 
+    }
+    public void rollback() {
+
+    }
 
     public void CargaDatosParametros(ParametrosModeloProperties parametrosModeloProperties) {
         this.model = parametrosModeloProperties;

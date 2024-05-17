@@ -232,7 +232,7 @@ public class TableroController {
                     int num_indi_en_casilla = listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos();
                     for (int k = 0; k < num_indi_en_casilla; k++) {
                         Individuo individuo_cambiar = listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato();
-                        if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoBasico == true) {
+                        if ((listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoBasico == true) && (individuo_cambiar.getTurno_individuo() == model.original.turno_individuo)) {
                             Random randomBasico = new Random();
                             int opcion = randomBasico.nextInt(1, 4);
                             if (opcion == 1) {
@@ -244,8 +244,7 @@ public class TableroController {
                             } else if (opcion == 4) {
                                 listaX.getElemento(i).getData().getElemento(j+1).getData().getListaIndividuos().add(individuo_cambiar);
                             }
-                            listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).setDato(null);
-                        } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoNormal == true) {
+                        } else if ((listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoNormal == true) && (individuo_cambiar.getTurno_individuo() == model.original.turno_individuo)) {
                             int numero_celdas_con_entornos = getCeldasConRecursos().getNumeroElementos();
                             Random randomNormal = new Random();
                             int opcion = randomNormal.nextInt(0, numero_celdas_con_entornos);
@@ -263,11 +262,13 @@ public class TableroController {
                                     listaX.getElemento(i - 1).getData().getElemento(j).getData().getListaIndividuos().add(individuo_cambiar);
                                 }
                             }
-                            listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).setDato(null);
-                        } else if (listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoAvanzado == true) {
+                        } else if ((listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoAvanzado == true) && (individuo_cambiar.getTurno_individuo() == model.original.turno_individuo)) {
 
                             //este tipo de movimiento lo tengo que implementar a partir de un grafo
                         }
+                        listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).setDato(null);
+                        int turno = model.original.turno_individuo + 1;
+                        individuo_cambiar.setTurno_individuo(turno++);
                     }
                 }
             }
@@ -638,6 +639,7 @@ public class TableroController {
         log.info("Se ejecuta el controlador del tablero.\n");
 
         //modelo.construir_tablero(k, x);
+        model.original.setTurno_individuo(0);
         listaX = new ListaSimple<>(k);
         maximo = k;
         for (int i = 1; i <= k; i++) {

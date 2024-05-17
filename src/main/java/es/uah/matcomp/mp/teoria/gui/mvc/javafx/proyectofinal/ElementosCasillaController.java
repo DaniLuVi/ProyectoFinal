@@ -340,7 +340,8 @@ public class ElementosCasillaController implements Initializable{
         this.modelParametros = parametrosModelo;
         modelParametros.commit();
     }
-    public void setModelCelda(CeldaProperties modelCelda) {
-
+    public void CargaDatosAdicionalesTablero(Tablero modeloTablero) {
+        this.tablero = modeloTablero;
+        tablero.commit();
     }
 }
