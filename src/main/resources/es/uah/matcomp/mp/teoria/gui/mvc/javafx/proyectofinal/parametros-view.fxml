@@ -113,6 +113,9 @@
          <cursor>
             <Cursor fx:constant="DEFAULT" />
          </cursor>
+         <VBox.margin>
+            <Insets top="40.0" />
+         </VBox.margin>
       </HBox>
       <Button mnemonicParsing="false" onAction="#guardarDatos" text="Guardar datos">
          <VBox.margin>

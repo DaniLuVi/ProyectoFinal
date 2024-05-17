@@ -6,12 +6,17 @@ import estructuras_de_datos_implementadas.listaDoblementeEnlazada.ListaDoblement
 import estructuras_de_datos_implementadas.listaSimple.ListaSimple;
 
 public class Tablero {
-    private ParametrosModeloProperties model;
-    private CeldaProperties modelCelda = new CeldaProperties();
+    public ParametrosModeloProperties model;
+    public CeldaProperties modelCelda = new CeldaProperties();
     private ListaDoblementeEnlazada<Celda> listaCeldas = new ListaDoblementeEnlazada<>();
     private ListaSimple<Celda> listaY = new ListaSimple<>();
-    private ListaSimple<ListaSimple<Celda>> listaX = new ListaSimple<ListaSimple<Celda>>();
+    public ListaSimple<ListaSimple<Celda>> listaX = new ListaSimple<ListaSimple<Celda>>();
     public Tablero() {}
+    public Tablero(ParametrosModeloProperties parametrosModeloProperties, CeldaProperties modelCelda, ListaSimple<ListaSimple<Celda>> listaX) {
+        this.model = parametrosModeloProperties;
+        this.modelCelda = modelCelda;
+        this.listaX = listaX;
+    }
     public void construir_tablero(int filas, int columnas) {
         listaX = new ListaSimple<>(filas);
         listaY = new ListaSimple<>(columnas);

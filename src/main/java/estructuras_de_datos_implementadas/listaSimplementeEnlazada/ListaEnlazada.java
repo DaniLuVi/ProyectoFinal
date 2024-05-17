@@ -1,7 +1,7 @@
 package estructuras_de_datos_implementadas.listaSimplementeEnlazada;
 
 public class ListaEnlazada<TipoDato> {
-    private ElementoLE<TipoDato> primero;
+    public ElementoLE<TipoDato> primero;
     public ListaEnlazada() {
     }
     public boolean isVacia() {

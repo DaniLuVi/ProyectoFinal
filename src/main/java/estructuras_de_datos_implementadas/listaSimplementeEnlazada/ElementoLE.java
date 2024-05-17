@@ -2,7 +2,7 @@ package estructuras_de_datos_implementadas.listaSimplementeEnlazada;
 
 public class ElementoLE<TipoDato> {
     private ElementoLE<TipoDato> siguiente;
-    private TipoDato data;
+    public TipoDato data;
 
     public ElementoLE() {
     }
