@@ -61,6 +61,7 @@ public class ElementosCasillaController implements Initializable{
 
         log.info("Evento para cerrar la ventana de los elementos de una casilla");
 
+        modelCelda.setV(modelParametros.original.V);
         modelCelda.commit();
         scene.close();
 

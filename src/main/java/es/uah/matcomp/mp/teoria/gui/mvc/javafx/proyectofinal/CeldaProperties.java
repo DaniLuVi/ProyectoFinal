@@ -5,7 +5,9 @@ import clases_a_utilizar_de_datos.Entorno;
 import clases_a_utilizar_de_datos.Individuo;
 import estructuras_de_datos_implementadas.listaDoblementeEnlazada.ListaDoblementeEnlazada;
 import estructuras_de_datos_implementadas.listaSimple.ListaSimple;
+import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ListProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleListProperty;
 import javafx.collections.ObservableList;
 
@@ -14,6 +16,7 @@ public class CeldaProperties {
     private ListProperty coordenadas = new SimpleListProperty<>();
     private ListProperty<Individuo> listaIndividuos = new SimpleListProperty<>();
     private ListProperty<Entorno> listaEntornos = new SimpleListProperty<>();
+    private IntegerProperty V = new SimpleIntegerProperty();
 
     public CeldaProperties(Celda original) {
         setOriginal(original);
@@ -23,11 +26,13 @@ public class CeldaProperties {
         original.getCoordenadas();
         original.getListaIndividuos();
         original.getListaEntornos();
+        original.setV(V.get());
     }
     public void rollback() {
         coordenadas.set(original.getCoordenadas());
         listaIndividuos.set((ObservableList<Individuo>) original.getListaIndividuos());
         listaEntornos.set((ObservableList<Entorno>) original.getListaEntornos());
+        V.set(original.getV());
     }
 
     public Celda getOriginal() {
@@ -72,5 +77,17 @@ public class CeldaProperties {
 
     public void setListaEntornos(ObservableList<Entorno> listaEntornos) {
         this.listaEntornos.set(listaEntornos);
+    }
+
+    public int getV() {
+        return V.get();
+    }
+
+    public IntegerProperty vProperty() {
+        return V;
+    }
+
+    public void setV(int v) {
+        this.V.set(v);
     }
 }

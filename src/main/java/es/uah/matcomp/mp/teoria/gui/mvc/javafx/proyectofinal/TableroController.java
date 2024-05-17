@@ -244,6 +244,9 @@ public class TableroController {
                             } else if (opcion == 4) {
                                 listaX.getElemento(i).getData().getElemento(j+1).getData().getListaIndividuos().add(individuo_cambiar);
                             }
+                            listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).setDato(null);
+                            int turno = model.original.turno_individuo + 1;
+                            individuo_cambiar.setTurno_individuo(turno++);
                         } else if ((listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoNormal == true) && (individuo_cambiar.getTurno_individuo() == model.original.turno_individuo)) {
                             int numero_celdas_con_entornos = getCeldasConRecursos().getNumeroElementos();
                             Random randomNormal = new Random();
@@ -262,13 +265,16 @@ public class TableroController {
                                     listaX.getElemento(i - 1).getData().getElemento(j).getData().getListaIndividuos().add(individuo_cambiar);
                                 }
                             }
+                            listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).setDato(null);
+                            int turno = model.original.turno_individuo + 1;
+                            individuo_cambiar.setTurno_individuo(turno++);
                         } else if ((listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoAvanzado == true) && (individuo_cambiar.getTurno_individuo() == model.original.turno_individuo)) {
 
                             //este tipo de movimiento lo tengo que implementar a partir de un grafo
+                            listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).setDato(null);
+                            int turno = model.original.turno_individuo + 1;
+                            individuo_cambiar.setTurno_individuo(turno++);
                         }
-                        listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).setDato(null);
-                        int turno = model.original.turno_individuo + 1;
-                        individuo_cambiar.setTurno_individuo(turno++);
                     }
                 }
             }
