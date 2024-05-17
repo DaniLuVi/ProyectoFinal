@@ -247,6 +247,7 @@ public class TableroController {
                             listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).setDato(null);
                             int turno = model.original.turno_individuo + 1;
                             individuo_cambiar.setTurno_individuo(turno++);
+                            individuo_cambiar.setGeneracion(num_turnos);
                         } else if ((listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoNormal == true) && (individuo_cambiar.getTurno_individuo() == model.original.turno_individuo)) {
                             int numero_celdas_con_entornos = getCeldasConRecursos().getNumeroElementos();
                             Random randomNormal = new Random();
@@ -268,12 +269,14 @@ public class TableroController {
                             listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).setDato(null);
                             int turno = model.original.turno_individuo + 1;
                             individuo_cambiar.setTurno_individuo(turno++);
+                            individuo_cambiar.setGeneracion(num_turnos);
                         } else if ((listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoAvanzado == true) && (individuo_cambiar.getTurno_individuo() == model.original.turno_individuo)) {
 
                             //este tipo de movimiento lo tengo que implementar a partir de un grafo
                             listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).setDato(null);
                             int turno = model.original.turno_individuo + 1;
                             individuo_cambiar.setTurno_individuo(turno++);
+                            individuo_cambiar.setGeneracion(num_turnos);
                         }
                     }
                 }
@@ -583,7 +586,7 @@ public class TableroController {
         }   (aquí tengo distintas cosas que he probado para el guardado de datos que no me han funcionado de momento)      */
 
 
-        ParametrosModelo parameterController = new ParametrosModelo(filas.getDato(), columnas.getDato(), vidas.getDato(), reproduccion.getDato(), clonado.getDato(),model.original.turno_individuo, v.getDato(), model.original.agua, model.original.comida, model.original.montaña, model.original.biblioteca, model.original.pozo, model.original.tesoro);
+        ParametrosModelo parameterController = new ParametrosModelo(filas.getDato(), columnas.getDato(), model.original.id, model.original.generacion, vidas.getDato(), reproduccion.getDato(), clonado.getDato(),model.original.turno_individuo, v.getDato(), model.original.agua, model.original.comida, model.original.montaña, model.original.biblioteca, model.original.pozo, model.original.tesoro);
 
         ParametrosModelo datos = parameterController;
 

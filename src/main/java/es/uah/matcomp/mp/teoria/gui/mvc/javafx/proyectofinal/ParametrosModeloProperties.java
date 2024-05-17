@@ -8,6 +8,8 @@ public class ParametrosModeloProperties {
     protected ParametrosModelo original;
     private IntegerProperty filas = new SimpleIntegerProperty();
     private IntegerProperty columnas = new SimpleIntegerProperty();
+    private IntegerProperty id = new SimpleIntegerProperty();
+    private IntegerProperty generacion = new SimpleIntegerProperty();
     private IntegerProperty vidas = new SimpleIntegerProperty();
     private IntegerProperty reproduccion = new SimpleIntegerProperty();
     private IntegerProperty clonado = new SimpleIntegerProperty();
@@ -26,6 +28,8 @@ public class ParametrosModeloProperties {
     public void commit() {
         original.setFilas(filas.get());
         original.setColumnas(columnas.get());
+        original.setId(id.get());
+        original.setGeneracion(generacion.get());
         original.setVidas(vidas.get());
         original.setReproduccion(reproduccion.get());
         original.setClonado(clonado.get());
@@ -41,6 +45,8 @@ public class ParametrosModeloProperties {
     public void rollback() {
         filas.set(original.getFilas());
         columnas.set(original.getColumnas());
+        id.set(original.getId());
+        generacion.set(original.getGeneracion());
         vidas.set(original.getVidas());
         reproduccion.set(original.getReproduccion());
         clonado.set(original.getClonado());
@@ -67,6 +73,12 @@ public class ParametrosModeloProperties {
     }
     public Property<Number> columnasProperty() {
         return columnas;
+    }
+    public Property<Number> idProperty() {
+        return id;
+    }
+    public Property<Number> generacionProperty() {
+        return generacion;
     }
     public Property<Number> vidasProperty() {
         return vidas;
@@ -96,6 +108,12 @@ public class ParametrosModeloProperties {
 
     public void setColumnas(IntegerProperty columnas) {
         this.columnas = columnas;
+    }
+    public void setId(IntegerProperty id) {
+        this.id = id;
+    }
+    public void setGeneracion(IntegerProperty generacion) {
+        this.generacion = generacion;
     }
 
     public void setVidas(IntegerProperty vidas) {

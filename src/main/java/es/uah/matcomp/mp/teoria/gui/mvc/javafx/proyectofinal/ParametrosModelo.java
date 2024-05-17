@@ -11,7 +11,8 @@ import java.io.IOException;
 public class ParametrosModelo {
     public int filas;
     public int columnas;
-
+    public int id;
+    public int generacion;
     public int vidas;
     public int reproduccion;
     public int clonado;
@@ -25,9 +26,11 @@ public class ParametrosModelo {
     public int tesoro;
 
 
-    public ParametrosModelo(int filas, int columnas, int vidas, int reproduccion, int clonado, int turno_individuo, int V, int agua, int comida, int montaña, int biblioteca, int pozo, int tesoro) {
+    public ParametrosModelo(int filas, int columnas, int id, int generacion, int vidas, int reproduccion, int clonado, int turno_individuo, int V, int agua, int comida, int montaña, int biblioteca, int pozo, int tesoro) {
         this.filas = filas;
         this.columnas = columnas;
+        this.id = id;
+        this.generacion = generacion;
         this.vidas = vidas;
         this.reproduccion = reproduccion;
         this.clonado = clonado;
@@ -55,6 +58,22 @@ public class ParametrosModelo {
 
     public void setColumnas(int columnas) {
         this.columnas = columnas;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getGeneracion() {
+        return generacion;
+    }
+
+    public void setGeneracion(int generacion) {
+        this.generacion = generacion;
     }
 
     public int getVidas() {
