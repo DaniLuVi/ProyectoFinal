@@ -11,6 +11,7 @@ public class ParametrosModeloProperties {
     private IntegerProperty vidas = new SimpleIntegerProperty();
     private IntegerProperty reproduccion = new SimpleIntegerProperty();
     private IntegerProperty clonado = new SimpleIntegerProperty();
+    private IntegerProperty turno_individuo = new SimpleIntegerProperty();
     private IntegerProperty V = new SimpleIntegerProperty();
     private IntegerProperty agua = new SimpleIntegerProperty();
     private IntegerProperty comida = new SimpleIntegerProperty();
@@ -28,6 +29,7 @@ public class ParametrosModeloProperties {
         original.setVidas(vidas.get());
         original.setReproduccion(reproduccion.get());
         original.setClonado(clonado.get());
+        original.setTurno_individuo(turno_individuo.get());
         original.setV(V.get());
         original.setAgua(agua.get());
         original.setComida(comida.get());
@@ -42,6 +44,7 @@ public class ParametrosModeloProperties {
         vidas.set(original.getVidas());
         reproduccion.set(original.getReproduccion());
         clonado.set(original.getClonado());
+        turno_individuo.set(original.getTurno_individuo());
         V.set(original.getV());
         agua.set(original.getAgua());
         comida.set(original.getComida());
@@ -74,6 +77,9 @@ public class ParametrosModeloProperties {
     public Property<Number> clonadoProperty() {
         return clonado;
     }
+    public Property<Number> turno_individuoProperty() {
+        return turno_individuo;
+    }
     public Property<Number> VProperty() {
         return V;
     }
@@ -103,7 +109,9 @@ public class ParametrosModeloProperties {
     public void setClonado(IntegerProperty clonado) {
         this.clonado = clonado;
     }
-
+    public void setTurno_individuo(IntegerProperty turno_individuo) {
+        this.turno_individuo = turno_individuo;
+    }
     public void setV(IntegerProperty v) {
         this.V = v;
     }

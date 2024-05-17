@@ -15,6 +15,7 @@ public class ParametrosModelo {
     public int vidas;
     public int reproduccion;
     public int clonado;
+    public int turno_individuo;
     public int V;
     public int agua;
     public int comida;
@@ -24,12 +25,13 @@ public class ParametrosModelo {
     public int tesoro;
 
 
-    public ParametrosModelo(int filas, int columnas, int vidas, int reproduccion, int clonado, int V, int agua, int comida, int montaña, int biblioteca, int pozo, int tesoro) {
+    public ParametrosModelo(int filas, int columnas, int vidas, int reproduccion, int clonado, int turno_individuo, int V, int agua, int comida, int montaña, int biblioteca, int pozo, int tesoro) {
         this.filas = filas;
         this.columnas = columnas;
         this.vidas = vidas;
         this.reproduccion = reproduccion;
         this.clonado = clonado;
+        this.turno_individuo = turno_individuo;
         this.V = V;
         this.agua = agua;
         this.comida = comida;
@@ -77,6 +79,14 @@ public class ParametrosModelo {
 
     public void setClonado(int clonado) {
         this.clonado = clonado;
+    }
+
+    public int getTurno_individuo() {
+        return turno_individuo;
+    }
+
+    public void setTurno_individuo(int turno_individuo) {
+        this.turno_individuo = turno_individuo;
     }
 
     public int getV() {

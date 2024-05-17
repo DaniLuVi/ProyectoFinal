@@ -73,7 +73,7 @@ public class ElementosCasillaController implements Initializable{
         log.info("Se agrega un individuo tipo básico a la celda asignada");
 
         try {
-            TipoBasico individuo = new TipoBasico(0, 0, modelParametros.original.vidas, modelParametros.original.reproduccion, modelParametros.original.clonado);
+            TipoBasico individuo = new TipoBasico(0, 0, modelParametros.original.vidas, modelParametros.original.reproduccion, modelParametros.original.clonado, modelParametros.original.turno_individuo);
             if (individuo1.getText() == "--") {
                 texto1.set("Tipo Individuo: Básico");
                 modelCelda.original.addIndividuo(individuo);
@@ -99,7 +99,7 @@ public class ElementosCasillaController implements Initializable{
         log.info("Se agrega un individuo tipo normal a la celda asignada");
 
         try {
-            TipoNormal individuo = new TipoNormal(0, 0, modelParametros.original.vidas, modelParametros.original.reproduccion, modelParametros.original.clonado);
+            TipoNormal individuo = new TipoNormal(0, 0, modelParametros.original.vidas, modelParametros.original.reproduccion, modelParametros.original.clonado, modelParametros.original.turno_individuo);
             if (individuo1.getText() == "--") {
                 texto1.set("Tipo Individuo: Normal");
                 modelCelda.original.addIndividuo(individuo);
@@ -124,7 +124,7 @@ public class ElementosCasillaController implements Initializable{
         log.info("Se agrega un individuo tipo avanzado a la celda asignada");
 
         try {
-            TipoAvanzado individuo = new TipoAvanzado(0, 0, modelParametros.original.vidas, modelParametros.original.reproduccion, modelParametros.original.clonado);
+            TipoAvanzado individuo = new TipoAvanzado(0, 0, modelParametros.original.vidas, modelParametros.original.reproduccion, modelParametros.original.clonado, modelParametros.original.turno_individuo);
             if (individuo1.getText() == "--") {
                 texto1.set("Tipo Individuo: Avanzado");
                 modelCelda.original.addIndividuo(individuo);

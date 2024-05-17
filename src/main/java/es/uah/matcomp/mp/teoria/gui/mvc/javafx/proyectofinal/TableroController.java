@@ -576,7 +576,7 @@ public class TableroController {
         }   (aquí tengo distintas cosas que he probado para el guardado de datos que no me han funcionado de momento)      */
 
 
-        ParametrosModelo parameterController = new ParametrosModelo(filas.getDato(), columnas.getDato(), vidas.getDato(), reproduccion.getDato(), clonado.getDato(), v.getDato(), model.original.agua, model.original.comida, model.original.montaña, model.original.biblioteca, model.original.pozo, model.original.tesoro);
+        ParametrosModelo parameterController = new ParametrosModelo(filas.getDato(), columnas.getDato(), vidas.getDato(), reproduccion.getDato(), clonado.getDato(),model.original.turno_individuo, v.getDato(), model.original.agua, model.original.comida, model.original.montaña, model.original.biblioteca, model.original.pozo, model.original.tesoro);
 
         ParametrosModelo datos = parameterController;
 

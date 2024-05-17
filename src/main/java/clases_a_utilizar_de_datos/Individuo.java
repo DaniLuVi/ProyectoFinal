@@ -8,13 +8,15 @@ public class Individuo extends ElementoLDE<Individuo> {
     private int vidas;
     private int reproduccion;
     private int clonacion;
+    private int turno_individuo;
     public Individuo() {}
-    public Individuo(int id, int generacion, int vidas, int reproduccion, int clonacion) {
+    public Individuo(int id, int generacion, int vidas, int reproduccion, int clonacion, int turno_individuo) {
         this.id = id;
         this.generacion = generacion;
         this.vidas = vidas;
         this.reproduccion = reproduccion;
         this.clonacion = clonacion;
+        this.turno_individuo = turno_individuo;
     }
 
     public int getId() {
@@ -57,6 +59,13 @@ public class Individuo extends ElementoLDE<Individuo> {
         this.clonacion = clonacion;
     }
 
+    public int getTurno_individuo() {
+        return turno_individuo;
+    }
+
+    public void setTurno_individuo(int turno_individuo) {
+        this.turno_individuo = turno_individuo;
+    }
 
     public int getMuerte() {
         int muerte = 100 - this.getReproduccion();
@@ -70,7 +79,7 @@ public class Individuo extends ElementoLDE<Individuo> {
                     ", generacion=" + generacion +
                     ", vidas=" + vidas +
                     ", reproduccion=" + reproduccion +
-                    ", clonacion=" + clonacion +
+                    ", clonacion=" + clonacion + ", turno_individuo=" + turno_individuo +
                     "}]";
         }
         if (individuo instanceof TipoNormal) {
@@ -79,7 +88,7 @@ public class Individuo extends ElementoLDE<Individuo> {
                     ", generacion=" + generacion +
                     ", vidas=" + vidas +
                     ", reproduccion=" + reproduccion +
-                    ", clonacion=" + clonacion +
+                    ", clonacion=" + clonacion + ", turno_individuo=" + turno_individuo +
                     "}]";
         }
         if (individuo instanceof TipoAvanzado) {
@@ -88,7 +97,7 @@ public class Individuo extends ElementoLDE<Individuo> {
                     ", generacion=" + generacion +
                     ", vidas=" + vidas +
                     ", reproduccion=" + reproduccion +
-                    ", clonacion=" + clonacion +
+                    ", clonacion=" + clonacion + ", turno_individuo=" + turno_individuo +
                     "}]";
         }
         return null;
