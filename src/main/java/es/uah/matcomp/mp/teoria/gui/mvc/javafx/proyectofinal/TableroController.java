@@ -5,7 +5,9 @@ import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
+import estructuras_de_datos_implementadas.grafo.ArcoGrafo;
 import estructuras_de_datos_implementadas.grafo.Grafo;
+import estructuras_de_datos_implementadas.grafo.NodoGrafo;
 import estructuras_de_datos_implementadas.listaDoblementeEnlazada.ElementoLDE;
 import estructuras_de_datos_implementadas.listaDoblementeEnlazada.ListaDoblementeEnlazada;
 import estructuras_de_datos_implementadas.listaSimple.ListaSimple;
@@ -34,6 +36,7 @@ public class TableroController {
     public ListaSimple<ListaSimple<Celda>> listaX;
     private ListaDoblementeEnlazada<Celda> listaCeldasEntornos = new ListaDoblementeEnlazada<>();
     private ListaDoblementeEnlazada<Celda> listaCeldasIndividuos = new ListaDoblementeEnlazada<>();
+    private Grafo<Celda> grafoTablero = new Grafo<>();
     private int num_individuos = 0;
     private int cant_entornos = 0;
     public int num_turnos = 0;
@@ -278,7 +281,6 @@ public class TableroController {
                             individuo_cambiar.setTurno_individuo(turno++);
                             individuo_cambiar.setGeneracion(num_turnos + 1);
                         } else if ((listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoAvanzado == true) && (individuo_cambiar.getTurno_individuo() == model.original.turno_individuo)) {
-                            Grafo<Celda> grafoTablero = new Grafo<>();
 
                             //este tipo de movimiento lo tengo que implementar a partir de un grafo
                             listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).setDato(null);
@@ -669,12 +671,7 @@ public class TableroController {
     public static <T> void guardarDatosPartida(String rutaArchivo, T objeto) {
 
         log.info("Proceso para guardar los datos del programa a un fichero");
-        JsonSerializer f = new JsonSerializer() {
-            @Override
-            public JsonElement serialize(Object o, Type type, JsonSerializationContext jsonSerializationContext) {
-                return null;
-            }
-        };
+
         Gson gson = new Gson();
         try (FileWriter writer = new FileWriter(rutaArchivo)) {
             gson.toJson(objeto, writer);
@@ -722,6 +719,39 @@ public class TableroController {
                         casilla.setText(celda.getListaIndividuos().getNumeroElementos() + "\n" + celda.getListaEntornos().getNumeroElementos());
                     }
                 });
+            /*    grafoTablero.addNodo(celda);
+                if (celda.getFila() > 0 && celda.getColumna() > 0) {
+                    Celda celda1 = new Celda(i - 1, j - 1);
+                    Celda celda2 = new Celda(i - 1, j);
+                    Celda celda3 = new Celda(i - 1, j + 1);
+                    Celda celda4 = new Celda(i, j + 1);
+                    Celda celda5 = new Celda(i + 1, j + 1);
+                    Celda celda6 = new Celda(i + 1, j);
+                    Celda celda7 = new Celda(i + 1, j - 1);
+                    Celda celda8 = new Celda(i, j - 1);
+                    int valor1 = celda.getListaIndividuos().getNumeroElementos() + celda.getListaEntornos().getNumeroElementos() + celda1.getListaIndividuos().getNumeroElementos() + celda1.getListaEntornos().getNumeroElementos();
+                    int valor2 = celda.getListaIndividuos().getNumeroElementos() + celda.getListaEntornos().getNumeroElementos() + celda2.getListaIndividuos().getNumeroElementos() + celda2.getListaEntornos().getNumeroElementos();
+                    int valor3 = celda.getListaIndividuos().getNumeroElementos() + celda.getListaEntornos().getNumeroElementos() + celda3.getListaIndividuos().getNumeroElementos() + celda3.getListaEntornos().getNumeroElementos();
+                    int valor4 = celda.getListaIndividuos().getNumeroElementos() + celda.getListaEntornos().getNumeroElementos() + celda4.getListaIndividuos().getNumeroElementos() + celda4.getListaEntornos().getNumeroElementos();
+                    int valor5 = celda.getListaIndividuos().getNumeroElementos() + celda.getListaEntornos().getNumeroElementos() + celda5.getListaIndividuos().getNumeroElementos() + celda5.getListaEntornos().getNumeroElementos();
+                    int valor6 = celda.getListaIndividuos().getNumeroElementos() + celda.getListaEntornos().getNumeroElementos() + celda6.getListaIndividuos().getNumeroElementos() + celda6.getListaEntornos().getNumeroElementos();
+                    int valor7 = celda.getListaIndividuos().getNumeroElementos() + celda.getListaEntornos().getNumeroElementos() + celda7.getListaIndividuos().getNumeroElementos() + celda7.getListaEntornos().getNumeroElementos();
+                    int valor8 = celda.getListaIndividuos().getNumeroElementos() + celda.getListaEntornos().getNumeroElementos() + celda8.getListaIndividuos().getNumeroElementos() + celda8.getListaEntornos().getNumeroElementos();
+                    grafoTablero.add(new ArcoGrafo<>((NodoGrafo<>)celda, celda1, valor1, "Arista de (" + celda.getFila() + "," + celda.getColumna() + ") a (" + celda1.getFila() + "," + celda1.getColumna() + ")"));
+                    grafoTablero.add(new ArcoGrafo<>((NodoGrafo<>)celda, celda2, valor2, "Arista de (" + celda.getFila() + "," + celda.getColumna() + ") a (" + celda2.getFila() + "," + celda2.getColumna() + ")"));
+                    grafoTablero.add(new ArcoGrafo<>((NodoGrafo<>)celda, celda3, valor3, "Arista de (" + celda.getFila() + "," + celda.getColumna() + ") a (" + celda3.getFila() + "," + celda3.getColumna() + ")"));
+                    grafoTablero.add(new ArcoGrafo<>((NodoGrafo<>)celda, celda4, valor4, "Arista de (" + celda.getFila() + "," + celda.getColumna() + ") a (" + celda4.getFila() + "," + celda4.getColumna() + ")"));
+                    grafoTablero.add(new ArcoGrafo<>((NodoGrafo<>)celda, celda5, valor5, "Arista de (" + celda.getFila() + "," + celda.getColumna() + ") a (" + celda5.getFila() + "," + celda5.getColumna() + ")"));
+                    grafoTablero.add(new ArcoGrafo<>((NodoGrafo<>)celda, celda6, valor6, "Arista de (" + celda.getFila() + "," + celda.getColumna() + ") a (" + celda6.getFila() + "," + celda6.getColumna() + ")"));
+                    grafoTablero.add(new ArcoGrafo<>((NodoGrafo<>)celda, celda7, valor7, "Arista de (" + celda.getFila() + "," + celda.getColumna() + ") a (" + celda7.getFila() + "," + celda7.getColumna() + ")"));
+                    grafoTablero.add(new ArcoGrafo<>((NodoGrafo<>)celda, celda8, valor8, "Arista de (" + celda.getFila() + "," + celda.getColumna() + ") a (" + celda8.getFila() + "," + celda8.getColumna() + ")"));
+                } else if (celda.getFila() == 0 && celda.getColumna() > 0) {
+
+                } else if (celda.getFila() > 0 && celda.getColumna() == 0) {
+
+                } else if (celda.getFila() == 0 && celda.getColumna() == 0) {
+
+                } */
                 listaY.insert(celda, j-1);
                 casilla.setMinSize(300 * 2/ k, 400 / x);
                 casilla.setMaxSize(300 * 2/ k, 400 / x);

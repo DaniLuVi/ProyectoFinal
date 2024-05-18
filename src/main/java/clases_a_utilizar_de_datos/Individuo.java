@@ -1,8 +1,17 @@
 package clases_a_utilizar_de_datos;
 
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonSerializationContext;
+import com.google.gson.JsonSerializer;
 import estructuras_de_datos_implementadas.listaDoblementeEnlazada.ElementoLDE;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-public class Individuo extends ElementoLDE<Individuo> {
+import java.lang.reflect.Type;
+
+public class Individuo extends ElementoLDE<Individuo> implements JsonSerializer<Individuo> {
+    private static final Logger log = LogManager.getLogger(Individuo.class);
     private int id;
     private int generacion;
     private int vidas;
@@ -100,6 +109,16 @@ public class Individuo extends ElementoLDE<Individuo> {
                     ", clonacion=" + clonacion + ", turno_individuo=" + turno_individuo +
                     "}]";
         }
+        return null;
+    }
+
+    @Override
+    public JsonElement serialize(Individuo individuo, Type type, JsonSerializationContext jsonSerializationContext) {
+
+        log.info("Se serializa un individuo a JSON");
+
+        JsonObject individuoAserializar = new JsonObject();
+
         return null;
     }
 }
