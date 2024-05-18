@@ -71,6 +71,7 @@ public class ParameterController implements Initializable {
     private Label labelProbTesoro;
     private ListaDoblementeEnlazada listaDoblementeEnlazada;
     private ParametrosModeloProperties model;
+    private TableroProperties modelTablero;
     private Stage scene;
     protected IntegerProperty valorFilas = new SimpleIntegerProperty(0);
     protected IntegerProperty valorColumnas = new SimpleIntegerProperty(0);

@@ -53,7 +53,7 @@ public class TableroController {
     private Tablero modelo = new Tablero();
     public CeldaProperties modelCelda = new CeldaProperties();
     public ParametrosModeloProperties model;
-    private TableroProperties modelTablero;
+    private TableroProperties modelTablero = new TableroProperties();
     private static final Logger log = LogManager.getLogger(TableroController.class);
     @FXML
     protected void onCasillaVerDatos(Celda celda) {
@@ -71,6 +71,7 @@ public class TableroController {
             ElementosCasillaController p = fxmlLoader.getController();
             p.CargaDatosUsuario(model);
             p.CargaDatosCelda(modelCelda);
+            p.CargaDatosTablero(modelTablero);
             p.setInfo();
             p.setStage(stage);
             stage.show();
@@ -811,6 +812,10 @@ public class TableroController {
     public void CargaDatosUsuario(ParametrosModeloProperties parametrosData) {
         this.model = parametrosData;
         model.commit();
+    }
+    public void CargarDatosTablero(TableroProperties tableroProperties) {
+        this.modelTablero = modelTablero;
+        modelTablero.commit();
     }
     public void setStage(Stage s) {
         this.scene = s;
