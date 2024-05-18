@@ -24,9 +24,10 @@ public class CargaPartidaController implements Initializable {
     private MenuButton partidas;
     private int num_partidas = 0;
     public int getNum_partidas() {
-        cargarObjetoDesdeArchivo("DatosCargaPartida.json", ParametrosModelo.class);
-
-        return num_partidas++;
+        while (cargarObjetoDesdeArchivo("DatosCargaPartida" + num_partidas + ".json", ParametrosModelo.class) != null) {
+            num_partidas++;
+        }
+        return num_partidas;
     }
     private static final Logger log = LogManager.getLogger(CargaPartidaController.class);
     @FXML

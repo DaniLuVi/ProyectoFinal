@@ -18,7 +18,7 @@ public class PantallaFinalizar {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("arbol-genealogico-view.fxml"));
         try {
-            Scene scene = new Scene(fxmlLoader.load(), 850, 450);
+            Scene scene = new Scene(fxmlLoader.load(), 1500, 1000);
             stage.setTitle("Arbol genealógico");
             stage.setScene(scene);
             ArbolGenealogicoView p = fxmlLoader.getController();

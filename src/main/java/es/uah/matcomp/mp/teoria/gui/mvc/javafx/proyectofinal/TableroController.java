@@ -132,6 +132,8 @@ public class TableroController {
 
             } catch (Exception e) {
                 e.printStackTrace();
+            } finally {
+                scene.close();
             }
         }
     }
@@ -634,7 +636,7 @@ public class TableroController {
         Tablero tablero = new Tablero(model, modelCelda, listaX);
         String rutaArchivo = "DatosCargaPartida.json";
         // va a haber que guardar la informacion entera de la variable: listaX     (creo que se ve a poder hacer creando un método que recorra la lista)
-        guardarDatosPartida(rutaArchivo, tablero);
+        guardarDatosPartida(rutaArchivo, datos);
 
         log.info("Los datos se han guardado al fichero");
         log.info("Arranque de la ventana para cerrar el programa");
