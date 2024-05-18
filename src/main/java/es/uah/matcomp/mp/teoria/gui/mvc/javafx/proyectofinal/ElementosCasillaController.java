@@ -16,7 +16,7 @@ import java.util.ResourceBundle;
 
 public class ElementosCasillaController implements Initializable{
     private CeldaProperties modelCelda;
-    private TableroProperties tablero;
+    private TableroProperties tablero = new TableroProperties();
     TableroController tab = new TableroController();
     private Stage scene;
     @FXML
@@ -338,12 +338,8 @@ public class ElementosCasillaController implements Initializable{
         this.modelCelda = model;
         modelCelda.commit();
     }
-    public void CargaDatosTablero(ParametrosModeloProperties parametrosModelo) {
+    public void CargaDatosUsuario(ParametrosModeloProperties parametrosModelo) {
         this.modelParametros = parametrosModelo;
         modelParametros.commit();
-    }
-    public void CargaDatosAdicionalesTablero(TableroProperties modeloTablero) {
-        this.tablero = modeloTablero;
-        tablero.commit();
     }
 }
