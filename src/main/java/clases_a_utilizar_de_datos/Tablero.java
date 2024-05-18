@@ -13,12 +13,12 @@ public class Tablero implements JsonSerializer<Tablero> {
     public CeldaProperties modelCelda = new CeldaProperties();
     private ListaSimple<Celda> listaY = new ListaSimple<>();
     public ListaSimple<ListaSimple<Celda>> listaX = new ListaSimple<ListaSimple<Celda>>();
-    private int filas;
-    private int columnas;
-    private int num_individuos;
-    private int cant_entornos;
-    private int num_turnos;
-    private int ids;
+    public int filas;
+    public int columnas;
+    public int num_individuos;
+    public int cant_entornos;
+    public int num_turnos;
+    public int ids;
     public Tablero() {}
     public Tablero(ParametrosModeloProperties parametrosModeloProperties, CeldaProperties modelCelda, ListaSimple<ListaSimple<Celda>> listaX) {
         this.model = parametrosModeloProperties;
