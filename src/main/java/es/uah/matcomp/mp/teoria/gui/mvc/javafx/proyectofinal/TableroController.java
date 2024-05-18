@@ -40,6 +40,7 @@ public class TableroController {
     private int num_individuos = 0;
     private int cant_entornos = 0;
     public int num_turnos = 0;
+    public int ids = 0;
     private int maximo;
     private int max_columnas;
     private Stage scene;
@@ -513,6 +514,41 @@ public class TableroController {
             }
         }
         return listaCeldasEntornos;
+    }
+    public int getSiguienteID() {
+        int contador = 0;
+        if (this.getCeldaConIndividuos().getNumeroElementos() != 0) {
+            while (listaCeldasIndividuos.getElemento(contador).getDato() != null) {
+                int mayor = 0;
+                if (listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getNumeroElementos() == 3) {
+                    if ((listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(0).getDato().getId() >= listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(1).getDato().getId()) && (listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(0).getDato().getId() >= listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(2).getDato().getId())) {
+                        mayor = listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(0).getDato().getId();
+                    } else if ((listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(1).getDato().getId() >= listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(0).getDato().getId()) && (listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(1).getDato().getId() >= listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(2).getDato().getId())) {
+                        mayor = listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(1).getDato().getId();
+                    } else if ((listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(2).getDato().getId() >= listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(0).getDato().getId()) && (listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(2).getDato().getId() >= listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(1).getDato().getId())) {
+                        mayor = listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(2).getDato().getId();
+                    }
+                    if (mayor > ids) {
+                        ids = mayor;
+                    }
+                } else if (listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getNumeroElementos() == 2) {
+                    if (listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(0).getDato().getId() >= listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(1).getDato().getId()) {
+                        mayor = listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(0).getDato().getId();
+                    } else if (listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(0).getDato().getId() < listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(1).getDato().getId()) {
+                        mayor = listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(1).getDato().getId();
+                    }
+                    if (mayor > ids) {
+                        ids = mayor;
+                    }
+                } else if (listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getNumeroElementos() == 1) {
+                    if (listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(0).getDato().getId() > ids) {
+                        ids = listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(0).getDato().getId();
+                    }
+                }
+                contador++;
+            }
+        }
+        return ids + 1;
     }
     @FXML
     protected void play() {

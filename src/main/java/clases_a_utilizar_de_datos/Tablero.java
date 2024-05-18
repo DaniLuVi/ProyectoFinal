@@ -11,9 +11,14 @@ import java.lang.reflect.Type;
 public class Tablero implements JsonSerializer<Tablero> {
     public ParametrosModeloProperties model;
     public CeldaProperties modelCelda = new CeldaProperties();
-    private ListaDoblementeEnlazada<Celda> listaCeldas = new ListaDoblementeEnlazada<>();
     private ListaSimple<Celda> listaY = new ListaSimple<>();
     public ListaSimple<ListaSimple<Celda>> listaX = new ListaSimple<ListaSimple<Celda>>();
+    private int filas;
+    private int columnas;
+    private int num_individuos;
+    private int cant_entornos;
+    private int num_turnos;
+    private int ids;
     public Tablero() {}
     public Tablero(ParametrosModeloProperties parametrosModeloProperties, CeldaProperties modelCelda, ListaSimple<ListaSimple<Celda>> listaX) {
         this.model = parametrosModeloProperties;
@@ -27,17 +32,66 @@ public class Tablero implements JsonSerializer<Tablero> {
             for (int j = 0; j < columnas; j++) {
                 Celda celda = new Celda(i, j);
                 modelCelda.setOriginal(celda);
-                listaCeldas.add(modelCelda.getOriginal());
                 listaY.add(modelCelda.getOriginal());
             }
             listaX.add(listaY);
         }
     }
-    public void commit() {
 
+    public int getFilas() {
+        return filas;
     }
-    public void rollback() {
 
+    public void setFilas(int filas) {
+        this.filas = filas;
+    }
+
+    public int getColumnas() {
+        return columnas;
+    }
+
+    public void setColumnas(int columnas) {
+        this.columnas = columnas;
+    }
+
+    public int getNum_individuos() {
+        return num_individuos;
+    }
+
+    public void setNum_individuos(int num_individuos) {
+        this.num_individuos = num_individuos;
+    }
+
+    public int getCant_entornos() {
+        return cant_entornos;
+    }
+
+    public void setCant_entornos(int cant_entornos) {
+        this.cant_entornos = cant_entornos;
+    }
+
+    public int getNum_turnos() {
+        return num_turnos;
+    }
+
+    public void setNum_turnos(int num_turnos) {
+        this.num_turnos = num_turnos;
+    }
+
+    public int getIds() {
+        return ids;
+    }
+
+    public void setIds(int ids) {
+        this.ids = ids;
+    }
+
+    public ListaSimple<ListaSimple<Celda>> getListaX() {
+        return listaX;
+    }
+
+    public void setListaX(ListaSimple<ListaSimple<Celda>> listaX) {
+        this.listaX = listaX;
     }
 
     public void CargaDatosParametros(ParametrosModeloProperties parametrosModeloProperties) {
