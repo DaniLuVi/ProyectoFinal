@@ -71,7 +71,7 @@ public class ParameterController implements Initializable {
     private Label labelProbTesoro;
     private ListaDoblementeEnlazada listaDoblementeEnlazada;
     private ParametrosModeloProperties model;
-    private TableroProperties modelTablero;
+    private TableroProperties modelTablero = new TableroProperties();
     private Stage scene;
     protected IntegerProperty valorFilas = new SimpleIntegerProperty(0);
     protected IntegerProperty valorColumnas = new SimpleIntegerProperty(0);
@@ -99,6 +99,7 @@ public class ParameterController implements Initializable {
         log.info("Arranque de la ventana del tablero de juego");
 
         model.commit();
+        modelTablero.commit();
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("tablero-view.fxml"));
         try {
@@ -107,7 +108,9 @@ public class ParameterController implements Initializable {
             stage.setScene(scene);
             TableroController p = fxmlLoader.getController();
             p.CargaDatosUsuario(model);
+            p.CargarDatosTablero(modelTablero);
             model.commit();
+            modelTablero.commit();
             int i = 0;
             int j = 0;
             while (i < model.original.getFilas())

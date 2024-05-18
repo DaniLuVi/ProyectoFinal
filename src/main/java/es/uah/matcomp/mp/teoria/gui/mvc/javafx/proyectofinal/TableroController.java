@@ -33,7 +33,6 @@ import org.apache.logging.log4j.Logger;
 import static java.lang.Math.abs;
 
 public class TableroController {
-    public ListaSimple<ListaSimple<Celda>> listaX;
     private ListaDoblementeEnlazada<Celda> listaCeldasEntornos = new ListaDoblementeEnlazada<>();
     private ListaDoblementeEnlazada<Celda> listaCeldasIndividuos = new ListaDoblementeEnlazada<>();
     private Grafo<Celda> grafoTablero = new Grafo<>();
@@ -50,7 +49,6 @@ public class TableroController {
     private Button pausa;
     @FXML
     private Label turnos;
-    private Tablero modelo = new Tablero();
     public CeldaProperties modelCelda = new CeldaProperties();
     public ParametrosModeloProperties model;
     private TableroProperties modelTablero = new TableroProperties();
@@ -673,7 +671,7 @@ public class TableroController {
         ParametrosModelo parameterController = new ParametrosModelo(filas.getDato(), columnas.getDato(), model.original.id, model.original.generacion, vidas.getDato(), reproduccion.getDato(), clonado.getDato(),model.original.turno_individuo, v.getDato(), model.original.agua, model.original.comida, model.original.montaña, model.original.biblioteca, model.original.pozo, model.original.tesoro);
 
         ParametrosModelo datos = parameterController;
-        Tablero tablero = new Tablero(model, modelCelda, listaX);
+        Tablero tablero = new Tablero(model, modelCelda, modelTablero.original.listaX);
         String rutaArchivo = "DatosCargaPartida.json";
         // va a haber que guardar la informacion entera de la variable: listaX     (creo que se ve a poder hacer creando un método que recorra la lista)
         guardarDatosPartida(rutaArchivo, datos);
@@ -798,6 +796,7 @@ public class TableroController {
                 tableroDeJuego.add(casilla, i, j);
             }
             modelTablero.original.listaX.insert(listaY, i-1);
+            modelTablero.commit();
         }
 
         log.info("Enviando traza de ejecución");
