@@ -36,10 +36,6 @@ public class TableroController {
     private ListaDoblementeEnlazada<Celda> listaCeldasEntornos = new ListaDoblementeEnlazada<>();
     private ListaDoblementeEnlazada<Celda> listaCeldasIndividuos = new ListaDoblementeEnlazada<>();
     private Grafo<Celda> grafoTablero = new Grafo<>();
-    private int num_individuos = 0;
-    private int cant_entornos = 0;
-    public int num_turnos = 0;
-    public int ids = 0;
     private int maximo;
     private int max_columnas;
     private Stage scene;
@@ -470,6 +466,7 @@ public class TableroController {
                 }
             }
         }
+        modelTablero.commit();
         return modelTablero.original.num_individuos;
     }
     private int getCant_entornos() {
@@ -487,6 +484,7 @@ public class TableroController {
                 }
             }
         }
+        modelTablero.commit();
         return modelTablero.original.cant_entornos;
     }
     private ListaDoblementeEnlazada<Celda> getCeldaConIndividuos() {
@@ -496,11 +494,12 @@ public class TableroController {
         for (int i = 0; i < maximo; i++) {
             for (int j = 0; j < max_columnas; j++) {
                 if (!modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().isVacia()) {
-                    listaCeldasIndividuos.add(modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData());
+                    modelTablero.original.listaCeldasIndividuos.add(modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData());
                 }
             }
         }
-        return listaCeldasIndividuos;
+        modelTablero.commit();
+        return modelTablero.original.listaCeldasIndividuos;
     }
     private ListaDoblementeEnlazada<Celda> getCeldasConRecursos() {
 
@@ -509,45 +508,46 @@ public class TableroController {
         for (int i = 0; i < maximo; i++) {
             for (int j = 0; j < max_columnas; j++) {
                 if (!modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().isVacia()) {
-                    listaCeldasEntornos.add(modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData());
+                    modelTablero.original.listaCeldasEntornos.add(modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData());
                 }
             }
         }
-        return listaCeldasEntornos;
+        return modelTablero.original.listaCeldasEntornos;
     }
     public int getSiguienteID() {
         int contador = 0;
         if (this.getCeldaConIndividuos().getNumeroElementos() != 0) {
-            while (listaCeldasIndividuos.getElemento(contador).getDato() != null) {
+            while (modelTablero.original.listaCeldasIndividuos.getElemento(contador).getDato() != null) {
                 int mayor = 0;
-                if (listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getNumeroElementos() == 3) {
-                    if ((listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(0).getDato().getId() >= listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(1).getDato().getId()) && (listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(0).getDato().getId() >= listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(2).getDato().getId())) {
-                        mayor = listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(0).getDato().getId();
-                    } else if ((listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(1).getDato().getId() >= listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(0).getDato().getId()) && (listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(1).getDato().getId() >= listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(2).getDato().getId())) {
-                        mayor = listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(1).getDato().getId();
-                    } else if ((listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(2).getDato().getId() >= listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(0).getDato().getId()) && (listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(2).getDato().getId() >= listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(1).getDato().getId())) {
-                        mayor = listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(2).getDato().getId();
+                if (modelTablero.original.listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getNumeroElementos() == 3) {
+                    if ((modelTablero.original.listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(0).getDato().getId() >= modelTablero.original.listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(1).getDato().getId()) && (modelTablero.original.listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(0).getDato().getId() >= modelTablero.original.listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(2).getDato().getId())) {
+                        mayor = modelTablero.original.listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(0).getDato().getId();
+                    } else if ((modelTablero.original.listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(1).getDato().getId() >= modelTablero.original.listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(0).getDato().getId()) && (modelTablero.original.listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(1).getDato().getId() >= modelTablero.original.listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(2).getDato().getId())) {
+                        mayor = modelTablero.original.listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(1).getDato().getId();
+                    } else if ((modelTablero.original.listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(2).getDato().getId() >= modelTablero.original.listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(0).getDato().getId()) && (modelTablero.original.listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(2).getDato().getId() >= modelTablero.original.listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(1).getDato().getId())) {
+                        mayor = modelTablero.original.listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(2).getDato().getId();
                     }
                     if (mayor > modelTablero.original.ids) {
                         modelTablero.original.ids = mayor;
                     }
-                } else if (listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getNumeroElementos() == 2) {
-                    if (listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(0).getDato().getId() >= listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(1).getDato().getId()) {
-                        mayor = listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(0).getDato().getId();
-                    } else if (listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(0).getDato().getId() < listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(1).getDato().getId()) {
-                        mayor = listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(1).getDato().getId();
+                } else if (modelTablero.original.listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getNumeroElementos() == 2) {
+                    if (modelTablero.original.listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(0).getDato().getId() >= modelTablero.original.listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(1).getDato().getId()) {
+                        mayor = modelTablero.original.listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(0).getDato().getId();
+                    } else if (modelTablero.original.listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(0).getDato().getId() < modelTablero.original.listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(1).getDato().getId()) {
+                        mayor = modelTablero.original.listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(1).getDato().getId();
                     }
                     if (mayor > modelTablero.original.ids) {
                         modelTablero.original.ids = mayor;
                     }
-                } else if (listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getNumeroElementos() == 1) {
-                    if (listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(0).getDato().getId() > modelTablero.original.ids) {
-                        modelTablero.original.ids = listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(0).getDato().getId();
+                } else if (modelTablero.original.listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getNumeroElementos() == 1) {
+                    if (modelTablero.original.listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(0).getDato().getId() > modelTablero.original.ids) {
+                        modelTablero.original.ids = modelTablero.original.listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(0).getDato().getId();
                     }
                 }
                 contador++;
             }
         }
+        modelTablero.commit();
         return modelTablero.original.ids + 1;
     }
     @FXML
@@ -671,7 +671,7 @@ public class TableroController {
         ParametrosModelo parameterController = new ParametrosModelo(filas.getDato(), columnas.getDato(), model.original.id, model.original.generacion, vidas.getDato(), reproduccion.getDato(), clonado.getDato(),model.original.turno_individuo, v.getDato(), model.original.agua, model.original.comida, model.original.montaña, model.original.biblioteca, model.original.pozo, model.original.tesoro);
 
         ParametrosModelo datos = parameterController;
-        Tablero tablero = new Tablero(model, modelCelda, modelTablero.original.listaX);
+        //Tablero tablero = new Tablero(model, modelCelda, modelTablero.original.listaX);
         String rutaArchivo = "DatosCargaPartida.json";
         // va a haber que guardar la informacion entera de la variable: listaX     (creo que se ve a poder hacer creando un método que recorra la lista)
         guardarDatosPartida(rutaArchivo, datos);

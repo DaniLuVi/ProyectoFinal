@@ -3,27 +3,36 @@ package clases_a_utilizar_de_datos;
 import com.google.gson.*;
 import es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.CeldaProperties;
 import es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.ParametrosModeloProperties;
+import es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.TableroProperties;
 import estructuras_de_datos_implementadas.listaDoblementeEnlazada.ListaDoblementeEnlazada;
 import estructuras_de_datos_implementadas.listaSimple.ListaSimple;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.lang.reflect.Type;
 
 public class Tablero implements JsonSerializer<Tablero> {
     public ParametrosModeloProperties model;
+    public TableroProperties tableroProperties;
     public CeldaProperties modelCelda = new CeldaProperties();
     private ListaSimple<Celda> listaY = new ListaSimple<>();
     public ListaSimple<ListaSimple<Celda>> listaX = new ListaSimple<ListaSimple<Celda>>();
+    public ListaDoblementeEnlazada<Celda> listaCeldasEntornos = new ListaDoblementeEnlazada<>();
+    public ListaDoblementeEnlazada<Celda> listaCeldasIndividuos = new ListaDoblementeEnlazada<>();
     public int filas;
     public int columnas;
     public int num_individuos;
     public int cant_entornos;
     public int num_turnos;
     public int ids;
+    private static final Logger log = LogManager.getLogger(Tablero.class);
     public Tablero() {}
-    public Tablero(ParametrosModeloProperties parametrosModeloProperties, CeldaProperties modelCelda, ListaSimple<ListaSimple<Celda>> listaX) {
+    public Tablero(ParametrosModeloProperties parametrosModeloProperties, CeldaProperties modelCelda, ListaSimple<ListaSimple<Celda>> listaX, ListaDoblementeEnlazada<Celda> listaCeldasIndividuos, ListaDoblementeEnlazada<Celda> listaCeldasEntornos) {
         this.model = parametrosModeloProperties;
         this.modelCelda = modelCelda;
         this.listaX = listaX;
+        this.listaCeldasIndividuos = listaCeldasIndividuos;
+        this.listaCeldasEntornos = listaCeldasEntornos;
     }
     public void construir_tablero(int filas, int columnas) {
         listaX = new ListaSimple<>(filas);
@@ -54,7 +63,7 @@ public class Tablero implements JsonSerializer<Tablero> {
         this.columnas = columnas;
     }
 
-    public int getNum_individuos() {
+    public int getIndividuos() {
         return num_individuos;
     }
 
@@ -62,7 +71,7 @@ public class Tablero implements JsonSerializer<Tablero> {
         this.num_individuos = num_individuos;
     }
 
-    public int getCant_entornos() {
+    public int getEntornos() {
         return cant_entornos;
     }
 
@@ -94,9 +103,29 @@ public class Tablero implements JsonSerializer<Tablero> {
         this.listaX = listaX;
     }
 
+    public ListaDoblementeEnlazada<Celda> getListaCeldasEntornos() {
+        return listaCeldasEntornos;
+    }
+
+    public void setListaCeldasEntornos(ListaDoblementeEnlazada<Celda> listaCeldasEntornos) {
+        this.listaCeldasEntornos = listaCeldasEntornos;
+    }
+
+    public ListaDoblementeEnlazada<Celda> getListaCeldasIndividuos() {
+        return listaCeldasIndividuos;
+    }
+
+    public void setListaCeldasIndividuos(ListaDoblementeEnlazada<Celda> listaCeldasIndividuos) {
+        this.listaCeldasIndividuos = listaCeldasIndividuos;
+    }
+
     public void CargaDatosParametros(ParametrosModeloProperties parametrosModeloProperties) {
         this.model = parametrosModeloProperties;
         model.commit();
+    }
+    public void CargaDatosTablero(TableroProperties tableroProperties) {
+        this.tableroProperties = tableroProperties;
+        tableroProperties.commit();
     }
 
     @Override

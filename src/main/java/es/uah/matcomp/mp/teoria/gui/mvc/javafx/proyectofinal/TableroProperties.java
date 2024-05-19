@@ -1,6 +1,8 @@
 package es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal;
 
 import clases_a_utilizar_de_datos.Celda;
+import clases_a_utilizar_de_datos.Entorno;
+import clases_a_utilizar_de_datos.Individuo;
 import clases_a_utilizar_de_datos.Tablero;
 import estructuras_de_datos_implementadas.listaDoblementeEnlazada.ListaDoblementeEnlazada;
 import estructuras_de_datos_implementadas.listaSimple.ListaSimple;
@@ -19,6 +21,8 @@ public class TableroProperties {
     private IntegerProperty num_turnos = new SimpleIntegerProperty();
     private IntegerProperty ids = new SimpleIntegerProperty();
     private ListProperty<ListProperty<Celda>> listaX = new SimpleListProperty<>();
+    private ListProperty<Individuo> listaCeldaIndividuos = new SimpleListProperty<>();
+    private ListProperty<Entorno> listaCeldaEntornos = new SimpleListProperty<>();
 
     public TableroProperties(Tablero original) {
         setOriginal(original);
@@ -33,15 +37,19 @@ public class TableroProperties {
         original.setNum_turnos(num_turnos.get());
         original.setIds(ids.get());
         original.getListaX();
+        original.getListaCeldasIndividuos();
+        original.getListaCeldasEntornos();
     }
     public void rollback() {
         filas.set(original.getFilas());
         columnas.set(original.getColumnas());
-        num_individuos.set(original.getNum_individuos());
-        cant_entornos.set(original.getCant_entornos());
+        num_individuos.set(original.getIndividuos());
+        cant_entornos.set(original.getEntornos());
         num_turnos.set(original.getNum_turnos());
         ids.set(original.getIds());
         listaX.set((ObservableList<ListProperty<Celda>>) original.getListaX());
+        listaCeldaIndividuos.set((ObservableList<Individuo>) original.getListaCeldasIndividuos());
+        listaCeldaEntornos.set((ObservableList<Entorno>) original.getListaCeldasEntornos());
     }
     public Tablero getOriginal() {
         return original;
@@ -133,5 +141,29 @@ public class TableroProperties {
 
     public void setListaX(ObservableList<ListProperty<Celda>> listaX) {
         this.listaX.set(listaX);
+    }
+
+    public ObservableList<Individuo> getListaCeldaIndividuos() {
+        return listaCeldaIndividuos.get();
+    }
+
+    public ListProperty<Individuo> listaCeldaIndividuosProperty() {
+        return listaCeldaIndividuos;
+    }
+
+    public void setListaCeldaIndividuos(ObservableList<Individuo> listaCeldaIndividuos) {
+        this.listaCeldaIndividuos.set(listaCeldaIndividuos);
+    }
+
+    public ObservableList<Entorno> getListaCeldaEntornos() {
+        return listaCeldaEntornos.get();
+    }
+
+    public ListProperty<Entorno> listaCeldaEntornosProperty() {
+        return listaCeldaEntornos;
+    }
+
+    public void setListaCeldaEntornos(ObservableList<Entorno> listaCeldaEntornos) {
+        this.listaCeldaEntornos.set(listaCeldaEntornos);
     }
 }
