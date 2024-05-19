@@ -15,7 +15,7 @@ public class Tablero implements JsonSerializer<Tablero> {
     public ParametrosModeloProperties model;
     public TableroProperties tableroProperties;
     public CeldaProperties modelCelda = new CeldaProperties();
-    private ListaSimple<Celda> listaY = new ListaSimple<>();
+    public ListaSimple<Celda> listaY = new ListaSimple<>();
     public ListaSimple<ListaSimple<Celda>> listaX = new ListaSimple<ListaSimple<Celda>>();
     public ListaDoblementeEnlazada<Celda> listaCeldasEntornos = new ListaDoblementeEnlazada<>();
     public ListaDoblementeEnlazada<Celda> listaCeldasIndividuos = new ListaDoblementeEnlazada<>();

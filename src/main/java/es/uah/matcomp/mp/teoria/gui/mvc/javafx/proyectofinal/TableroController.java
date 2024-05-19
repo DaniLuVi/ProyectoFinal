@@ -734,7 +734,7 @@ public class TableroController {
         modelTablero.original.listaX = new ListaSimple<>(k);
         maximo = k;
         for (int i = 1; i <= k; i++) {
-            ListaSimple<Celda> listaY = new ListaSimple<>(x);
+            modelTablero.original.listaY = new ListaSimple<>(x);
             max_columnas = x;
             for (int j = 1; j <= x; j++) {
 
@@ -788,14 +788,14 @@ public class TableroController {
                 } else if (celda.getFila() == 0 && celda.getColumna() == 0) {
 
                 } */
-                listaY.insert(celda, j-1);
+                modelTablero.original.listaY.insert(celda, j-1);
                 casilla.setMinSize(300 * 2/ k, 400 / x);
                 casilla.setMaxSize(300 * 2/ k, 400 / x);
                 casilla.setStyle("-fx-border-color: black; -fx-text-alignment: center");
                 casilla.setText(celda.getListaIndividuos().getNumeroElementos() + "\n" + celda.getListaEntornos().getNumeroElementos());
                 tableroDeJuego.add(casilla, i, j);
             }
-            modelTablero.original.listaX.insert(listaY, i-1);
+            modelTablero.original.listaX.insert(modelTablero.original.listaY, i-1);
             modelTablero.commit();
         }
 
