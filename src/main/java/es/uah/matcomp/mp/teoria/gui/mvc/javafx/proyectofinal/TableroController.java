@@ -465,7 +465,6 @@ public class TableroController implements Initializable {
                 }
             }
         }
-        modelTablero.commit();
         return modelTablero.original.num_individuos;
     }
     private int getCant_entornos() {
@@ -483,7 +482,6 @@ public class TableroController implements Initializable {
                 }
             }
         }
-        modelTablero.commit();
         return modelTablero.original.cant_entornos;
     }
     private ListaDoblementeEnlazada<Celda> getCeldaConIndividuos() {
@@ -497,7 +495,6 @@ public class TableroController implements Initializable {
                 }
             }
         }
-        modelTablero.commit();
         return modelTablero.original.listaCeldasIndividuos;
     }
     private ListaDoblementeEnlazada<Celda> getCeldasConRecursos() {
@@ -546,7 +543,6 @@ public class TableroController implements Initializable {
                 contador++;
             }
         }
-        modelTablero.commit();
         return modelTablero.original.ids + 1;
     }
     @FXML
