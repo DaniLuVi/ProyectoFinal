@@ -1,6 +1,7 @@
 package es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal;
 
 import com.google.gson.Gson;
+import estructuras_de_datos_implementadas.listaSimple.ListaSimple;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -21,10 +22,12 @@ import org.apache.logging.log4j.Logger;
 public class CargaPartidaController implements Initializable {
     private Stage scene;
     @FXML
+    private MenuButton menuButton = new MenuButton();
+    @FXML
     private MenuButton partidas;
     private int num_partidas = 0;
-    public int getNum_partidas() {
-        while (cargarObjetoDesdeArchivo("DatosCargaPartida" + num_partidas + ".json", ParametrosModelo.class) != null) {
+    public int getNum_partidas() {  // + num_partidas +
+        if (cargarObjetoDesdeArchivo("DatosCargaPartida" + num_partidas + ".json", ParametrosModelo.class) != null) {
             num_partidas++;
         }
         return num_partidas;
@@ -43,7 +46,7 @@ public class CargaPartidaController implements Initializable {
             stage.setScene(scene);
             TableroController p = fxmlLoader.getController();
 
-            cargarObjetoDesdeArchivo("DatosCargaPartida.json", ParametrosModelo.class);
+            cargarObjetoDesdeArchivo("DatosCargaPartida0.json", ParametrosModelo.class);
             p.setStage(stage);
             stage.show();
 
@@ -85,10 +88,11 @@ public class CargaPartidaController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         log.info("Se ejecuta el controlador para la carga de partida.");
-
-        for (int i = 0; i < num_partidas; i++) {
-            MenuItem partida = new MenuItem("Partida guardada " + i);
-            partida.setOnAction(new EventHandler<ActionEvent>() {
+        int valor = getNum_partidas();
+        for (int i = 0; i < valor; i++) {
+            MenuItem menuItem = new MenuItem("Partida" + num_partidas);
+            menuButton.getItems().add(menuItem);
+            menuItem.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent actionEvent) {
                     onCargaPartida();

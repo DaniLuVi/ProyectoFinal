@@ -670,7 +670,7 @@ public class TableroController implements Initializable {
 
         ParametrosModelo datos = parameterController;
         //Tablero tablero = new Tablero(model, modelCelda, modelTablero.original.listaX);
-        String rutaArchivo = "DatosCargaPartida.json";
+        String rutaArchivo = "DatosCargaPartida0.json";
         // va a haber que guardar la informacion entera de la variable: listaX     (creo que se ve a poder hacer creando un método que recorra la lista)
         guardarDatosPartida(rutaArchivo, datos);
 
@@ -751,8 +751,8 @@ public class TableroController implements Initializable {
                 celda.setFilas(i);
                 celda.setColumnas(j);
                 ListaSimple<Integer> a = new ListaSimple<>(2);
-                a.add(celda.getFila());
-                a.insert(celda.getColumna(), 1);
+                a.add(celda.getFila() - 1);
+                a.insert(celda.getColumna() - 1, 1);
                 celda.setCoordenadas(a);
                 casilla.setOnAction(new EventHandler<ActionEvent>() {
                     @Override

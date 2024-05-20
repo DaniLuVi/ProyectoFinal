@@ -58,6 +58,7 @@ public class HelloController implements Initializable {
             stage.setTitle("Cargar partida.");
             stage.setScene(scene);
             CargaPartidaController p = fxmlLoader.getController();
+            p.getNum_partidas();
             p.setStage(stage);
             stage.show();
 
