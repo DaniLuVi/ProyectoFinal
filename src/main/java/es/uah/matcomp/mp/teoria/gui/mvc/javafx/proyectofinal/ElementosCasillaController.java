@@ -17,6 +17,7 @@ import java.util.ResourceBundle;
 public class ElementosCasillaController implements Initializable{
     private CeldaProperties modelCelda;
     private TableroProperties tablero;
+    private TableroController tableroController;
     private Stage scene;
     @FXML
     private Label individuo1;
@@ -75,7 +76,7 @@ public class ElementosCasillaController implements Initializable{
         log.info("Se agrega un individuo tipo básico a la celda asignada");
 
         try {
-            TipoBasico individuo = new TipoBasico(tablero.original.ids, tablero.original.num_turnos, modelParametros.original.vidas, modelParametros.original.reproduccion, modelParametros.original.clonado, modelParametros.original.turno_individuo);
+            TipoBasico individuo = new TipoBasico(tableroController.getSiguienteID(), tablero.original.num_turnos, modelParametros.original.vidas, modelParametros.original.reproduccion, modelParametros.original.clonado, modelParametros.original.turno_individuo);
             if (individuo1.getText() == "--") {
                 texto1.set("Tipo Individuo: Básico");
                 modelCelda.original.addIndividuo(individuo);
@@ -102,7 +103,7 @@ public class ElementosCasillaController implements Initializable{
         log.info("Se agrega un individuo tipo normal a la celda asignada");
 
         try {
-            TipoNormal individuo = new TipoNormal(tablero.original.ids, tablero.original.num_turnos, modelParametros.original.vidas, modelParametros.original.reproduccion, modelParametros.original.clonado, modelParametros.original.turno_individuo);
+            TipoNormal individuo = new TipoNormal(tableroController.getSiguienteID(), tablero.original.num_turnos, modelParametros.original.vidas, modelParametros.original.reproduccion, modelParametros.original.clonado, modelParametros.original.turno_individuo);
             if (individuo1.getText() == "--") {
                 texto1.set("Tipo Individuo: Normal");
                 modelCelda.original.addIndividuo(individuo);
@@ -128,7 +129,7 @@ public class ElementosCasillaController implements Initializable{
         log.info("Se agrega un individuo tipo avanzado a la celda asignada");
 
         try {
-            TipoAvanzado individuo = new TipoAvanzado(tablero.original.ids, tablero.original.num_turnos, modelParametros.original.vidas, modelParametros.original.reproduccion, modelParametros.original.clonado, modelParametros.original.turno_individuo);
+            TipoAvanzado individuo = new TipoAvanzado(tableroController.getSiguienteID(), tablero.original.num_turnos, modelParametros.original.vidas, modelParametros.original.reproduccion, modelParametros.original.clonado, modelParametros.original.turno_individuo);
             if (individuo1.getText() == "--") {
                 texto1.set("Tipo Individuo: Avanzado");
                 modelCelda.original.addIndividuo(individuo);
@@ -354,5 +355,8 @@ public class ElementosCasillaController implements Initializable{
     public void CargaDatosTablero(TableroProperties modeloTablero) {
         this.tablero = modeloTablero;
         tablero.commit();
+    }
+    public void CargarInfoTablero(TableroController tableroController) {
+        this.tableroController = tableroController;
     }
 }

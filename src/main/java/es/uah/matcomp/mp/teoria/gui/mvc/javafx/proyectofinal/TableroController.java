@@ -65,6 +65,7 @@ public class TableroController implements Initializable {
             p.CargaDatosUsuario(model);
             p.CargaDatosCelda(modelCelda);
             p.CargaDatosTablero(modelTablero);
+            p.CargarInfoTablero(this);
             p.setInfo();
             p.setStage(stage);
             stage.show();
@@ -559,10 +560,9 @@ public class TableroController implements Initializable {
         }
         return modelTablero.original.listaCeldasEntornos;
     }
-    public int getSiguienteID() {
-        int contador = 0;
+    public int getSiguienteID() {    // arreglar para que esto funcione correctamente
         if (this.getCeldaConIndividuos().getNumeroElementos() != 0) {
-            while (modelTablero.original.listaCeldasIndividuos.getElemento(contador).getDato() != null) {
+            for (int contador = 0; getCeldaConIndividuos().getElemento(contador).getDato() != null; contador++) {
                 int mayor = 0;
                 if (modelTablero.original.listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getNumeroElementos() == 3) {
                     if ((modelTablero.original.listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(0).getDato().getId() >= modelTablero.original.listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(1).getDato().getId()) && (modelTablero.original.listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(0).getDato().getId() >= modelTablero.original.listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(2).getDato().getId())) {
@@ -589,7 +589,6 @@ public class TableroController implements Initializable {
                         modelTablero.original.ids = modelTablero.original.listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(0).getDato().getId();
                     }
                 }
-                contador++;
             }
         }
         return modelTablero.original.ids + 1;
