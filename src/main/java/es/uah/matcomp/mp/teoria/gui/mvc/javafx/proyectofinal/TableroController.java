@@ -2,12 +2,7 @@ package es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal;
 
 import clases_a_utilizar_de_datos.*;
 import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonSerializationContext;
-import com.google.gson.JsonSerializer;
-import estructuras_de_datos_implementadas.grafo.ArcoGrafo;
 import estructuras_de_datos_implementadas.grafo.Grafo;
-import estructuras_de_datos_implementadas.grafo.NodoGrafo;
 import estructuras_de_datos_implementadas.listaDoblementeEnlazada.ElementoLDE;
 import estructuras_de_datos_implementadas.listaDoblementeEnlazada.ListaDoblementeEnlazada;
 import estructuras_de_datos_implementadas.listaSimple.ListaSimple;
@@ -24,9 +19,7 @@ import javafx.stage.Stage;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.lang.reflect.Type;
 import java.net.URL;
-import java.util.Iterator;
 import java.util.Random;
 import java.util.ResourceBundle;
 
