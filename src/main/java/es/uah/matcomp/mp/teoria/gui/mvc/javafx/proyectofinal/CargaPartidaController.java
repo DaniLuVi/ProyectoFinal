@@ -26,10 +26,16 @@ public class CargaPartidaController implements Initializable {
     @FXML
     private MenuButton partidas;
     private int num_partidas = 0;
-    public int getNum_partidas() {  // + num_partidas +
+    public int getNum_partidas() {      // + num_partidas +
+
+        log.info("Se obtiene el número de partidas que hay guardadas");
+
         if (cargarObjetoDesdeArchivo("DatosCargaPartida" + num_partidas + ".json", ParametrosModelo.class) != null) {
             num_partidas++;
         }
+
+        log.info("Se retornan el número de partidas guardadas que hay");
+
         return num_partidas;
     }
     private static final Logger log = LogManager.getLogger(CargaPartidaController.class);
@@ -59,6 +65,10 @@ public class CargaPartidaController implements Initializable {
             log.info("El arranque de la ventana del tablero de juego ha sido completado.");
 
         } catch (Exception e) {
+
+            log.error("Enviando un error");
+            log.fatal("Enviando una explosión fatal");
+
             e.printStackTrace();
         }
 
@@ -79,7 +89,12 @@ public class CargaPartidaController implements Initializable {
             log.info("El proceso de carga de datos desde un fichero ha sido realizado");
 
             return gson.fromJson(reader, clase);
+
         } catch (IOException e) {
+
+            log.error("Enviando un error");
+            log.fatal("Enviando una explosión fatal");
+
             e.printStackTrace();
             return null;
         }

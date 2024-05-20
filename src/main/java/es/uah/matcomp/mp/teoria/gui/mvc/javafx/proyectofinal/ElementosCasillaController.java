@@ -93,6 +93,10 @@ public class ElementosCasillaController implements Initializable{
             log.info("El individuo de tipo básico se ha agregado");
 
         } catch (Exception e) {
+
+            log.error("Enviando un error");
+            log.fatal("Enviando una explosión fatal");
+
             e.printStackTrace();
         }
 
@@ -120,6 +124,10 @@ public class ElementosCasillaController implements Initializable{
             log.info("El individuo de tipo normal se ha agregado");
 
         } catch (Exception e) {
+
+            log.error("Enviando un error");
+            log.fatal("Enviando una explosión fatal");
+
             e.printStackTrace();
         }
     }
@@ -146,6 +154,10 @@ public class ElementosCasillaController implements Initializable{
             log.info("El individuo de tipo avanzado se ha agregado");
 
         } catch (Exception e) {
+
+            log.error("Enviando un error");
+            log.fatal("Enviando una explosión fatal");
+
             e.printStackTrace();
         }
     }
@@ -172,6 +184,10 @@ public class ElementosCasillaController implements Initializable{
             log.info("El recurso de tipo agua se ha agregado");
 
         } catch (Exception e) {
+
+            log.error("Enviando un error");
+            log.fatal("Enviando una explosión fatal");
+
             e.printStackTrace();
         }
     }
@@ -198,6 +214,10 @@ public class ElementosCasillaController implements Initializable{
             log.info("El recurso de tipo comida se ha agregado");
 
         } catch (Exception e) {
+
+            log.error("Enviando un error");
+            log.fatal("Enviando una explosión fatal");
+
             e.printStackTrace();
         }
     }
@@ -224,6 +244,10 @@ public class ElementosCasillaController implements Initializable{
             log.info("El recurso de tipo montaña se ha agregado");
 
         } catch (Exception e) {
+
+            log.error("Enviando un error");
+            log.fatal("Enviando una explosión fatal");
+
             e.printStackTrace();
         }
     }
@@ -250,6 +274,10 @@ public class ElementosCasillaController implements Initializable{
             log.info("El recurso de tipo biblioteca se ha agregado");
 
         } catch (Exception e) {
+
+            log.error("Enviando un error");
+            log.fatal("Enviando una explosión fatal");
+
             e.printStackTrace();
         }
     }
@@ -276,6 +304,10 @@ public class ElementosCasillaController implements Initializable{
             log.info("El recurso de tipo tesoro se ha agregado");
 
         } catch (Exception e) {
+
+            log.error("Enviando un error");
+            log.fatal("Enviando una explosión fatal");
+
             e.printStackTrace();
         }
     }
@@ -302,6 +334,10 @@ public class ElementosCasillaController implements Initializable{
             log.info("El recurso de tipo pozo se ha agregado");
 
         } catch (Exception e) {
+
+            log.error("Enviando un error");
+            log.fatal("Enviando una explosión fatal");
+
             e.printStackTrace();
         }
     }

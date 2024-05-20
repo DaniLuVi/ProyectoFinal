@@ -561,6 +561,9 @@ public class TableroController implements Initializable {
         return modelTablero.original.listaCeldasEntornos;
     }
     public int getSiguienteID() {    // arreglar para que esto funcione correctamente
+
+        log.info("Método para poder establecer el identificador de un nuevo individuo");
+
         if (this.getCeldaConIndividuos().getNumeroElementos() != 0) {
             for (int contador = 0; getCeldaConIndividuos().getElemento(contador).getDato() != null; contador++) {
                 int mayor = 0;
@@ -591,6 +594,9 @@ public class TableroController implements Initializable {
                 }
             }
         }
+
+        log.info("Se retorna el número a establecer como identificador a un nuevo individuo");
+
         return modelTablero.original.ids + 1;
     }
     @FXML
@@ -622,6 +628,10 @@ public class TableroController implements Initializable {
             log.info("La ventana de ventanas ha sido abierta correctamente");
 
         } catch (Exception e) {
+
+            log.error("Enviando un error");
+            log.fatal("Enviando una explosión fatal");
+
             e.printStackTrace();
         }
     }
@@ -735,6 +745,10 @@ public class TableroController implements Initializable {
             log.info("El arranque de la ventana para el cerrado del programa se ha completado");
 
         } catch (Exception e) {
+
+            log.error("Enviando un error");
+            log.fatal("Enviando una explosión fatal");
+
             e.printStackTrace();
         }
     }
@@ -757,6 +771,10 @@ public class TableroController implements Initializable {
             log.info("El proceso para guardar los datos del programa al fichero se ha realizado");
 
         } catch (IOException e) {
+
+            log.error("Enviando un error");
+            log.fatal("Enviando una explosión fatal");
+
             e.printStackTrace();
         }
     }
@@ -778,6 +796,9 @@ public class TableroController implements Initializable {
 
     }
     public void inicializar_tablero() {
+
+        log.info("Método para crear el tablero junto con la lista de listas que va por debajo");
+
         model.original.setTurno_individuo(0);
         modelTablero.original.listaX = new ListaSimple<>(model.original.filas);
         for (int i = 1; i <= model.original.filas; i++) {
@@ -844,6 +865,9 @@ public class TableroController implements Initializable {
             modelTablero.original.listaX.insert(modelTablero.original.listaY, i-1);
             modelTablero.commit();
         }
+
+        log.info("Se ha creado el tablero y la lista de listas con éxito");
+
     }
     public void CargaDatosUsuario(ParametrosModeloProperties parametrosData) {
         this.model = parametrosData;
