@@ -707,7 +707,7 @@ public class TableroController implements Initializable {
         ParametrosModelo parameterController = new ParametrosModelo(filas.getDato(), columnas.getDato(), model.original.id, model.original.generacion, vidas.getDato(), reproduccion.getDato(), clonado.getDato(),model.original.turno_individuo, v.getDato(), model.original.agua, model.original.comida, model.original.montaña, model.original.biblioteca, model.original.pozo, model.original.tesoro);
 
         ParametrosModelo datos = parameterController;
-        //Tablero tablero = new Tablero(model, modelCelda, modelTablero.original.listaX);
+        Tablero tablero = new Tablero(model, modelCelda, modelTablero.original.listaX);
         String rutaArchivo = "DatosCargaPartida0.json";
         // va a haber que guardar la informacion entera de la variable: listaX     (creo que se ve a poder hacer creando un método que recorra la lista)
         guardarDatosPartida(rutaArchivo, datos);

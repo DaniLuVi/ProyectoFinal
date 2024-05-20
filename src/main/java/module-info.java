@@ -7,7 +7,7 @@ module es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal {
     requires org.apache.logging.log4j;
     requires com.google.gson;
 
-    opens es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal to javafx.fxml;
+    opens es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal to javafx.fxml, com.google.gson;
     exports es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal;
 
 }

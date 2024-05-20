@@ -27,7 +27,7 @@ public class Tablero implements JsonSerializer<Tablero> {
     public int ids;
     private static final Logger log = LogManager.getLogger(Tablero.class);
     public Tablero() {}
-    public Tablero(ParametrosModeloProperties parametrosModeloProperties, CeldaProperties modelCelda, ListaSimple<ListaSimple<Celda>> listaX, ListaDoblementeEnlazada<Celda> listaCeldasIndividuos, ListaDoblementeEnlazada<Celda> listaCeldasEntornos) {
+    public Tablero(ParametrosModeloProperties parametrosModeloProperties, CeldaProperties modelCelda, ListaSimple<ListaSimple<Celda>> listaX) {
         this.model = parametrosModeloProperties;
         this.modelCelda = modelCelda;
         this.listaX = listaX;
