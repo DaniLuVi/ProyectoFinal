@@ -15,6 +15,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -24,20 +25,18 @@ import javafx.stage.Stage;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
+import java.net.URL;
 import java.util.Iterator;
 import java.util.Random;
+import java.util.ResourceBundle;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import static java.lang.Math.abs;
 
-public class TableroController {
-    private ListaDoblementeEnlazada<Celda> listaCeldasEntornos = new ListaDoblementeEnlazada<>();
-    private ListaDoblementeEnlazada<Celda> listaCeldasIndividuos = new ListaDoblementeEnlazada<>();
+public class TableroController implements Initializable {
     private Grafo<Celda> grafoTablero = new Grafo<>();
-    private int maximo;
-    private int max_columnas;
     private Stage scene;
     @FXML
     private GridPane tableroDeJuego;
@@ -47,7 +46,7 @@ public class TableroController {
     private Label turnos;
     public CeldaProperties modelCelda = new CeldaProperties();
     public ParametrosModeloProperties model;
-    private TableroProperties modelTablero = new TableroProperties();
+    private TableroProperties modelTablero;
     private static final Logger log = LogManager.getLogger(TableroController.class);
     @FXML
     protected void onCasillaVerDatos(Celda celda) {
@@ -141,8 +140,8 @@ public class TableroController {
 
         log.info("Se actualizan las vidas de todos los individuos vivos de la simulación");
 
-        for (int i = 0; i < maximo; i++) {
-            for (int j = 0; j < max_columnas; j++) {
+        for (int i = 0; i < model.original.filas; i++) {
+            for (int j = 0; j < model.original.columnas; j++) {
                 if (modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos() == 2) {
                     int vidas_actuales_1 = modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato().getVidas();
                     int vidas_actuales_2 = modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(1).getDato().getVidas();
@@ -187,8 +186,8 @@ public class TableroController {
 
         log.info("Se actualizan los tiempos de aparición de todos los entornos/recursos que hay presentes en la simulación ");
 
-        for (int i = 0; i < maximo; i++) {
-            for (int j = 0; j < max_columnas; j++) {
+        for (int i = 0; i < model.original.filas; i++) {
+            for (int j = 0; j < model.original.columnas; j++) {
                 if (modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getNumeroElementos() == 2) {
                     int tiempo_actual_1 = modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(0).getDato().getTiempo_aparicion();
                     int tiempo_actual_2 = modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(1).getDato().getTiempo_aparicion();
@@ -234,8 +233,8 @@ public class TableroController {
         log.info("Se realizan los movimientos de todos los individuos que hay en la simualción");
 
         try{
-            for (int i = 0; i < maximo; i++) {
-                for (int j = 0; j < max_columnas; j++) {
+            for (int i = 0; i < model.original.filas; i++) {
+                for (int j = 0; j < model.original.columnas; j++) {
                     int num_indi_en_casilla = modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos();
                     for (int k = 0; k < num_indi_en_casilla; k++) {
                         Individuo individuo_cambiar = modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato();
@@ -259,7 +258,7 @@ public class TableroController {
                             int numero_celdas_con_entornos = getCeldasConRecursos().getNumeroElementos();
                             Random randomNormal = new Random();
                             int opcion = randomNormal.nextInt(0, numero_celdas_con_entornos);
-                            ListaSimple<Integer> coordenadas = listaCeldasEntornos.getElemento(opcion).getDato().getCoordenadas();
+                            ListaSimple<Integer> coordenadas = modelTablero.original.listaCeldasEntornos.getElemento(opcion).getDato().getCoordenadas();
                             if (abs(i - coordenadas.getElemento(0).getData()) >= abs(j - coordenadas.getElemento(1).getData())) {
                                 if (coordenadas.getElemento(1).getData() > j) {
                                     modelTablero.original.listaX.getElemento(i).getData().getElemento(j + 1).getData().getListaIndividuos().add(individuo_cambiar);
@@ -301,9 +300,9 @@ public class TableroController {
 
         log.info("Se realizan las mejoras que se puedan a los individuos de la simulación");
 
-        for (int i = 0; i < maximo; i++) {
+        for (int i = 0; i < model.original.filas; i++) {
             int k = 0;
-            for (int j = 0; j < max_columnas; j++) {
+            for (int j = 0; j < model.original.columnas; j++) {
                 if ((modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getNumeroElementos() != 0) && (modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos() != 0)) {
                     int num_elementos = modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getNumeroElementos();
                     for (int l = 0; l < num_elementos; l++) {
@@ -332,8 +331,8 @@ public class TableroController {
 
         log.info("Se hace (si se puede dar) las reproducciones que tenga que haber entre los individuos de la simulación");
 
-        for (int i = 0; i < maximo; i++) {
-            for (int j = 0; j < max_columnas; j++) {
+        for (int i = 0; i < model.original.filas; i++) {
+            for (int j = 0; j < model.original.columnas; j++) {
                 if (modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos() == 2) {
                     int reproduccion_primero = modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato().getReproduccion();
                     int reproduccion_segundo = modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(1).getDato().getReproduccion();
@@ -372,8 +371,8 @@ public class TableroController {
 
         log.info("Se comprueba si se puede hacer (y se hace en caso afirmativo) la clonación de individuos de la simulación");
 
-        for (int i = 0; i < maximo; i++) {
-            for (int j = 0; j < max_columnas; j++) {
+        for (int i = 0; i < model.original.filas; i++) {
+            for (int j = 0; j < model.original.columnas; j++) {
                 int num_indi_en_casilla = modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos();
                 for (int k = 0; k < num_indi_en_casilla; k++) {
                     Random num_random = new Random();
@@ -402,8 +401,8 @@ public class TableroController {
 
         log.info("Se comprueba si hay individuos que tengan que desaparecer de la simulación");
 
-        for (int i = 0; i < maximo; i++) {
-            for (int j = 0; j < max_columnas; j++) {
+        for (int i = 0; i < model.original.filas; i++) {
+            for (int j = 0; j < model.original.columnas; j++) {
                 if (modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos() > 2) {
                     if ((modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato().getVidas() > modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(1).getDato().getVidas()) && (modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato().getVidas() > modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(2).getDato().getVidas())) {
                         modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().del(0);
@@ -423,8 +422,8 @@ public class TableroController {
 
         log.info("Se comprueba si en cada casilla deberán aparecer nuevos recursos");
 
-        for (int i = 0; i < maximo; i++) {
-            for (int j = 0; j < max_columnas; j++) {
+        for (int i = 0; i < model.original.filas; i++) {
+            for (int j = 0; j < model.original.columnas; j++) {
                 for (int k = 0; k < modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getNumeroElementos(); k++) {
                     Random random = new Random();
                     int valor = random.nextInt(0, 100);
@@ -455,8 +454,8 @@ public class TableroController {
 
         log.info("Devuelve el número de individuos que hay en total en el tablero de juego");
 
-        for (int i = 0; i < maximo; i++) {
-            for (int j = 0; j < max_columnas; j++) {
+        for (int i = 0; i < model.original.filas; i++) {
+            for (int j = 0; j < model.original.columnas; j++) {
                 if (modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos() == 1) {
                     modelTablero.original.num_individuos++;
                 } else if (modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos() == 2) {
@@ -473,8 +472,8 @@ public class TableroController {
 
         log.info("Devuelve el número de entornos/recursos que hay en total en el tablero de juego");
 
-        for (int i = 0; i < maximo; i++) {
-            for (int j = 0; j < max_columnas; j++) {
+        for (int i = 0; i < model.original.filas; i++) {
+            for (int j = 0; j < model.original.columnas; j++) {
                 if (modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getNumeroElementos() == 1) {
                     modelTablero.original.cant_entornos++;
                 } else if (modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getNumeroElementos() == 2) {
@@ -491,8 +490,8 @@ public class TableroController {
 
         log.info("Devuelve la lista de celdas que contienen individuos en su interior");
 
-        for (int i = 0; i < maximo; i++) {
-            for (int j = 0; j < max_columnas; j++) {
+        for (int i = 0; i < model.original.filas; i++) {
+            for (int j = 0; j < model.original.columnas; j++) {
                 if (!modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().isVacia()) {
                     modelTablero.original.listaCeldasIndividuos.add(modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData());
                 }
@@ -505,8 +504,8 @@ public class TableroController {
 
         log.info("Devuelve la lisa de celdas que contienen entornos/recursos en su interior");
 
-        for (int i = 0; i < maximo; i++) {
-            for (int j = 0; j < max_columnas; j++) {
+        for (int i = 0; i < model.original.filas; i++) {
+            for (int j = 0; j < model.original.columnas; j++) {
                 if (!modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().isVacia()) {
                     modelTablero.original.listaCeldasEntornos.add(modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData());
                 }
@@ -627,8 +626,8 @@ public class TableroController {
             a.add(celda);
         } (aquí tengo distintas cosas que he probado para el guardado de datos que no me han funcionado de momento)*/
 
-        for (int j = 0; j < maximo; j++) {
-            for (int pos = 0; pos < max_columnas; pos++) {
+        for (int j = 0; j < model.original.filas; j++) {
+            for (int pos = 0; pos < model.original.columnas; pos++) {
                 if ((modelTablero.original.listaX.getElemento(j).getData().getElemento(pos).getData().getListaIndividuos().getNumeroElementos() != 0) || (modelTablero.original.listaX.getElemento(j).getData().getElemento(pos).getData().getListaEntornos().getNumeroElementos() != 0)) {
                     ListaDoblementeEnlazada<Individuo> listaindi = modelTablero.original.listaX.getElemento(j).getData().getElemento(pos).getData().getListaIndividuos();
                     ListaDoblementeEnlazada<Entorno> listaento = modelTablero.original.listaX.getElemento(j).getData().getElemento(pos).getData().getListaEntornos();
@@ -724,19 +723,29 @@ public class TableroController {
             e.printStackTrace();
         }
     }
-
-    public void initialize(int k, int x) {
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
 
         log.info("Se ejecuta el controlador del tablero.\n");
 
-        //modelo.construir_tablero(k, x);
+        this.CargaDatosUsuario(model);
+        this.CargarDatosTablero(modelTablero);
+
+        log.info("Enviando traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Enviando un info");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
+        log.info("El controlador de la ventana del tablero de juego se ha ejecutado correctamente");
+
+    }
+    public void inicializar_tablero() {
         model.original.setTurno_individuo(0);
-        modelTablero.original.listaX = new ListaSimple<>(k);
-        maximo = k;
-        for (int i = 1; i <= k; i++) {
-            modelTablero.original.listaY = new ListaSimple<>(x);
-            max_columnas = x;
-            for (int j = 1; j <= x; j++) {
+        modelTablero.original.listaX = new ListaSimple<>(model.original.filas);
+        for (int i = 1; i <= model.original.filas; i++) {
+            modelTablero.original.listaY = new ListaSimple<>(model.original.columnas);
+            for (int j = 1; j <= model.original.columnas; j++) {
 
                 Button casilla = new Button();
                 Celda celda = new Celda(i, j);
@@ -789,8 +798,8 @@ public class TableroController {
 
                 } */
                 modelTablero.original.listaY.insert(celda, j-1);
-                casilla.setMinSize(300 * 2/ k, 400 / x);
-                casilla.setMaxSize(300 * 2/ k, 400 / x);
+                casilla.setMinSize(300 * 2/ model.original.filas, 400 / model.original.columnas);
+                casilla.setMaxSize(300 * 2/ model.original.filas, 400 / model.original.columnas);
                 casilla.setStyle("-fx-border-color: black; -fx-text-alignment: center");
                 casilla.setText(celda.getListaIndividuos().getNumeroElementos() + "\n" + celda.getListaEntornos().getNumeroElementos());
                 tableroDeJuego.add(casilla, i, j);
@@ -798,23 +807,14 @@ public class TableroController {
             modelTablero.original.listaX.insert(modelTablero.original.listaY, i-1);
             modelTablero.commit();
         }
-
-        log.info("Enviando traza de ejecución");
-        log.debug("Enviado un debug");
-        log.info("Enviando un info");
-        log.warn("Enviando un aviso");
-        log.error("Enviando un error");
-        log.fatal("Enviando una explosión fatal");
-        log.info("El controlador de la ventana del tablero de juego se ha ejecutado correctamente");
-
     }
     public void CargaDatosUsuario(ParametrosModeloProperties parametrosData) {
         this.model = parametrosData;
-        model.commit();
+        //model.commit();
     }
     public void CargarDatosTablero(TableroProperties tableroProperties) {
-        this.modelTablero = modelTablero;
-        modelTablero.commit();
+        this.modelTablero = tableroProperties;
+        //modelTablero.commit();
     }
     public void setStage(Stage s) {
         this.scene = s;

@@ -1,7 +1,10 @@
 package es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal;
 
+import clases_a_utilizar_de_datos.Celda;
 import clases_a_utilizar_de_datos.Individuo;
+import clases_a_utilizar_de_datos.Tablero;
 import estructuras_de_datos_implementadas.listaDoblementeEnlazada.ListaDoblementeEnlazada;
+import estructuras_de_datos_implementadas.listaSimple.ListaSimple;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.Property;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -71,7 +74,8 @@ public class ParameterController implements Initializable {
     private Label labelProbTesoro;
     private ListaDoblementeEnlazada listaDoblementeEnlazada;
     private ParametrosModeloProperties model;
-    private TableroProperties modelTablero = new TableroProperties();
+    private Tablero tablero = new Tablero();
+    private TableroProperties modelTablero = new TableroProperties(tablero);
     private Stage scene;
     protected IntegerProperty valorFilas = new SimpleIntegerProperty(0);
     protected IntegerProperty valorColumnas = new SimpleIntegerProperty(0);
@@ -99,7 +103,6 @@ public class ParameterController implements Initializable {
         log.info("Arranque de la ventana del tablero de juego");
 
         model.commit();
-        modelTablero.commit();
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("tablero-view.fxml"));
         try {
@@ -110,14 +113,11 @@ public class ParameterController implements Initializable {
             p.CargaDatosUsuario(model);
             p.CargarDatosTablero(modelTablero);
             model.commit();
-            modelTablero.commit();
-            int i = 0;
-            int j = 0;
-            while (i < model.original.getFilas())
-                i++;
-            while (j < model.original.getColumnas())
-                j++;
-            p.initialize(i, j);
+            modelTablero.original.setFilas(model.original.filas);
+            modelTablero.original.setColumnas(model.original.columnas);
+            modelTablero.original.setListaX(new ListaSimple<ListaSimple<Celda>>());
+
+            p.inicializar_tablero();
             p.setStage(stage);
             stage.show();
 
