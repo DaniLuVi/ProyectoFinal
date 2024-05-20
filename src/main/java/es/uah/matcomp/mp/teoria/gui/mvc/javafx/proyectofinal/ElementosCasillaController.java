@@ -80,12 +80,15 @@ public class ElementosCasillaController implements Initializable{
             if (individuo1.getText() == "--") {
                 texto1.set("Tipo Individuo: Básico");
                 modelCelda.original.addIndividuo(individuo);
+                tablero.original.listaCeldasIndividuos.add(modelCelda.original);
             } else if (individuo2.getText() == "--") {
                 texto2.set("Tipo Individuo: Básico");
                 modelCelda.original.addIndividuo(individuo);
+                tablero.original.listaCeldasIndividuos.add(modelCelda.original);
             } else if (individuo3.getText() == "--") {
                 texto3.set("Tipo Individuo: Básico");
                 modelCelda.original.addIndividuo(individuo);
+                tablero.original.listaCeldasIndividuos.add(modelCelda.original);
             }
             modelCelda.commit();
             tablero.commit();
@@ -111,12 +114,15 @@ public class ElementosCasillaController implements Initializable{
             if (individuo1.getText() == "--") {
                 texto1.set("Tipo Individuo: Normal");
                 modelCelda.original.addIndividuo(individuo);
+                tablero.original.listaCeldasIndividuos.add(modelCelda.original);
             } else if (individuo2.getText() == "--") {
                 texto2.set("Tipo Individuo: Normal");
                 modelCelda.original.addIndividuo(individuo);
+                tablero.original.listaCeldasIndividuos.add(modelCelda.original);
             } else if (individuo3.getText() == "--") {
                 texto3.set("Tipo Individuo: Normal");
                 modelCelda.original.addIndividuo(individuo);
+                tablero.original.listaCeldasIndividuos.add(modelCelda.original);
             }
             modelCelda.commit();
             tablero.commit();
@@ -141,12 +147,15 @@ public class ElementosCasillaController implements Initializable{
             if (individuo1.getText() == "--") {
                 texto1.set("Tipo Individuo: Avanzado");
                 modelCelda.original.addIndividuo(individuo);
+                tablero.original.listaCeldasIndividuos.add(modelCelda.original);
             } else if (individuo2.getText() == "--") {
                 texto2.set("Tipo Individuo: Avanzado");
                 modelCelda.original.addIndividuo(individuo);
+                tablero.original.listaCeldasIndividuos.add(modelCelda.original);
             } else if (individuo3.getText() == "--") {
                 texto3.set("Tipo Individuo: Avanzado");
                 modelCelda.original.addIndividuo(individuo);
+                tablero.original.listaCeldasIndividuos.add(modelCelda.original);
             }
             modelCelda.commit();
             tablero.commit();
@@ -171,12 +180,15 @@ public class ElementosCasillaController implements Initializable{
             if (recurso1.getText() == "--") {
                 texto4.set("Entorno: Agua");
                 modelCelda.original.addEntorno(entorno);
+                tablero.original.listaCeldasEntornos.add(modelCelda.original);
             } else if (recurso2.getText() == "--") {
                 texto5.set("Entorno: Agua");
                 modelCelda.original.addEntorno(entorno);
+                tablero.original.listaCeldasEntornos.add(modelCelda.original);
             } else if (recurso3.getText() == "--") {
                 texto6.set("Entorno: Agua");
                 modelCelda.original.addEntorno(entorno);
+                tablero.original.listaCeldasEntornos.add(modelCelda.original);
             }
             modelCelda.commit();
             tablero.commit();
@@ -201,12 +213,15 @@ public class ElementosCasillaController implements Initializable{
             if (recurso1.getText() == "--") {
                 texto4.set("Entorno: Comida");
                 modelCelda.original.addEntorno(entorno);
+                tablero.original.listaCeldasEntornos.add(modelCelda.original);
             } else if (recurso2.getText() == "--") {
                 texto5.set("Entorno: Comida");
                 modelCelda.original.addEntorno(entorno);
+                tablero.original.listaCeldasEntornos.add(modelCelda.original);
             } else if (recurso3.getText() == "--") {
                 texto6.set("Entorno: Comida");
                 modelCelda.original.addEntorno(entorno);
+                tablero.original.listaCeldasEntornos.add(modelCelda.original);
             }
             modelCelda.commit();
             tablero.commit();
@@ -231,12 +246,15 @@ public class ElementosCasillaController implements Initializable{
             if (recurso1.getText() == "--") {
                 texto4.set("Entorno: Montaña");
                 modelCelda.original.addEntorno(entorno);
+                tablero.original.listaCeldasEntornos.add(modelCelda.original);
             } else if (recurso2.getText() == "--") {
                 texto5.set("Entorno: Montaña");
                 modelCelda.original.addEntorno(entorno);
+                tablero.original.listaCeldasEntornos.add(modelCelda.original);
             } else if (recurso3.getText() == "--") {
                 texto6.set("Entorno: Montaña");
                 modelCelda.original.addEntorno(entorno);
+                tablero.original.listaCeldasEntornos.add(modelCelda.original);
             }
             modelCelda.commit();
             tablero.commit();
@@ -261,12 +279,15 @@ public class ElementosCasillaController implements Initializable{
             if (recurso1.getText() == "--") {
                 texto4.set("Entorno: Biblioteca");
                 modelCelda.original.addEntorno(entorno);
+                tablero.original.listaCeldasEntornos.add(modelCelda.original);
             } else if (recurso2.getText() == "--") {
                 texto5.set("Entorno: Biblioteca");
                 modelCelda.original.addEntorno(entorno);
+                tablero.original.listaCeldasEntornos.add(modelCelda.original);
             } else if (recurso3.getText() == "--") {
                 texto6.set("Entorno: Biblioteca");
                 modelCelda.original.addEntorno(entorno);
+                tablero.original.listaCeldasEntornos.add(modelCelda.original);
             }
             modelCelda.commit();
             tablero.commit();
@@ -291,12 +312,15 @@ public class ElementosCasillaController implements Initializable{
             if (recurso1.getText() == "--") {
                 texto4.set("Entorno: Tesoro");
                 modelCelda.original.addEntorno(entorno);
+                tablero.original.listaCeldasEntornos.add(modelCelda.original);
             } else if (recurso2.getText() == "--") {
                 texto5.set("Entorno: Tesoro");
                 modelCelda.original.addEntorno(entorno);
+                tablero.original.listaCeldasEntornos.add(modelCelda.original);
             } else if (recurso3.getText() == "--") {
                 texto6.set("Entorno: Tesoro");
                 modelCelda.original.addEntorno(entorno);
+                tablero.original.listaCeldasEntornos.add(modelCelda.original);
             }
             modelCelda.commit();
             tablero.commit();
@@ -321,12 +345,15 @@ public class ElementosCasillaController implements Initializable{
             if (recurso1.getText() == "--") {
                 texto4.set("Entorno: Pozo");
                 modelCelda.original.addEntorno(entorno);
+                tablero.original.listaCeldasEntornos.add(modelCelda.original);
             } else if (recurso2.getText() == "--") {
                 texto5.set("Entorno: Pozo");
                 modelCelda.original.addEntorno(entorno);
+                tablero.original.listaCeldasEntornos.add(modelCelda.original);
             } else if (recurso3.getText() == "--") {
                 texto6.set("Entorno: Pozo");
                 modelCelda.original.addEntorno(entorno);
+                tablero.original.listaCeldasEntornos.add(modelCelda.original);
             }
             modelCelda.commit();
             tablero.commit();

@@ -565,7 +565,8 @@ public class TableroController implements Initializable {
         log.info("Método para poder establecer el identificador de un nuevo individuo");
 
         if (this.getCeldaConIndividuos().getNumeroElementos() != 0) {
-            for (int contador = 0; getCeldaConIndividuos().getElemento(contador).getDato() != null; contador++) {
+            int valor = this.getCeldaConIndividuos().getNumeroElementos();
+            for (int contador = 0; contador < valor; contador++) {
                 int mayor = 0;
                 if (modelTablero.original.listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getNumeroElementos() == 3) {
                     if ((modelTablero.original.listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(0).getDato().getId() >= modelTablero.original.listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(1).getDato().getId()) && (modelTablero.original.listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(0).getDato().getId() >= modelTablero.original.listaCeldasIndividuos.getElemento(contador).getDato().getListaIndividuos().getElemento(2).getDato().getId())) {
