@@ -641,24 +641,14 @@ public class TableroController implements Initializable {
         ElementoLDE<Integer> reproduccion = new ElementoLDE<>(model.original.getReproduccion());
         ElementoLDE<Integer> clonado = new ElementoLDE<>(model.original.getClonado());
         ElementoLDE<Integer> v = new ElementoLDE<>(model.original.getV());
-        /* a.add(num_turnos);
-        a.add(listaX.getNumeroElementos());
+        /*
         a.add(filas.getDato());
         a.add(columnas.getDato());
         a.add(vidas.getDato());
         a.add(reproduccion.getDato());
-        a.add(clonado.getDato()); /*
-        for (int i = 0; i < maximo; i++) {
-            for (int j = 0; j < listaX.getElemento(i).getData().getNumeroElementos(); j++) {
-                a.add(listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getPrimero().getDato());
-                a.add(listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(1).getDato());
-                a.add(listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(2).getDato());
-                a.add(listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getPrimero().getDato());
-                a.add(listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(1).getDato());
-                a.add(listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(2).getDato());
-            }
-        }
-        a.add(v);
+        a.add(clonado.getDato());
+        /*
+
         for(int i = 0; i < listaCeldas.getNumeroElementos(); i++) {
             a.add(listaCeldas.getElemento(i).getDato());
         }
@@ -672,41 +662,84 @@ public class TableroController implements Initializable {
                 if ((modelTablero.original.listaX.getElemento(j).getData().getElemento(pos).getData().getListaIndividuos().getNumeroElementos() != 0) || (modelTablero.original.listaX.getElemento(j).getData().getElemento(pos).getData().getListaEntornos().getNumeroElementos() != 0)) {
                     ListaDoblementeEnlazada<Individuo> listaindi = modelTablero.original.listaX.getElemento(j).getData().getElemento(pos).getData().getListaIndividuos();
                     ListaDoblementeEnlazada<Entorno> listaento = modelTablero.original.listaX.getElemento(j).getData().getElemento(pos).getData().getListaEntornos();
-                    if (listaindi.getNumeroElementos() == 3 && listaento.getNumeroElementos() == 3) {
-                        a.add(listaindi.getPrimero().getDato() + "," + listaindi.getElemento(1).getDato() + "," + listaindi.getElemento(2).getDato() + "," + listaento.getPrimero().getDato() + "," + listaento.getElemento(1).getDato() + "," + listaento.getElemento(2).getDato());
-                    } else if (listaindi.getNumeroElementos() == 3 && listaento.getNumeroElementos() == 2) {
-                        a.add(listaindi.getPrimero().getDato() + "," + listaindi.getElemento(1).getDato() + "," + listaindi.getElemento(2).getDato() + "," + listaento.getPrimero().getDato() + "," + listaento.getElemento(1).getDato());
-                    } else if (listaindi.getNumeroElementos() == 2 && listaento.getNumeroElementos() == 3) {
-                        a.add(listaindi.getPrimero().getDato() + "," + listaindi.getElemento(1).getDato() + "," + listaento.getPrimero().getDato() + "," + listaento.getElemento(1).getDato() + "," + listaento.getElemento(2).getDato());
-                    } else if (listaindi.getNumeroElementos() == 2 && listaento.getNumeroElementos() == 2) {
-                        a.add(listaindi.getPrimero().getDato() + "," + listaindi.getElemento(1).getDato() + "," + listaento.getPrimero().getDato() + "," + listaento.getElemento(1).getDato());
-                    } else if (listaindi.getNumeroElementos() == 3 && listaento.getNumeroElementos() == 1) {
-                        a.add(listaindi.getPrimero().getDato() + "," + listaindi.getElemento(1).getDato() + "," + listaindi.getElemento(2).getDato() + "," + listaento.getPrimero().getDato());
-                    } else if (listaindi.getNumeroElementos() == 1 && listaento.getNumeroElementos() == 3) {
-                        a.add(listaindi.getPrimero().getDato() + "," + listaento.getPrimero().getDato() + "," + listaento.getElemento(1).getDato() + "," + listaento.getElemento(2).getDato());
-                    } else if (listaindi.getNumeroElementos() == 2 && listaento.getNumeroElementos() == 1) {
-                        a.add(listaindi.getPrimero().getDato() + "," + listaindi.getElemento(1).getDato() + "," + listaento.getPrimero().getDato());
-                    } else if (listaindi.getNumeroElementos() == 1 && listaento.getNumeroElementos() == 2) {
-                        a.add(listaindi.getPrimero().getDato() + "," + listaento.getPrimero().getDato() + "," + listaento.getElemento(1).getDato());
-                    } else if (listaindi.getNumeroElementos() == 1 && listaento.getNumeroElementos() == 1) {
-                        a.add(listaindi.getPrimero().getDato() + "," + listaento.getPrimero().getDato());
-                    } else if (listaindi.getNumeroElementos() == 3 && listaento.getNumeroElementos() == 0) {
-                        a.add(listaindi.getPrimero().getDato() + "," + listaindi.getElemento(1).getDato() + "," + listaindi.getElemento(2).getDato());
-                    } else if (listaindi.getNumeroElementos() == 0 && listaento.getNumeroElementos() == 3) {
-                        a.add(listaento.getPrimero().getDato() + "," + listaento.getElemento(1).getDato() + "," + listaento.getElemento(2).getDato());
-                    } else if (listaindi.getNumeroElementos() == 2 && listaento.getNumeroElementos() == 0) {
-                        a.add(listaindi.getPrimero().getDato() + "," + listaindi.getElemento(1).getDato());
-                    } else if (listaindi.getNumeroElementos() == 0 && listaento.getNumeroElementos() == 2) {
-                        a.add(listaento.getPrimero().getDato() + "," + listaento.getElemento(1).getDato());
-                    } else if (listaindi.getNumeroElementos() == 1 && listaento.getNumeroElementos() == 0) {
-                        a.add(listaindi.getPrimero().getDato());
-                    } else if (listaindi.getNumeroElementos() == 0 && listaento.getNumeroElementos() == 1) {
-                        a.add(listaento.getPrimero().getDato());
+                    ListaDoblementeEnlazada<Integer> datos1objeto = new ListaDoblementeEnlazada<>();
+                    ListaDoblementeEnlazada<Integer> datos2objeto = new ListaDoblementeEnlazada<>();
+                    ListaDoblementeEnlazada<Integer> datos3objeto = new ListaDoblementeEnlazada<>();
+                    ListaDoblementeEnlazada<Integer> datos4objeto = new ListaDoblementeEnlazada<>();
+                    ListaDoblementeEnlazada<Integer> datos5objeto = new ListaDoblementeEnlazada<>();
+                    ListaDoblementeEnlazada<Integer> datos6objeto = new ListaDoblementeEnlazada<>();
+                    if (listaindi.getNumeroElementos() == 3) {
+                        datos1objeto.add(listaindi.getPrimero().getDato().getId());
+                        datos1objeto.add(listaindi.getPrimero().getDato().getGeneracion());
+                        datos1objeto.add(listaindi.getPrimero().getDato().getVidas());
+                        datos1objeto.add(listaindi.getPrimero().getDato().getReproduccion());
+                        datos1objeto.add(listaindi.getPrimero().getDato().getClonacion());
+                        datos1objeto.add(listaindi.getPrimero().getDato().getTurno_individuo());
+                        datos2objeto.add(listaindi.getElemento(1).getDato().getId());
+                        datos2objeto.add(listaindi.getElemento(1).getDato().getGeneracion());
+                        datos2objeto.add(listaindi.getElemento(1).getDato().getVidas());
+                        datos2objeto.add(listaindi.getElemento(1).getDato().getReproduccion());
+                        datos2objeto.add(listaindi.getElemento(1).getDato().getClonacion());
+                        datos2objeto.add(listaindi.getElemento(1).getDato().getTurno_individuo());
+                        datos3objeto.add(listaindi.getElemento(2).getDato().getId());
+                        datos3objeto.add(listaindi.getElemento(2).getDato().getGeneracion());
+                        datos3objeto.add(listaindi.getElemento(2).getDato().getVidas());
+                        datos3objeto.add(listaindi.getElemento(2).getDato().getReproduccion());
+                        datos3objeto.add(listaindi.getElemento(2).getDato().getClonacion());
+                        datos3objeto.add(listaindi.getElemento(2).getDato().getTurno_individuo());
+                        a.add(datos1objeto);
+                        a.add(datos2objeto);
+                        a.add(datos3objeto);
+                    } else if (listaindi.getNumeroElementos() == 2) {
+                        datos1objeto.add(listaindi.getPrimero().getDato().getId());
+                        datos1objeto.add(listaindi.getPrimero().getDato().getGeneracion());
+                        datos1objeto.add(listaindi.getPrimero().getDato().getVidas());
+                        datos1objeto.add(listaindi.getPrimero().getDato().getReproduccion());
+                        datos1objeto.add(listaindi.getPrimero().getDato().getClonacion());
+                        datos1objeto.add(listaindi.getPrimero().getDato().getTurno_individuo());
+                        datos2objeto.add(listaindi.getElemento(1).getDato().getId());
+                        datos2objeto.add(listaindi.getElemento(1).getDato().getGeneracion());
+                        datos2objeto.add(listaindi.getElemento(1).getDato().getVidas());
+                        datos2objeto.add(listaindi.getElemento(1).getDato().getReproduccion());
+                        datos2objeto.add(listaindi.getElemento(1).getDato().getClonacion());
+                        datos2objeto.add(listaindi.getElemento(1).getDato().getTurno_individuo());
+                        a.add(datos1objeto);
+                        a.add(datos2objeto);
+                    } else if (listaindi.getNumeroElementos() == 1) {
+                        datos1objeto.add(listaindi.getPrimero().getDato().getId());
+                        datos1objeto.add(listaindi.getPrimero().getDato().getGeneracion());
+                        datos1objeto.add(listaindi.getPrimero().getDato().getVidas());
+                        datos1objeto.add(listaindi.getPrimero().getDato().getReproduccion());
+                        datos1objeto.add(listaindi.getPrimero().getDato().getClonacion());
+                        datos1objeto.add(listaindi.getPrimero().getDato().getTurno_individuo());
+                        a.add(datos1objeto);
+                    }
+                    if (listaento.getNumeroElementos() == 3) {
+                        datos4objeto.add(listaento.getPrimero().getDato().getTiempo_aparicion());
+                        datos4objeto.add(listaento.getPrimero().getDato().getProbabilidad());
+                        datos5objeto.add(listaento.getElemento(1).getDato().getTiempo_aparicion());
+                        datos5objeto.add(listaento.getElemento(1).getDato().getProbabilidad());
+                        datos6objeto.add(listaento.getElemento(2).getDato().getTiempo_aparicion());
+                        datos6objeto.add(listaento.getElemento(2).getDato().getProbabilidad());
+                        a.add(datos4objeto);
+                        a.add(datos5objeto);
+                        a.add(datos6objeto);
+                    } else if (listaento.getNumeroElementos() == 2) {
+                        datos4objeto.add(listaento.getPrimero().getDato().getTiempo_aparicion());
+                        datos4objeto.add(listaento.getPrimero().getDato().getProbabilidad());
+                        datos5objeto.add(listaento.getElemento(1).getDato().getTiempo_aparicion());
+                        datos5objeto.add(listaento.getElemento(1).getDato().getProbabilidad());
+                        a.add(datos4objeto);
+                        a.add(datos5objeto);
+                    } else if (listaento.getNumeroElementos() == 1) {
+                        datos4objeto.add(listaento.getPrimero().getDato().getTiempo_aparicion());
+                        datos4objeto.add(listaento.getPrimero().getDato().getProbabilidad());
+                        a.add(datos4objeto);
                     }
                 }
             }
         }
-
+        //String datos[] = {modelTablero.original.listaX.getElemento()};
 
         ParametrosModelo parameterController = new ParametrosModelo(filas.getDato(), columnas.getDato(), model.original.id, model.original.generacion, vidas.getDato(), reproduccion.getDato(), clonado.getDato(),model.original.turno_individuo, v.getDato(), model.original.agua, model.original.comida, model.original.montaña, model.original.biblioteca, model.original.pozo, model.original.tesoro);
 
@@ -714,7 +747,7 @@ public class TableroController implements Initializable {
         Tablero tablero = new Tablero(model, modelCelda, modelTablero.original.listaX);
         String rutaArchivo = "DatosCargaPartida0.json";
         // va a haber que guardar la informacion entera de la variable: listaX     (creo que se ve a poder hacer creando un método que recorra la lista)
-        guardarDatosPartida(rutaArchivo, datos);
+        guardarDatosPartida(rutaArchivo, a);
 
         log.info("Los datos se han guardado al fichero");
         log.info("Arranque de la ventana para cerrar el programa");

@@ -9,5 +9,6 @@ module es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal {
 
     opens es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal to javafx.fxml, com.google.gson;
     exports es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal;
-
+    opens estructuras_de_datos_implementadas.listaDoblementeEnlazada to com.google.gson;
+    exports estructuras_de_datos_implementadas.listaDoblementeEnlazada;
 }

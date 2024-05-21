@@ -1,1 +1,1 @@
-{"filas":5,"columnas":5,"id":0,"generacion":0,"vidas":5,"reproduccion":43,"clonado":59,"turno_individuo":0,"V":27,"agua":12,"comida":53,"montaña":30,"biblioteca":70,"pozo":81,"tesoro":98}
+{"primero":{"dato":{"primero":{"dato":1,"siguiente":{"dato":0,"siguiente":{"dato":6,"siguiente":{"dato":43,"siguiente":{"dato":66,"siguiente":{"dato":0}}}}}},"ultimo":{"dato":0}},"siguiente":{"dato":{"primero":{"dato":3,"siguiente":{"dato":23}},"ultimo":{"dato":23}}}},"ultimo":{"dato":{"primero":{"dato":3,"siguiente":{"dato":23}},"ultimo":{"dato":23}}}}
