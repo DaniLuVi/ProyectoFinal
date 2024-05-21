@@ -817,7 +817,7 @@ public class TableroController implements Initializable {
                     }
                 });
             /*    grafoTablero.addNodo(celda);
-                if (celda.getFila() > 0 && celda.getColumna() > 0) {
+                if ((celda.getFila() > 0 && celda.getColumna() > 0) && (celda.getFila() < model.original.filas && celda.getColumna() < model.original.columnas)) {
                     Celda celda1 = new Celda(i - 1, j - 1);
                     Celda celda2 = new Celda(i - 1, j);
                     Celda celda3 = new Celda(i - 1, j + 1);
@@ -842,13 +842,20 @@ public class TableroController implements Initializable {
                     grafoTablero.add(new ArcoGrafo<>((NodoGrafo<>)celda, celda6, valor6, "Arista de (" + celda.getFila() + "," + celda.getColumna() + ") a (" + celda6.getFila() + "," + celda6.getColumna() + ")"));
                     grafoTablero.add(new ArcoGrafo<>((NodoGrafo<>)celda, celda7, valor7, "Arista de (" + celda.getFila() + "," + celda.getColumna() + ") a (" + celda7.getFila() + "," + celda7.getColumna() + ")"));
                     grafoTablero.add(new ArcoGrafo<>((NodoGrafo<>)celda, celda8, valor8, "Arista de (" + celda.getFila() + "," + celda.getColumna() + ") a (" + celda8.getFila() + "," + celda8.getColumna() + ")"));
-                } else if (celda.getFila() == 0 && celda.getColumna() > 0) {
+                } else if (celda.getFila() == 0 && (celda.getColumna() > 0 && celda.getColumna() < model.original.columnas)) {
 
-                } else if (celda.getFila() > 0 && celda.getColumna() == 0) {
+                } else if ((celda.getFila() > 0 && celda.getFila() < model.original.filas) && celda.getColumna() == 0) {
 
                 } else if (celda.getFila() == 0 && celda.getColumna() == 0) {
 
-                } */
+                } else if (celda.getFila() == model.original.filas && (celda.getColumna() > 0 && celda.getColumna() < model.original.columnas)) {
+
+                } else if ((celda.getFila() > 0 && celda.getFila() < model.original.filas) && celda.getColumna()  == model.original.columnas) {
+
+                } else if (celda.getFila() == model.original.filas && celda.getColumna() == model.original.columnas) {
+
+                }
+                */
                 modelTablero.original.listaY.insert(celda, j-1);
                 casilla.setMinSize(300 * 2/ model.original.filas, 400 / model.original.columnas);
                 casilla.setMaxSize(300 * 2/ model.original.filas, 400 / model.original.columnas);
@@ -865,11 +872,9 @@ public class TableroController implements Initializable {
     }
     public void CargaDatosUsuario(ParametrosModeloProperties parametrosData) {
         this.model = parametrosData;
-        //model.commit();
     }
     public void CargarDatosTablero(TableroProperties tableroProperties) {
         this.modelTablero = tableroProperties;
-        //modelTablero.commit();
     }
     public void setStage(Stage s) {
         this.scene = s;
