@@ -650,7 +650,7 @@ public class TableroController implements Initializable {
         o tambien hacer esta otra forma
         for(Celda celda: listaXCeldas) {
             a.add(celda);
-        } (aquí tengo distintas cosas que he probado para el guardado de datos que no me han funcionado de momento)*/
+        } */
 
         for (int j = 0; j < model.original.filas; j++) {
             for (int pos = 0; pos < model.original.columnas; pos++) {
@@ -770,8 +770,6 @@ public class TableroController implements Initializable {
             e.printStackTrace();
         }
     }
-
-
     public static <T> void guardarDatosPartida(String rutaArchivo, T objeto) {
 
         log.info("Proceso para guardar los datos del programa a un fichero");
@@ -903,5 +901,4 @@ public class TableroController implements Initializable {
     public void setStage(Stage s) {
         this.scene = s;
     }
-
 }
