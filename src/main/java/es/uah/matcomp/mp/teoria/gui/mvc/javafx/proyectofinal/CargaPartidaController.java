@@ -23,8 +23,6 @@ public class CargaPartidaController implements Initializable {
     private Stage scene;
     @FXML
     private MenuButton menuButton = new MenuButton();
-    @FXML
-    private MenuButton partidas;
     private int num_partidas = 0;
     public int getNum_partidas() {      // + num_partidas +
 
@@ -105,14 +103,17 @@ public class CargaPartidaController implements Initializable {
         log.info("Se ejecuta el controlador para la carga de partida.");
         int valor = getNum_partidas();
         for (int i = 0; i < valor; i++) {
+
             MenuItem menuItem = new MenuItem("Partida" + num_partidas);
-            menuButton.getItems().add(menuItem);
+
             menuItem.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent actionEvent) {
                     onCargaPartida();
                 }
             });
+            menuButton.setText("Partidas guardadas");
+            menuButton.getItems().add(menuItem);
         }
 
         log.info("Enviando traza de ejecución");
