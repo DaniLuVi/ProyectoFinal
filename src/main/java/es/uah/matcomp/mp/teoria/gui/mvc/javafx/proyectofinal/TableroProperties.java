@@ -30,12 +30,12 @@ public class TableroProperties {
     public TableroProperties() {
     }
     public void commit() {
-        original.setFilas(filas.get());
-        original.setColumnas(columnas.get());
-        original.setNum_individuos(num_individuos.get());
-        original.setCant_entornos(cant_entornos.get());
-        original.setNum_turnos(num_turnos.get());
-        original.setIds(ids.get());
+        original.setFilas(original.filas);
+        original.setColumnas(original.columnas);
+        original.setNum_individuos(original.num_individuos);
+        original.setCant_entornos(original.cant_entornos);
+        original.setNum_turnos(original.num_turnos);
+        original.setIds(original.ids);
         original.getListaX();
         original.getListaCeldasIndividuos();
         original.getListaCeldasEntornos();
