@@ -6,11 +6,11 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.CargaPartidaController">
    <children>
-      <Label layoutX="101.0" layoutY="41.0" text="CARGA DE PARTIDAS GUARDADAS" underline="true">
+      <Label layoutX="201.0" layoutY="42.0" text="CARGA DE PARTIDAS GUARDADAS" underline="true">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <MenuButton fx:id="menuButton" alignment="CENTER" layoutX="224.0" layoutY="142.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="134.0" textAlignment="CENTER" />
+      <MenuButton fx:id="menuButton" alignment="CENTER" layoutX="300.0" layoutY="175.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="134.0" textAlignment="CENTER" />
    </children>
 </AnchorPane>
