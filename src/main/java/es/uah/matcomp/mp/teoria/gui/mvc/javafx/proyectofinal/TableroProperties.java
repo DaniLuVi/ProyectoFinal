@@ -166,4 +166,8 @@ public class TableroProperties {
     public void setListaCeldaEntornos(ObservableList<Entorno> listaCeldaEntornos) {
         this.listaCeldaEntornos.set(listaCeldaEntornos);
     }
+    public ParametrosModelo getParametrosModelo(ParametrosModelo parametrosModelo) {
+        this.original.parametrosModeloProperties.original = parametrosModelo;
+        return this.original.parametrosModeloProperties.original;
+    }
 }

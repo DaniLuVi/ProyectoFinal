@@ -1,5 +1,6 @@
 package clases_a_utilizar_de_datos;
 
+import es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.ParametrosModelo;
 import estructuras_de_datos_implementadas.listaDoblementeEnlazada.ListaDoblementeEnlazada;
 import estructuras_de_datos_implementadas.listaSimple.ListaSimple;
 
@@ -13,6 +14,7 @@ public class TableroASerializar {
     public int cant_entornos;
     public int num_turnos;
     public int ids;
+    private ParametrosModelo model;
     public TableroASerializar() {}
 
     public ListaSimple<ListaSimple<Celda>> getListaX() {
@@ -85,6 +87,14 @@ public class TableroASerializar {
 
     public void setIds(int ids) {
         this.ids = ids;
+    }
+
+    public ParametrosModelo getParametrosModelo() {
+        return model;
+    }
+
+    public void setParametrosModelo(ParametrosModelo parametrosModelo) {
+        this.model = parametrosModelo;
     }
 
     // posiblemente tenga que hacer el guardado a partir de esta clase, con una clase limpia sin properties

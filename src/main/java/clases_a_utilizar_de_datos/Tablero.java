@@ -2,6 +2,7 @@ package clases_a_utilizar_de_datos;
 
 import com.google.gson.*;
 import es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.CeldaProperties;
+import es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.ParametrosModelo;
 import es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.ParametrosModeloProperties;
 import es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal.TableroProperties;
 import estructuras_de_datos_implementadas.listaDoblementeEnlazada.ListaDoblementeEnlazada;
@@ -13,7 +14,7 @@ import java.lang.reflect.Type;
 
 public class Tablero implements JsonSerializer<Tablero> {
     private Tablero tablero;
-    public ParametrosModeloProperties model;
+    public ParametrosModeloProperties parametrosModeloProperties;
     public TableroProperties tableroProperties;
     public CeldaProperties modelCelda = new CeldaProperties();
     public ListaSimple<Celda> listaY = new ListaSimple<>();
@@ -26,13 +27,14 @@ public class Tablero implements JsonSerializer<Tablero> {
     public int cant_entornos;
     public int num_turnos;
     public int ids;
+    private ParametrosModelo model;
     private static final Logger log = LogManager.getLogger(Tablero.class);
     public Tablero() {}
     public Tablero(Tablero tablero) {
         this.tablero = tablero;
     }
     public Tablero(ParametrosModeloProperties parametrosModeloProperties, CeldaProperties modelCelda, ListaSimple<ListaSimple<Celda>> listaX) {
-        this.model = parametrosModeloProperties;
+        this.parametrosModeloProperties = parametrosModeloProperties;
         this.modelCelda = modelCelda;
         this.listaX = listaX;
         this.listaCeldasIndividuos = listaCeldasIndividuos;
@@ -123,9 +125,13 @@ public class Tablero implements JsonSerializer<Tablero> {
         this.listaCeldasIndividuos = listaCeldasIndividuos;
     }
 
+    public void ArreglarDatosACargar() {
+        ParametrosModeloProperties parametrosModeloProperties = new ParametrosModeloProperties(model);
+        this.parametrosModeloProperties = parametrosModeloProperties;
+    }
     public void CargaDatosParametros(ParametrosModeloProperties parametrosModeloProperties) {
-        this.model = parametrosModeloProperties;
-        model.commit();
+        this.parametrosModeloProperties = parametrosModeloProperties;
+        parametrosModeloProperties.commit();
     }
     public void CargaDatosTablero(TableroProperties tableroProperties) {
         this.tableroProperties = tableroProperties;

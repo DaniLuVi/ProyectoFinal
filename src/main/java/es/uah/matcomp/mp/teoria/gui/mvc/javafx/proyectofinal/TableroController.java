@@ -635,106 +635,6 @@ public class TableroController implements Initializable {
 
         log.info("Se guardan los datos del modelo en un fichero JSON");
 
-        ListaDoblementeEnlazada a = new ListaDoblementeEnlazada<>();
-        ElementoLDE<Integer> filas = new ElementoLDE<>(model.original.getFilas());
-        ElementoLDE<Integer> columnas = new ElementoLDE<>(model.original.getColumnas());
-        ElementoLDE<Integer> vidas = new ElementoLDE<>(model.original.getVidas());
-        ElementoLDE<Integer> reproduccion = new ElementoLDE<>(model.original.getReproduccion());
-        ElementoLDE<Integer> clonado = new ElementoLDE<>(model.original.getClonado());
-        ElementoLDE<Integer> v = new ElementoLDE<>(model.original.getV());
-        /*
-
-        for(int i = 0; i < listaCeldas.getNumeroElementos(); i++) {
-            a.add(listaCeldas.getElemento(i).getDato());
-        }
-        o tambien hacer esta otra forma
-        for(Celda celda: listaXCeldas) {
-            a.add(celda);
-        } */
-
-        for (int j = 0; j < model.original.filas; j++) {
-            for (int pos = 0; pos < model.original.columnas; pos++) {
-                if ((modelTablero.original.listaX.getElemento(j).getData().getElemento(pos).getData().getListaIndividuos().getNumeroElementos() != 0) || (modelTablero.original.listaX.getElemento(j).getData().getElemento(pos).getData().getListaEntornos().getNumeroElementos() != 0)) {
-                    ListaDoblementeEnlazada<Individuo> listaindi = modelTablero.original.listaX.getElemento(j).getData().getElemento(pos).getData().getListaIndividuos();
-                    ListaDoblementeEnlazada<Entorno> listaento = modelTablero.original.listaX.getElemento(j).getData().getElemento(pos).getData().getListaEntornos();
-                    ListaDoblementeEnlazada<Integer> datos1objeto = new ListaDoblementeEnlazada<>();
-                    ListaDoblementeEnlazada<Integer> datos2objeto = new ListaDoblementeEnlazada<>();
-                    ListaDoblementeEnlazada<Integer> datos3objeto = new ListaDoblementeEnlazada<>();
-                    ListaDoblementeEnlazada<Integer> datos4objeto = new ListaDoblementeEnlazada<>();
-                    ListaDoblementeEnlazada<Integer> datos5objeto = new ListaDoblementeEnlazada<>();
-                    ListaDoblementeEnlazada<Integer> datos6objeto = new ListaDoblementeEnlazada<>();
-                    if (listaindi.getNumeroElementos() == 3) {
-                        datos1objeto.add(listaindi.getPrimero().getDato().getId());
-                        datos1objeto.add(listaindi.getPrimero().getDato().getGeneracion());
-                        datos1objeto.add(listaindi.getPrimero().getDato().getVidas());
-                        datos1objeto.add(listaindi.getPrimero().getDato().getReproduccion());
-                        datos1objeto.add(listaindi.getPrimero().getDato().getClonacion());
-                        datos1objeto.add(listaindi.getPrimero().getDato().getTurno_individuo());
-                        datos2objeto.add(listaindi.getElemento(1).getDato().getId());
-                        datos2objeto.add(listaindi.getElemento(1).getDato().getGeneracion());
-                        datos2objeto.add(listaindi.getElemento(1).getDato().getVidas());
-                        datos2objeto.add(listaindi.getElemento(1).getDato().getReproduccion());
-                        datos2objeto.add(listaindi.getElemento(1).getDato().getClonacion());
-                        datos2objeto.add(listaindi.getElemento(1).getDato().getTurno_individuo());
-                        datos3objeto.add(listaindi.getElemento(2).getDato().getId());
-                        datos3objeto.add(listaindi.getElemento(2).getDato().getGeneracion());
-                        datos3objeto.add(listaindi.getElemento(2).getDato().getVidas());
-                        datos3objeto.add(listaindi.getElemento(2).getDato().getReproduccion());
-                        datos3objeto.add(listaindi.getElemento(2).getDato().getClonacion());
-                        datos3objeto.add(listaindi.getElemento(2).getDato().getTurno_individuo());
-                        a.add(datos1objeto);
-                        a.add(datos2objeto);
-                        a.add(datos3objeto);
-                    } else if (listaindi.getNumeroElementos() == 2) {
-                        datos1objeto.add(listaindi.getPrimero().getDato().getId());
-                        datos1objeto.add(listaindi.getPrimero().getDato().getGeneracion());
-                        datos1objeto.add(listaindi.getPrimero().getDato().getVidas());
-                        datos1objeto.add(listaindi.getPrimero().getDato().getReproduccion());
-                        datos1objeto.add(listaindi.getPrimero().getDato().getClonacion());
-                        datos1objeto.add(listaindi.getPrimero().getDato().getTurno_individuo());
-                        datos2objeto.add(listaindi.getElemento(1).getDato().getId());
-                        datos2objeto.add(listaindi.getElemento(1).getDato().getGeneracion());
-                        datos2objeto.add(listaindi.getElemento(1).getDato().getVidas());
-                        datos2objeto.add(listaindi.getElemento(1).getDato().getReproduccion());
-                        datos2objeto.add(listaindi.getElemento(1).getDato().getClonacion());
-                        datos2objeto.add(listaindi.getElemento(1).getDato().getTurno_individuo());
-                        a.add(datos1objeto);
-                        a.add(datos2objeto);
-                    } else if (listaindi.getNumeroElementos() == 1) {
-                        datos1objeto.add(listaindi.getPrimero().getDato().getId());
-                        datos1objeto.add(listaindi.getPrimero().getDato().getGeneracion());
-                        datos1objeto.add(listaindi.getPrimero().getDato().getVidas());
-                        datos1objeto.add(listaindi.getPrimero().getDato().getReproduccion());
-                        datos1objeto.add(listaindi.getPrimero().getDato().getClonacion());
-                        datos1objeto.add(listaindi.getPrimero().getDato().getTurno_individuo());
-                        a.add(datos1objeto);
-                    }
-                    if (listaento.getNumeroElementos() == 3) {
-                        datos4objeto.add(listaento.getPrimero().getDato().getTiempo_aparicion());
-                        datos4objeto.add(listaento.getPrimero().getDato().getProbabilidad());
-                        datos5objeto.add(listaento.getElemento(1).getDato().getTiempo_aparicion());
-                        datos5objeto.add(listaento.getElemento(1).getDato().getProbabilidad());
-                        datos6objeto.add(listaento.getElemento(2).getDato().getTiempo_aparicion());
-                        datos6objeto.add(listaento.getElemento(2).getDato().getProbabilidad());
-                        a.add(datos4objeto);
-                        a.add(datos5objeto);
-                        a.add(datos6objeto);
-                    } else if (listaento.getNumeroElementos() == 2) {
-                        datos4objeto.add(listaento.getPrimero().getDato().getTiempo_aparicion());
-                        datos4objeto.add(listaento.getPrimero().getDato().getProbabilidad());
-                        datos5objeto.add(listaento.getElemento(1).getDato().getTiempo_aparicion());
-                        datos5objeto.add(listaento.getElemento(1).getDato().getProbabilidad());
-                        a.add(datos4objeto);
-                        a.add(datos5objeto);
-                    } else if (listaento.getNumeroElementos() == 1) {
-                        datos4objeto.add(listaento.getPrimero().getDato().getTiempo_aparicion());
-                        datos4objeto.add(listaento.getPrimero().getDato().getProbabilidad());
-                        a.add(datos4objeto);
-                    }
-                }
-            }
-        }
-
         TableroASerializar tablero = new TableroASerializar();
         tablero.setFilas(modelTablero.original.filas);
         tablero.setColumnas(modelTablero.original.columnas);
@@ -745,6 +645,7 @@ public class TableroController implements Initializable {
         tablero.setIds(modelTablero.original.ids);
         tablero.setListaCeldasIndividuos(modelTablero.original.listaCeldasIndividuos);
         tablero.setListaCeldasEntornos(modelTablero.original.listaCeldasEntornos);
+        tablero.setParametrosModelo(modelTablero.original.parametrosModeloProperties.original);
         String rutaArchivo = "DatosCargaPartida0.json";
         // va a haber que guardar la informacion entera de la variable: listaX     (creo que se ve a poder hacer creando un método que recorra la lista)
         guardarDatosPartida(rutaArchivo, tablero);
@@ -824,11 +725,11 @@ public class TableroController implements Initializable {
 
         log.info("Método para crear el tablero junto con la lista de listas que va por debajo");
 
-        model.original.setTurno_individuo(0);
-        modelTablero.original.listaX = new ListaSimple<>(model.original.filas);
-        for (int i = 1; i <= model.original.filas; i++) {
-            modelTablero.original.listaY = new ListaSimple<>(model.original.columnas);
-            for (int j = 1; j <= model.original.columnas; j++) {
+        modelTablero.original.parametrosModeloProperties.original.setTurno_individuo(0);
+        modelTablero.original.listaX = new ListaSimple<>(modelTablero.original.filas);
+        for (int i = 1; i <= modelTablero.original.filas; i++) {
+            modelTablero.original.listaY = new ListaSimple<>(modelTablero.original.columnas);
+            for (int j = 1; j <= modelTablero.original.columnas; j++) {
 
                 Button casilla = new Button();
                 Celda celda = new Celda(i, j);
@@ -900,6 +801,9 @@ public class TableroController implements Initializable {
 
         log.info("Se ha creado el tablero y la lista de listas con éxito");
 
+    }
+    public void CargaDatosUsuarioLimpio(ParametrosModelo parametrosModelo) {
+        this.model.original = parametrosModelo;
     }
     public void CargaDatosUsuario(ParametrosModeloProperties parametrosData) {
         this.model = parametrosData;

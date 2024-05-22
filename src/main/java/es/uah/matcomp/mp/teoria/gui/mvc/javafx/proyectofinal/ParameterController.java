@@ -113,6 +113,7 @@ public class ParameterController implements Initializable {
             p.CargaDatosUsuario(model);
             p.CargarDatosTablero(modelTablero);
             model.commit();
+            modelTablero.original.CargaDatosParametros(model);
             modelTablero.original.setFilas(model.original.filas);
             modelTablero.original.setColumnas(model.original.columnas);
             modelTablero.original.setListaX(new ListaSimple<ListaSimple<Celda>>());

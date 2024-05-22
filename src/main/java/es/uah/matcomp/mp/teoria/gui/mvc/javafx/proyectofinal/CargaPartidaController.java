@@ -56,7 +56,8 @@ public class CargaPartidaController implements Initializable {
 
             Tablero tab = cargarObjetoDesdeArchivo("DatosCargaPartida0.json", Tablero.class);
             tableroProperties.setOriginal(tab);
-            p.CargaDatosUsuario(tableroProperties.original.model);
+            tableroProperties.original.ArreglarDatosACargar();
+            p.CargaDatosUsuario(tableroProperties.original.parametrosModeloProperties);
             p.CargarDatosTablero(tableroProperties);
             p.inicializar_tablero();
 
