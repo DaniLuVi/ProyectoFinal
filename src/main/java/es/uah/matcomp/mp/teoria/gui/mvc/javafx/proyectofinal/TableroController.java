@@ -813,7 +813,9 @@ public class TableroController implements Initializable {
                 casilla.setOnAction(new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent actionEvent) {
-                        modelTablero.original.modelCelda.setOriginal(celda);
+                        modelCelda.original.setCoordenadas(celda.getCoordenadas());
+                        modelCelda.original.setListaIndividuos(celda.getListaIndividuos());
+                        modelCelda.original.setListaEntornos(celda.getListaEntornos());
                         onCasillaVerDatos(celda);
                         celda.setDataGuardada(modelTablero.original.modelCelda);
                         casilla.setText(celda.getListaIndividuos().getNumeroElementos() + "\n" + celda.getListaEntornos().getNumeroElementos());
