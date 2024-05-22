@@ -647,7 +647,7 @@ public class TableroController implements Initializable {
         tablero.setListaCeldasEntornos(modelTablero.original.listaCeldasEntornos);
         tablero.setParametrosModelo(modelTablero.original.parametrosModeloProperties.original);
         String rutaArchivo = "DatosCargaPartida0.json";
-        // va a haber que guardar la informacion entera de la variable: listaX     (creo que se ve a poder hacer creando un método que recorra la lista)
+
         guardarDatosPartida(rutaArchivo, tablero);
 
         log.info("Los datos se han guardado al fichero");
@@ -801,6 +801,31 @@ public class TableroController implements Initializable {
 
         log.info("Se ha creado el tablero y la lista de listas con éxito");
 
+    }
+    public void cargarTableroGuardado() {
+
+        log.info("Método para cargar el tablero de manera que aparezca toda la info que había guardada");
+
+        for (int i = 1; i <= modelTablero.original.filas; i++) {
+            for (int j = 1; j <= modelTablero.original.columnas; j++) {
+                Button casilla = new Button();
+                Celda celda = modelTablero.original.listaX.getElemento(i - 1).getData().getElemento(j - 1).getData();
+                casilla.setOnAction(new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent actionEvent) {
+                        modelTablero.original.modelCelda.setOriginal(celda);
+                        onCasillaVerDatos(celda);
+                        celda.setDataGuardada(modelTablero.original.modelCelda);
+                        casilla.setText(celda.getListaIndividuos().getNumeroElementos() + "\n" + celda.getListaEntornos().getNumeroElementos());
+                    }
+                });
+                casilla.setMinSize(300 * 2/ model.original.filas, 400 / model.original.columnas);
+                casilla.setMaxSize(300 * 2/ model.original.filas, 400 / model.original.columnas);
+                casilla.setStyle("-fx-border-color: black; -fx-text-alignment: center");
+                casilla.setText(celda.getListaIndividuos().getNumeroElementos() + "\n" + celda.getListaEntornos().getNumeroElementos());
+                tableroDeJuego.add(casilla, i, j);
+            }
+        }
     }
     public void CargaDatosUsuarioLimpio(ParametrosModelo parametrosModelo) {
         this.model.original = parametrosModelo;

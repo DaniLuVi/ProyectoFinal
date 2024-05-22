@@ -59,7 +59,7 @@ public class CargaPartidaController implements Initializable {
             tableroProperties.original.ArreglarDatosACargar();
             p.CargaDatosUsuario(tableroProperties.original.parametrosModeloProperties);
             p.CargarDatosTablero(tableroProperties);
-            p.inicializar_tablero();
+            p.cargarTableroGuardado();
 
             p.setStage(stage);
             stage.show();
