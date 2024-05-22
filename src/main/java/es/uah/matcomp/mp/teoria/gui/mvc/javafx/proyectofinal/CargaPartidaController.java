@@ -1,6 +1,8 @@
 package es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal;
 
+import clases_a_utilizar_de_datos.Celda;
 import clases_a_utilizar_de_datos.Tablero;
+import clases_a_utilizar_de_datos.TableroASerializar;
 import com.google.gson.Gson;
 import estructuras_de_datos_implementadas.listaSimple.ListaSimple;
 import javafx.event.ActionEvent;
@@ -25,6 +27,7 @@ public class CargaPartidaController implements Initializable {
     @FXML
     private MenuButton menuButton = new MenuButton();
     private int num_partidas = 0;
+    private TableroProperties tableroProperties = new TableroProperties();
     public int getNum_partidas() {      // + num_partidas +
 
         log.info("Se obtiene el número de partidas que hay guardadas");
@@ -50,9 +53,13 @@ public class CargaPartidaController implements Initializable {
             stage.setTitle("Tablero de juego");
             stage.setScene(scene);
             TableroController p = fxmlLoader.getController();
-            //p.inicializar_tablero();
 
-            cargarObjetoDesdeArchivo("DatosCargaPartida0.json", Tablero.class);
+            Tablero tab = cargarObjetoDesdeArchivo("DatosCargaPartida0.json", Tablero.class);
+            tableroProperties.setOriginal(tab);
+            p.CargaDatosUsuario(tableroProperties.original.model);
+            p.CargarDatosTablero(tableroProperties);
+            p.inicializar_tablero();
+
             p.setStage(stage);
             stage.show();
 

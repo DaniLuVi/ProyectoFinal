@@ -735,10 +735,19 @@ public class TableroController implements Initializable {
             }
         }
 
-        Tablero tablero = new Tablero(model, modelCelda, modelTablero.original.listaX);
+        TableroASerializar tablero = new TableroASerializar();
+        tablero.setFilas(modelTablero.original.filas);
+        tablero.setColumnas(modelTablero.original.columnas);
+        tablero.setListaX(modelTablero.original.listaX);
+        tablero.setNum_individuos(modelTablero.original.num_individuos);
+        tablero.setCant_entornos(modelTablero.original.cant_entornos);
+        tablero.setNum_turnos(modelTablero.original.num_turnos);
+        tablero.setIds(modelTablero.original.ids);
+        tablero.setListaCeldasIndividuos(modelTablero.original.listaCeldasIndividuos);
+        tablero.setListaCeldasEntornos(modelTablero.original.listaCeldasEntornos);
         String rutaArchivo = "DatosCargaPartida0.json";
         // va a haber que guardar la informacion entera de la variable: listaX     (creo que se ve a poder hacer creando un método que recorra la lista)
-        guardarDatosPartida(rutaArchivo, a);
+        guardarDatosPartida(rutaArchivo, tablero);
 
         log.info("Los datos se han guardado al fichero");
         log.info("Arranque de la ventana para cerrar el programa");

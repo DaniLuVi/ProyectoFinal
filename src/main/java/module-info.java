@@ -11,4 +11,8 @@ module es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal {
     exports es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal;
     opens estructuras_de_datos_implementadas.listaDoblementeEnlazada to com.google.gson;
     exports estructuras_de_datos_implementadas.listaDoblementeEnlazada;
+    opens estructuras_de_datos_implementadas.listaSimple to com.google.gson;
+    exports estructuras_de_datos_implementadas.listaSimple;
+    opens clases_a_utilizar_de_datos to com.google.gson;
+    exports clases_a_utilizar_de_datos;
 }

@@ -12,6 +12,7 @@ import org.apache.logging.log4j.Logger;
 import java.lang.reflect.Type;
 
 public class Tablero implements JsonSerializer<Tablero> {
+    private Tablero tablero;
     public ParametrosModeloProperties model;
     public TableroProperties tableroProperties;
     public CeldaProperties modelCelda = new CeldaProperties();
@@ -27,6 +28,9 @@ public class Tablero implements JsonSerializer<Tablero> {
     public int ids;
     private static final Logger log = LogManager.getLogger(Tablero.class);
     public Tablero() {}
+    public Tablero(Tablero tablero) {
+        this.tablero = tablero;
+    }
     public Tablero(ParametrosModeloProperties parametrosModeloProperties, CeldaProperties modelCelda, ListaSimple<ListaSimple<Celda>> listaX) {
         this.model = parametrosModeloProperties;
         this.modelCelda = modelCelda;
