@@ -137,6 +137,33 @@ public class Tablero implements JsonSerializer<Tablero> {
         this.tableroProperties = tableroProperties;
         tableroProperties.commit();
     }
+    public void establecerTipoIndividuo() {  // hacer que dependiendo del tipo que sea se establezca de esa manera o de otra
+
+        log.info("Método para establecer el tipo de individuo que hay en las celdas de la lista");
+
+        for (int i = 0; i < this.filas; i++) {
+            for (int j = 0; j < this.columnas; j++) {
+                if (this.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos() != 0) {
+                    if (this.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos() == 1) {
+
+                    } else if (this.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos() == 2) {
+
+                    } else if (this.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos() == 3) {
+
+                    }
+                }
+                if (this.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getNumeroElementos() != 0) {
+                    if (this.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getNumeroElementos() == 1) {
+
+                    } else if (this.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getNumeroElementos() == 2) {
+
+                    } else if (this.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getNumeroElementos() == 3) {
+
+                    }
+                }
+            }
+        }
+    }
 
     @Override
     public JsonElement serialize(Tablero tablero, Type type, JsonSerializationContext jsonSerializationContext) {

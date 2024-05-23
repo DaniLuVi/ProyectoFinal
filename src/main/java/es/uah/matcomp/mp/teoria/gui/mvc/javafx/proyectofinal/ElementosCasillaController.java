@@ -76,7 +76,7 @@ public class ElementosCasillaController implements Initializable{
         log.info("Se agrega un individuo tipo básico a la celda asignada");
 
         try {
-            TipoBasico individuo = new TipoBasico(tableroController.getSiguienteID(), tablero.original.num_turnos, modelParametros.original.vidas, modelParametros.original.reproduccion, modelParametros.original.clonado, modelParametros.original.turno_individuo);
+            TipoBasico individuo = new TipoBasico(tableroController.getSiguienteID(), tablero.original.num_turnos, modelParametros.original.vidas, modelParametros.original.reproduccion, modelParametros.original.clonado, modelParametros.original.turno_individuo, "TipoBasico");
             if (individuo1.getText() == "--") {
                 texto1.set("Tipo Individuo: Básico");
                 modelCelda.original.addIndividuo(individuo);
@@ -110,7 +110,7 @@ public class ElementosCasillaController implements Initializable{
         log.info("Se agrega un individuo tipo normal a la celda asignada");
 
         try {
-            TipoNormal individuo = new TipoNormal(tableroController.getSiguienteID(), tablero.original.num_turnos, modelParametros.original.vidas, modelParametros.original.reproduccion, modelParametros.original.clonado, modelParametros.original.turno_individuo);
+            TipoNormal individuo = new TipoNormal(tableroController.getSiguienteID(), tablero.original.num_turnos, modelParametros.original.vidas, modelParametros.original.reproduccion, modelParametros.original.clonado, modelParametros.original.turno_individuo, "TipoNormal");
             if (individuo1.getText() == "--") {
                 texto1.set("Tipo Individuo: Normal");
                 modelCelda.original.addIndividuo(individuo);
@@ -143,7 +143,7 @@ public class ElementosCasillaController implements Initializable{
         log.info("Se agrega un individuo tipo avanzado a la celda asignada");
 
         try {
-            TipoAvanzado individuo = new TipoAvanzado(tableroController.getSiguienteID(), tablero.original.num_turnos, modelParametros.original.vidas, modelParametros.original.reproduccion, modelParametros.original.clonado, modelParametros.original.turno_individuo);
+            TipoAvanzado individuo = new TipoAvanzado(tableroController.getSiguienteID(), tablero.original.num_turnos, modelParametros.original.vidas, modelParametros.original.reproduccion, modelParametros.original.clonado, modelParametros.original.turno_individuo, "TipoAvanzado");
             if (individuo1.getText() == "--") {
                 texto1.set("Tipo Individuo: Avanzado");
                 modelCelda.original.addIndividuo(individuo);
@@ -176,7 +176,7 @@ public class ElementosCasillaController implements Initializable{
         log.info("Se agrega un recurso tipo agua a la celda asignada");
 
         try {
-            Agua entorno = new Agua(3, modelParametros.original.agua);
+            Agua entorno = new Agua(3, modelParametros.original.agua, "Agua");
             if (recurso1.getText() == "--") {
                 texto4.set("Entorno: Agua");
                 modelCelda.original.addEntorno(entorno);
@@ -209,7 +209,7 @@ public class ElementosCasillaController implements Initializable{
         log.info("Se agrega un recurso tipo comida a la celda asignada");
 
         try {
-            Comida entorno = new Comida(3, modelParametros.original.comida);
+            Comida entorno = new Comida(3, modelParametros.original.comida, "Comida");
             if (recurso1.getText() == "--") {
                 texto4.set("Entorno: Comida");
                 modelCelda.original.addEntorno(entorno);
@@ -242,7 +242,7 @@ public class ElementosCasillaController implements Initializable{
         log.info("Se agrega un recurso tipo montaña a la celda asignada");
 
         try {
-            Montaña entorno = new Montaña(3, modelParametros.original.montaña);
+            Montaña entorno = new Montaña(3, modelParametros.original.montaña, "Montaña");
             if (recurso1.getText() == "--") {
                 texto4.set("Entorno: Montaña");
                 modelCelda.original.addEntorno(entorno);
@@ -275,7 +275,7 @@ public class ElementosCasillaController implements Initializable{
         log.info("Se agrega un recurso tipo biblioteca a la celda asignada");
 
         try {
-            Biblioteca entorno = new Biblioteca(3, modelParametros.original.biblioteca);
+            Biblioteca entorno = new Biblioteca(3, modelParametros.original.biblioteca, "Biblioteca");
             if (recurso1.getText() == "--") {
                 texto4.set("Entorno: Biblioteca");
                 modelCelda.original.addEntorno(entorno);
@@ -308,7 +308,7 @@ public class ElementosCasillaController implements Initializable{
         log.info("Se agrega un recurso tipo tesoro a la celda asignada");
 
         try {
-            Tesoro entorno = new Tesoro(3, modelParametros.original.tesoro);
+            Tesoro entorno = new Tesoro(3, modelParametros.original.tesoro, "Tesoro");
             if (recurso1.getText() == "--") {
                 texto4.set("Entorno: Tesoro");
                 modelCelda.original.addEntorno(entorno);
@@ -341,7 +341,7 @@ public class ElementosCasillaController implements Initializable{
         log.info("Se agrega un recurso tipo pozo a la celda asignada");
 
         try {
-            Pozo entorno = new Pozo(3, modelParametros.original.pozo);
+            Pozo entorno = new Pozo(3, modelParametros.original.pozo, "Pozo");
             if (recurso1.getText() == "--") {
                 texto4.set("Entorno: Pozo");
                 modelCelda.original.addEntorno(entorno);

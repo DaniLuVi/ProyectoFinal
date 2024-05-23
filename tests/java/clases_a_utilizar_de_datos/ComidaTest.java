@@ -8,8 +8,8 @@ class ComidaTest {
 
     @Test
     void modificarIndividuo() {
-        Comida c = new Comida(3, 12);
-        Individuo i = new Individuo(01, 3, 4, 40, 35, 0);
+        Comida c = new Comida(3, 12, "Comida");
+        Individuo i = new Individuo(01, 3, 4, 40, 35, 0, "TipoAvanzado");
         assertDoesNotThrow(()-> c.modificarIndividuo(i));
         assertEquals(14, i.getVidas(), "Estas no es el nuevo número de vidas que esperaba");
     }

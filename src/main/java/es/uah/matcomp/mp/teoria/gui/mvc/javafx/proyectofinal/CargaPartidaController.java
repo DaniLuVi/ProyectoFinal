@@ -34,7 +34,6 @@ public class CargaPartidaController implements Initializable {
         log.info("Se obtiene el número de partidas que hay guardadas");
 
         for (num_partidas = 0; cargarObjetoDesdeArchivo("DatosCargaPartida" + num_partidas + ".json", TableroASerializar.class) != null; num_partidas++) {
-            num_partidas++;
         }
 
         log.info("Se retornan el número de partidas guardadas que hay");
@@ -56,6 +55,7 @@ public class CargaPartidaController implements Initializable {
             TableroController p = fxmlLoader.getController();
 
             Tablero tab = cargarObjetoDesdeArchivo(rutaArchivo, Tablero.class);
+
             tableroProperties.setOriginal(tab);
             tableroProperties.original.ArreglarDatosACargar();
             p.CargaDatosUsuario(tableroProperties.original.parametrosModeloProperties);

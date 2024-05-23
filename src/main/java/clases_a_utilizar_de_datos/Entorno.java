@@ -6,10 +6,12 @@ public class Entorno extends ElementoLDE<Entorno> {
     private int tiempo_aparicion;
 
     private int probabilidad;
+    private String tipo;
 
-    public Entorno(int tiempo_aparicion, int probabilidad) {
+    public Entorno(int tiempo_aparicion, int probabilidad, String tipo) {
         this.tiempo_aparicion = tiempo_aparicion;
         this.probabilidad = probabilidad;
+        this.tipo = tipo;
     }
     public Entorno() {}
 
@@ -27,6 +29,29 @@ public class Entorno extends ElementoLDE<Entorno> {
 
     public void setProbabilidad(int probabilidad) {
         this.probabilidad = probabilidad;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+    public void TipoEntorno() {
+        if (tipo == "Agua") {
+            Agua agua = (Agua) this;
+        } else if (tipo == "Comida") {
+            Comida comida = (Comida) this;
+        } else if (tipo == "Montaña") {
+            Montaña montaña = (Montaña) this;
+        } else if (tipo == "Biblioteca") {
+            Biblioteca biblioteca = (Biblioteca) this;
+        } else if (tipo == "Tesoro") {
+            Tesoro tesoro = (Tesoro) this;
+        } else if (tipo == "Pozo") {
+            Pozo pozo = (Pozo) this;
+        }
     }
 
     public String toString(Entorno entorno) {

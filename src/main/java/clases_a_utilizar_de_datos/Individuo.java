@@ -15,14 +15,16 @@ public class Individuo extends ElementoLDE<Individuo> implements JsonSerializer<
     private int reproduccion;
     private int clonacion;
     private int turno_individuo;
+    private String tipo;
     public Individuo() {}
-    public Individuo(int id, int generacion, int vidas, int reproduccion, int clonacion, int turno_individuo) {
+    public Individuo(int id, int generacion, int vidas, int reproduccion, int clonacion, int turno_individuo, String tipo) {
         this.id = id;
         this.generacion = generacion;
         this.vidas = vidas;
         this.reproduccion = reproduccion;
         this.clonacion = clonacion;
         this.turno_individuo = turno_individuo;
+        this.tipo = tipo;
     }
 
     public int getId() {
@@ -71,6 +73,23 @@ public class Individuo extends ElementoLDE<Individuo> implements JsonSerializer<
 
     public void setTurno_individuo(int turno_individuo) {
         this.turno_individuo = turno_individuo;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+    public void TipoIndividuo() {
+        if (tipo == "TipoBasico") {
+            TipoBasico tipoBasico = (TipoBasico) this;
+        } else if (tipo == "TipoNormal") {
+            TipoNormal tipoNormal = (TipoNormal) this;
+        } else if (tipo == "TipoAvanzado") {
+            TipoAvanzado tipoAvanzado = (TipoAvanzado) this;
+        }
     }
 
     public int getMuerte() {

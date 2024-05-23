@@ -8,8 +8,8 @@ class TesoroTest {
 
     @Test
     void modificarIndividuo() {
-        Tesoro t = new Tesoro(3, 12);
-        Individuo i = new Individuo(1, 3, 4, 50, 25);
+        Tesoro t = new Tesoro(3, 12, "Tesoro");
+        Individuo i = new Individuo(1, 3, 4, 50, 25, 3, "TipoAvanzado");
         assertDoesNotThrow(()-> t.modificarIndividuo(i));
         assertEquals(65, i.getReproduccion(), "Este no es el % de reproducción que esperaba");
     }

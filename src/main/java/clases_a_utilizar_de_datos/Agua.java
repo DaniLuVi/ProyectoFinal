@@ -2,8 +2,8 @@ package clases_a_utilizar_de_datos;
 
 public class Agua extends Entorno{
 
-    public Agua(int tiempo_aparicion, int probabilidad) {
-        super(tiempo_aparicion, probabilidad);
+    public Agua(int tiempo_aparicion, int probabilidad, String tipo) {
+        super(tiempo_aparicion, probabilidad, tipo);
     }
     public Agua() {}
     @Override

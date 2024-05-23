@@ -8,8 +8,8 @@ class BibliotecaTest {
 
     @Test
     void modificarIndividuo() {
-        Biblioteca b = new Biblioteca(3, 12);
-        Individuo i = new Individuo(01, 3, 4, 40, 35, 0);
+        Biblioteca b = new Biblioteca(3, 12, "Biblioteca");
+        Individuo i = new Individuo(01, 3, 4, 40, 35, 0, "TipoAvanzado");
         assertDoesNotThrow(()-> b.modificarIndividuo(i));
         assertEquals(45, i.getClonacion(), "Este no es el % de clonación que esperaba");
     }

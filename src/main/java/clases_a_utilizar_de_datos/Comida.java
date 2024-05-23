@@ -1,8 +1,8 @@
 package clases_a_utilizar_de_datos;
 
 public class Comida extends Entorno{
-    public Comida(int tiempo_aparicion, int probabilidad) {
-        super(tiempo_aparicion, probabilidad);
+    public Comida(int tiempo_aparicion, int probabilidad, String tipo) {
+        super(tiempo_aparicion, probabilidad, tipo);
     }
     public Comida() {}
     @Override

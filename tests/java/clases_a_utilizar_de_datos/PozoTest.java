@@ -8,8 +8,8 @@ class PozoTest {
 
     @Test
     void modificarIndividuo() {
-        Pozo p = new Pozo(3, 12);
-        Individuo i = new Individuo(01, 3, 4, 40, 35);
+        Pozo p = new Pozo(3, 12, "Pozo");
+        Individuo i = new Individuo(01, 3, 4, 40, 35, 3, "TipoAvanzado");
         assertDoesNotThrow(()-> p.modificarIndividuo(i));
         assertEquals(0, i.getVidas(), "Estas no es el nuevo número de vidas que esperaba");
     }
