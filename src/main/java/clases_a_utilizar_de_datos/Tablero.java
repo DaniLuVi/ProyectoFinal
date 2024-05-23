@@ -145,7 +145,7 @@ public class Tablero implements JsonSerializer<Tablero> {
             for (int j = 0; j < this.columnas; j++) {
                 if (this.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos() != 0) {
                     if (this.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos() == 1) {
-                        if (this.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato().getTipo() == "TipoBasico") {
+                        if ((String) this.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato().getTipo() == "TipoBasico") {  // no entiendo porque no entra aqui, pero ya lo tengo programado y si mañana lo saco ta lo tendría hecho
                             TipoBasico tipoBasico = (TipoBasico) this.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato();
                         } else if (this.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato().getTipo() == "TipoNormal") {
                             TipoNormal tipoNormal = (TipoNormal) this.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato();
