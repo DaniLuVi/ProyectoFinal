@@ -33,7 +33,7 @@ public class CargaPartidaController implements Initializable {
 
         log.info("Se obtiene el número de partidas que hay guardadas");
 
-        if (cargarObjetoDesdeArchivo("DatosCargaPartida" + num_partidas + ".json", ParametrosModelo.class) != null) {
+        for (num_partidas = 0; cargarObjetoDesdeArchivo("DatosCargaPartida" + num_partidas + ".json", TableroASerializar.class) != null; num_partidas++) {
             num_partidas++;
         }
 
@@ -115,7 +115,7 @@ public class CargaPartidaController implements Initializable {
         int valor = getNum_partidas();
         for (int i = 0; i < valor; i++) {
 
-            MenuItem menuItem = new MenuItem("Partida" + num_partidas);
+            MenuItem menuItem = new MenuItem("Partida" + (i + 1));
             rutaArchivo = "DatosCargaPartida" + i + ".json";
             menuItem.setOnAction(new EventHandler<ActionEvent>() {
                 @Override

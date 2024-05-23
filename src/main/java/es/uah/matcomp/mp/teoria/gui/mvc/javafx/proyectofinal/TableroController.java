@@ -656,8 +656,7 @@ public class TableroController implements Initializable {
         tablero.setParametrosModelo(modelTablero.original.parametrosModeloProperties.original);
 
         int contador = 0;
-        File file = new File("DatosCargaPartida" + contador + ".json");
-        while (file.exists() == true) {
+        while (new File("DatosCargaPartida" + contador + ".json").exists()) {
             contador++;
         }
         String rutaArchivo = "DatosCargaPartida" + contador + ".json";
