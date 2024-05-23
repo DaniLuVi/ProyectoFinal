@@ -55,7 +55,7 @@ public class CargaPartidaController implements Initializable {
             TableroController p = fxmlLoader.getController();
 
             Tablero tab = cargarObjetoDesdeArchivo(rutaArchivo, Tablero.class);
-
+            tab.establecerTipos();
             tableroProperties.setOriginal(tab);
             tableroProperties.original.ArreglarDatosACargar();
             p.CargaDatosUsuario(tableroProperties.original.parametrosModeloProperties);
