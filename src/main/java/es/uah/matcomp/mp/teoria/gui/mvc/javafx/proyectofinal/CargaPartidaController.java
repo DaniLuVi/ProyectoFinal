@@ -43,7 +43,7 @@ public class CargaPartidaController implements Initializable {
     }
     private static final Logger log = LogManager.getLogger(CargaPartidaController.class);
     @FXML
-    protected void onCargaPartida() {
+    protected void onCargaPartida(String rutaArchivo) {
 
         log.info("Arranque de la ventana del tablero de juego");
 
@@ -120,7 +120,8 @@ public class CargaPartidaController implements Initializable {
             menuItem.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent actionEvent) {
-                    onCargaPartida();
+
+                    onCargaPartida(rutaArchivo);
                 }
             });
             menuButton.setText("Partidas guardadas");

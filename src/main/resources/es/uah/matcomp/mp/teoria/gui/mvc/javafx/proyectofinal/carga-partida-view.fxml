@@ -11,6 +11,6 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <MenuButton fx:id="menuButton" alignment="CENTER" layoutX="300.0" layoutY="175.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="134.0" textAlignment="CENTER" />
+      <MenuButton fx:id="menuButton" alignment="CENTER" layoutX="353.0" layoutY="305.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="134.0" textAlignment="CENTER" />
    </children>
 </AnchorPane>
