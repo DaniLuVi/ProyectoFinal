@@ -218,7 +218,7 @@ public class TableroController implements Initializable {
         log.info("Los tiempos de aparición de los entornos/recursos han sido actualizados");
 
     }
-    private void movimiento_individuo() throws ArrayIndexOutOfBoundsException, IllegalArgumentException{       // tengo que referenciar a los que ya se han movido, para que ya no se vuelvan a mover en ese turno
+    private void movimiento_individuo() throws ArrayIndexOutOfBoundsException, IllegalArgumentException{
 
         log.info("Se realizan los movimientos de todos los individuos que hay en la simualción");
 
@@ -286,7 +286,7 @@ public class TableroController implements Initializable {
             a.printStackTrace();
         }
     }
-    private void mejoras() {     // ver que funciona correctamente
+    private void mejoras() {
 
         log.info("Se realizan las mejoras que se puedan a los individuos de la simulación");
 
@@ -369,7 +369,7 @@ public class TableroController implements Initializable {
 
         log.info("Las maejoras correspondientes se han realizado correctamente");
     }
-    private void hay_reproduccion() {         // creo que este funciona correctamente, pero asegurarme
+    private void hay_reproduccion() {
 
         log.info("Se hace (si se puede dar) las reproducciones que tenga que haber entre los individuos de la simulación");
 
@@ -409,7 +409,7 @@ public class TableroController implements Initializable {
         log.info("La reproducción entre los individuos correspondientes se ha realizado");
 
     }
-    private void hay_clonacion() {     // asegurarme que funcione bien
+    private void hay_clonacion() {
 
         log.info("Se comprueba si se puede hacer (y se hace en caso afirmativo) la clonación de individuos de la simulación");
 
@@ -421,15 +421,21 @@ public class TableroController implements Initializable {
                     int valor = num_random.nextInt(0, 100);
                     int pro_clonado = modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato().getClonacion();
                     if (valor <= pro_clonado) {
-                        Individuo individuo_clonar = modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato();
-                        individuo_clonar.setGeneracion(modelTablero.original.num_turnos + 1);
-                        individuo_clonar.setId(this.getSiguienteID());
                         if (modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoBasico == true) {
-                            modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().add(individuo_clonar);
+                            TipoBasico tipoBasico = new TipoBasico(modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato().getId(), modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato().getGeneracion(), modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato().getVidas(), modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato().getReproduccion(), modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato().getClonacion(), modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato().getTurno_individuo());
+                            tipoBasico.setGeneracion(modelTablero.original.num_turnos + 1);
+                            tipoBasico.setId(this.getSiguienteID());
+                            modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().add(tipoBasico);
                         } else if (modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoNormal == true) {
-                            modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().add(individuo_clonar);
+                            TipoNormal tipoNormal = new TipoNormal(modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato().getId(), modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato().getGeneracion(), modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato().getVidas(), modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato().getReproduccion(), modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato().getClonacion(), modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato().getTurno_individuo());
+                            tipoNormal.setGeneracion(modelTablero.original.num_turnos + 1);
+                            tipoNormal.setId(this.getSiguienteID());
+                            modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().add(tipoNormal);
                         } else if (modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoAvanzado == true) {
-                            modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().add(individuo_clonar);
+                            TipoAvanzado tipoAvanzado = new TipoAvanzado(modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato().getId(), modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato().getGeneracion(), modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato().getVidas(), modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato().getReproduccion(), modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato().getClonacion(), modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato().getTurno_individuo());
+                            tipoAvanzado.setGeneracion(modelTablero.original.num_turnos + 1);
+                            tipoAvanzado.setId(this.getSiguienteID());
+                            modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().add(tipoAvanzado);
                         }
                     }
                     modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato().setClonacion(pro_clonado - 10);
@@ -443,7 +449,7 @@ public class TableroController implements Initializable {
         log.info("Las clonaciones correspondientes han sido realizadas");
 
     }
-    private void hay_individuos_a_desaparecer() {    // ver que funcione bien
+    private void hay_individuos_a_desaparecer() {
 
         log.info("Se comprueba si hay individuos que tengan que desaparecer de la simulación");
 
@@ -464,7 +470,7 @@ public class TableroController implements Initializable {
         log.info("Han sido eliminados los individuos correspondientes de la simulación");
 
     }
-    private void habra_nuevos_recursos() {     // ver que funcione bien
+    private void habra_nuevos_recursos() {
 
         log.info("Se comprueba si en cada casilla deberán aparecer nuevos recursos");
 
