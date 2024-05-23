@@ -17,6 +17,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
@@ -647,7 +648,13 @@ public class TableroController implements Initializable {
         tablero.setListaCeldasIndividuos(modelTablero.original.listaCeldasIndividuos);
         tablero.setListaCeldasEntornos(modelTablero.original.listaCeldasEntornos);
         tablero.setParametrosModelo(modelTablero.original.parametrosModeloProperties.original);
-        String rutaArchivo = "DatosCargaPartida0.json";
+
+        int contador = 0;
+        File file = new File("DatosCargaPartida" + contador + ".json");
+        while (file.exists() == true) {
+            contador++;
+        }
+        String rutaArchivo = "DatosCargaPartida" + contador + ".json";
 
         guardarDatosPartida(rutaArchivo, tablero);
 

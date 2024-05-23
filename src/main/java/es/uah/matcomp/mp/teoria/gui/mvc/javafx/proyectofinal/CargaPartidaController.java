@@ -27,6 +27,7 @@ public class CargaPartidaController implements Initializable {
     @FXML
     private MenuButton menuButton = new MenuButton();
     private int num_partidas = 0;
+    private String rutaArchivo;
     private TableroProperties tableroProperties = new TableroProperties();
     public int getNum_partidas() {      // + num_partidas +
 
@@ -54,7 +55,7 @@ public class CargaPartidaController implements Initializable {
             stage.setScene(scene);
             TableroController p = fxmlLoader.getController();
 
-            Tablero tab = cargarObjetoDesdeArchivo("DatosCargaPartida0.json", Tablero.class);
+            Tablero tab = cargarObjetoDesdeArchivo(rutaArchivo, Tablero.class);
             tableroProperties.setOriginal(tab);
             tableroProperties.original.ArreglarDatosACargar();
             p.CargaDatosUsuario(tableroProperties.original.parametrosModeloProperties);
@@ -115,7 +116,7 @@ public class CargaPartidaController implements Initializable {
         for (int i = 0; i < valor; i++) {
 
             MenuItem menuItem = new MenuItem("Partida" + num_partidas);
-
+            rutaArchivo = "DatosCargaPartida" + i + ".json";
             menuItem.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent actionEvent) {
