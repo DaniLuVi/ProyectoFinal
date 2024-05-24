@@ -2,6 +2,7 @@ package es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal;
 
 import clases_a_utilizar_de_datos.*;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import estructuras_de_datos_implementadas.grafo.Grafo;
 import estructuras_de_datos_implementadas.listaDoblementeEnlazada.ElementoLDE;
 import estructuras_de_datos_implementadas.listaDoblementeEnlazada.ListaDoblementeEnlazada;
@@ -698,8 +699,12 @@ public class TableroController implements Initializable {
         log.info("Proceso para guardar los datos del programa a un fichero");
 
         Gson gson = new Gson();
+        Gson gson1 = new GsonBuilder().registerTypeAdapter(Individuo.class, new IndividuoAdaptado()).create();
+        Gson gson2 = new GsonBuilder().registerTypeAdapter(Entorno.class, new EntornoAdaptado()).create();
         try (FileWriter writer = new FileWriter(rutaArchivo)) {
             gson.toJson(objeto, writer);
+            gson1.toJson(objeto, writer);
+            gson2.toJson(objeto, writer);
 
             log.info("Enviando traza de ejecución");
             log.debug("Enviado un debug");

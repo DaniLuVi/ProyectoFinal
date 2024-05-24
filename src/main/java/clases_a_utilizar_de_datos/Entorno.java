@@ -39,18 +39,22 @@ public class Entorno extends ElementoLDE<Entorno> {
         this.tipo = tipo;
     }
     public void TipoEntorno() {
-        if (tipo == "Agua") {
-            Agua agua = (Agua) this;
-        } else if (tipo == "Comida") {
-            Comida comida = (Comida) this;
-        } else if (tipo == "Montaña") {
-            Montaña montaña = (Montaña) this;
-        } else if (tipo == "Biblioteca") {
-            Biblioteca biblioteca = (Biblioteca) this;
-        } else if (tipo == "Tesoro") {
-            Tesoro tesoro = (Tesoro) this;
-        } else if (tipo == "Pozo") {
-            Pozo pozo = (Pozo) this;
+        try {
+            if (getTipo() == "Agua") {
+                Agua agua = (Agua) this;
+            } else if (getTipo() == "Comida") {
+                Comida comida = (Comida) this;
+            } else if (getTipo() == "Montaña") {
+                Montaña montaña = (Montaña) this;
+            } else if (getTipo() == "Biblioteca") {
+                Biblioteca biblioteca = (Biblioteca) this;
+            } else if (getTipo() == "Tesoro") {
+                Tesoro tesoro = (Tesoro) this;
+            } else if (getTipo() == "Pozo") {
+                Pozo pozo = (Pozo) this;
+            }
+        } catch (ClassCastException e) {
+            e.printStackTrace();
         }
     }
 

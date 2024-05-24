@@ -137,7 +137,7 @@ public class Tablero implements JsonSerializer<Tablero> {
         this.tableroProperties = tableroProperties;
         tableroProperties.commit();
     }
-    public void establecerTipos() {
+    public void establecerTipos() {   // cambiar este método(poner que se aplique el método creado en la clase Individuo)
 
         log.info("Método para establecer el tipo de individuo que hay en las celdas de la lista");
 
@@ -145,81 +145,27 @@ public class Tablero implements JsonSerializer<Tablero> {
             for (int j = 0; j < this.columnas; j++) {
                 if (this.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos() != 0) {
                     if (this.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos() == 1) {
-                        if ((String) this.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato().getTipo() == "TipoBasico") {  // no entiendo porque no entra aqui, pero ya lo tengo programado y si mañana lo saco ta lo tendría hecho
-                            TipoBasico tipoBasico = (TipoBasico) this.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato();
-                        } else if (this.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato().getTipo() == "TipoNormal") {
-                            TipoNormal tipoNormal = (TipoNormal) this.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato();
-                        } else if (this.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato().getTipo() == "TipoAvanzado") {
-                            TipoAvanzado tipoAvanzado = (TipoAvanzado) this.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato();
-                        }
+                        this.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato().TipoIndividuo();
                     } else if (this.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos() == 2) {
                         for (int k = 0; k < 2; k++) {
-                            if (this.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato().getTipo() == "TipoBasico") {
-                                TipoBasico tipoBasico = (TipoBasico) this.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato();
-                            } else if (this.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato().getTipo() == "TipoNormal") {
-                                TipoNormal tipoNormal = (TipoNormal) this.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato();
-                            } else if (this.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato().getTipo() == "TipoAvanzado") {
-                                TipoAvanzado tipoAvanzado = (TipoAvanzado) this.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato();
-                            }
+                            this.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato().TipoIndividuo();
                         }
                     } else if (this.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos() == 3) {
                         for (int k = 0; k < 3; k++) {
-                            if (this.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato().getTipo() == "TipoBasico") {
-                                TipoBasico tipoBasico = (TipoBasico) this.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato();
-                            } else if (this.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato().getTipo() == "TipoNormal") {
-                                TipoNormal tipoNormal = (TipoNormal) this.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato();
-                            } else if (this.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato().getTipo() == "TipoAvanzado") {
-                                TipoAvanzado tipoAvanzado = (TipoAvanzado) this.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato();
-                            }
+                            this.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato().TipoIndividuo();
                         }
                     }
                 }
                 if (this.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getNumeroElementos() != 0) {
                     if (this.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getNumeroElementos() == 1) {
-                        if (this.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(0).getDato().getTipo() == "Agua") {
-                            Agua agua = (Agua) this.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(0).getDato();
-                        } else if (this.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(0).getDato().getTipo() == "Comida") {
-                            Comida comida = (Comida) this.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(0).getDato();
-                        } else if (this.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(0).getDato().getTipo() == "Montaña") {
-                            Montaña montaña = (Montaña) this.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(0).getDato();
-                        } else if (this.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(0).getDato().getTipo() == "Biblioteca") {
-                            Biblioteca biblioteca = (Biblioteca) this.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(0).getDato();
-                        } else if (this.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(0).getDato().getTipo() == "Pozo") {
-                            Pozo pozo = (Pozo) this.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(0).getDato();
-                        } else if (this.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(0).getDato().getTipo() == "Tesoro") {
-                            Tesoro tesoro = (Tesoro) this.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(0).getDato();
-                        }
+                        this.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(0).getDato().TipoEntorno();
                     } else if (this.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getNumeroElementos() == 2) {
                         for (int k = 0; k < 2; k++) {
-                            if (this.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(k).getDato().getTipo() == "Agua") {
-                                Agua agua = (Agua) this.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(0).getDato();
-                            } else if (this.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(k).getDato().getTipo() == "Comida") {
-                                Comida comida = (Comida) this.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(0).getDato();
-                            } else if (this.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(k).getDato().getTipo() == "Montaña") {
-                                Montaña montaña = (Montaña) this.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(0).getDato();
-                            } else if (this.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(k).getDato().getTipo() == "Biblioteca") {
-                                Biblioteca biblioteca = (Biblioteca) this.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(0).getDato();
-                            } else if (this.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(k).getDato().getTipo() == "Pozo") {
-                                Pozo pozo = (Pozo) this.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(0).getDato();
-                            } else if (this.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(k).getDato().getTipo() == "Tesoro") {
-                                Tesoro tesoro = (Tesoro) this.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(0).getDato();
-                            }
+                            this.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(0).getDato().TipoEntorno();
                         }
                     } else if (this.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getNumeroElementos() == 3) {
                         for (int k = 0; k < 3; k++) {
-                            if (this.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(k).getDato().getTipo() == "Agua") {
-                                Agua agua = (Agua) this.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(0).getDato();
-                            } else if (this.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(k).getDato().getTipo() == "Comida") {
-                                Comida comida = (Comida) this.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(0).getDato();
-                            } else if (this.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(k).getDato().getTipo() == "Montaña") {
-                                Montaña montaña = (Montaña) this.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(0).getDato();
-                            } else if (this.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(k).getDato().getTipo() == "Biblioteca") {
-                                Biblioteca biblioteca = (Biblioteca) this.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(0).getDato();
-                            } else if (this.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(k).getDato().getTipo() == "Pozo") {
-                                Pozo pozo = (Pozo) this.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(0).getDato();
-                            } else if (this.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(k).getDato().getTipo() == "Tesoro") {
-                                Tesoro tesoro = (Tesoro) this.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(0).getDato();
-                            }
+                            this.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(0).getDato().TipoEntorno();
                         }
                     }
                 }

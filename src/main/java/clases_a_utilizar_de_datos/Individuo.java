@@ -83,12 +83,16 @@ public class Individuo extends ElementoLDE<Individuo> implements JsonSerializer<
         this.tipo = tipo;
     }
     public void TipoIndividuo() {
-        if (tipo == "TipoBasico") {
-            TipoBasico tipoBasico = (TipoBasico) this;
-        } else if (tipo == "TipoNormal") {
-            TipoNormal tipoNormal = (TipoNormal) this;
-        } else if (tipo == "TipoAvanzado") {
-            TipoAvanzado tipoAvanzado = (TipoAvanzado) this;
+        try {
+            if (getTipo() == "TipoBasico") {
+                TipoBasico tipoBasico = TipoBasico.class.cast(this);
+            } else if (getTipo() == "TipoNormal") {
+                TipoNormal tipoNormal = TipoNormal.class.cast(this);
+            } else if (getTipo() == "TipoAvanzado") {
+                TipoAvanzado tipoAvanzado = TipoAvanzado.class.cast(this);
+            }
+        } catch (ClassCastException e) {
+            e.printStackTrace();
         }
     }
 
