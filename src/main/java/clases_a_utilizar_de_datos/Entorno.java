@@ -1,8 +1,11 @@
 package clases_a_utilizar_de_datos;
 
+import com.google.gson.*;
 import estructuras_de_datos_implementadas.listaDoblementeEnlazada.ElementoLDE;
 
-public class Entorno extends ElementoLDE<Entorno> {
+import java.lang.reflect.Type;
+
+public class Entorno extends ElementoLDE<Entorno> implements JsonSerializer<Entorno>, JsonDeserializer<Entorno> {
     private int tiempo_aparicion;
 
     private int probabilidad;
@@ -94,4 +97,14 @@ public class Entorno extends ElementoLDE<Entorno> {
     }
 
     public void modificarIndividuo(Individuo individuo) {}
+
+    @Override
+    public Entorno deserialize(JsonElement jsonElement, Type type, JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {
+        return null;
+    }
+
+    @Override
+    public JsonElement serialize(Entorno entorno, Type type, JsonSerializationContext jsonSerializationContext) {
+        return null;
+    }
 }

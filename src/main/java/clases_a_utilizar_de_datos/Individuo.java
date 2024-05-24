@@ -7,7 +7,7 @@ import org.apache.logging.log4j.Logger;
 
 import java.lang.reflect.Type;
 
-public class Individuo extends ElementoLDE<Individuo> implements JsonSerializer<Individuo> {
+public class Individuo extends ElementoLDE<Individuo> implements JsonSerializer<Individuo>, JsonDeserializer<Individuo> {
     private static final Logger log = LogManager.getLogger(Individuo.class);
     private int id;
     private int generacion;
@@ -137,14 +137,33 @@ public class Individuo extends ElementoLDE<Individuo> implements JsonSerializer<
         log.info("Se serializa un individuo a JSON");
 
         JsonObject individuoAserializar = new JsonObject();
-        individuoAserializar.add("id", new JsonPrimitive(individuo.id));
-        individuoAserializar.add("generacion", new JsonPrimitive(individuo.generacion));
-        individuoAserializar.add("vidas", new JsonPrimitive(individuo.vidas));
-        individuoAserializar.add("reproduccion", new JsonPrimitive(individuo.reproduccion));
-        individuoAserializar.add("clonacion", new JsonPrimitive(individuo.clonacion));
-        individuoAserializar.add("turno_individuo", new JsonPrimitive(individuo.turno_individuo));
+        individuoAserializar.addProperty("tipo", individuo.getClass().descriptorString());
+        individuoAserializar.add("data", jsonSerializationContext.serialize(individuo));
+
+        log.info("Individuo serializado");
 
         return individuoAserializar;
     }
 
+    @Override
+    public Individuo deserialize(JsonElement jsonElement, Type type, JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {
+
+        log.info("Se deserializa de JSON a un individuo");
+
+        JsonObject individuoADeserializar = jsonElement.getAsJsonObject();
+        if (individuoADeserializar.get("tipo").getAsString().contains("TipoBasico")) {
+            return jsonDeserializationContext.deserialize(individuoADeserializar.get("data"), TipoBasico.class);
+        } else if (individuoADeserializar.get("tipo").getAsString().contains("TipoNormal")) {
+            return jsonDeserializationContext.deserialize(individuoADeserializar.get("data"), TipoNormal.class);
+        } else if (individuoADeserializar.get("tipo").getAsString().contains("TipoAvanzado")) {
+            return jsonDeserializationContext.deserialize(individuoADeserializar.get("data"), TipoAvanzado.class);
+        } else {
+
+            log.info("Se ha dado un error al encontrar el tipo de individiduo");
+            log.error("Se ha producido un error");
+            log.fatal("Se ha producido un error fatal");
+
+            throw new JsonParseException("No se ha encontrado el tipo de individuo");
+        }
+    }
 }

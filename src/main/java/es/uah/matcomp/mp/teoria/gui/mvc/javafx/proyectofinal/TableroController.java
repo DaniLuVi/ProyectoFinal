@@ -345,11 +345,17 @@ public class TableroController implements Initializable {
                                 modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(l).getDato().modificarIndividuo(modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato());
                                 modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(l).getDato().modificarIndividuo(modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(1).getDato());
                                 modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(l).getDato().modificarIndividuo(modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(2).getDato());
+                                modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().del(2);
+                                modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().del(1);
+                                modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().del(0);
                             } else if (modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos() == 2) {
                                 modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(l).getDato().modificarIndividuo(modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato());
                                 modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(l).getDato().modificarIndividuo(modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(1).getDato());
+                                modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().del(1);
+                                modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().del(0);
                             } else if (modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos() == 1) {
                                 modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(l).getDato().modificarIndividuo(modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato());
+                                modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().del(0);
                             }
                         } else if (modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaEntornos().getElemento(l).getDato() instanceof Tesoro == true) {
                             if (modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos() == 3) {
@@ -699,12 +705,8 @@ public class TableroController implements Initializable {
         log.info("Proceso para guardar los datos del programa a un fichero");
 
         Gson gson = new Gson();
-        Gson gson1 = new GsonBuilder().registerTypeAdapter(Individuo.class, new IndividuoAdaptado()).create();
-        Gson gson2 = new GsonBuilder().registerTypeAdapter(Entorno.class, new EntornoAdaptado()).create();
         try (FileWriter writer = new FileWriter(rutaArchivo)) {
             gson.toJson(objeto, writer);
-            gson1.toJson(objeto, writer);
-            gson2.toJson(objeto, writer);
 
             log.info("Enviando traza de ejecución");
             log.debug("Enviado un debug");
