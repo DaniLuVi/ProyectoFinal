@@ -95,6 +95,7 @@ public class TableroController implements Initializable {
             modelTablero.original.num_turnos++;
             turnos.setText("Turnos: " + modelTablero.original.num_turnos);
             modelTablero.commit();
+            model.original.turno_individuo++;
 
             log.info("El bucle de control se ha completado con éxito");
 
@@ -246,7 +247,7 @@ public class TableroController implements Initializable {
                             int turno = model.original.turno_individuo + 1;
                             individuo_cambiar.setTurno_individuo(turno++);
                             individuo_cambiar.setGeneracion(modelTablero.original.num_turnos + 1);
-                        } else if ((modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoNormal == true) && (individuo_cambiar.getTurno_individuo() == model.original.turno_individuo)) {
+                        } else if ((modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoNormal == true) && (individuo_cambiar.getTurno_individuo() == model.original.turno_individuo) || ((modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoAvanzado == true) && (individuo_cambiar.getTurno_individuo() == model.original.turno_individuo))) {
                             int numero_celdas_con_entornos = getCeldasConRecursos().getNumeroElementos();
                             Random randomNormal = new Random();
                             int opcion = randomNormal.nextInt(0, numero_celdas_con_entornos);
@@ -268,8 +269,7 @@ public class TableroController implements Initializable {
                             int turno = model.original.turno_individuo + 1;
                             individuo_cambiar.setTurno_individuo(turno++);
                             individuo_cambiar.setGeneracion(modelTablero.original.num_turnos + 1);
-                        } else if ((modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoAvanzado == true) && (individuo_cambiar.getTurno_individuo() == model.original.turno_individuo)) {
-
+                       }/*  else if ((modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoAvanzado == true) && (individuo_cambiar.getTurno_individuo() == model.original.turno_individuo)) {
                             int numero_celdas_con_entornos = getCeldasConRecursos().getNumeroElementos();
                             Random randomNormal = new Random();
                             int opcion = randomNormal.nextInt(0, numero_celdas_con_entornos);
@@ -294,7 +294,7 @@ public class TableroController implements Initializable {
                             int turno = model.original.turno_individuo + 1;
                             individuo_cambiar.setTurno_individuo(turno++);
                             individuo_cambiar.setGeneracion(modelTablero.original.num_turnos + 1);
-                        }
+                        } */
                     }
                 }
             }
