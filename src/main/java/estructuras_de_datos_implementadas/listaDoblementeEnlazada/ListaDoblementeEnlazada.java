@@ -7,7 +7,10 @@ public class ListaDoblementeEnlazada<TipoDato> {
 
     }
     public boolean isVacia() {
-        return primero == null;
+        if ((primero == null) || (primero.getDato() == null)) {
+            return true;
+        }
+        return false;
     }
     public void Vaciar() {
         while (primero != null) {
