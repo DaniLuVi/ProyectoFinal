@@ -1,9 +1,8 @@
 package es.uah.matcomp.mp.teoria.gui.mvc.javafx.proyectofinal;
 
-import clases_a_utilizar_de_datos.Celda;
-import clases_a_utilizar_de_datos.Tablero;
-import clases_a_utilizar_de_datos.TableroASerializar;
+import clases_a_utilizar_de_datos.*;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import estructuras_de_datos_implementadas.listaSimple.ListaSimple;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -42,7 +41,7 @@ public class CargaPartidaController implements Initializable {
     }
     private static final Logger log = LogManager.getLogger(CargaPartidaController.class);
     @FXML
-    protected void onCargaPartida(String rutaArchivo) {
+    protected void onCargaPartida(int ah) {
 
         log.info("Arranque de la ventana del tablero de juego");
 
@@ -54,6 +53,7 @@ public class CargaPartidaController implements Initializable {
             stage.setScene(scene);
             TableroController p = fxmlLoader.getController();
 
+            rutaArchivo = "DatosCargaPartida" + ah + ".json";
             Tablero tab = cargarObjetoDesdeArchivo(rutaArchivo, Tablero.class);
             tab.establecerTipos();
             tableroProperties.setOriginal(tab);
@@ -116,12 +116,14 @@ public class CargaPartidaController implements Initializable {
         for (int i = 0; i < valor; i++) {
 
             MenuItem menuItem = new MenuItem("Partida" + (i + 1));
-            rutaArchivo = "DatosCargaPartida" + i + ".json";
+            rutaArchivo = "DatosCargaPartida" + i + ".json";   // hacerlo en el otro método
+
+            int finalI = i;
             menuItem.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent actionEvent) {
-
-                    onCargaPartida(rutaArchivo);
+                    menuItem.setId("DatosCargaPartida" + finalI + ".json");
+                    onCargaPartida(finalI);
                 }
             });
             menuButton.setText("Partidas guardadas");
