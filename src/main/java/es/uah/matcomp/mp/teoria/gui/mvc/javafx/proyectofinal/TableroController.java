@@ -644,7 +644,7 @@ public class TableroController implements Initializable {
     private int getNum_individuos() {
 
         log.info("Devuelve el número de individuos que hay en total en el tablero de juego");
-
+        modelTablero.original.num_individuos = 0;
         for (int i = 0; i < model.original.filas; i++) {
             for (int j = 0; j < model.original.columnas; j++) {
                 if (modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos() == 1) {
