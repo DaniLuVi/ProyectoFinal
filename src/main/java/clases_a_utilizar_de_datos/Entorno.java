@@ -2,6 +2,8 @@ package clases_a_utilizar_de_datos;
 
 import com.google.gson.*;
 import estructuras_de_datos_implementadas.listaDoblementeEnlazada.ElementoLDE;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.lang.reflect.Type;
 
@@ -10,6 +12,7 @@ public class Entorno extends ElementoLDE<Entorno> implements JsonSerializer<Ento
 
     private int probabilidad;
     private String tipo;
+    private static final Logger log = LogManager.getLogger(Entorno.class);
 
     public Entorno(int tiempo_aparicion, int probabilidad, String tipo) {
         this.tiempo_aparicion = tiempo_aparicion;
@@ -100,11 +103,43 @@ public class Entorno extends ElementoLDE<Entorno> implements JsonSerializer<Ento
 
     @Override
     public Entorno deserialize(JsonElement jsonElement, Type type, JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {
-        return null;
+
+        log.info("Se deserializa de JSON a un entorno");
+
+        JsonObject entornoADeserializar = jsonElement.getAsJsonObject();
+        if (entornoADeserializar.get("tipo").getAsString().contains("Agua")) {
+            return jsonDeserializationContext.deserialize(entornoADeserializar.get("data"), Agua.class);
+        } else if (entornoADeserializar.get("tipo").getAsString().contains("Comida")) {
+            return jsonDeserializationContext.deserialize(entornoADeserializar.get("data"), Comida.class);
+        } else if (entornoADeserializar.get("tipo").getAsString().contains("Montaña")) {
+            return jsonDeserializationContext.deserialize(entornoADeserializar.get("data"), Montaña.class);
+        } else if (entornoADeserializar.get("tipo").getAsString().contains("Biblioteca")) {
+            return jsonDeserializationContext.deserialize(entornoADeserializar.get("data"), Biblioteca.class);
+        } else if (entornoADeserializar.get("tipo").getAsString().contains("Pozo")) {
+            return jsonDeserializationContext.deserialize(entornoADeserializar.get("data"), Pozo.class);
+        } else if (entornoADeserializar.get("tipo").getAsString().contains("Tesoro")) {
+            return jsonDeserializationContext.deserialize(entornoADeserializar.get("data"), Tesoro.class);
+        } else {
+
+            log.info("Se ha dado un error al encontrar el tipo de entorno");
+            log.error("Se ha producido un error");
+            log.fatal("Se ha producido un error fatal");
+
+            throw new JsonParseException("No se ha encontrado el tipo de entorno");
+        }
     }
 
     @Override
     public JsonElement serialize(Entorno entorno, Type type, JsonSerializationContext jsonSerializationContext) {
-        return null;
+
+        log.info("Se serializa un entorno a JSON");
+
+        JsonObject entornoAserializar = new JsonObject();
+        entornoAserializar.addProperty("tipo", entorno.getClass().descriptorString());
+        entornoAserializar.add("data", jsonSerializationContext.serialize(entorno));
+
+        log.info("Entorno serializado");
+
+        return entornoAserializar;
     }
 }

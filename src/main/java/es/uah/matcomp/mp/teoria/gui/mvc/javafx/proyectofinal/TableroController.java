@@ -462,7 +462,11 @@ public class TableroController implements Initializable {
 
         for (int i = 0; i < model.original.filas; i++) {
             for (int j = 0; j < model.original.columnas; j++) {
-                if (modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos() > 2) {
+                if (modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos() > 3) {
+                    int valor = modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos();
+                    for (int contador = 0; contador < valor; contador++) {
+
+                    }
                     if ((modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato().getVidas() < modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(1).getDato().getVidas()) && (modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato().getVidas() < modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(2).getDato().getVidas())) {
                         modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().del(0);
                     } else if ((modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(1).getDato().getVidas() < modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato().getVidas()) && (modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(1).getDato().getVidas() < modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(2).getDato().getVidas())) {
