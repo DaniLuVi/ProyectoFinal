@@ -33,7 +33,7 @@ public class ParametrosModeloProperties {
         original.setVidas(vidas.get());
         original.setReproduccion(reproduccion.get());
         original.setClonado(clonado.get());
-        original.setTurno_individuo(turno_individuo.get());
+        original.setTurno_individuo(original.turno_individuo);
         original.setV(V.get());
         original.setAgua(agua.get());
         original.setComida(comida.get());

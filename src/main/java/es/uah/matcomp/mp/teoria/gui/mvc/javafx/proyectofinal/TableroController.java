@@ -94,8 +94,10 @@ public class TableroController implements Initializable {
             habra_nuevos_recursos();
             modelTablero.original.num_turnos++;
             turnos.setText("Turnos: " + modelTablero.original.num_turnos);
+            modelTablero.original.parametrosModeloProperties.original.turno_individuo++;
+            modelTablero.original.parametrosModeloProperties.commit();
             modelTablero.commit();
-            model.original.turno_individuo++;
+
 
             log.info("El bucle de control se ha completado con éxito");
 
@@ -231,7 +233,7 @@ public class TableroController implements Initializable {
                     int num_indi_en_casilla = modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos();
                     for (int k = 0; k < num_indi_en_casilla; k++) {
                         Individuo individuo_cambiar = modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato();
-                        if ((modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoBasico == true) && (individuo_cambiar.getTurno_individuo() == model.original.turno_individuo)) {
+                        if ((modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoBasico == true) && (individuo_cambiar.getTurno_individuo() == modelTablero.original.parametrosModeloProperties.original.turno_individuo)) {
                             Random randomBasico = new Random();
                             int opcion = randomBasico.nextInt(1, 4);
                             if (opcion == 1) {
@@ -247,7 +249,7 @@ public class TableroController implements Initializable {
                             int turno = model.original.turno_individuo + 1;
                             individuo_cambiar.setTurno_individuo(turno++);
                             individuo_cambiar.setGeneracion(modelTablero.original.num_turnos + 1);
-                        } else if ((modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoNormal == true) && (individuo_cambiar.getTurno_individuo() == model.original.turno_individuo) || ((modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoAvanzado == true) && (individuo_cambiar.getTurno_individuo() == model.original.turno_individuo))) {
+                        } else if ((modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoNormal == true) && (individuo_cambiar.getTurno_individuo() == modelTablero.original.parametrosModeloProperties.original.turno_individuo) || ((modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoAvanzado == true) && (individuo_cambiar.getTurno_individuo() == modelTablero.original.parametrosModeloProperties.original.turno_individuo))) {
                             int numero_celdas_con_entornos = getCeldasConRecursos().getNumeroElementos();
                             Random randomNormal = new Random();
                             int opcion = randomNormal.nextInt(0, numero_celdas_con_entornos);
