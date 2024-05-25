@@ -29,6 +29,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import static java.lang.Math.abs;
+import static java.lang.Math.sqrt;
 
 public class TableroController implements Initializable {
     private Grafo<Celda> grafoTablero = new Grafo<>();
@@ -269,6 +270,25 @@ public class TableroController implements Initializable {
                             individuo_cambiar.setGeneracion(modelTablero.original.num_turnos + 1);
                         } else if ((modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoAvanzado == true) && (individuo_cambiar.getTurno_individuo() == model.original.turno_individuo)) {
 
+                            int numero_celdas_con_entornos = getCeldasConRecursos().getNumeroElementos();
+                            Random randomNormal = new Random();
+                            int opcion = randomNormal.nextInt(0, numero_celdas_con_entornos);
+                            ListaSimple<Integer> coordenadas = modelTablero.original.listaCeldasEntornos.getElemento(opcion).getDato().getCoordenadas();
+                            if (abs(i - coordenadas.getElemento(0).getData()) < abs(j - coordenadas.getElemento(1).getData())) {
+                                if (coordenadas.getElemento(1).getData() >= j) {
+                                    modelTablero.original.listaX.getElemento(i).getData().getElemento(j + 1).getData().getListaIndividuos().add(individuo_cambiar);
+                                } else if (coordenadas.getElemento(1).getData() < j) {
+                                    modelTablero.original.listaX.getElemento(i).getData().getElemento(j - 1).getData().getListaIndividuos().add(individuo_cambiar);
+                                }
+                            } else if (abs(i - coordenadas.getElemento(0).getData()) >= abs(j - coordenadas.getElemento(1).getData())) {
+                                if (coordenadas.getElemento(0).getData() >= i) {
+                                    modelTablero.original.listaX.getElemento(i + 1).getData().getElemento(j).getData().getListaIndividuos().add(individuo_cambiar);
+                                } else if (coordenadas.getElemento(0).getData() < i) {
+                                    modelTablero.original.listaX.getElemento(i - 1).getData().getElemento(j).getData().getListaIndividuos().add(individuo_cambiar);
+                                }
+                            }
+                            // implementado el de tipo avanzado como tipo normal, porque no he sabido como implementar el grafo
+
                             //este tipo de movimiento lo tengo que implementar a partir de un grafo
                             modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).setDato(null);
                             int turno = model.original.turno_individuo + 1;
@@ -464,15 +484,18 @@ public class TableroController implements Initializable {
             for (int j = 0; j < model.original.columnas; j++) {
                 if (modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos() > 3) {
                     int valor = modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos();
-                    for (int contador = 0; contador < valor; contador++) {
-
-                    }
-                    if ((modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato().getVidas() < modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(1).getDato().getVidas()) && (modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato().getVidas() < modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(2).getDato().getVidas())) {
-                        modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().del(0);
-                    } else if ((modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(1).getDato().getVidas() < modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato().getVidas()) && (modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(1).getDato().getVidas() < modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(2).getDato().getVidas())) {
-                        modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().del(1);
-                    } else if ((modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(2).getDato().getVidas() < modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato().getVidas()) && (modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(2).getDato().getVidas() < modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(1).getDato().getVidas())) {
-                        modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().del(2);
+                    int pos = 0;
+                    Individuo individuo_menor_vidas = modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(0).getDato();
+                    while (valor > 3) {
+                        for (int contador = 1; contador <= valor - 1; contador++) {
+                            int vidas_a_ver = modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(contador).getDato().getVidas();
+                            if (vidas_a_ver < individuo_menor_vidas.getVidas()) {
+                                individuo_menor_vidas = modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(contador).getDato();
+                                pos = contador;
+                            }
+                        }
+                        modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().del(pos);
+                        valor = modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getNumeroElementos();
                     }
                 }
             }
@@ -672,6 +695,8 @@ public class TableroController implements Initializable {
         }
         String rutaArchivo = "DatosCargaPartida" + contador + ".json";
 
+        guardarDatosPartidaIndividuos(rutaArchivo, modelTablero.original.listaCeldasIndividuos);
+        guardarDatosPartidaEntornos(rutaArchivo, modelTablero.original.listaCeldasEntornos);
         guardarDatosPartida(rutaArchivo, tablero);
 
         log.info("Los datos se han guardado al fichero");
@@ -701,6 +726,22 @@ public class TableroController implements Initializable {
             log.error("Enviando un error");
             log.fatal("Enviando una explosión fatal");
 
+            e.printStackTrace();
+        }
+    }
+    public static <T> void guardarDatosPartidaIndividuos(String rutaArchivo, T objeto) {
+        Gson gson = new GsonBuilder().registerTypeAdapter(Individuo.class, new Individuo()).create();
+        try (FileWriter writer = new FileWriter(rutaArchivo)){
+            gson.toJson(objeto, writer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public static <T> void guardarDatosPartidaEntornos(String rutaArchivo, T objeto) {
+        Gson gson = new GsonBuilder().registerTypeAdapter(Entorno.class, new Entorno()).create();
+        try (FileWriter writer = new FileWriter(rutaArchivo)){
+            gson.toJson(objeto, writer);
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
