@@ -235,16 +235,119 @@ public class TableroController implements Initializable {
                         Individuo individuo_cambiar = modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato();
                         if ((modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).getDato() instanceof TipoBasico == true) && (individuo_cambiar.getTurno_individuo() == modelTablero.original.parametrosModeloProperties.original.turno_individuo)) {
                             Random randomBasico = new Random();
-                            int opcion = randomBasico.nextInt(1, 4);
-                            if (opcion == 1) {
-                                modelTablero.original.listaX.getElemento(i-1).getData().getElemento(j).getData().getListaIndividuos().add(individuo_cambiar);
-                            } else if (opcion == 2) {
-                                modelTablero.original.listaX.getElemento(i+1).getData().getElemento(j).getData().getListaIndividuos().add(individuo_cambiar);
-                            } else if (opcion == 3) {
-                                modelTablero.original.listaX.getElemento(i).getData().getElemento(j-1).getData().getListaIndividuos().add(individuo_cambiar);
-                            } else if (opcion == 4) {
-                                modelTablero.original.listaX.getElemento(i).getData().getElemento(j+1).getData().getListaIndividuos().add(individuo_cambiar);
+                            if (i == 0) {
+                                if (j == 0) {
+                                    int opcion = randomBasico.nextInt(1, 2);
+                                    if (opcion == 1) {
+                                        modelTablero.original.listaX.getElemento(i+1).getData().getElemento(j).getData().getListaIndividuos().add(individuo_cambiar);
+                                    } else if (opcion == 2) {
+                                        modelTablero.original.listaX.getElemento(i).getData().getElemento(j+1).getData().getListaIndividuos().add(individuo_cambiar);
+                                    }
+                                } else if (j == modelTablero.original.columnas - 1) {
+                                    int opcion = randomBasico.nextInt(1, 2);
+                                    if (opcion == 1) {
+                                        modelTablero.original.listaX.getElemento(i+1).getData().getElemento(j).getData().getListaIndividuos().add(individuo_cambiar);
+                                    } else if (opcion == 2) {
+                                        modelTablero.original.listaX.getElemento(i).getData().getElemento(j-1).getData().getListaIndividuos().add(individuo_cambiar);
+                                    }
+                                } else {
+                                    int opcion = randomBasico.nextInt(1, 3);
+                                    if (opcion == 1) {
+                                        modelTablero.original.listaX.getElemento(i+1).getData().getElemento(j).getData().getListaIndividuos().add(individuo_cambiar);
+                                    } else if (opcion == 2) {
+                                        modelTablero.original.listaX.getElemento(i).getData().getElemento(j+1).getData().getListaIndividuos().add(individuo_cambiar);
+                                    } else if (opcion == 3) {
+                                        modelTablero.original.listaX.getElemento(i).getData().getElemento(j-1).getData().getListaIndividuos().add(individuo_cambiar);
+                                    }
+                                }
+                            } else if (j == 0) {
+                                if (i == 0) {
+                                    int opcion = randomBasico.nextInt(1, 2);
+                                    if (opcion == 1) {
+                                        modelTablero.original.listaX.getElemento(i+1).getData().getElemento(j).getData().getListaIndividuos().add(individuo_cambiar);
+                                    } else if (opcion == 2) {
+                                        modelTablero.original.listaX.getElemento(i).getData().getElemento(j+1).getData().getListaIndividuos().add(individuo_cambiar);
+                                    }
+                                } else if (i == modelTablero.original.filas - 1) {
+                                    int opcion = randomBasico.nextInt(1, 2);
+                                    if (opcion == 1) {
+                                        modelTablero.original.listaX.getElemento(i-1).getData().getElemento(j).getData().getListaIndividuos().add(individuo_cambiar);
+                                    } else if (opcion == 2) {
+                                        modelTablero.original.listaX.getElemento(i).getData().getElemento(j+1).getData().getListaIndividuos().add(individuo_cambiar);
+                                    }
+                                } else {
+                                    int opcion = randomBasico.nextInt(1, 3);
+                                    if (opcion == 1) {
+                                        modelTablero.original.listaX.getElemento(i-1).getData().getElemento(j).getData().getListaIndividuos().add(individuo_cambiar);
+                                    } else if (opcion == 2) {
+                                        modelTablero.original.listaX.getElemento(i+1).getData().getElemento(j).getData().getListaIndividuos().add(individuo_cambiar);
+                                    } else if (opcion == 3) {
+                                        modelTablero.original.listaX.getElemento(i).getData().getElemento(j+1).getData().getListaIndividuos().add(individuo_cambiar);
+                                    }
+                                }
+                            } else if (i == modelTablero.original.filas - 1) {
+                                if (j == 0) {
+                                    int opcion = randomBasico.nextInt(1, 2);
+                                    if (opcion == 1) {
+                                        modelTablero.original.listaX.getElemento(i-1).getData().getElemento(j).getData().getListaIndividuos().add(individuo_cambiar);
+                                    } else if (opcion == 2) {
+                                        modelTablero.original.listaX.getElemento(i).getData().getElemento(j+1).getData().getListaIndividuos().add(individuo_cambiar);
+                                    }
+                                } else if (j == modelTablero.original.columnas - 1) {
+                                    int opcion = randomBasico.nextInt(1, 2);
+                                    if (opcion == 1) {
+                                        modelTablero.original.listaX.getElemento(i-1).getData().getElemento(j).getData().getListaIndividuos().add(individuo_cambiar);
+                                    } else if (opcion == 2) {
+                                        modelTablero.original.listaX.getElemento(i).getData().getElemento(j-1).getData().getListaIndividuos().add(individuo_cambiar);
+                                    }
+                                } else {
+                                    int opcion = randomBasico.nextInt(1, 3);
+                                    if (opcion == 1) {
+                                        modelTablero.original.listaX.getElemento(i-1).getData().getElemento(j).getData().getListaIndividuos().add(individuo_cambiar);
+                                    } else if (opcion == 2) {
+                                        modelTablero.original.listaX.getElemento(i).getData().getElemento(j-1).getData().getListaIndividuos().add(individuo_cambiar);
+                                    } else if (opcion == 3) {
+                                        modelTablero.original.listaX.getElemento(i).getData().getElemento(j+1).getData().getListaIndividuos().add(individuo_cambiar);
+                                    }
+                                }
+                            } else if (j == modelTablero.original.columnas - 1) {
+                                if (i == 0) {
+                                    int opcion = randomBasico.nextInt(1, 2);
+                                    if (opcion == 1) {
+                                        modelTablero.original.listaX.getElemento(i+1).getData().getElemento(j).getData().getListaIndividuos().add(individuo_cambiar);
+                                    } else if (opcion == 2) {
+                                        modelTablero.original.listaX.getElemento(i).getData().getElemento(j-1).getData().getListaIndividuos().add(individuo_cambiar);
+                                    }
+                                } else if (i == modelTablero.original.filas - 1) {
+                                    int opcion = randomBasico.nextInt(1, 2);
+                                    if (opcion == 1) {
+                                        modelTablero.original.listaX.getElemento(i-1).getData().getElemento(j).getData().getListaIndividuos().add(individuo_cambiar);
+                                    } else if (opcion == 2) {
+                                        modelTablero.original.listaX.getElemento(i).getData().getElemento(j-1).getData().getListaIndividuos().add(individuo_cambiar);
+                                    }
+                                } else {
+                                    int opcion = randomBasico.nextInt(1, 3);
+                                    if (opcion == 1) {
+                                        modelTablero.original.listaX.getElemento(i-1).getData().getElemento(j).getData().getListaIndividuos().add(individuo_cambiar);
+                                    } else if (opcion == 2) {
+                                        modelTablero.original.listaX.getElemento(i+1).getData().getElemento(j).getData().getListaIndividuos().add(individuo_cambiar);
+                                    } else if (opcion == 3) {
+                                        modelTablero.original.listaX.getElemento(i).getData().getElemento(j-1).getData().getListaIndividuos().add(individuo_cambiar);
+                                    }
+                                }
+                            } else {
+                                int opcion = randomBasico.nextInt(1, 4);
+                                if (opcion == 1) {
+                                    modelTablero.original.listaX.getElemento(i-1).getData().getElemento(j).getData().getListaIndividuos().add(individuo_cambiar);
+                                } else if (opcion == 2) {
+                                    modelTablero.original.listaX.getElemento(i+1).getData().getElemento(j).getData().getListaIndividuos().add(individuo_cambiar);
+                                } else if (opcion == 3) {
+                                    modelTablero.original.listaX.getElemento(i).getData().getElemento(j-1).getData().getListaIndividuos().add(individuo_cambiar);
+                                } else if (opcion == 4) {
+                                    modelTablero.original.listaX.getElemento(i).getData().getElemento(j+1).getData().getListaIndividuos().add(individuo_cambiar);
+                                }
                             }
+                            
                             modelTablero.original.listaX.getElemento(i).getData().getElemento(j).getData().getListaIndividuos().getElemento(k).setDato(null);
                             int turno = model.original.turno_individuo + 1;
                             individuo_cambiar.setTurno_individuo(turno++);
